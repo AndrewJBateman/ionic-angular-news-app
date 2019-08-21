@@ -47,7 +47,8 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## Features
 
-* TBD: side-bar with image at top and menu (same as tabs): news, categories, favorites, about. Additional: settings with css color schemes (light/dark modes..)
+* TBD: side-bar with image at top and menu (same as tabs): news, categories, favorites, about. 
+* TBD: Additional: settings with css color schemes (light/dark modes..)
 * TBD: news page shows world headlines using ion-cards. Card layout: image, source - title below. Add share/favorite modal menu? Add menu at top to choose source? Show time as e.g. '2 minutes ago? etc.
 * TBD: news-detail page shows the selected news item in more detail with links to favourites
 * TBD: share buttons?
@@ -61,7 +62,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## Inspiration
 
-Project structure based on: [Ionic example app: 'A conference app built with Ionic to demonstrate Ionic'](https://github.com/ionic-team/ionic-conference-app).
+Some of project structure based on: [Ionic example app: 'A conference app built with Ionic to demonstrate Ionic'](https://github.com/ionic-team/ionic-conference-app).
 
 ## Contact
 
