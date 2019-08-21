@@ -1,12 +1,15 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>news</ion-title>
+    <ion-title text-center>news</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card *ngFor="let article of data?.articles" (click)="onGoToNewsDetail(article)">
+    <ion-img [src]="article.urlToImage"></ion-img>
+    <ion-card-title text-wrap style="font-size: 1rem; color: #456f54;">{{article.title}}</ion-card-title>
+  </ion-card>
 </ion-content>

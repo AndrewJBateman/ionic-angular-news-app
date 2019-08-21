@@ -16,17 +16,17 @@ export class AppComponent implements OnInit {
     {
       title: 'News',
       url: '/app/tabs/news',
-      icon: 'calendar'
+      icon: 'list-box'
     },
     {
       title: 'Categories',
       url: '/app/tabs/categories',
-      icon: 'contacts'
+      icon: 'options'
     },
     {
       title: 'Favourites',
       url: '/app/tabs/favourites',
-      icon: 'map'
+      icon: 'heart'
     },
     {
       title: 'About',
@@ -34,8 +34,6 @@ export class AppComponent implements OnInit {
       icon: 'information-circle'
     }
   ];
-  loggedIn = false;
-
 
   constructor(
     private platform: Platform,

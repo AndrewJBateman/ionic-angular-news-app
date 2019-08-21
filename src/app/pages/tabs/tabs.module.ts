@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { TabsPage } from './tabs.page';
-import { TabsPageRoutingModule } from '../tabs/tabs-routing.module';
+import { TabsPageRoutingModule } from './tabs.router.module';
 import { CategoriesPageModule } from '../categories/categories.module';
 import { FavouritesPageModule } from '../favourites/favourites.module';
 import { NewsPageModule } from '../news/news.module';

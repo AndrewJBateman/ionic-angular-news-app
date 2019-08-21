@@ -47,13 +47,17 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## Features
 
-* TBD
+* TBD: side-bar with image at top and menu (same as tabs): news, categories, favorites, about. Additional: settings with css color schemes (light/dark modes..)
+* TBD: news page shows world headlines using ion-cards. Card layout: image, source - title below. Add share/favorite modal menu? Add menu at top to choose source? Show time as e.g. '2 minutes ago? etc.
+* TBD: news-detail page shows the selected news item in more detail with links to favourites
+* TBD: share buttons?
+* Categories: ion-cards with simple images and subjects: Sport, Busines, Health, Technology, Science, Entertainment. 2 per row? or a top menu with list below. Add search menu?
 
 ## Status & To-do list
 
-* Status: Basic working menu system with tabs at bottom of screen and collapsing side menu working.
+* Status: Working news api and side/tabs menu system.
 
-* To-do: Add api access and show news items. Add news detail page, categories page, favourites. Complete About page. Create my own scss theme. Consider dark mode.
+* To-do: Add code for news detail page, categories page, consider how to choose country - user location? or menu? favourites. Complete About page. Create my own scss theme. Consider dark mode.
 
 ## Inspiration
 
