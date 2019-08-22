@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
-  appPages = [
+	
+	public appPages = [
     {
       title: 'News',
       url: '/app/tabs/news',

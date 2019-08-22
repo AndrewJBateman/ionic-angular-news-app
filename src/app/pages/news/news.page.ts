@@ -23,6 +23,6 @@ export class NewsPage implements OnInit {
   onGoToNewsDetail(article) {
     this.newsService.currentArticle = article;
     console.log('item clicked');
-    this.router.navigate(['/newsdetail']);
+    this.router.navigate(['/news-detail']);
   }
 }

@@ -14,10 +14,15 @@ const routes: Routes = [
 						path: '',
 						loadChildren: '../news/news.module#NewsPageModule'
 					},
-					{
-						path: 'news/.newsId',
-						loadChildren: '../news-detail/news-detail.module#NewsDetailPageModule'
-					}
+					// {
+					// 	path: 'news-detail',
+					// 	children: [
+					// 		{
+					// 			path: '',
+					// 			loadChildren: '../news-detail/news-detail.module#NewsDetailPageModule'
+					// 		}
+					// 	]
+					// },
 				]
 			},
 			{
@@ -53,6 +58,11 @@ const routes: Routes = [
 				pathMatch: 'full'
 			}
 		]
+	},
+	{
+		path: '',
+		redirectTo: '/app/tabs/news',
+		pathMatch: 'full'
 	}
 ];
 
