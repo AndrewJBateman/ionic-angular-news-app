@@ -4,9 +4,22 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>categories</ion-title>
-  </ion-toolbar>
+	</ion-toolbar>
+	
+	<!--create list of segments to choose from. Default is 'general'-->
+	<ion-segment scrollable mode="md" color="primary" (ionChange)="changeCategory($event)">
+
+		<ion-segment-button mode="md" value="option" [value]="category" *ngFor="let category of categories">
+				<ion-label text-capitalize>{{category}}</ion-label>
+		</ion-segment-button>
+	</ion-segment>
+
 </ion-header>
 
+<!--list articles returned from API get request-->
 <ion-content>
-
+  <ion-card *ngFor="let article of data?.articles" (click)="onGoToNewsDetail(article)">
+    <ion-img [src]="article.urlToImage" alt="{{article.title}}"></ion-img>
+    <ion-card-title text-wrap style="font-size: 1rem; color: #456f54;">{{article.title}}</ion-card-title>
+  </ion-card>
 </ion-content>

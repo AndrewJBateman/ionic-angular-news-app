@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { NewsApiResponse } from '../interfaces/interfaces';
 import {environment} from '../../environments/environment';
 
 const apiUrl = environment.API_URL;
@@ -15,7 +16,13 @@ export class NewsApiService {
 
   constructor(private http: HttpClient) {}
 
-  getData(url) {
-    return this.http.get(`${apiUrl}/${url}&apiKey=${apiKey}`);
-  }
+  getNews(url) {
+		return this.http.get<NewsApiResponse>(`${apiUrl}/${url}&apiKey=${apiKey}`);
+	// }
+	
+	// getNewsByCategory(category: string) {
+
+	// }
+
+	}
 }

@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+
+// import { NewsApiResponse } from '../../interfaces/interfaces';
 import {NewsApiService} from 'src/app/providers/newsapi.service';
 
 @Component({
@@ -14,7 +16,7 @@ export class NewsPage implements OnInit {
   data: any;
 
   ngOnInit() {
-    this.newsService.getData('top-headlines?country=gb').subscribe(data => {
+    this.newsService.getNews('top-headlines?country=gb').subscribe(data => {
       console.log(data);
       this.data = data;
     });
@@ -23,6 +25,6 @@ export class NewsPage implements OnInit {
   onGoToNewsDetail(article) {
     this.newsService.currentArticle = article;
     console.log('item clicked');
-    this.router.navigate(['/news-detail']);
+    this.router.navigate(['app/tabs/news-detail']);
   }
 }

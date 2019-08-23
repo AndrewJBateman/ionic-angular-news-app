@@ -2,7 +2,7 @@
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
 			<ion-menu-button></ion-menu-button>
-			<ion-back-button text="" defaultHref="/news"></ion-back-button>
+			<ion-back-button text="" defaultHref="app/tabs/news"></ion-back-button>
     </ion-buttons>
     <ion-title>{{article.title}}</ion-title>
   </ion-toolbar>
@@ -36,42 +36,64 @@
 		</ion-card-content>
 		<ion-footer>
 	
-			<ion-grid>
-				<ion-row>
+			<!-- <ion-grid>
+				<ion-row no-padding>
 					<ion-col col-4>
 						<ion-button
-						ion-button fill="outline"
-						color="medium"
-						size="small"
-						>
-						<ion-ripple-effect></ion-ripple-effect>
+							color="primary"
+							size="small">
+							<ion-ripple-effect></ion-ripple-effect>
 							Share
 						</ion-button>
 					</ion-col>
 							
 					<ion-col col-4>
 						<ion-button
-							ion-button fill="outline"
-							color="medium"
+							color="primary"
 							size="small"
-						>
-						<ion-ripple-effect></ion-ripple-effect>
+							href="{{article.url}}"
+							target="_blank">
+							<ion-ripple-effect></ion-ripple-effect>
 							Read More
 						</ion-button>
 					</ion-col>
 						
 					<ion-col col-4>
 						<ion-button 						
-							ion-button fill="outline"
-							color="medium"
-							size="small"
-						>
-						<ion-ripple-effect></ion-ripple-effect>
+							color="primary"
+							size="small">
+							<ion-ripple-effect></ion-ripple-effect>
 							Favourite
 						</ion-button>
 					</ion-col>
 				</ion-row>
-			</ion-grid>
+			</ion-grid> -->
+			<ion-toolbar>
+				<ion-buttons>
+					<ion-button
+						color="primary"
+						size="small">
+						<ion-ripple-effect></ion-ripple-effect>
+						Share
+					</ion-button>
+
+					<ion-button
+						color="primary"
+						size="small"
+						href="{{article.url}}"
+						target="_blank">
+						<ion-ripple-effect></ion-ripple-effect>
+						Read More
+					</ion-button>
+
+					<ion-button 						
+						color="primary"
+						size="small">
+						<ion-ripple-effect></ion-ripple-effect>
+						Favourite
+					</ion-button>
+				</ion-buttons>
+			</ion-toolbar>
 		</ion-footer>
 	</ion-card>
 </ion-content>

@@ -13,16 +13,16 @@ const routes: Routes = [
 					{
 						path: '',
 						loadChildren: '../news/news.module#NewsPageModule'
-					},
-					// {
-					// 	path: 'news-detail',
-					// 	children: [
-					// 		{
-					// 			path: '',
-					// 			loadChildren: '../news-detail/news-detail.module#NewsDetailPageModule'
-					// 		}
-					// 	]
-					// },
+					}
+				]
+			},
+			{
+				path: 'news-detail',
+				children: [
+					{
+						path: '',
+						loadChildren: '../news-detail/news-detail.module#NewsDetailPageModule'
+					}
 				]
 			},
 			{

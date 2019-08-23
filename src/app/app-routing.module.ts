@@ -11,14 +11,6 @@ const routes: Routes = [
 		path: 'app',
 		loadChildren: './pages/tabs/tabs.module#TabsPageModule'
 	},
-	{
-		path: 'news',
-		loadChildren: './pages/news/news.module#NewsPageModule'
-	},
-	{
-		path: 'news-detail',
-		loadChildren: './pages/news-detail/news-detail.module#NewsDetailPageModule'
-	}
 ];
 
 @NgModule({
