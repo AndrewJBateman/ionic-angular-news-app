@@ -25,7 +25,10 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## Screenshots
 
-![Ionic page](./img/.png)
+![Ionic page](./img/news-page.png)
+![Ionic page](./img/categories-page.png)
+![Ionic page](./img/favourites-page.png)
+![Ionic page](./img/about-page.png)
 
 ## Technologies
 

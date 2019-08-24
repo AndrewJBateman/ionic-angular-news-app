@@ -11,5 +11,11 @@
   <ion-card *ngFor="let article of data?.articles" (click)="onGoToNewsDetail(article)">
     <ion-img [src]="article.urlToImage" alt="{{article.title}}"></ion-img>
     <ion-card-title text-wrap style="font-size: 1rem; color: #456f54;">{{article.title}}</ion-card-title>
-  </ion-card>
+	</ion-card>
+	
+	<ion-infinite-scroll threshold="150px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Loading...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>

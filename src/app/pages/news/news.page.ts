@@ -26,5 +26,16 @@ export class NewsPage implements OnInit {
     this.newsService.currentArticle = article;
     console.log('item clicked');
     this.router.navigate(['app/tabs/news-detail']);
-  }
+	}
+	
+	loadData(event?: any) {
+		this.newsService.getNews('top-headlines?country=gb').subscribe(data => {
+      console.log('run loadData function: ' ,data);
+      this.data = data;
+		});
+		
+		if (event) {
+			event.target.complete();
+		}
+	}
 }
