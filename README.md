@@ -23,6 +23,8 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 4. Source domain name
 5. Language
 
+* Typescript interface used to define the expected structure of the json object returned from the news API.
+
 ## Screenshots
 
 ![Ionic page](./img/news-page.png)
@@ -60,9 +62,9 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## Status & To-do list
 
-* Status: Working news api and side/tabs menu system. News and categories pages work. 
+* Status: Working news api and side/tabs menu system. News and categories pages work. News can be selected using a news source menu.
 
-* To-do: Consider moving segments to News page. Add search facility? Consider how to choose country - user location? or menu? favourites. Complete About page. Create my own scss theme. Consider dark mode.
+* To-do: Consider moving segments to News page. News search facility? language menu? Consider how to choose country - user location? or menu? favourites. Complete About page. Create my own scss theme. Consider dark mode.
 
 ## Inspiration
 

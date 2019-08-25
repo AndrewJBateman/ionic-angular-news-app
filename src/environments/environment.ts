@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   API_URL: 'https://newsapi.org/v2',
-	API_KEY: '72abefc7c9da43159f59555269a96a0e'
+	API_KEY: ''
 };
 
 /*

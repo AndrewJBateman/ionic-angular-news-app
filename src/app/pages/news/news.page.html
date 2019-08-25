@@ -3,17 +3,23 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title text-center>All News</ion-title>
+    <ion-title text-center>News</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+		<ion-item padding-right class="source" color="primary">
+        <ion-label>News source:</ion-label>
+        <ion-select name="selected" [(ngModel)]="selectedSource" (ionChange)="loadSourceData()">
+        	<ion-select-option *ngFor="let item of sources" value="{{item.id}}">{{item.name}}</ion-select-option>
+        </ion-select>
+    </ion-item>
   <ion-card *ngFor="let article of data?.articles" (click)="onGoToNewsDetail(article)">
     <ion-img [src]="article.urlToImage" alt="{{article.title}}"></ion-img>
     <ion-card-title text-wrap style="font-size: 1rem; color: #456f54;">{{article.title}}</ion-card-title>
 	</ion-card>
 	
-	<ion-infinite-scroll threshold="150px" (ionInfinite)="loadData($event)">
+	<ion-infinite-scroll threshold="150px" (ionInfinite)="loadSourceData($event)">
     <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Loading...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
