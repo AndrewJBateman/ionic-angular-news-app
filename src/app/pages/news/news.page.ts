@@ -21,36 +21,37 @@ export class NewsPage implements OnInit {
 		public alertCtrl: AlertController
 
 		) {
-		this.loadSource();
 	}
 	data: any;
 	status = '';
 	sources = [];
 	selectedSource = 'bbc-news';
+	isLoading = false;
 
-	// ionViewDidLoad has been replaced with Angular Lifecycle ngOnInit
+	// ngOnInit lifecycle loads list of sources once.
+	// It is not reloaded when reentering page but doesn't mattter as this data will not change.
 	// load news articles with the default selectedSource.
   ngOnInit() {
-		this.loadSourceData();
-		console.log('run ngOnInit with default source: ', this.selectedSource);
-	}
-
-	// return a list of news sources
-	loadSource() {
-		console.log('run loadSource function');
+		console.log('run ngOnInit function');
 		this.newsService.getSources('/sources?').subscribe(
 			data => {
 				this.status = data.status;
 				this.sources = data.sources;
-				console.log('loadSource function ran with status "', this.status, '" and retrieved an array of', +this.sources.length, 'sources.');
+				console.log('ngOnInit getSources function ran with status "', this.status, '" and retrieved an array of', +this.sources.length, 'sources.');
 			}, err => {
 				console.log('an error occured: ', err);
 			}
 		);
-		}
-
+	}
+	// ionViewWillEnter lifecycle event used so news reloads if coming back to the news page
+	ionViewWillEnter() {
+		// this.isLoading = true;
+		this.loadSourceData();
+		console.log('ionViewWillEnter lifecycle ran with default source: ', this.selectedSource);
+	}
+	
 	// clicked article will make router navigate to news-detail page
-  onGoToNewsDetail(article) {
+  onGoToNewsDetail(article: any) {
     this.newsService.currentArticle = article;
     console.log('item clicked');
     this.router.navigate(['app/tabs/news-detail']);
@@ -63,17 +64,20 @@ export class NewsPage implements OnInit {
   	this.loadSourceData();
 	}
 
-	// fetch news from selected source using http get request
-	loadSourceData() {
-
+	// fetch news from default/selected source using http get request
+	loadSourceData(event?: any) {
 		this.newsService.getSources('top-headlines?sources=' + this.selectedSource).subscribe(data => {
-      console.log('loadSourceData function ran to get list of news articles from', this.selectedSource);
-      this.data = data;
+			console.log('loadSourceData function ran to get list of news articles from', this.selectedSource);
+			
+			if (this.sources.length === 0) {
+        // event.target.disabled = true;
+        event.target.complete();
+        return;
+      }
+			this.data = data;
+			console.log(this.data);
+			console.log(+this.data.totalResults);
 		});
-
-		// if (event) {
-		// 	event.target.complete();
-		// }
 	}
 
 }

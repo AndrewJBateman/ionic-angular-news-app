@@ -25,6 +25,8 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 * Typescript interface used to define the expected structure of the json object returned from the news API.
 
+* Separate services page with API http fetch functions.
+
 ## Screenshots
 
 ![Ionic page](./img/news-page.png)
@@ -54,17 +56,16 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 * TBD: side-bar with image at top and menu (same as tabs): news, categories, favorites, about.
 * TBD: Additional: settings with css color schemes (light/dark modes..)
-* TBD: news page shows world headlines using ion-cards. Card layout: image, source - title below. Add share/favorite modal menu? Add menu at top to choose source? Show time as e.g. '2 minutes ago? etc.
-* TBD: news-detail page shows the selected news item in more detail with links to favourites
-* TBD: share buttons?
-* Categories: ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment.
-* TBD Search menu
+* News page shows world headlines using an ion-card list. Add share/favorite modal menu? Show time as e.g. '2 minutes ago? etc.
+* News-detail page shows the selected news item in more detail with links to favourites share buttons?
+* Categories page: ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment.
+* TBD Search menu??
 
 ## Status & To-do list
 
 * Status: Working news api and side/tabs menu system. News and categories pages work. News can be selected using a news source menu.
 
-* To-do: Consider moving segments to News page. News search facility? language menu? Consider how to choose country - user location? or menu? favourites. Complete About page. Create my own scss theme. Consider dark mode.
+* To-do: Complete News page - work out how to highlight list item then remove eye page link. About page. News search facility? language menu? Consider how to choose country - user location? or menu? favourites. Create my own scss themes with dark mode etc.
 
 ## Inspiration
 

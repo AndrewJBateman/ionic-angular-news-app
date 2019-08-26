@@ -3,25 +3,42 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title text-center>News</ion-title>
+    <ion-title text-center>Headline News</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-		<ion-item padding-right class="source" color="primary">
-        <ion-label>News source:</ion-label>
-        <ion-select name="selected" [(ngModel)]="selectedSource" (ionChange)="loadSourceData()">
-        	<ion-select-option *ngFor="let item of sources" value="{{item.id}}">{{item.name}}</ion-select-option>
-        </ion-select>
-    </ion-item>
-  <ion-card *ngFor="let article of data?.articles" (click)="onGoToNewsDetail(article)">
-    <ion-img [src]="article.urlToImage" alt="{{article.title}}"></ion-img>
-    <ion-card-title text-wrap style="font-size: 1rem; color: #456f54;">{{article.title}}</ion-card-title>
-	</ion-card>
-	
-	<ion-infinite-scroll threshold="150px" (ionInfinite)="loadSourceData($event)">
-    <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Loading...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+<ion-content class="body">
+	<!--drop-down list of sources, select one to change the news source and reload list of news-->
+	<ion-item padding-right class="source" color="primary">
+    <ion-label>News source:</ion-label>
+    <ion-select name="selected" [(ngModel)]="selectedSource" (ionChange)="loadSourceData($event)">
+      <ion-select-option *ngFor="let item of sources" value="{{item.id}}">{{item.name}}</ion-select-option>
+    </ion-select>
+	</ion-item>
+		
+	<!--list of news articles-->
+  <ion-card class="articles" color="secondary" >
+		<ion-list *ngFor="let article of data?.articles" style="padding: 0;">
+			<ion-item class="list-item" (click)="onGoToNewsDetail(article)">
+				<ion-thumbnail item-left *ngIf="article.urlToImage" style="margin-right: 5px;">
+					<img [src]="article.urlToImage" class="thumbnail" alt="{{article.title}}" imageViewer>
+				</ion-thumbnail>
+				<ion-label>
+					<ion-text class="news-text" text-wrap style="color: #456f54;">
+					{{article.title}}
+					</ion-text>
+					<small class="small-text">{{article.publishedAt | date}}</small>
 
-</ion-content>
+				</ion-label>
+
+				<button
+					ion-button
+					item-end
+					style="background: #F4F5F8;"
+					(click)="onGoToNewsDetail(article)">
+					<ion-icon name="eye" md="md-eye" color="tertiary" size="large"></ion-icon>
+				</button>
+			</ion-item>
+		</ion-list>
+	</ion-card>
+	</ion-content>

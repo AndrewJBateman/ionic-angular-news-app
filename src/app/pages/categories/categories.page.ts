@@ -45,9 +45,9 @@ export class CategoriesPage implements OnInit {
 			
 		);
 
-		if (event) {
-			event.target.complete();
-		}
+	// 	if (event) {
+	// 		event.target.complete();
+	// 	}
 	}
 	// avoid duplication - move to services?
 	onGoToNewsDetail(article: any) {}
