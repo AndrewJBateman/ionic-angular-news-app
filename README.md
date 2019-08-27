@@ -36,11 +36,13 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## Technologies
 
-* [Ionic v5.8.0](https://ionicframework.com/)
+* [Ionic v5.12.0](https://ionicframework.com/)
 
-* [Angular v8.1.2](https://angular.io/)
+* [Angular v8.2.3](https://angular.io/)
 
-* [Ionic/angular v4.5.0](https://www.npmjs.com/package/@ionic/angular)
+* [Ionic/angular v4.8.0](https://www.npmjs.com/package/@ionic/angular)
+
+* [RxJS v6.5.2](https://reactivex.io/)
 
 * [News REST API used to search for news articles](https://newsapi.org/)
 
@@ -54,18 +56,20 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## Features
 
-* TBD: side-bar with image at top and menu (same as tabs): news, categories, favorites, about.
-* TBD: Additional: settings with css color schemes (light/dark modes..)
-* News page shows world headlines using an ion-card list. Add share/favorite modal menu? Show time as e.g. '2 minutes ago? etc.
-* News-detail page shows the selected news item in more detail with links to favourites share buttons?
-* Categories page: ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment.
-* TBD Search menu??
+* **Menu side-bar:** news, categories, favorites, search, about, change language, dark theme toggle. Image/logo at bottom?
+* **News page** shows world headlines using an ion-card list. Add share/favorite modal menu? Show time as e.g. '2 minutes ago? etc.
+* **News-detail page** shows the selected news item in more detail with links to favourites share buttons?
+* **Categories page:** ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment.
+* **Search page** tbd
+* **About page** with popover with links to Contact Form, Author Webste and Github repo.
 
 ## Status & To-do list
 
 * Status: Working news api and side/tabs menu system. News and categories pages work. News can be selected using a news source menu.
 
-* To-do: Complete News page - work out how to highlight list item then remove eye page link. About page. News search facility? language menu? Consider how to choose country - user location? or menu? favourites. Create my own scss themes with dark mode etc.
+* To-do: Complete News page - work out how to highlight list item then remove eye page link.
+* To-do: change side menu and routing so search tab replaces About tab. Add to side menu list.
+* To-do: News search facility? language menu? Consider how to choose country - user location? or menu? favourites. Create my own scss themes with dark mode etc.
 
 ## Inspiration
 

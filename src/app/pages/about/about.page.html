@@ -1,12 +1,63 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>about</ion-title>
+    <ion-title text-center>About</ion-title>
+		<ion-buttons slot="end">
+      <ion-button (click)="presentPopover($event)">
+    		<ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-	<ion-title>about title</ion-title>
+  <!-- <div class="about-header">
+    <img src="assets/newspapers.jpg" alt="newspapers image">
+  </div>
+	<div class="about-info">
+		<h4 class="ion-padding-start">World News</h4>
+
+		<ion-list lines="none">
+			<ion-item>
+				<ion-icon name="calendar" slot="start"></ion-icon>
+				<ion-label position="stacked">Date</ion-label>
+				<ion-datetime displayFormat="MMM DD, YYYY" max="2056" [(ngModel)]="conferenceDate"></ion-datetime>
+			</ion-item>
+
+			<ion-item>
+				<ion-icon name="pin" slot="start"></ion-icon>
+				<ion-label position="stacked">Location</ion-label>
+				<ion-select>
+					<ion-select-option value="madison" selected>Madison, WI</ion-select-option>
+					<ion-select-option value="austin">Austin, TX</ion-select-option>
+					<ion-select-option value="chicago">Chicago, IL</ion-select-option>
+					<ion-select-option value="seattle">Seattle, WA</ion-select-option>
+				</ion-select>
+			</ion-item>
+		</ion-list>
+
+		<p class="ion-padding-start ion-padding-end">
+			This app use the newsapi API.....
+		</p>
+	</div> -->
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" no-padding>
+        <ion-card>
+					<img src="assets/newspapers.jpg" alt="newspapers image">
+					<ion-card-header>
+            <ion-card-title text-center>World News</ion-card-title>
+          </ion-card-header>
+          <ion-card-content text-wrap>
+						<p>This app fetches live JSON metadata from <a href="https://newsapi.org" target="_blank" title="Go to the News API website">News API</a>, a HTTP REST API with articles from about 30,000 news sources/blogs world-wide.</p>
+						<p>Articles can be viewed in categories of general, technology, business, entertainment, health, science and sports.</p>
+						<p>Each article includes a link to the original news source that opens in a new window.</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
