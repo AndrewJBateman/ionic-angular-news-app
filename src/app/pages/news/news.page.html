@@ -10,8 +10,8 @@
 <ion-content class="body">
 	<!--drop-down list of sources, select one to change the news source and reload list of news-->
 	<ion-item padding-right class="source" color="primary">
-    <ion-label>News source:</ion-label>
-    <ion-select name="selected" [(ngModel)]="selectedSource" (ionChange)="loadSourceData($event)">
+    <ion-label>News source: </ion-label>
+    <ion-select name="selected" [(ngModel)]="selectedSource" (ionChange)="loadSourceData($event)" interface="action-sheet" submitText="OK" cancelText="Cancel">
       <ion-select-option *ngFor="let item of sources" value="{{item.id}}">{{item.name}}</ion-select-option>
     </ion-select>
 	</ion-item>
@@ -19,25 +19,17 @@
 	<!--list of news articles-->
   <ion-card class="articles" color="secondary" >
 		<ion-list *ngFor="let article of data?.articles" style="padding: 0;">
+
 			<ion-item class="list-item" (click)="onGoToNewsDetail(article)">
 				<ion-thumbnail item-left *ngIf="article.urlToImage" style="margin-right: 5px;">
 					<img [src]="article.urlToImage" class="thumbnail" alt="{{article.title}}" imageViewer>
 				</ion-thumbnail>
 				<ion-label>
 					<ion-text class="news-text" text-wrap style="color: #456f54;">
-					{{article.title}}
+						{{article.title}}
 					</ion-text>
-					<small class="small-text">{{article.publishedAt | date}}</small>
-
+					<small class="small-text">&nbsp;{{ time }}</small>
 				</ion-label>
-
-				<button
-					ion-button
-					item-end
-					style="background: #F4F5F8;"
-					(click)="onGoToNewsDetail(article)">
-					<ion-icon name="eye" md="md-eye" color="tertiary" size="large"></ion-icon>
-				</button>
 			</ion-item>
 		</ion-list>
 	</ion-card>

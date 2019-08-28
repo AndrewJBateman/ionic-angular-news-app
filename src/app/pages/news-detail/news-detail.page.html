@@ -13,7 +13,7 @@
     <ion-img [src]="article.urlToImage"></ion-img>
 		<ion-card-content no-padding>
   		<ion-list>
-    		<ion-item *ngIf="article.author">
+    		<!-- <ion-item *ngIf="article.author">
       		<ion-icon name="create" slot="start"></ion-icon>
 					Author: {{article.author}}
 				</ion-item>
@@ -21,7 +21,7 @@
 				<ion-item *ngIf="article.source">
 					<ion-icon name="paper" slot="start"></ion-icon>
 					Source: {{article.source.name}}
-				</ion-item>
+				</ion-item> -->
 
 				<ion-item *ngIf="article.publishedAt">
 					<ion-icon name="calendar" slot="start"></ion-icon>
@@ -71,25 +71,31 @@
 				<ion-buttons>
 					<ion-button
 						color="primary"
-						size="small">
+						size="small"
+						icon-left>
 						<ion-ripple-effect></ion-ripple-effect>
-						Share
+						<ion-icon name="share"></ion-icon>
+						<div>Share</div>
 					</ion-button>
 
 					<ion-button
 						color="primary"
 						size="small"
 						href="{{article.url}}"
-						target="_blank">
+						target="_blank"
+						icon-left>
 						<ion-ripple-effect></ion-ripple-effect>
-						Read More
+						<ion-icon name="eye"></ion-icon>
+						<div>More...</div>
 					</ion-button>
 
 					<ion-button 						
 						color="primary"
-						size="small">
+						size="small"
+						icon-left>
 						<ion-ripple-effect></ion-ripple-effect>
-						Favourite
+						<ion-icon name="heart"></ion-icon>
+						<div>Favourite</div>
 					</ion-button>
 				</ion-buttons>
 			</ion-toolbar>

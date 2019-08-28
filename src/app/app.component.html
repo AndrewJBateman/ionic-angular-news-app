@@ -3,7 +3,7 @@
 
     <ion-menu>
       <ion-header>
-        <ion-toolbar>
+        <ion-toolbar color="primary">
           <ion-title>Menu</ion-title>
         </ion-toolbar>
       </ion-header>
@@ -11,30 +11,43 @@
 
         <ion-list>
           <ion-list-header>
-            Navigate
+            <h5>Navigate</h5>
           </ion-list-header>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item [routerLink]="p.url" routerLinkActive="active" routerDirection="root">
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-icon slot="start" [name]="p.icon" [class]="p.menuIcon"></ion-icon>
               <ion-label>
                 {{p.title}}
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
+				
+				<ion-list>
+					<ion-list-header>
+						<h5>Settings</h5>
+					</ion-list-header>
+
+					<ion-item>
+							<ion-icon name="globe" slot="start" class="iconGlobe"></ion-icon>
+							<ion-label>Change language</ion-label>
+							<ion-select>
+								<ion-select-option option value="English" selected>EN</ion-select-option>
+								<ion-select-option option value="Spanish" selected>SP</ion-select-option>
+								<ion-select-option option value="French" selected>FR</ion-select-option>
+							</ion-select>
+						</ion-item>
+						
+						<ion-item>
+							<ion-icon name="contrast" slot="start" color="orange"></ion-icon>
+							<ion-label>Dark mode</ion-label>
+							<ion-toggle color="royal" checked="false"></ion-toggle>
+						</ion-item>
+
+				</ion-list>
         
-         <!-- <ion-list>
-          <ion-list-header>
-            Spare
-          </ion-list-header>
-          <ion-menu-toggle autoHide="false">
-            <ion-item button (click)="openSpare()">
-              <ion-icon slot="start" name="book"></ion-icon>
-              <ion-label>Spare</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list> -->
-      </ion-content>
+			</ion-content>
+
     </ion-menu>
 
     <ion-router-outlet main></ion-router-outlet>

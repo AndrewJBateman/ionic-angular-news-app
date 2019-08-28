@@ -4,3 +4,28 @@
     color: var(--ion-color-primary);
   }
 }
+
+
+.menuIconNews {
+	color: var(--ion-color-dark);
+}
+
+.menuIconCategories {
+	color: darkgreen;
+}
+
+.menuIconFavourites {
+	color: darkred;
+}
+
+.menuIconAbout {
+	color: darkolivegreen;
+}
+
+ion-list-header h5 {
+	color: var(--ion-color-tertiary)
+}
+
+.iconGlobe {
+	color: var(--ion-color-success)
+}

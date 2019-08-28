@@ -17,22 +17,27 @@ export class AppComponent implements OnInit {
     {
       title: 'News',
       url: '/app/tabs/news',
-      icon: 'list-box'
+			icon: 'list-box',
+			menuIcon: 'menuIconNews'
+			
     },
     {
       title: 'Categories',
       url: '/app/tabs/categories',
-      icon: 'options'
+			icon: 'options',
+			menuIcon: 'menuIconCategories'
     },
     {
       title: 'Favourites',
       url: '/app/tabs/favourites',
-      icon: 'heart'
+			icon: 'heart',
+			menuIcon: 'menuIconFavourites'
     },
     {
       title: 'About',
       url: '/app/tabs/about',
-      icon: 'information-circle'
+			icon: 'information-circle',
+			menuIcon: 'menuIconAbout'
     }
   ];
 
@@ -53,5 +58,6 @@ export class AppComponent implements OnInit {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
-  }
+	}
+	
 }
