@@ -7,19 +7,23 @@
 
 
 .menuIconNews {
-	color: var(--ion-color-dark);
+	// color: var(--ion-color-dark);
+	color: var(--ion-color-light-contrast);
 }
 
 .menuIconCategories {
-	color: darkgreen;
+	// color: darkgreen;
+	color: var(--ion-color-light-contrast);
 }
 
 .menuIconFavourites {
-	color: darkred;
+// color: darkred;
+	color: var(--ion-color-light-contrast);
 }
 
 .menuIconAbout {
-	color: darkolivegreen;
+	// color: darkolivegreen;
+	color: var(--ion-color-light-contrast);
 }
 
 ion-list-header h5 {
@@ -28,4 +32,8 @@ ion-list-header h5 {
 
 .iconGlobe {
 	color: var(--ion-color-success)
+}
+
+ion-toggle {
+	color: var(--ion-color-light-contrast);
 }

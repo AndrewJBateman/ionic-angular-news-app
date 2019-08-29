@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -12,7 +12,8 @@ import { ThemeService } from './providers/theme.service';
   styleUrls: ['app.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
+	darkMode: any;
 	
 	public appPages = [
     {
@@ -47,12 +48,10 @@ export class AppComponent implements OnInit {
     private router: Router,
     private splashScreen: SplashScreen,
 		private statusBar: StatusBar,
-		private theme: ThemeService
+		public themeService: ThemeService
   ) {
-    this.initializeApp();
-  }
-
-  ngOnInit() {
+		this.initializeApp();
+		this.darkMode = this.themeService.darkMode;
   }
 
   initializeApp() {
@@ -62,11 +61,4 @@ export class AppComponent implements OnInit {
     });
 	}
 	
-	enableDark() {
-		this.theme.enableDark();
-	}
-
-	enableLight() {
-		this.theme.enableLight();
-	}
 }
