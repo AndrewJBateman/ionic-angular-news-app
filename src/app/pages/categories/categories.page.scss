@@ -6,3 +6,7 @@ ion-segment-button {
 .segment-button-checked {
     color: var( --ion-color-dark) !important;
 }
+
+ion-label {
+	background-color: var( --ion-color-primary);
+}

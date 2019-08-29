@@ -6,6 +6,7 @@ import * as moment from 'moment';
 
 // import { NewsApiResponse } from '../../interfaces/interfaces';
 import {NewsApiService} from 'src/app/providers/newsapi.service';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-news',
@@ -74,35 +75,23 @@ export class NewsPage implements OnInit {
 		this.newsService.getNews('top-headlines?sources=' + this.selectedSource).subscribe(data => {
 			console.log('loadSourceData function ran to get list of news articles from', this.selectedSource);
 			
-			// if (this.sources.length === 0) {
-      //   // event.target.disabled = true;
-      //   event.target.complete();
-      //   return;
-      // }
 			this.data = data;
-			console.log('this.data.articles', this.data.articles);
-			const newArticlesArray = this.data.articles;
-
-			let timeSince = [];
-			for(let i=0; i<data.articles.length; i++) {
-				let timeAgo = this.convertTime(data.articles[i].publishedAt);
-				timeSince.push(data.articles[i].publishedAt.replace(/[0-9]|[A-Z]|[-:]/g, '').concat(timeAgo));
-			}
-			console.log('latest array', timeSince);
-
-			// console.log(newArticlesArray[0].publishedAt.replace(/[0-9]|[A-Z]|[-:]/g, '').concat(timeAgo));
-			// console.log('finally', newArticlesArray[0].publishedAt.slice(0, 11).concat(timeAgo));
-			
+			this.newArticlesArray = Array.from(data.articles);
+			console.log('this.newArticlesArray', this.newArticlesArray);
+			// let timeSince = [];
+			// for(let i=0; i<this.newArticlesArray.length+1; i++) {
+			// 	let timeAgo = this.convertTime(data.articles[i].publishedAt);
+			// 	let timeSince = (data.articles[i].publishedAt.replace(/[0-9]|[A-Z]|[-:]/g, '').concat(timeAgo));
+			// }
+				
 		});
 	}
 
-	onShareActionSheet(news) {
-
-	}
+	onShareActionSheet(news) {}
 
 	// Convert article publishedAt "2019-08-28T10:24:08Z" to ISO 8601 format string with hour, minute and second part
 	// Use to how long ago from now
-	convertTime(time: any) {
+	convertTime(time: string) {
 		return moment.utc(
 			time.replace('Z', '').replace('T', ' ')
 			).fromNow();

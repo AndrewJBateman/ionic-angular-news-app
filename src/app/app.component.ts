@@ -1,14 +1,15 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 
+import { ThemeService } from './providers/theme.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
+  styleUrls: ['app.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
@@ -30,13 +31,13 @@ export class AppComponent implements OnInit {
     {
       title: 'Favourites',
       url: '/app/tabs/favourites',
-			icon: 'heart',
+			icon: 'heart-empty',
 			menuIcon: 'menuIconFavourites'
     },
     {
       title: 'About',
       url: '/app/tabs/about',
-			icon: 'information-circle',
+			icon: 'information-circle-outline',
 			menuIcon: 'menuIconAbout'
     }
   ];
@@ -45,7 +46,8 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private router: Router,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+		private statusBar: StatusBar,
+		private theme: ThemeService
   ) {
     this.initializeApp();
   }
@@ -60,4 +62,11 @@ export class AppComponent implements OnInit {
     });
 	}
 	
+	enableDark() {
+		this.theme.enableDark();
+	}
+
+	enableLight() {
+		this.theme.enableLight();
+	}
 }

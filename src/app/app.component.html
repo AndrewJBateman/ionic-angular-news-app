@@ -38,11 +38,19 @@
 							</ion-select>
 						</ion-item>
 						
-						<ion-item>
+						<!-- <ion-item>
 							<ion-icon name="contrast" slot="start" color="orange"></ion-icon>
 							<ion-label>Dark mode</ion-label>
-							<ion-toggle color="royal" checked="false"></ion-toggle>
-						</ion-item>
+							<ion-toggle color="royal" checked="false" (clicked)="enableDark()"></ion-toggle>
+						</ion-item> -->
+
+						<ion-button (click)="enableDark()" expand="full">
+							Enable Dark
+						</ion-button>
+
+						<ion-button (click)="enableLight()" expand="full">
+							Enable Light
+						</ion-button>
 
 				</ion-list>
         

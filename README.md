@@ -60,17 +60,19 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 * **News page** shows world headlines using an ion-card list. Add share/favorite modal menu? Show time as e.g. '2 minutes ago? etc.
 * **News-detail page** shows the selected news item in more detail with links to favourites share buttons?
 * **Categories page:** ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment.
-* **Search page** tbd
 * **About page** with popover with links to Contact Form, Author Webste and Github repo.
+* **Dark mode** switch on menu changes from light to dark mode.
 
 ## Status & To-do list
 
 * Status: Working news api and side/tabs menu system. News and categories pages work. News can be selected using a news source menu.
 
-* To-do: Complete News page - work out how to highlight list item then remove eye page link. Separate news search template into separate page.
-* To-do: change side menu and routing so search tab replaces About tab. Add to side menu list.
-* To-do: News search facility? language menu? Consider how to choose country - user location? or menu? favourites. Create my own scss themes with dark mode etc.
-* To-do: add storage?
+* To-do:
+Side menu: change theme switch to toggle
+Complete News page - work out how to highlight list item. 
+Add news search popover?.
+News search facility? language menu? Consider how to choose country - user location? or menu? favourites. 
+Add storage?
 
 ## Inspiration
 

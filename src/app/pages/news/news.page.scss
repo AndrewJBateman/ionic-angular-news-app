@@ -1,5 +1,5 @@
 ion-item.list-item {
-	border: 1px solid var(--ion-color-primary);
+	border: 1px solid var(--ion-color-tertiary);
 	padding: 0px;
 	border-radius: 5px;
 	color: var(--ion-color-primary);
@@ -26,9 +26,14 @@ ion-item.list-item:hover {
 	align-items: center;
 	margin: 0;
 	size: 10px;
+	color: var(ion-color-primary-contrast);
+}
 
 	.space-left{
 		margin-left: 5px;
 	} 
-}
 
+	ion-text {
+color: var(ion-color-primary-contrast);
+
+	}
