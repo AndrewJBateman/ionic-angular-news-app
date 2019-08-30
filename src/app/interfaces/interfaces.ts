@@ -1,3 +1,21 @@
+// f
+export interface LocationResponse {
+	as: string;
+	city: string;
+	country: string;
+	countryCode: string;
+	isp: string;
+	lat: number;
+	lon: number;
+	org: string;
+	query: number;
+	region: string;
+	regionName: string;
+	status: string;
+	timezone: string;
+	zip: number;
+}
+
 // format of an API response array
 export interface SourcesResponse {
 	status: 'ok';
@@ -5,7 +23,7 @@ export interface SourcesResponse {
 		{
 			id: string,
 			name: string,
-			description, string,
+			description: string,
 			url: string,
 			category: string,
 			language: string,
@@ -15,21 +33,21 @@ export interface SourcesResponse {
 }
 
 export interface NewsApiResponse {
+	status: string;
+	totalResults: number;
 	articles: Article[];
-  status: string;
-  totalResults: number;
 }
 
 // format of each Article array in the API response
 export interface Article {
+	source: Source;
 	author?: string;
-	content?: string;
+	title: string;
 	description: string;
+	url: string;
+	urlToImage: string;
 	publishedAt: string;
-  source: Source;
-  title: string;
-  url: string;
-  urlToImage: string;
+	content?: string;
 }
 
 // format of the article array news source

@@ -6,14 +6,26 @@ import * as moment from 'moment';
 
 // import { NewsApiResponse } from '../../interfaces/interfaces';
 import {NewsApiService} from 'src/app/providers/newsapi.service';
-import { JsonPipe } from '@angular/common';
+
+// array of countries served by the news API service - note it does not include Spain
+const countryCodeArray = ['ae', 'ar', 'at', 'au', 'be', 'bg', 'br', 'ca', 'ch', 'cn', 'co', 'cu', 'cz', 'de', 'eg', 'fr', 'gb', 'gr', 'hk', 'hu', 'id', 'ie', 'il', 'in', 'it', 'jp', 'kr', 'lt', 'lv', 'ma', 'mx', 'my', 'ng', 'nl', 'no', 'nz', 'ph', 'pl', 'pt', 'ro', 'rs', 'ru', 'sa', 'se', 'sg', 'si', 'sk', 'th', 'tr', 'tw', 'ua', 'us', 've', 'za'];
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.page.html',
   styleUrls: ['./news.page.scss']
 })
+
 export class NewsPage implements OnInit {
+	countryCode: string;
+	checkedCountryCode: string;
+	data: any;
+	status = '';
+	sources = [];
+	selectedSource = 'CNN';
+	timeAgo = '';
+	time = '';
+	newArticlesArray = [];
 
   constructor(
 		private newsService: NewsApiService,
@@ -21,21 +33,22 @@ export class NewsPage implements OnInit {
 		public modalCtrl: ModalController,
 		public loadingCtrl: LoadingController,
 		public alertCtrl: AlertController
-
-		) {
+	) {
+		// fetch user country then fetch news for that country - use 'us' if country not in countryCode array
+		this.newsService.getCountryCode().subscribe(
+			data => {
+				const countryData = data;
+				this.countryCode = countryData.countryCode.toLowerCase();
+				const checkedCountryCode = countryCodeArray.indexOf(
+					this.countryCode.toLowerCase()) === -1 ? 'us' : countryData.countryCode.toLowerCase();
+				console.log(checkedCountryCode);
+				this.getCountryNews(checkedCountryCode);
+			}
+		)
 	}
-	data: any;
-	status = '';
-	sources = [];
-	selectedSource = 'bbc-news';
-	isLoading = false;
-	timeAgo = '';
-	time = '';
-	newArticlesArray = [];
 
 	// ngOnInit lifecycle loads list of sources once.
 	// It is not reloaded when reentering page but doesn't mattter as this data will not change.
-	// load news articles with the default selectedSource.
   ngOnInit() {
 		console.log('run ngOnInit function');
 		this.newsService.getSources('/sources?').subscribe(
@@ -45,17 +58,21 @@ export class NewsPage implements OnInit {
 				console.log('ngOnInit getSources function ran with status "', this.status, '" and retrieved an array of', +this.sources.length, 'sources.');
 			}, err => {
 				console.log('an error occured: ', err);
-				console.log(this.data);
 			}
 		);
 	}
 	// ionViewWillEnter lifecycle event used so news reloads if coming back to the news page
 	ionViewWillEnter() {
-		// this.isLoading = true;
-		this.loadSourceData();
-		console.log('ionViewWillEnter lifecycle ran with default source: ', this.selectedSource);
 	}
-	
+
+	//  
+	getCountryNews(countryCode: string) {
+		this.newsService.getNews('top-headlines?country=' + countryCode).subscribe(
+			data => {
+				this.data = data;
+			}
+		);
+	};
 	// clicked article will make router navigate to news-detail page
   onGoToNewsDetail(article: any) {
     this.newsService.currentArticle = article;

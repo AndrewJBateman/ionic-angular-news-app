@@ -31,10 +31,11 @@ export class CategoriesPage implements OnInit {
 		this.loadCategoryNews(event.detail.value);
 	}
 
+
 	// gets news data from API request with a modified url that includes the category in the url input parameter
 	loadCategoryNews(category: string, event?: any) {
 		console.log('run loadCategoryNews function with category: ', category);
-		this.newsService.getNews('top-headlines?country=gb&category=' + category).subscribe(
+		this.newsService.getNews('top-headlines?country=it&category=' + category).subscribe(
 			data => {
 				this.data = data;
 			},
@@ -44,10 +45,6 @@ export class CategoriesPage implements OnInit {
 
 			
 		);
-
-	// 	if (event) {
-	// 		event.target.complete();
-	// 	}
 	}
 	// avoid duplication - move to services?
 	onGoToNewsDetail(article: any) {}

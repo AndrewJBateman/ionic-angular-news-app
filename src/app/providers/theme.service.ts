@@ -16,7 +16,7 @@ export class ThemeService {
 		this.renderer = this.rendererFactory.createRenderer(null, null);
 	}
 
-	enableDark() {
+	enableDark = () => {
 		this.renderer.addClass(this.document.body, 'dark-theme');
 		this.storage.set('dark-theme', true);
 		this.darkMode = true;
@@ -29,14 +29,7 @@ export class ThemeService {
 	}
 
 	changeThemeMode() {
-		if (this.darkMode) {
-			this.enableLight();
-			console.log('Dark mode state: ', this.darkMode);
-		} else {
-			this.enableDark();
-			console.log('Dark mode state ', this.darkMode);
-		}
-
+		this.darkMode? this.enableLight() : this.enableDark();
 	}
 }
 

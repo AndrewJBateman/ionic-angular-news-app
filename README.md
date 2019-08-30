@@ -68,14 +68,15 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 * Status: Working news api and side/tabs menu system. News and categories pages work. News can be selected using a news source menu.
 
 * To-do:
-Side menu: change theme switch to toggle
-language change menu
+move location news to separate page
+ISO8601 UTC string to time ago
+categories - change from cards to to list
+theme scss - improve colors.
+language change menu i18n
 Complete News page - work out how to highlight list item.
 Add news search popover?.
-News search facility?
-Get user location to choose news language etc? or menu?
+splash screen
 favourites.
-storage?
 contact form
 
 ## Inspiration
