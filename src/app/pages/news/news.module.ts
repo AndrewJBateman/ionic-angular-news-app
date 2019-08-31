@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { NewsPage } from './news.page';
+import { DateConvertPipe } from '../../pipes/date-convert.pipe';
 
 const routes: Routes = [
   {
@@ -14,12 +15,15 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
+	imports: [
+  CommonModule,
+  FormsModule,
+  IonicModule,
+	RouterModule.forChild(routes)
   ],
-  declarations: [NewsPage]
+	declarations: [
+		NewsPage,
+		DateConvertPipe
+	]
 })
 export class NewsPageModule {}

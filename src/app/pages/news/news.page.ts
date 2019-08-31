@@ -1,19 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController, ModalController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import * as moment from 'moment';
 
-// import { NewsApiResponse } from '../../interfaces/interfaces';
-import {NewsApiService} from 'src/app/providers/newsapi.service';
+import {NewsApiService} from '../../providers/newsapi.service';
 
 // array of countries served by the news API service - note it does not include Spain
-const countryCodeArray = ['ae', 'ar', 'at', 'au', 'be', 'bg', 'br', 'ca', 'ch', 'cn', 'co', 'cu', 'cz', 'de', 'eg', 'fr', 'gb', 'gr', 'hk', 'hu', 'id', 'ie', 'il', 'in', 'it', 'jp', 'kr', 'lt', 'lv', 'ma', 'mx', 'my', 'ng', 'nl', 'no', 'nz', 'ph', 'pl', 'pt', 'ro', 'rs', 'ru', 'sa', 'se', 'sg', 'si', 'sk', 'th', 'tr', 'tw', 'ua', 'us', 've', 'za'];
+const countryCodeArray = [
+	'ae', 'ar', 'at', 'au', 'be', 'bg', 'br', 'ca', 'ch', 'cn', 'co',
+	'cu', 'cz', 'de', 'eg', 'fr', 'gb', 'gr', 'hk', 'hu', 'id', 'ie',
+	'il', 'in', 'it', 'jp', 'kr', 'lt', 'lv', 'ma', 'mx', 'my', 'ng',
+	'nl', 'no', 'nz', 'ph', 'pl', 'pt', 'ro', 'rs', 'ru', 'sa', 'se',
+	'sg', 'si', 'sk', 'th', 'tr', 'tw', 'ua', 'us', 've', 'za'
+];
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.page.html',
-  styleUrls: ['./news.page.scss']
+	styleUrls: ['./news.page.scss']
 })
 
 export class NewsPage implements OnInit {
@@ -27,7 +32,7 @@ export class NewsPage implements OnInit {
 	time = '';
 	newArticlesArray = [];
 
-  constructor(
+	constructor(
 		private newsService: NewsApiService,
 		private router: Router,
 		public modalCtrl: ModalController,
@@ -46,7 +51,6 @@ export class NewsPage implements OnInit {
 			}
 		)
 	}
-
 	// ngOnInit lifecycle loads list of sources once.
 	// It is not reloaded when reentering page but doesn't mattter as this data will not change.
   ngOnInit() {

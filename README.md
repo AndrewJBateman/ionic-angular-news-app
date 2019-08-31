@@ -57,8 +57,8 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 ## Features
 
 * **Menu side-bar:** news, categories, favorites, search, about, change language, dark theme toggle. Image/logo at bottom?
-* **News page** shows world headlines using an ion-card list. Add share/favorite modal menu? Show time as e.g. '2 minutes ago? etc.
-* **News-detail page** shows the selected news item in more detail with links to favourites share buttons?
+* **News page** shows world headlines using an ion-card list. Add share/favorite modal menu? Shows time as e.g. '... ago'.
+* **News-detail page** shows the selected news item in more detail with links to favourites share buttons? Shows time as e.g. '... ago'.
 * **Categories page:** ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment.
 * **About page** with popover with links to Contact Form, Author Webste and Github repo.
 * **Dark mode** switch on menu changes from light to dark mode.
@@ -68,7 +68,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 * Status: Working news api and side/tabs menu system. News and categories pages work. News can be selected using a news source menu.
 
 * To-do:
-ISO8601 UTC string to time ago - create pipe
+
 fix news-detail so it does not always go to the same page
 move location news to separate page?
 store country code so other pages use it. add to common component?

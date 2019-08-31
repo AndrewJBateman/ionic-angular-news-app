@@ -25,7 +25,7 @@
 
 				<ion-item *ngIf="article.publishedAt">
 					<ion-icon name="calendar" slot="start"></ion-icon>
-					Published: {{article.publishedAt | date}} by {{article.author}}
+					Published: {{ article.publishedAt | date }} by {{article.author}}
 				</ion-item>
 				<ion-item *ngIf="article.author">
 					<ion-icon name="pen" slot="start"></ion-icon>
