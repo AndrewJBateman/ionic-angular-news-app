@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {IonSegment} from '@ionic/angular';
-
+import { Router } from '@angular/router';
 import {Article} from 'src/app/interfaces/interfaces';
 import {NewsApiService} from 'src/app/providers/newsapi.service';
 
@@ -17,7 +17,10 @@ export class CategoriesPage implements OnInit {
 	data: any;
 	category: string;
 
-	constructor(private newsService: NewsApiService) {}
+	constructor(
+		private newsService: NewsApiService,
+		private router: Router
+	) {}
 
 	ngOnInit() {
 		this.category = this.categories[0];
@@ -35,7 +38,7 @@ export class CategoriesPage implements OnInit {
 	// gets news data from API request with a modified url that includes the category in the url input parameter
 	loadCategoryNews(category: string, event?: any) {
 		console.log('run loadCategoryNews function with category: ', category);
-		this.newsService.getNews('top-headlines?country=it&category=' + category).subscribe(
+		this.newsService.getNews('top-headlines?category=' + category + '&country=us').subscribe(
 			data => {
 				this.data = data;
 			},
@@ -47,9 +50,24 @@ export class CategoriesPage implements OnInit {
 		);
 	}
 	// avoid duplication - move to services?
-	onGoToNewsDetail(article: any) {}
+	onGoToNewsDetail(article: any) {
+		this.newsService.currentArticle = article;
+    console.log('item clicked');
+    this.router.navigate(['app/tabs/news-detail']);
+	}
 
 	loadData(event?: any) {
 		this.loadCategoryNews(this.category, event);
 	}
+
+	// doInfinite(infiniteScroll) {
+	// 	console.log('begin async operation');
+
+	// 	setTimeout(() => {
+	// 		for (let i = 0; i < 30; i++) {
+	// 			this.item.push
+	// 		}
+	// 	})
+	// }
+
 }

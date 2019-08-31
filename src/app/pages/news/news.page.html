@@ -20,11 +20,11 @@
   <ion-card class="articles" color="secondary" >
 		<ion-list *ngFor="let article of data?.articles" style="padding: 0;">
 
-			<ion-item class="list-item" (click)="onGoToNewsDetail(article)">
+			<ion-item class="list-item">
 				<ion-thumbnail item-left *ngIf="article.urlToImage" style="margin-right: 5px;">
 					<img [src]="article.urlToImage" class="thumbnail" alt="{{article.title}}" imageViewer>
 				</ion-thumbnail>
-				<ion-label>
+				<ion-label (click)="onGoToNewsDetail(article)">
 					<ion-text class="news-text" text-wrap style="color: #456f54;">
 						{{article.title}}
 					</ion-text>
@@ -33,4 +33,4 @@
 			</ion-item>
 		</ion-list>
 	</ion-card>
-	</ion-content>
+</ion-content>

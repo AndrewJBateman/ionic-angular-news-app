@@ -68,9 +68,10 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 * Status: Working news api and side/tabs menu system. News and categories pages work. News can be selected using a news source menu.
 
 * To-do:
-move location news to separate page
-ISO8601 UTC string to time ago
-categories - change from cards to to list
+ISO8601 UTC string to time ago - create pipe
+fix news-detail so it does not always go to the same page
+move location news to separate page?
+store country code so other pages use it. add to common component?
 theme scss - improve colors.
 language change menu i18n
 Complete News page - work out how to highlight list item.

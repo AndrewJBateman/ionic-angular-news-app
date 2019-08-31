@@ -77,7 +77,7 @@ export class NewsPage implements OnInit {
   onGoToNewsDetail(article: any) {
     this.newsService.currentArticle = article;
     console.log('item clicked');
-    this.router.navigate(['app/tabs/news-detail']);
+		this.router.navigate(['app/tabs/news-detail']);
 	}
 
 	// bind to selected source
