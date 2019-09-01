@@ -57,9 +57,9 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 ## Features
 
 * **Menu side-bar:** news, categories, favorites, search, about, change language, dark theme toggle. Image/logo at bottom?
-* **News page** shows world headlines using an ion-card list. Add share/favorite modal menu? Shows time as e.g. '... ago'.
-* **News-detail page** shows the selected news item in more detail with links to favourites share buttons? Shows time as e.g. '... ago'.
-* **Categories page:** ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment.
+* **News page** shows world headlines using an ion-card list. Add share/favorite modal menu? Shows time as '... ago'.
+* **News-detail page** shows the selected news item in more detail with links to favourites share buttons? Shows time as '... ago'.
+* **Categories page:** ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment. Shows time as '... ago'.
 * **About page** with popover with links to Contact Form, Author Webste and Github repo.
 * **Dark mode** switch on menu changes from light to dark mode.
 
@@ -68,16 +68,15 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 * Status: Working news api and side/tabs menu system. News and categories pages work. News can be selected using a news source menu.
 
 * To-do:
-
 fix news-detail so it does not always go to the same page
 move location news to separate page?
 store country code so other pages use it. add to common component?
-theme scss - improve colors.
+theme scss - improve colors
 language change menu i18n
-Complete News page - work out how to highlight list item.
-Add news search popover?.
+Complete News page - work out how to highlight list item
+Add news search popover?
 splash screen
-favourites.
+favourites
 contact form
 
 ## Inspiration

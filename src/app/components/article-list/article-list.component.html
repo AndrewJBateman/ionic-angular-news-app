@@ -1,0 +1,12 @@
+<!--article list item-->
+<ion-item class="list-item">
+	<ion-thumbnail item-left *ngIf="article.urlToImage" style="margin-right: 5px;">
+		<img [src]="article.urlToImage" class="thumbnail" alt="{{article.title}}" imageViewer>
+	</ion-thumbnail>
+	<ion-label (click)="onGoToNewsDetail(article)">
+	<ion-text class="news-text" text-wrap style="color: #456f54;">
+		{{article.title}}
+	</ion-text>
+	<small class="small-text">&nbsp;{{ article.publishedAt | dateConvert }}</small>
+	</ion-label>
+</ion-item>

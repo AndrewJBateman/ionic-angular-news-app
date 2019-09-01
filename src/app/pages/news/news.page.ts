@@ -2,7 +2,6 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController, ModalController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
-import * as moment from 'moment';
 
 import {NewsApiService} from '../../providers/newsapi.service';
 
@@ -28,9 +27,6 @@ export class NewsPage implements OnInit {
 	status = '';
 	sources = [];
 	selectedSource = 'CNN';
-	timeAgo = '';
-	time = '';
-	newArticlesArray = [];
 
 	constructor(
 		private newsService: NewsApiService,
@@ -69,7 +65,7 @@ export class NewsPage implements OnInit {
 	ionViewWillEnter() {
 	}
 
-	//  
+	// fetch news for user/default country
 	getCountryNews(countryCode: string) {
 		this.newsService.getNews('top-headlines?country=' + countryCode).subscribe(
 			data => {
@@ -77,6 +73,7 @@ export class NewsPage implements OnInit {
 			}
 		);
 	};
+
 	// clicked article will make router navigate to news-detail page
   onGoToNewsDetail(article: any) {
     this.newsService.currentArticle = article;
@@ -97,24 +94,6 @@ export class NewsPage implements OnInit {
 			console.log('loadSourceData function ran to get list of news articles from', this.selectedSource);
 			
 			this.data = data;
-			this.newArticlesArray = Array.from(data.articles);
-			console.log('this.newArticlesArray', this.newArticlesArray);
-			// let timeSince = [];
-			// for(let i=0; i<this.newArticlesArray.length+1; i++) {
-			// 	let timeAgo = this.convertTime(data.articles[i].publishedAt);
-			// 	let timeSince = (data.articles[i].publishedAt.replace(/[0-9]|[A-Z]|[-:]/g, '').concat(timeAgo));
-			// }
-				
 		});
-	}
-
-	onShareActionSheet(news) {}
-
-	// Convert article publishedAt "2019-08-28T10:24:08Z" to ISO 8601 format string with hour, minute and second part
-	// Use to how long ago from now
-	convertTime(time: string) {
-		return moment.utc(
-			time.replace('Z', '').replace('T', ' ')
-			).fromNow();
 	}
 }

@@ -1,12 +1,23 @@
 ion-icon {
-	color: rgb(92, 167, 6);
+	color: var(--ion-color-tertiary);
 }
 
-p {
-	color: #456f54;
-	margin-left: 1rem;
+.p-title {
+	color: var(--ion-color-primary);
+	margin-left: .5rem;
 }
 
-ion-item {
-	color: rgb(113, 2, 187);
+.p-text {
+	color: var(--ion-color-secondary);
+	margin-left: .5rem;
+}
+
+.p-info {
+	color: var(--ion-color-tertiary);
+	margin-left: .5rem;
+}
+
+.small-text {
+	color: var(--ion-color-tertiary);
+	margin-left: .5rem;
 }
