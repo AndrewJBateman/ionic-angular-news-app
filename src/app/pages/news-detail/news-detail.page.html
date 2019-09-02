@@ -43,14 +43,25 @@
 						<div>More...</div>
 					</ion-button>
 
-					<ion-button 						
+					<ion-button
+						*ngIf="!isFavourite(article)"
+						(click)="onAddToFavourites(article)"					
 						color="primary"
 						size="small"
 						icon-left>
-						<ion-ripple-effect></ion-ripple-effect>
 						<ion-icon name="heart"></ion-icon>
 						<div>Favourite</div>
 					</ion-button>
+					<ion-button
+					*ngIf="isFavourite(article)"
+					(click)="onRemoveFromFavourites(article)"					
+					color="primary"
+					size="small"
+					icon-left>
+					<ion-icon name="heart"></ion-icon>
+					<div>Unfavourite</div>
+				</ion-button>
+					<ion-ripple-effect></ion-ripple-effect>
 				</ion-buttons>
 			</ion-toolbar>
 		</ion-footer>

@@ -35,7 +35,8 @@
   <ion-card class="articles" color="secondary" >
 		
 		<ion-list *ngFor="let article of data?.articles" style="padding: 0;">
-			<ion-item class="list-item" (click)="onGoToNewsDetail(article)">
+
+<!-- 			<ion-item class="list-item" (click)="onGoToNewsDetail(article)">
 				<ion-thumbnail item-left *ngIf="article.urlToImage" style="margin-right: 5px;">
 					<img [src]="article.urlToImage" class="thumbnail" alt="{{article.title}}" imageViewer>
 				</ion-thumbnail>
@@ -45,7 +46,9 @@
 					</ion-text>
 					<small class="small-text">&nbsp;{{ article.publishedAt | dateConvert }}</small>
 				</ion-label>
-			</ion-item>
+			</ion-item> -->
+			<app-article-list [article]="article"></app-article-list>
+
 		</ion-list>
 
 		<!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Article } from '../../interfaces/interfaces';
+
+import {NewsApiService} from '../../providers/newsapi.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-list',
@@ -6,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-list.component.scss'],
 })
 export class ArticleListComponent implements OnInit {
+	@Input() article: Article;
 
-  constructor() { }
+  constructor(
+		private newsService: NewsApiService,
+		private router: Router
+	) { }
 
   ngOnInit() {}
 
+  onGoToNewsDetail(article: any) {
+    this.newsService.currentArticle = article;
+    console.log('item clicked');
+		this.router.navigate(['app/tabs/news-detail']);
+	}
 }

@@ -17,22 +17,9 @@
 	</ion-item>
 		
 	<!--list of news articles-->
-  <ion-card class="articles" color="secondary" >
+		<ion-card class="articles" color="secondary" >
 		<ion-list *ngFor="let article of data?.articles" style="padding: 0;">
-
-			<ion-item class="list-item">
-				<ion-thumbnail item-left *ngIf="article.urlToImage" style="margin-right: 5px;">
-					<img [src]="article.urlToImage" class="thumbnail" alt="{{article.title}}" imageViewer>
-				</ion-thumbnail>
-				<ion-label (click)="onGoToNewsDetail(article)">
-					<ion-text class="news-text" text-wrap style="color: #456f54;">
-						{{article.title}}
-					</ion-text>
-					<small class="small-text">&nbsp;{{ article.publishedAt | dateConvert }}</small>
-				</ion-label>
-			</ion-item>
-			<!-- <app-article-list></app-article-list> -->
-
+			<app-article-list [article]="article"></app-article-list>
 		</ion-list>
 	</ion-card>
 </ion-content>

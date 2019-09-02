@@ -30,6 +30,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 ## Screenshots
 
 ![Ionic page](./img/news-page.png)
+![Ionic page](./img/news-detail.png)
 ![Ionic page](./img/categories-page.png)
 ![Ionic page](./img/favourites-page.png)
 ![Ionic page](./img/about-page.png)
@@ -46,6 +47,10 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 * [News REST API used to search for news articles](https://newsapi.org/)
 
+* [IP Geolocation API](http://ip-api.com/)
+
+* [Ionic Storage v2.2.0](https://ionicframework.com/docs/building/storage)
+
 ## Setup
 
 * To start the server on _localhost://8100_ type: 'ionic serve'
@@ -58,8 +63,9 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 * **Menu side-bar:** news, categories, favorites, search, about, change language, dark theme toggle. Image/logo at bottom?
 * **News page** shows world headlines using an ion-card list. Add share/favorite modal menu? Shows time as '... ago'.
-* **News-detail page** shows the selected news item in more detail with links to favourites share buttons? Shows time as '... ago'.
+* **News-detail page** shows the selected news item in more detail with links to favourites share buttons? Shows time as '... ago'. Includes working footer buttons for 'More info', which opens news source in a separate window and 'Favourite' which adds the article to a stored news array.
 * **Categories page:** ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment. Shows time as '... ago'.
+* **Favourites page:** lists articles in reverse date order that have been saved by clicking on the favourites icon on the news-detail page.
 * **About page** with popover with links to Contact Form, Author Webste and Github repo.
 * **Dark mode** switch on menu changes from light to dark mode.
 
@@ -68,16 +74,17 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 * Status: Working news api and side/tabs menu system. News and categories pages work. News can be selected using a news source menu.
 
 * To-do:
-fix news-detail so it does not always go to the same page
-move location news to separate page?
-store country code so other pages use it. add to common component?
-theme scss - improve colors
-language change menu i18n
-Complete News page - work out how to highlight list item
-Add news search popover?
-splash screen
-favourites
-contact form
+* prevent storage from storing duplicate articles.
+* fix news-detail so it does not always go to the same page?
+* move location news to separate page?
+* store country code so other pages use it. add to common component?
+* theme scss - improve colors
+* language change menu i18n
+* Complete News page - work out how to highlight list item
+* Add news search popover?
+* splash screen
+* add weather to categories page?
+* contact form
 
 ## Inspiration
 

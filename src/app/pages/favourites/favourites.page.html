@@ -8,5 +8,16 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-slides *ngIf="storageService.news.length === 0" [options]="sliderOptions">
+    <ion-slide>
+      <ion-label>No favorites</ion-label>
+    </ion-slide>
+	</ion-slides>
+	
+		<!--list of news articles-->
+		<ion-card class="articles" color="secondary" >
+			<ion-list *ngFor="let article of storageService.news" style="padding: 0;">
+				<app-article-list [article]="article"></app-article-list>
+			</ion-list>
+		</ion-card>
 </ion-content>
