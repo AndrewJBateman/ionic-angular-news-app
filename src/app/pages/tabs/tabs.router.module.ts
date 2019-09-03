@@ -12,16 +12,7 @@ const routes: Routes = [
 				children: [
 					{
 						path: '',
-						loadChildren: '../news/news.module#NewsPageModule'
-					}
-				]
-			},
-			{
-				path: 'news-detail',
-				children: [
-					{
-						path: '',
-						loadChildren: '../news-detail/news-detail.module#NewsDetailPageModule'
+						loadChildren: () => import('../news/news.module').then(m => m.NewsPageModule)
 					}
 				]
 			},
@@ -30,7 +21,7 @@ const routes: Routes = [
 				children: [
 					{
 						path: '',
-						loadChildren: '../categories/categories.module#CategoriesPageModule'
+						loadChildren: () => import('../categories/categories.module').then(m => m.CategoriesPageModule)
 					}
 				]
 			},
@@ -39,7 +30,7 @@ const routes: Routes = [
 				children: [
 					{
 						path: '',
-						loadChildren: '../favourites/favourites.module#FavouritesPageModule'
+						loadChildren: () => import('../favourites/favourites.module').then(m => m.FavouritesPageModule)
 					}
 				]
 			},
@@ -48,7 +39,7 @@ const routes: Routes = [
 				children: [
 					{
 						path: '',
-						loadChildren: '../about/about.module#AboutPageModule'
+						loadChildren: () => import('../about/about.module').then(m => m.AboutPageModule)
 					}
 				]
 			},

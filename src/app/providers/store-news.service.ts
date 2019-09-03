@@ -44,6 +44,7 @@ export class StoreNewsService {
 	async presentToast(message: string) {
 		const toast = await this.toastContr.create({
 			message,
+			position: 'middle',
 			duration: 2000
 		});
 		toast.present();

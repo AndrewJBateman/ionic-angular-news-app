@@ -9,9 +9,12 @@ const routes: Routes = [
 	},
 	{
 		path: 'app',
-		loadChildren: './pages/tabs/tabs.module#TabsPageModule'
+		loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
 	},
-  { path: 'search', loadChildren: './pages/search/search.module#SearchPageModule' },
+	{ path: 'search', loadChildren: './pages/search/search.module#SearchPageModule' },
+	{ path: 'news-detail',
+		loadChildren: () => import('./pages/news-detail/news-detail.module').then(m => m.NewsDetailPageModule)
+	}
 ];
 
 @NgModule({

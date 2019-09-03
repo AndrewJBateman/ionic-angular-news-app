@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController, ModalController, ToastController } from '@ionic/angular';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 import { NewsApiService } from 'src/app/providers/newsapi.service';
 import { StoreNewsService } from 'src/app/providers/store-news.service';
@@ -16,7 +17,11 @@ export class NewsDetailPage implements OnInit {
   constructor(
 		public newsService: NewsApiService,
 		public alertCtrl: AlertController,
-		public storeNewsService: StoreNewsService
+		public loadingCtrl: LoadingController,
+		public modalCtrl: ModalController,
+		public toastCtrl: ToastController,
+		public storeNewsService: StoreNewsService,
+		private socialSharing: SocialSharing
 	) { }
 
   ngOnInit() {
@@ -37,5 +42,15 @@ export class NewsDetailPage implements OnInit {
 	isFavourite(article: Article) {
 		return this.storeNewsService.isFavourite(article);
 	}
+
+  async openSocial(network: string, fab: HTMLIonFabElement) {
+    const loading = await this.loadingCtrl.create({
+      message: `Posting to ${network}`,
+      duration: (Math.random() * 1000) + 500
+    });
+    await loading.present();
+    await loading.onWillDismiss();
+    fab.close();
+  }
 
 }

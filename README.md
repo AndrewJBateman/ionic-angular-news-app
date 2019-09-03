@@ -67,24 +67,26 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 * **Categories page:** ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment. Shows time as '... ago'.
 * **Favourites page:** lists articles in reverse date order that have been saved by clicking on the favourites icon on the news-detail page.
 * **About page** with popover with links to Contact Form, Author Webste and Github repo.
+
 * **Dark mode** switch on menu changes from light to dark mode.
+* **Storage** of favourite articles using Ionic Storage.
 
-## Status & To-do list
+## Status
 
-* Status: Working news api and side/tabs menu system. News and categories pages work. News can be selected using a news source menu.
+* Status: Working but not complete.
 
-* To-do:
-* prevent storage from storing duplicate articles.
-* fix news-detail so it does not always go to the same page?
-* move location news to separate page?
-* store country code so other pages use it. add to common component?
-* theme scss - improve colors
-* language change menu i18n
-* Complete News page - work out how to highlight list item
-* Add news search popover?
-* splash screen
-* add weather to categories page?
-* contact form
+## To-do
+
+1. Favourites: prevent storage of duplicate articles. Add slide delete article function to favourites page.
+2. Seaerch: Add news search popover?
+3. store country code so other pages use it. add to common component?
+4. Theme scss: improve colors
+5. language change menu i18n
+6. News page - work out how to highlight list item
+7. splash screen
+8. add weather to categories page?
+9. network status and offline array storage
+10. contact form
 
 ## Inspiration
 

@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-			<ion-menu-button></ion-menu-button>
-			<ion-back-button text="" defaultHref="app/tabs/news"></ion-back-button>
+			<!-- <ion-menu-button></ion-menu-button> -->
+			<ion-back-button text="" defaultHref="app/tabs/news" router-direction="back"></ion-back-button>
     </ion-buttons>
     <ion-title *ngIf="article.source.name">{{article.source.name}}</ion-title>
   </ion-toolbar>
@@ -13,57 +13,63 @@
 		<ion-img [src]="article.urlToImage"></ion-img>
 		<ion-card-content no-padding>
   		<ion-list>
-				<p class="p-title">{{ article.title }}</p>
-				<p class="p-text" *ngIf="article.description">{{article.description}}</p>
-				<p class="p-text" *ngIf="article.content">{{article.content}} /
-					<span class="p-info">{{ article.publishedAt | dateConvert }}</span>
-				</p>
+				<ion-list-header>{{ article.title }}</ion-list-header>
+				<ion-text *ngIf="article.description">{{article.description}}</ion-text>
+				<ion-text *ngIf="article.content">{{article.content}}
+					<br><span class="small-text">{{ article.publishedAt | dateConvert }}</span>
+				</ion-text>
 			</ion-list>
 		</ion-card-content>
 		<ion-footer>
 			<ion-toolbar no-padding>
 				<ion-buttons>
-					<ion-button
-						color="primary"
-						size="small"
-						icon-left>
-						<ion-ripple-effect></ion-ripple-effect>
-						<ion-icon name="share"></ion-icon>
-						<div>Share</div>
-					</ion-button>
 
-					<ion-button
-						color="primary"
+		 			<ion-button
+					 	href="{{article.url}}"
+					 	target="_blank"
 						size="small"
-						href="{{article.url}}"
-						target="_blank"
-						icon-left>
-						<ion-ripple-effect></ion-ripple-effect>
+						icon-left>	
 						<ion-icon name="eye"></ion-icon>
-						<div>More...</div>
+						<div>&nbsp;View source</div>
 					</ion-button>
-
+					
 					<ion-button
 						*ngIf="!isFavourite(article)"
-						(click)="onAddToFavourites(article)"					
-						color="primary"
+						(click)="onAddToFavourites(article)"
 						size="small"
 						icon-left>
 						<ion-icon name="heart"></ion-icon>
-						<div>Favourite</div>
+						<div>&nbsp;Save article</div>
 					</ion-button>
 					<ion-button
-					*ngIf="isFavourite(article)"
-					(click)="onRemoveFromFavourites(article)"					
-					color="primary"
-					size="small"
-					icon-left>
-					<ion-icon name="heart"></ion-icon>
-					<div>Unfavourite</div>
+						*ngIf="isFavourite(article)"
+						(click)="onRemoveFromFavourites(article)"					
+						size="small"
+						icon-left>
+					<ion-icon name="heart-dislike"></ion-icon>
+					<div>&nbsp;Remove article</div>
 				</ion-button>
-					<ion-ripple-effect></ion-ripple-effect>
-				</ion-buttons>
-			</ion-toolbar>
-		</ion-footer>
+			</ion-buttons>
+		</ion-toolbar>
+	</ion-footer>
 	</ion-card>
+	<ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
+		<ion-fab-button>
+			<ion-icon name="share"></ion-icon>
+		</ion-fab-button>
+		<ion-fab-list side="start">
+			<ion-fab-button color="light" (click)="openSocial('Vimeo', fab)">
+				<ion-icon name="logo-vimeo"></ion-icon>
+			</ion-fab-button>
+			<ion-fab-button color="light" (click)="openSocial('Google+', fab)">
+				<ion-icon name="logo-googleplus"></ion-icon>
+			</ion-fab-button>
+			<ion-fab-button color="light" (click)="openSocial('Twitter', fab)">
+				<ion-icon name="logo-twitter"></ion-icon>
+			</ion-fab-button>
+			<ion-fab-button color="light" (click)="openSocial('Facebook', fab)">
+				<ion-icon name="logo-facebook"></ion-icon>
+			</ion-fab-button>
+		</ion-fab-list>
+	</ion-fab>
 </ion-content>

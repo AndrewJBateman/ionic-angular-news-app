@@ -19,9 +19,5 @@ export class ArticleListComponent implements OnInit {
 
   ngOnInit() {}
 
-  onGoToNewsDetail(article: any) {
-    this.newsService.currentArticle = article;
-    console.log('item clicked');
-		this.router.navigate(['app/tabs/news-detail']);
-	}
+  
 }

@@ -2,22 +2,18 @@ ion-icon {
 	color: var(--ion-color-tertiary);
 }
 
-.p-title {
-	color: var(--ion-color-primary);
-	margin-left: .5rem;
-}
-
-.p-text {
-	color: var(--ion-color-secondary);
-	margin-left: .5rem;
-}
-
-.p-info {
-	color: var(--ion-color-tertiary);
-	margin-left: .5rem;
-}
-
 .small-text {
 	color: var(--ion-color-tertiary);
-	margin-left: .5rem;
+}
+
+ion-list {
+	padding: 8px 8px;
+}
+
+ion-list-header {
+	padding: 0;
+}
+
+ion-button {
+	color: var(--ion-color-contrast);
 }

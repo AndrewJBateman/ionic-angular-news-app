@@ -89,4 +89,10 @@ export class NewsPage implements OnInit {
 			this.data = data;
 		});
 	}
+
+	onGoToNewsDetail(article: any) {
+    this.newsService.currentArticle = article;
+    console.log('item clicked');
+		this.router.navigate(['/news-detail']);
+	}
 }
