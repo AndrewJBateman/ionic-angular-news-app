@@ -1,9 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Platform } from '@ionic/angular';
+import { Platform, ToastController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 
+import { NetworkService } from './providers/network.service';
 import { ThemeService } from './providers/theme.service';
 
 @Component({
@@ -13,6 +14,8 @@ import { ThemeService } from './providers/theme.service';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
+	public isConnected = false;
+	text = '';
 	darkMode: any;
 	
 	public appPages = [
@@ -48,7 +51,9 @@ export class AppComponent {
     private router: Router,
     private splashScreen: SplashScreen,
 		private statusBar: StatusBar,
-		public themeService: ThemeService
+		public themeService: ThemeService,
+		public networkService: NetworkService,
+		public toastController: ToastController
   ) {
 		this.initializeApp();
 		this.darkMode = this.themeService.darkMode;
@@ -57,8 +62,26 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+			this.splashScreen.hide();
+			
+			// check network available
+			this.networkService.getNetworkStatus().subscribe((connected: boolean) => {
+				this.isConnected = connected;
+				console.log('Network status: ', this.isConnected);
+				// this.isConnected ? this.presentToast('network connected') : this.presentToast('network disconnected');
+			this.text = this.isConnected ? 'network connected' : 'network disconnected';
+			this.presentToast(this.text);
+			})
     });
+	}
+
+	async presentToast(message: string) {
+		const toast = await this.toastController.create({
+			message: message,
+			position: 'middle',
+			duration: 2000
+		});
+		toast.present();
 	}
 	
 }

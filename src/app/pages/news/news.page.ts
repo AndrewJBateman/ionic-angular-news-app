@@ -1,9 +1,14 @@
-import { Component, OnInit, NgModule } from '@angular/core';
-import { Router } from '@angular/router';
-import { LoadingController, ModalController } from '@ionic/angular';
-import { AlertController } from '@ionic/angular';
 
-import {NewsApiService} from '../../providers/newsapi.service';
+import { Component, OnInit, NgModule, ChangeDetectorRef } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoadingController, ModalController, ToastController, Platform } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
+import { debounceTime, map } from 'rxjs/operators';
+
+import { NewsApiService } from '../../providers/newsapi.service';
+import { StoreNewsService } from '../../providers/store-news.service';
+import { NetworkService } from '../../providers/network.service';
+import { environment } from './../../../environments/environment';
 
 // array of countries served by the news API service - note it does not include Spain
 const countryCodeArray = [
@@ -27,10 +32,16 @@ export class NewsPage implements OnInit {
 	status = '';
 	sources = [];
 	selectedSource = 'CNN';
+	public isConnected = true;
 
 	constructor(
+		public toastController: ToastController,
+		private platform: Platform,
 		private newsService: NewsApiService,
 		private router: Router,
+		private storeNewsService: StoreNewsService,
+		private networkService: NetworkService,
+		private changeDetectorRef: ChangeDetectorRef,
 		public modalCtrl: ModalController,
 		public loadingCtrl: LoadingController,
 		public alertCtrl: AlertController
@@ -50,7 +61,8 @@ export class NewsPage implements OnInit {
 	// ngOnInit lifecycle loads list of sources once.
 	// It is not reloaded when reentering page but doesn't mattter as this data will not change.
   ngOnInit() {
-		console.log('run ngOnInit function');
+		console.log('[News] OnInit');
+		this.networkSubscriber();
 		this.newsService.getSources('/sources?').subscribe(
 			data => {
 				this.status = data.status;
@@ -61,6 +73,22 @@ export class NewsPage implements OnInit {
 			}
 		);
 	}
+
+	networkSubscriber(): void {
+		this.networkService
+				.getNetworkStatus()
+				.pipe(
+					debounceTime(300))
+				.subscribe((connected: boolean) => {
+						this.isConnected = connected;
+						console.log('[News] isConnected', this.isConnected);
+				});
+}
+
+	networkStatus() {
+		this.networkService.getNetworkStatus().subscribe()
+	}
+
 	// ionViewWillEnter lifecycle event used so news reloads if coming back to the news page
 	ionViewWillEnter() {
 	}
@@ -90,9 +118,28 @@ export class NewsPage implements OnInit {
 		});
 	}
 
+	doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
+
 	onGoToNewsDetail(article: any) {
     this.newsService.currentArticle = article;
     console.log('item clicked');
 		this.router.navigate(['/news-detail']);
+	}
+
+	// show pop-up message using this function with 'message' input
+	async presentToast(message: string) {
+		const toast = await this.toastController.create({
+			message,
+			position: 'middle',
+			duration: 2000
+		});
+		toast.present();
 	}
 }

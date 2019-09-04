@@ -11,7 +11,9 @@ const routes: Routes = [
 		path: 'app',
 		loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
 	},
-	{ path: 'search', loadChildren: './pages/search/search.module#SearchPageModule' },
+	{ path: 'search',
+		loadChildren: './pages/search/search.module#SearchPageModule'
+	},
 	{ path: 'news-detail',
 		loadChildren: () => import('./pages/news-detail/news-detail.module').then(m => m.NewsDetailPageModule)
 	}

@@ -51,6 +51,10 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 * [Ionic Storage v2.2.0](https://ionicframework.com/docs/building/storage)
 
+* [Ionic Native Network v5.13.0](https://ionicframework.com/docs/native/network)
+
+* [Ionic Native Social-Sharing v5.13.0](https://ionicframework.com/docs/native/social-sharing)
+
 ## Setup
 
 * To start the server on _localhost://8100_ type: 'ionic serve'
@@ -70,6 +74,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 * **Dark mode** switch on menu changes from light to dark mode.
 * **Storage** of favourite articles using Ionic Storage.
+* **Network** status check in initialisation and also to decide whether to show live or stored data.
 
 ## Status
 
@@ -78,19 +83,21 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 ## To-do
 
 1. Favourites: prevent storage of duplicate articles. Add slide delete article function to favourites page.
-2. Seaerch: Add news search popover?
+2. Search: Add news search popover?
 3. store country code so other pages use it. add to common component?
 4. Theme scss: improve colors
 5. language change menu i18n
-6. News page - work out how to highlight list item
-7. splash screen
-8. add weather to categories page?
-9. network status and offline array storage
-10. contact form
+6. News page - work out how to highlight list item - hover not applicable in phone mode
+7. News detail could use a footer so user can change pages
+8. splash screen
+9. add weather to categories page?
+10. network status and offline array storage
+11. contact form
 
 ## Inspiration
 
-Some of project structure based on: [Ionic example app: 'A conference app built with Ionic to demonstrate Ionic'](https://github.com/ionic-team/ionic-conference-app).
+* Some of project structure based on: [Ionic example app: 'A conference app built with Ionic to demonstrate Ionic'](https://github.com/ionic-team/ionic-conference-app).
+* The code for checking network status is based on: [Ionic 4 Network Check Example Problem](https://forum.ionicframework.com/t/ionic-4-network-check-example-problem/157909/2).
 
 ## Contact
 

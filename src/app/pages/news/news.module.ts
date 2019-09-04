@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { NewsPage } from './news.page';
 import { ComponentsModule} from '../../components/components.module';
 import { PipesModule } from '../../pipes/pipes.module';
+import { NetworkService } from '../../providers/network.service';
 
 const routes: Routes = [
   {
@@ -27,6 +28,6 @@ const routes: Routes = [
 	declarations: [
 		NewsPage
 	],
-	providers: []
+	providers: [NetworkService]
 })
 export class NewsPageModule {}

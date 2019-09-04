@@ -17,6 +17,15 @@ const routes: Routes = [
 				]
 			},
 			{
+				path: 'news-detail',
+				children: [
+					{
+						path: '',
+						loadChildren: () => import('../news-detail/news-detail.module').then(m => m.NewsDetailPageModule)
+					}
+				]
+			},
+			{
 				path: 'categories',
 				children: [
 					{
