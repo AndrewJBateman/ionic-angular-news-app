@@ -1,8 +1,11 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {IonSegment} from '@ionic/angular';
+
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonSegment } from '@ionic/angular';
 import { Router } from '@angular/router';
-import {Article} from 'src/app/interfaces/interfaces';
-import {NewsApiService} from 'src/app/providers/newsapi.service';
+
+import { Article } from 'src/app/interfaces/interfaces';
+import { NewsApiService } from 'src/app/providers/newsapi.service';
+import { NetworkService } from './../../providers/network.service';
 
 @Component({
 	selector: 'app-categories',
@@ -19,7 +22,8 @@ export class CategoriesPage implements OnInit {
 
 	constructor(
 		private newsService: NewsApiService,
-		private router: Router
+		private router: Router,
+		private networkService: NetworkService
 	) {}
 
 	ngOnInit() {
@@ -28,6 +32,7 @@ export class CategoriesPage implements OnInit {
 		this.loadCategoryNews(this.category);
 	}
 
+	// 
 	changeCategory(event: any) {
 		this.news = [];
 		console.log('change category to: ', event.detail.value);
@@ -35,7 +40,7 @@ export class CategoriesPage implements OnInit {
 	}
 
 
-	// gets news data from API request with a modified url that includes the category in the url input parameter
+	// get news data from API request with a modified url that includes category
 	loadCategoryNews(category: string, event?: any) {
 		console.log('run loadCategoryNews function with category: ', category);
 		this.newsService.getNews('top-headlines?category=' + category + '&country=us').subscribe(
@@ -49,16 +54,20 @@ export class CategoriesPage implements OnInit {
 			
 		);
 	}
-	// avoid duplication - move to services?
-	onGoToNewsDetail(article: any) {
-		this.newsService.currentArticle = article;
-    console.log('item clicked');
-    this.router.navigate(['app/tabs/news-detail']);
+	// get news detail via news API service
+	onGoToNewsDetail(article: Article) {
+		this.newsService.getNewsDetail(article);
 	}
 
+	// load news when news category chosen
 	loadData(event?: any) {
 		this.loadCategoryNews(this.category, event);
 	}
+
+		// refresh page via network service
+	onRefresh(event: any) {
+    this.networkService.refreshPage(event);
+  }
 
 	// doInfinite(infiniteScroll) {
 	// 	console.log('begin async operation');

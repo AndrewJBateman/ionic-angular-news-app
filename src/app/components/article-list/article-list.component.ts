@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Article } from '../../interfaces/interfaces';
 
-import {NewsApiService} from '../../providers/newsapi.service';
+import { NewsApiService } from '../../providers/newsapi.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,15 +9,12 @@ import { Router } from '@angular/router';
   templateUrl: './article-list.component.html',
   styleUrls: ['./article-list.component.scss'],
 })
-export class ArticleListComponent implements OnInit {
+export class ArticleListComponent {
 	@Input() article: Article;
 
   constructor(
 		private newsService: NewsApiService,
 		private router: Router
 	) { }
-
-  ngOnInit() {}
-
   
 }

@@ -3,7 +3,6 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-		<!-- <ion-title text-center>Headline News</ion-title> -->
 		<!--drop-down list of sources, select one to change the news source and reload list of news-->
 		<ion-item no-padding class="source" color="primary">
 				<ion-title text-center>News</ion-title><ion-label>Source: </ion-label>
@@ -16,13 +15,8 @@
 
 <ion-content color="light">
 	<!-- add pull-to-refresh functionality -->
-	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-		<ion-refresher-content
-			pullingIcon="arrow-dropdown"
-			pullingText="Pull to refresh"
-			refreshingSpinner="circles"
-			refreshingText="Refreshing...">
-		</ion-refresher-content>
+	<ion-refresher slot="fixed" (ionRefresh)="onRefresh($event)">
+		<app-page-refresh></app-page-refresh>
 	</ion-refresher>
 
 <!--	default screen 1 col size="12",	large screen: 3 cols size-lg="3",	medium screen: 4 cols size-md="4"
@@ -39,8 +33,8 @@ small screen: 2 cols size-sm="6",	v.small screen: 1 col size-xs="12" -->
 		</ion-list>
 	</ion-card>
 				
-<!-- 					</ion-col>
-				</ion-row>	
+<!-- 	</ion-col>
+		</ion-row>	
 	</ion-grid> -->
 
 </ion-content>

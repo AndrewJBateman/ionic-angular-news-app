@@ -42,4 +42,13 @@ export class NetworkService {
 	public getNetworkStatus(): Observable<boolean> {
 		return this.connected;
 	}
+
+	public refreshPage(event: any) {
+    console.log('Begin async page refresh');
+
+    setTimeout(() => {
+      console.log('Async page refresh complete');
+      event.target.complete();
+    }, 2000);
+  }
 }

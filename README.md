@@ -65,16 +65,21 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## Features
 
+### Pages
+
 * **Menu side-bar:** news, categories, favorites, search, about, change language, dark theme toggle. Image/logo at bottom?
-* **News page** shows world headlines using an ion-card list. Add share/favorite modal menu? Shows time as '... ago'.
+* **News page** shows world headlines using an ion-card list. Has view and favorite + social media share buttons. Shows time as '... ago'.
 * **News-detail page** shows the selected news item in more detail with links to favourites share buttons? Shows time as '... ago'. Includes working footer buttons for 'More info', which opens news source in a separate window and 'Favourite' which adds the article to a stored news array.
 * **Categories page:** ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment. Shows time as '... ago'.
 * **Favourites page:** lists articles in reverse date order that have been saved by clicking on the favourites icon on the news-detail page.
 * **About page** with popover with links to Contact Form, Author Webste and Github repo.
 
+### Functionality
+
 * **Dark mode** switch on menu changes from light to dark mode.
 * **Storage** of favourite articles using Ionic Storage.
 * **Network** status check in initialisation and also to decide whether to show live or stored data.
+* **Refresh** dragging down will refresh content on the News, Categories and Favourites.
 
 ## Status
 
@@ -87,12 +92,11 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 3. store country code so other pages use it. add to common component?
 4. Theme scss: improve colors
 5. language change menu i18n
-6. News page - work out how to highlight list item - hover not applicable in phone mode
-7. News detail could use a footer so user can change pages
-8. splash screen
-9. add weather to categories page?
-10. network status and offline array storage
-11. contact form
+6. News detail could use a footer so user can change pages??
+7. splash screen
+8. add weather to categories page?
+9. network status - use to decide on showing news from online API or offline array storage
+10. contact form
 
 ## Inspiration
 

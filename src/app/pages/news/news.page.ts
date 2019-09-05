@@ -7,6 +7,7 @@ import { debounceTime, map } from 'rxjs/operators';
 
 import { NewsApiService } from '../../providers/newsapi.service';
 import { StoreNewsService } from '../../providers/store-news.service';
+import { Article } from './../../interfaces/interfaces';
 import { NetworkService } from '../../providers/network.service';
 import { environment } from './../../../environments/environment';
 
@@ -45,7 +46,15 @@ export class NewsPage implements OnInit {
 		public modalCtrl: ModalController,
 		public loadingCtrl: LoadingController,
 		public alertCtrl: AlertController
-	) {
+	) {	}
+	// ngOnInit lifecycle checks network and loads list of sources.
+	// It is not reloaded when reentering page.
+  ngOnInit() {
+		console.log('[News] OnInit');
+
+		// check network status
+		this.networkSubscriber();
+
 		// fetch user country then fetch news for that country - use 'us' if country not in countryCode array
 		this.newsService.getCountryCode().subscribe(
 			data => {
@@ -57,12 +66,8 @@ export class NewsPage implements OnInit {
 				this.getCountryNews(checkedCountryCode);
 			}
 		)
-	}
-	// ngOnInit lifecycle loads list of sources once.
-	// It is not reloaded when reentering page but doesn't mattter as this data will not change.
-  ngOnInit() {
-		console.log('[News] OnInit');
-		this.networkSubscriber();
+
+		// get list of news sources via news API service
 		this.newsService.getSources('/sources?').subscribe(
 			data => {
 				this.status = data.status;
@@ -74,26 +79,28 @@ export class NewsPage implements OnInit {
 		);
 	}
 
+	// subscribe to network connected state
 	networkSubscriber(): void {
 		this.networkService
-				.getNetworkStatus()
-				.pipe(
-					debounceTime(300))
-				.subscribe((connected: boolean) => {
-						this.isConnected = connected;
-						console.log('[News] isConnected', this.isConnected);
-				});
-}
+			.getNetworkStatus()
+			.pipe(
+				debounceTime(300))
+			.subscribe((connected: boolean) => {
+				this.isConnected = connected;
+				console.log('[News] isConnected', this.isConnected);
+			});
+	}
 
+	// get boolean state of network status
 	networkStatus() {
-		this.networkService.getNetworkStatus().subscribe()
+		this.networkService.getNetworkStatus().subscribe();
 	}
 
 	// ionViewWillEnter lifecycle event used so news reloads if coming back to the news page
 	ionViewWillEnter() {
 	}
 
-	// fetch news for user/default country
+	// fetch news for user/default country via news API service
 	getCountryNews(countryCode: string) {
 		this.newsService.getNews('top-headlines?country=' + countryCode).subscribe(
 			data => {
@@ -102,14 +109,14 @@ export class NewsPage implements OnInit {
 		);
 	};
 
-	// bind to selected source
+	// bind source to selected source
   chooseSource(source: string) {
 		console.log('run function chooseSource to make news source equal to selected source');
 		this.selectedSource = source;
   	this.loadSourceData();
 	}
 
-	// fetch news from default/selected source using http get request
+	// fetch news from default/selected source via news API service
 	loadSourceData(event?: any) {
 		this.newsService.getNews('top-headlines?sources=' + this.selectedSource).subscribe(data => {
 			console.log('loadSourceData function ran to get list of news articles from', this.selectedSource);
@@ -118,19 +125,14 @@ export class NewsPage implements OnInit {
 		});
 	}
 
-	doRefresh(event) {
-    console.log('Begin async operation');
-
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      event.target.complete();
-    }, 2000);
+	// refresh page via network service
+	onRefresh(event: any) {
+    this.networkService.refreshPage(event);
   }
 
-	onGoToNewsDetail(article: any) {
-    this.newsService.currentArticle = article;
-    console.log('item clicked');
-		this.router.navigate(['/news-detail']);
+	// fetch news detail via news API service
+	onGoToNewsDetail(article: Article) {
+		this.newsService.getNewsDetail(article);
 	}
 
 	// show pop-up message using this function with 'message' input

@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { LocationResponse, SourcesResponse, NewsApiResponse } from '../interfaces/interfaces';
+import { Article } from '../interfaces/interfaces';
 import { environment } from '../../environments/environment';
 
 const apiUrl = environment.API_URL;
@@ -15,7 +17,10 @@ export class NewsApiService {
 	currentArticle: any; // used by news-detail page
 
 	// fetch news from user country
-	constructor(private http: HttpClient) {
+	constructor(
+		private http: HttpClient,
+		private router: Router
+	) {
 		this.getCountryCode();
 	}
 
@@ -33,4 +38,11 @@ export class NewsApiService {
   getNews(url: string) {
 		return this.http.get<NewsApiResponse>(`${apiUrl}/${url}&apiKey=${apiKey}`);
 	}
+
+	getNewsDetail(article: Article) {
+		this.currentArticle = article;
+    console.log('news item clicked - show news-detail');
+		this.router.navigate(['/news-detail']);
+	}
 }
+ 

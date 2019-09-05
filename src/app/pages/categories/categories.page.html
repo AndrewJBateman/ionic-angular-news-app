@@ -18,41 +18,16 @@
 	</ion-segment>
 </ion-header>
 
-<!--list articles returned from API get request-->
-<!-- <ion-content>
-  <ion-card *ngFor="let article of data?.articles" (click)="onGoToNewsDetail(article)">
-    <ion-img [src]="article.urlToImage" alt="{{article.title}}"></ion-img>
-    <ion-card-title text-wrap style="font-size: 1rem; color: #456f54;">{{article.title}}</ion-card-title>
-	</ion-card>
+<ion-content>
+	<!-- add pull-to-refresh functionality -->
+	<ion-refresher slot="fixed" (ionRefresh)="onRefresh($event)">
+		<app-page-refresh></app-page-refresh>
+	</ion-refresher>
 	
-	<ion-infinite-scroll threshold="150px" (ionInfinite)="loadData($event)">
-    <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Loading...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
-</ion-content> -->
-
 	<!--list of news articles by category-->
   <ion-card class="articles" color="secondary" >
-		
-		<ion-list *ngFor="let article of data?.articles" style="padding: 0;">
-
-<!-- 			<ion-item class="list-item" (click)="onGoToNewsDetail(article)">
-				<ion-thumbnail item-left *ngIf="article.urlToImage" style="margin-right: 5px;">
-					<img [src]="article.urlToImage" class="thumbnail" alt="{{article.title}}" imageViewer>
-				</ion-thumbnail>
-				<ion-label>
-					<ion-text class="news-text" text-wrap style="color: #456f54;">
-						{{article.title}}
-					</ion-text>
-					<small class="small-text">&nbsp;{{ article.publishedAt | dateConvert }}</small>
-				</ion-label>
-			</ion-item> -->
+		<ion-list *ngFor="let article of data?.articles" style="padding: 0;" (click)="onGoToNewsDetail(article)" router-direction="forward">
 			<app-article-list [article]="article"></app-article-list>
-
 		</ion-list>
-
-		<!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-			<ion-infinite-scroll-content></ion-infinite-scroll-content>
-		</ion-infinite-scroll> -->
-
 	</ion-card>
+</ion-content>
