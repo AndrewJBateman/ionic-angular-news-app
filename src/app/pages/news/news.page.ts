@@ -1,12 +1,11 @@
-
 import { Component, OnInit, NgModule, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController, ModalController, ToastController, Platform } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { debounceTime, map } from 'rxjs/operators';
 
-import { NewsApiService } from '../../providers/newsapi.service';
-import { StoreNewsService } from '../../providers/store-news.service';
+import { NewsApiService } from '../../providers/news-api.service';
+import { NewsStorageService } from '../../providers/news-storage.service';
 import { Article } from './../../interfaces/interfaces';
 import { NetworkService } from '../../providers/network.service';
 import { environment } from './../../../environments/environment';
@@ -32,15 +31,19 @@ export class NewsPage implements OnInit {
 	data: any;
 	status = '';
 	sources = [];
+	onlySources = [];
 	selectedSource = 'CNN';
+	defaultCountry = 'us';
 	public isConnected = true;
+	sourceChosen = false;
+	storedData: any;
 
 	constructor(
 		public toastController: ToastController,
 		private platform: Platform,
 		private newsService: NewsApiService,
 		private router: Router,
-		private storeNewsService: StoreNewsService,
+		private newsStorageService: NewsStorageService,
 		private networkService: NetworkService,
 		private changeDetectorRef: ChangeDetectorRef,
 		public modalCtrl: ModalController,
@@ -55,14 +58,17 @@ export class NewsPage implements OnInit {
 		// check network status
 		this.networkSubscriber();
 
-		// fetch user country then fetch news for that country - use 'us' if country not in countryCode array
+		// fetch user country then fetch news for that country - use defaultCountry if country not in countryCode array
 		this.newsService.getCountryCode().subscribe(
+		
 			data => {
+				console.log('country code search: ', data);
 				const countryData = data;
 				this.countryCode = countryData.countryCode.toLowerCase();
-				const checkedCountryCode = countryCodeArray.indexOf(
-					this.countryCode.toLowerCase()) === -1 ? 'us' : countryData.countryCode.toLowerCase();
-				console.log(checkedCountryCode);
+				const checkedCountryCode = countryCodeArray
+					.indexOf(this.countryCode.toLowerCase()) === -1 ? this.defaultCountry : countryData.countryCode.toLowerCase();
+				console.log('Country code is: ', checkedCountryCode);
+				this.newsStorageService.storeData('userCountry', checkedCountryCode.toString());
 				this.getCountryNews(checkedCountryCode);
 			}
 		)
@@ -72,11 +78,14 @@ export class NewsPage implements OnInit {
 			data => {
 				this.status = data.status;
 				this.sources = data.sources;
+
+				// this.newsStorageService.storeData('newsSources', JSON.stringify(this.sources));
 				console.log('ngOnInit getSources function ran with status "', this.status, '" and retrieved an array of', +this.sources.length, 'sources.');
 			}, err => {
 				console.log('an error occured: ', err);
 			}
 		);
+		
 	}
 
 	// subscribe to network connected state
@@ -100,17 +109,55 @@ export class NewsPage implements OnInit {
 	ionViewWillEnter() {
 	}
 
-	// fetch news for user/default country via news API service
+	// if connected: fetch news for user/default country via news API service and store it via storage service
+	// if not connected fetch news from storage or show message saying no connection and storage is empty.
 	getCountryNews(countryCode: string) {
-		this.newsService.getNews('top-headlines?country=' + countryCode).subscribe(
-			data => {
-				this.data = data;
+		this.platform.ready().then(() => {
+			if (this.isConnected) {
+				this.newsService.getNews('top-headlines?country=' + countryCode).subscribe(
+					data => {
+						// this.data = data;
+						const savedNews = this.newsStorageService.storeData('storedNews', JSON.stringify(data));
+						if (savedNews) {
+							console.log('saved News');
+							this.getStoredNews();
+						}
+					},
+					(err) => {
+						console.log('An error occured in the API data fetching');
+						this.presentToast('An error occured, showing stored news');
+					}
+				);
 			}
-		);
-	};
+			else {
+				console.log('no network - getting stored news');
+				this.getStoredNews();
+			}
+		});
+		
+	}
+
+	getStoredNews() {
+		console.log('sourceChosen', this.sourceChosen);
+		try {
+			this.newsStorageService.getStoredData('storedNews').then(data => {
+				if (data === '' || data === undefined || data === null) {
+					this.presentToast('News storage contains no articles - await network connection');
+				}
+				else {
+					this.storedData = JSON.parse(data);
+				}
+			});
+		}
+		catch(err) {
+		alert('Error getting stored data' + err);
+		}
+	}
+
 
 	// bind source to selected source
   chooseSource(source: string) {
+		
 		console.log('run function chooseSource to make news source equal to selected source');
 		this.selectedSource = source;
   	this.loadSourceData();
@@ -120,7 +167,8 @@ export class NewsPage implements OnInit {
 	loadSourceData(event?: any) {
 		this.newsService.getNews('top-headlines?sources=' + this.selectedSource).subscribe(data => {
 			console.log('loadSourceData function ran to get list of news articles from', this.selectedSource);
-			
+			this.sourceChosen = true;
+			console.log('sourceChosen', this.sourceChosen);
 			this.data = data;
 		});
 	}

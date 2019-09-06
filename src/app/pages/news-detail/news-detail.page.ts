@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController, ModalController, ToastController } from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
-import { NewsApiService } from 'src/app/providers/newsapi.service';
-import { StoreNewsService } from 'src/app/providers/store-news.service';
+import { NewsApiService } from 'src/app/providers/news-api.service';
+import { NewsStorageService } from 'src/app/providers/news-storage.service';
 import { Article } from './../../interfaces/interfaces';
 
 @Component({
@@ -20,7 +20,7 @@ export class NewsDetailPage implements OnInit {
 		public loadingCtrl: LoadingController,
 		public modalCtrl: ModalController,
 		public toastCtrl: ToastController,
-		public storeNewsService: StoreNewsService,
+		public storeNewsService: NewsStorageService,
 		private socialSharing: SocialSharing
 	) { }
 

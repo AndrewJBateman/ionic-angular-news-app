@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -13,20 +13,27 @@ const apiKey = environment.API_KEY;
   providedIn: 'root'
 })
 
-export class NewsApiService {
+export class NewsApiService implements OnInit {
 	currentArticle: any; // used by news-detail page
 
 	// fetch news from user country
 	constructor(
 		private http: HttpClient,
 		private router: Router
-	) {
+	) {}
+
+	ngOnInit() {
 		this.getCountryCode();
 	}
 
 	// fetch country code from ip location API
 	getCountryCode() {
-		return this.http.get<LocationResponse>('http://ip-api.com/json');
+		try {
+			return this.http.get<LocationResponse>('http://ip-api.com/json');
+		}
+		catch (err) {
+			console.log('Error in getCountryCode function' + err);
+		}
 	}
 
 	// fetch sources from news API using url input

@@ -4,7 +4,7 @@ import { IonSegment } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 import { Article } from 'src/app/interfaces/interfaces';
-import { NewsApiService } from 'src/app/providers/newsapi.service';
+import { NewsApiService } from 'src/app/providers/news-api.service';
 import { NetworkService } from './../../providers/network.service';
 
 @Component({

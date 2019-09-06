@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { StoreNewsService } from 'src/app/providers/store-news.service';
+import { NewsStorageService } from 'src/app/providers/news-storage.service';
 import { Article } from 'src/app/interfaces/interfaces';
-import { NewsApiService } from 'src/app/providers/newsapi.service';
+import { NewsApiService } from 'src/app/providers/news-api.service';
 import { NetworkService } from './../../providers/network.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class FavouritesPage implements OnInit {
 
   constructor(
 		private newsService: NewsApiService,
-		public storageService: StoreNewsService,
+		public storageService: NewsStorageService,
 		private networkService: NetworkService
 	) {	}
 

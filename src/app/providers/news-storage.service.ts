@@ -6,7 +6,7 @@ import { ToastController } from '@ionic/angular';
 @Injectable({
   providedIn: 'root'
 })
-export class StoreNewsService {
+export class NewsStorageService {
 	// initialise a store of news articles as an 	empty array
 	news: Article[] = [];
 
@@ -17,6 +17,34 @@ export class StoreNewsService {
 		this.loadFavourites();
 	}
 
+	async storeData(key: string, value: string) {
+		try {
+			this.storage.set(key, value);
+			// await console.log('Data stored under key: ', key, 'is: ', this.storage.get(key));
+			const result: string = await this.storage.get(key);
+			// console.log('result', result);
+			return true;
+		}
+		catch (err) {
+			alert('Error storing data: ' + err);
+			return false;
+		}
+	}
+
+	getStoredData(key: string) {
+		try {
+			return this.storage.get(key);
+		}
+		catch(err) {
+			alert ('Error getting stored data: ' + err);
+			return null;
+		}
+	}
+
+	// storeCountryCode(checkedCountryCode) {
+	// 	this.storage.set('userCountry', checkedCountryCode);
+	// }
+
 	addToFavourites(article: Article) {
 		!this.isFavourite(article) ? this.storeArticle(article) :	console.log('article already exists in storage');
 	}
@@ -24,14 +52,16 @@ export class StoreNewsService {
 	// add new article to beginning of array so in date order. Add array to storage.
 	storeArticle(article: Article) {
 		this.news.unshift(article);
-		this.storage.set('favourites', this.news);
 		console.log('article added to news array: ', this.news);
+		// this.storage.set('favourites', this.news);
+		this.storeData('favourites', JSON.stringify(this.news));
 		this.presentToast('Article added to favourites');
 	}
 	// remove article from news array and storage.
 	removeFromFavourites(article: Article) {
-		this.news = this.news.filter( data => data.title !== article.title );
-		this.storage.set('favourites', this.news);
+		this.news = this.news.filter(data => data.title !== article.title);
+		this.storeData('favourites', JSON.stringify(this.news));
+
 		console.log('article removed from news array: ', this.news);
 		this.presentToast('Article deleted from favourites');
 	}

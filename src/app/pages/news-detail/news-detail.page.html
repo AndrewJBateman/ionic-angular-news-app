@@ -4,7 +4,7 @@
 			<!-- <ion-menu-button></ion-menu-button> -->
 			<ion-back-button text="" defaultHref="app/tabs/news" router-direction="back"></ion-back-button>
     </ion-buttons>
-    <ion-title *ngIf="article.source.name">{{article.source.name}}</ion-title>
+    <ion-title *ngIf="article.source.name">{{ article.source.name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,8 +14,8 @@
 		<ion-card-content no-padding>
   		<ion-list>
 				<ion-list-header>{{ article.title }}</ion-list-header>
-				<ion-text *ngIf="article.description">{{article.description}}</ion-text>
-				<ion-text *ngIf="article.content">{{article.content}}
+				<ion-text *ngIf="article.description">{{ article.description }}</ion-text>
+				<ion-text *ngIf="article.content">{{ article.content }}
 					<br><span class="small-text">{{ article.publishedAt | dateConvert }}</span>
 				</ion-text>
 			</ion-list>

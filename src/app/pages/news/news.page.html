@@ -26,8 +26,16 @@ small screen: 2 cols size-sm="6",	v.small screen: 1 col size-xs="12" -->
 			<ion-row>
 					<ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12"> -->
 				
-	<!--list of news articles-->
-	<ion-card class="articles" color="secondary" >
+
+	<!--list of news articles where source is not chosen-->
+	<ion-card *ngIf="!sourceChosen" class="articles" color="secondary" >
+		<ion-list *ngFor="let article of storedData?.articles" style="padding: 0;" (click)="onGoToNewsDetail(article)" router-direction="forward">
+			<app-article-list [article]="article"></app-article-list>
+		</ion-list>
+	</ion-card>
+
+	<!--list of news articles where source is chosen-->
+	<ion-card *ngIf="sourceChosen" class="articles" color="secondary" >
 		<ion-list *ngFor="let article of data?.articles" style="padding: 0;" (click)="onGoToNewsDetail(article)" router-direction="forward">
 			<app-article-list [article]="article"></app-article-list>
 		</ion-list>

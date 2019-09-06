@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Article } from '../../interfaces/interfaces';
 
-import { NewsApiService } from '../../providers/newsapi.service';
+import { NewsApiService } from '../../providers/news-api.service';
 import { Router } from '@angular/router';
 
 @Component({
