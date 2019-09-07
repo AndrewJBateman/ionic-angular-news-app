@@ -80,7 +80,12 @@ export class NewsPage implements OnInit {
 				this.sources = data.sources;
 
 				// this.newsStorageService.storeData('newsSources', JSON.stringify(this.sources));
-				console.log('ngOnInit getSources function ran with status "', this.status, '" and retrieved an array of', +this.sources.length, 'sources.');
+				console.log(
+					'ngOnInit getSources function ran with status "',
+					this.status,
+					'" and retrieved an array of',
+					+this.sources.length, 'sources.'
+				);
 			}, err => {
 				console.log('an error occured: ', err);
 			}

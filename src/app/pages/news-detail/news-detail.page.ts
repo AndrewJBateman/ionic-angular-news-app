@@ -51,6 +51,15 @@ export class NewsDetailPage implements OnInit {
     await loading.present();
     await loading.onWillDismiss();
     fab.close();
+	}
+	
+	appendString(content:string) {
+    try {
+      let result = content.split('[')[0].concat('(for full article click VIEW SOURCE)');
+      return result;
+    } catch (err){
+      console.log(err);
+    }
   }
 
 }

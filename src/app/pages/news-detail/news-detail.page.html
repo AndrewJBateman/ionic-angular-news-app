@@ -15,7 +15,7 @@
   		<ion-list>
 				<ion-list-header>{{ article.title }}</ion-list-header>
 				<ion-text *ngIf="article.description">{{ article.description }}</ion-text>
-				<ion-text *ngIf="article.content">{{ article.content }}
+				<ion-text *ngIf="article.content">{{ appendString(article.content) }}
 					<br><span class="small-text">{{ article.publishedAt | dateConvert }}</span>
 				</ion-text>
 			</ion-list>
