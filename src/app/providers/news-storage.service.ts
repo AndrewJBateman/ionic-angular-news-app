@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Article } from '../interfaces/interfaces';
 import { ToastController } from '@ionic/angular';
@@ -6,17 +6,20 @@ import { ToastController } from '@ionic/angular';
 @Injectable({
   providedIn: 'root'
 })
-export class NewsStorageService {
-	// initialise a store of news articles as an 	empty array
+export class NewsStorageService implements OnInit {
+	// initialise a store of news articles as an empty array
 	news: Article[] = [];
 
   constructor(
 		private storage: Storage,
 		private toastContr: ToastController
-	) {
+	) {}
+
+	ngOnInit() {
+		// this.storage.clear();
 		this.loadFavourites();
 	}
-
+			
 	async storeData(key: string, value: string) {
 		try {
 			this.storage.set(key, value);
@@ -51,9 +54,10 @@ export class NewsStorageService {
 
 	// add new article to beginning of array so in date order. Add array to storage.
 	storeArticle(article: Article) {
+		console.log('news array: ', this.news);
 		this.news.unshift(article);
 		console.log('article added to news array: ', this.news);
-		// this.storage.set('favourites', this.news);
+		this.storage.set('favourites', this.news);
 		this.storeData('favourites', JSON.stringify(this.news));
 		this.presentToast('Article added to favourites');
 	}

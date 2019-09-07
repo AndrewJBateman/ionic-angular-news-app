@@ -18,10 +18,19 @@
     </ion-slide>
 	</ion-slides>
 	
-	<!--list of news articles-->
+	<!--list of news articles with rhs slide to delete from favourites-->
 	<ion-card class="articles" color="secondary" >
-		<ion-list *ngFor="let article of storageService.news" style="padding: 0;" (click)="onGoToNewsDetail(article)" router-direction="forward">
-			<app-article-list [article]="article"></app-article-list>
+		<ion-list>
+			<ion-item-sliding *ngFor="let article of storageService.news" style="padding: 0;" (click)="onGoToNewsDetail(article)" router-direction="forward" #slidingItem>
+				<app-article-list [article]="article"></app-article-list>
+				<ion-item-options>
+					<ion-item-option
+						color="danger"
+						(click)="onRemoveFavourite(article, slidingItem)">
+						<ion-icon name="trash" slot="icon-only"></ion-icon>
+					</ion-item-option>
+				</ion-item-options>
+			</ion-item-sliding>
 		</ion-list>
 	</ion-card>
 </ion-content>
