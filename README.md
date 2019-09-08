@@ -57,6 +57,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## Setup
 
+* It is necessary to [register with news API](https://newsapi.org/register) to get an API key that is stored in the `environment.ts` file
 * To start the server on _localhost://8100_ type: 'ionic serve'
 
 ## Code Examples
@@ -80,6 +81,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 * **Offline Storage** of favourite articles using Ionic Storage.
 * **Network** status check in initialisation so latest news data is stored. Template data-binding always from stored data.
 * **Refresh** dragging down will perform refresh function.
+* **Progess Bars** ion-card shows while news loading on News, Categories and Favourites pages.
 
 ## Status
 
@@ -99,6 +101,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 10. Contact form
 11. SqLite - use as default database?
 12. Add to refresh function so News, Categories and Favourites is refreshed.
+13. Add progress bar.
 
 ## Inspiration
 

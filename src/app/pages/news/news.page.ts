@@ -54,6 +54,7 @@ export class NewsPage implements OnInit {
 	// It is not reloaded when reentering page.
   ngOnInit() {
 		console.log('[News] OnInit');
+		console.log('stored data: ', this.storedData);
 
 		// check network status
 		this.networkSubscriber();

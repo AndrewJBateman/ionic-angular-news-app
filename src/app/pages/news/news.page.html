@@ -13,7 +13,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="light">
+<ion-content>
 	<!-- add pull-to-refresh functionality -->
 	<ion-refresher slot="fixed" (ionRefresh)="onRefresh($event)">
 		<app-page-refresh></app-page-refresh>
@@ -27,15 +27,25 @@ small screen: 2 cols size-sm="6",	v.small screen: 1 col size-xs="12" -->
 					<ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12"> -->
 				
 
+	<!--ion-card with indeterminate progress bar that displays while news data loading-->
+	<ion-card  *ngIf="storedData === undefined">
+		<ion-card-header>
+			<ion-card-title>Loading news...</ion-card-title>
+		</ion-card-header>
+		<ion-card-content>
+			<ion-progress-bar type="indeterminate" color="secondary"></ion-progress-bar>
+		</ion-card-content>
+	</ion-card>
+	
 	<!--list of news articles where source is not chosen-->
-	<ion-card *ngIf="!sourceChosen" class="articles" color="secondary" >
+	<ion-card *ngIf="!sourceChosen" class="articles">
 		<ion-list *ngFor="let article of storedData?.articles" style="padding: 0;" (click)="onGoToNewsDetail(article)" router-direction="forward">
 			<app-article-list [article]="article"></app-article-list>
 		</ion-list>
 	</ion-card>
 
 	<!--list of news articles where source is chosen-->
-	<ion-card *ngIf="sourceChosen" class="articles" color="secondary" >
+	<ion-card *ngIf="sourceChosen" class="articles" >
 		<ion-list *ngFor="let article of data?.articles" style="padding: 0;" (click)="onGoToNewsDetail(article)" router-direction="forward">
 			<app-article-list [article]="article"></app-article-list>
 		</ion-list>

@@ -12,14 +12,34 @@
 	<ion-refresher slot="fixed" (ionRefresh)="onRefresh($event)">
 		<app-page-refresh></app-page-refresh>
 	</ion-refresher>
+<!-- 
   <ion-slides *ngIf="storageService.news.length === 0" [options]="sliderOptions">
     <ion-slide>
       <ion-label>No favorites</ion-label>
     </ion-slide>
-	</ion-slides>
+	</ion-slides> -->
+
+	<!--ion-card with indeterminate progress bar that displays while news data loading-->
+	<ion-card *ngIf="storageService.news.length === 0">
+			<img src="../../../assets/newspapers.jpg" />
+		<ion-card-content>
+
+			<h1 text-center>There are no stored articles</h1>
+		</ion-card-content>
+	</ion-card>
 	
+	<!--ion-card with indeterminate progress bar that displays while news data loading-->
+	<ion-card *ngIf="storageService.news === undefined">
+		<ion-card-header>
+			<ion-card-title>Loading news...</ion-card-title>
+		</ion-card-header>
+		<ion-card-content>
+			<ion-progress-bar type="indeterminate" color="secondary"></ion-progress-bar>
+		</ion-card-content>
+	</ion-card>
+
 	<!--list of news articles with rhs slide to delete from favourites-->
-	<ion-card class="articles" color="secondary" >
+	<ion-card *ngIf="storageService.news.length > 0" class="articles" color="secondary" >
 		<ion-list>
 			<ion-item-sliding *ngFor="let article of storageService.news" style="padding: 0;" (click)="onGoToNewsDetail(article)" router-direction="forward" #slidingItem>
 				<app-article-list [article]="article"></app-article-list>

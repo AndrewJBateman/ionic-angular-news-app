@@ -1,19 +1,5 @@
-ion-item.list-item {
-	border: 1px solid var(--ion-color-tertiary);
-	padding: 0px;
-	border-radius: 5px;
-	color: var(--ion-color-primary);
-
-	--ion-background-color: var(--ion-color-light);
-}
-
-ion-item.list-item:hover {
-	--ion-background-color: var(rgb(139, 241, 71));
-}
-
-.thumbnail {
-	background: #F2F2F2;
-	border: 1px solid var(--ion-color-tertiary);
+main {
+	background: white;
 }
 
 .small-text {

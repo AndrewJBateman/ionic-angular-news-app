@@ -16,7 +16,7 @@ export class NewsStorageService implements OnInit {
 	) {}
 
 	ngOnInit() {
-		// this.storage.clear();
+		this.storage.clear();
 		this.loadFavourites();
 	}
 			
