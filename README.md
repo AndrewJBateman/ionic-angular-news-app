@@ -80,8 +80,8 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 * **Dark mode** switch on menu changes from light to dark mode.
 * **Offline Storage** of favourite articles using Ionic Storage.
 * **Network** status check in initialisation so latest news data is stored. Template data-binding always from stored data.
-* **Refresh** dragging down will perform refresh function.
-* **Progess Bars** ion-card shows while news loading on News, Categories and Favourites pages.
+* **Common Refresh Component** dragging down will perform refresh function.
+* **Common Progess Bar Component** ion-card shows while news loading on News, Categories and Favourites pages.
 
 ## Status
 
@@ -101,7 +101,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 10. Contact form
 11. SqLite - use as default database?
 12. Add to refresh function so News, Categories and Favourites is refreshed.
-13. Add progress bar.
+13. Article cards - increase thumbnail image to 56 x 56, truncate text to 2 lines? - splice string?
 
 ## Inspiration
 

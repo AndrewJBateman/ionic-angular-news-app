@@ -14,10 +14,6 @@ main {
 	color: var(ion-color-primary-contrast);
 }
 
-	.space-left{
-		margin-left: 5px;
-	} 
-
 ion-text {
 color: var(ion-color-primary-contrast);
 
@@ -31,7 +27,3 @@ ion-segment-button {
 .segment-button-checked {
     color: var( --ion-color-dark) !important;
 }
-
-// ion-label {
-// 	background-color: var( --ion-color-primary);
-// }

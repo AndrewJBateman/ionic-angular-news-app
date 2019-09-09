@@ -5,9 +5,10 @@ import { IonicModule } from '@ionic/angular';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { PageRefreshComponent } from './page-refresh/page-refresh.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 @NgModule({
-	declarations: [ArticleListComponent, PageRefreshComponent],
+	declarations: [ArticleListComponent, PageRefreshComponent, ProgressBarComponent],
 	imports: [
 		CommonModule,
 		IonicModule,
@@ -15,7 +16,8 @@ import { PageRefreshComponent } from './page-refresh/page-refresh.component';
 	],
 	exports: [
 		ArticleListComponent,
-		PageRefreshComponent
+		PageRefreshComponent,
+		ProgressBarComponent
 	]
 })
 
