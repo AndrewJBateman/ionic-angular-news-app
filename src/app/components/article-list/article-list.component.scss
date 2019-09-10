@@ -1,33 +1,22 @@
-ion-item.list-item {
-	// --ion-background-color: var(--ion-color-light);
-	padding-bottom: 4px;
-}
-
-ion-item.list-item:hover {
-	--ion-background-color: var(--ion-color-tertiary);
-}
-
 ion-label {
-	margin: 0 0 0 6px;
-	color: #456f54;
+	color: var(--ion-color-light-contrast);
+	font-size: 16px;
+}
+
+ion-thumbnail {
+	width: 97.75px;
+	height: 82px;
+}
+
+.image-col {
+	padding: 0;
+}
+
+.text-col {
+	background-color: var(--ion-color-light);
 }
 
 .small-text {
 	color: var(--ion-color-tertiary);
-}
-
-.news-text {
-	display: flex;
-	align-items: center;
-	margin: 0;
-	size: 10px;
-	color: var(ion-color-primary-contrast);
-}
-
-.space-left{
-	margin-left: 5px;
-} 
-
-ion-text {
-	color: var(ion-color-primary-contrast);
+	white-space: nowrap;
 }

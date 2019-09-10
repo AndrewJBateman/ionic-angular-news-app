@@ -1,14 +1,15 @@
 <ion-card>
 	<ion-row>
-		<ion-col size-xs="2">
+		<ion-col class="image-col" size-xs="3">
 			<ion-thumbnail *ngIf="article.urlToImage">
 				<img [src]="article.urlToImage" class="thumbnail" alt="{{ article.title }}">
 			</ion-thumbnail>
 		</ion-col>
-			<ion-col size-xs="10">
+			<ion-col class="text-col" size-xs="9">
 				<ion-label class="news-text" text-wrap>
-					{{ article.title }} ({{ article.publishedAt | dateConvert }})
+					{{ article.title | titleConvert}}
 				</ion-label>
+				<span class="small-text">{{ article.publishedAt | dateConvert }}</span>
 			</ion-col>
 	</ion-row>
 </ion-card>

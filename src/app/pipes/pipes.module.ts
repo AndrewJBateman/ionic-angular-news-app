@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common'
 import { IonicModule } from '@ionic/angular';
 import { DateConvertPipe } from './date-convert.pipe';
+import { TitleConvertPipe } from './title-convert.pipe';
 
 @NgModule({
-	declarations: [DateConvertPipe],
+	declarations: [DateConvertPipe, TitleConvertPipe],
 	imports: [CommonModule, IonicModule],
-	exports: [DateConvertPipe]
+	exports: [DateConvertPipe, TitleConvertPipe]
 })
 
 export class PipesModule {}

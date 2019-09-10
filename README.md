@@ -101,7 +101,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 10. Contact form
 11. SqLite - use as default database?
 12. Add to refresh function so News, Categories and Favourites is refreshed.
-13. Article cards - increase thumbnail image to 56 x 56, truncate text to 2 lines? - splice string?
+13. Article card - add alternative images for when there is no image in the json data.
 
 ## Inspiration
 
