@@ -16,7 +16,8 @@ const routes: Routes = [
 	},
 	{ path: 'news-detail',
 		loadChildren: () => import('./pages/news-detail/news-detail.module').then(m => m.NewsDetailPageModule)
-	}
+	},
+  { path: 'language-popver', loadChildren: './pages/language-popver/language-popver.module#LanguagePopverPageModule' }
 ];
 
 @NgModule({

@@ -27,6 +27,8 @@
     "@ionic-native/status-bar": "^5.12.0",
     "@ionic/angular": "^4.8.0",
     "@ionic/storage": "^2.2.0",
+    "@ngx-translate/core": "^11.0.1",
+    "@ngx-translate/http-loader": "^4.0.0",
     "cordova-plugin-network-information": "^2.0.2",
     "cordova-plugin-x-socialsharing": "^5.4.7",
     "cordova-sqlite-storage": "^3.3.0",
