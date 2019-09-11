@@ -1,8 +1,8 @@
 // angular & ionic/angular modules
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -21,7 +21,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 // Components and modules
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LanguagePopverPageModule } from './pages/language-popver/language-popver.module';
+import { LanguagePopoverPageModule } from './pages/language-popover/language-popover.module';
 
 export function createTranslateLoader(http: HttpClient) {
 	return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -31,21 +31,25 @@ export function createTranslateLoader(http: HttpClient) {
 	declarations: [AppComponent],
 	entryComponents: [],
 	imports: [
+		CommonModule,
 		BrowserModule,
+		FormsModule,
+		ReactiveFormsModule,
 		IonicModule.forRoot(),
 		AppRoutingModule,
 		HttpClientModule,
 		IonicStorageModule.forRoot(),
 		TranslateModule.forRoot({
-			loader: {
-				provide: TranslateLoader,
-				useFactory: (createTranslateLoader),
-				deps: [HttpClient]
-			}
-		}),
-		LanguagePopverPageModule
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
+    LanguagePopoverPageModule
 	],
 	providers: [
+		Network,
 		StatusBar,
 		SplashScreen,
 		{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

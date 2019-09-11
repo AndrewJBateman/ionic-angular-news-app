@@ -5,12 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LanguagePopverPage } from './language-popver.page';
+import { LanguagePopoverPage } from './language-popover.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: LanguagePopverPage
+    component: LanguagePopoverPage
   }
 ];
 
@@ -21,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [LanguagePopverPage]
+  declarations: [LanguagePopoverPage]
 })
-export class LanguagePopverPageModule {}
+export class LanguagePopoverPageModule {}
