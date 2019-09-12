@@ -1,16 +1,13 @@
-// angular & ionic/angular modules
+// angular & ionic/angular node modules
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
-// ionic modules
+// ionic, ionic-native & ngx node modules
 import { IonicStorageModule } from '@ionic/storage';
-
-// Ionic native & ngx modules
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
@@ -21,8 +18,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 // Components and modules
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LanguagePopoverPageModule } from './pages/language-popover/language-popover.module';
 
+// exported translations loader function that fetches JSON files from the assets folder
 export function createTranslateLoader(http: HttpClient) {
 	return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -31,7 +28,6 @@ export function createTranslateLoader(http: HttpClient) {
 	declarations: [AppComponent],
 	entryComponents: [],
 	imports: [
-		CommonModule,
 		BrowserModule,
 		FormsModule,
 		ReactiveFormsModule,
@@ -46,9 +42,9 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    LanguagePopoverPageModule
 	],
 	providers: [
+		SocialSharing,
 		Network,
 		StatusBar,
 		SplashScreen,

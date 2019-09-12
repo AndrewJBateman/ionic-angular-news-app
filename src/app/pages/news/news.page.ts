@@ -1,14 +1,17 @@
+// angular & ionic/angular node modules
 import { Component, OnInit, NgModule, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController, ModalController, ToastController, Platform } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+
+// rxjs node modules
 import { debounceTime, map } from 'rxjs/operators';
 
+// services & interfaces
 import { NewsApiService } from '../../providers/news-api.service';
 import { NewsStorageService } from '../../providers/news-storage.service';
 import { Article } from './../../interfaces/interfaces';
 import { NetworkService } from '../../providers/network.service';
-import { environment } from './../../../environments/environment';
 
 // array of countries served by the news API service - note it does not include Spain
 const countryCodeArray = [
@@ -37,6 +40,7 @@ export class NewsPage implements OnInit {
 	public isConnected = true;
 	sourceChosen = false;
 	storedData: any;
+	selectedLanguage: 'string';
 
 	constructor(
 		public toastController: ToastController,
@@ -48,7 +52,7 @@ export class NewsPage implements OnInit {
 		private changeDetectorRef: ChangeDetectorRef,
 		public modalCtrl: ModalController,
 		public loadingCtrl: LoadingController,
-		public alertCtrl: AlertController
+		public alertCtrl: AlertController,
 	) {	}
 	// ngOnInit lifecycle checks network and loads list of sources.
 	// It is not reloaded when reentering page.

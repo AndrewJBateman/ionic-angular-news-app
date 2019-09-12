@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 
 import { NetworkService } from './providers/network.service';
 import { ThemeService } from './providers/theme.service';
+import { LanguageService } from './providers/language.service';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +15,10 @@ import { ThemeService } from './providers/theme.service';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-	public isConnected = false;
 	text = '';
 	darkMode: any;
-	
+	public isConnected = false;
+	public language: string = this.languageService.selected;
 	public appPages = [
     {
       title: 'News',
@@ -53,7 +54,8 @@ export class AppComponent {
 		private statusBar: StatusBar,
 		public themeService: ThemeService,
 		public networkService: NetworkService,
-		public toastController: ToastController
+		public toastController: ToastController,
+		private languageService: LanguageService,
   ) {
 		this.initializeApp();
 		this.darkMode = this.themeService.darkMode;
@@ -72,6 +74,7 @@ export class AppComponent {
 			this.text = this.isConnected ? 'network connected' : 'network disconnected';
 			this.presentToast(this.text);
 			})
+			this.languageService.setInitialAppLanguage();
     });
 	}
 
@@ -84,4 +87,7 @@ export class AppComponent {
 		toast.present();
 	}
 	
+	languageChange() {
+    this.languageService.setLanguage(this.language);
+  }
 }

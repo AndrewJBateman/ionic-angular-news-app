@@ -82,6 +82,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 * **Network** status check in initialisation so latest news data is stored. Template data-binding always from stored data.
 * **Common Refresh Component** dragging down will perform refresh function.
 * **Common Progess Bar Component** ion-card shows while news loading on News, Categories and Favourites pages.
+* **Localisation using i18n** so user can select between English (default), Spanish and French.
 
 ## Status
 
@@ -93,10 +94,10 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 2. Search: Add news search popover?
 3. Categories: add weather API?
 4. Theme scss: improve colors
-5. language change menu i18n
+5. language change menu i18n - working for News page - expand to tabs etc.
 6. News Detail page could use a footer so user can change pages?? go straight to favourites list?
 7. Splash screen
-8. Tabs bar - replace About with Search route?
+8. Tabs bar - replace About with Search route or Weather?
 9. Common article storage/access function.
 10. Contact form
 11. SqLite - use as default database?
@@ -107,6 +108,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 * Some of project structure based on: [Ionic example app: 'A conference app built with Ionic to demonstrate Ionic'](https://github.com/ionic-team/ionic-conference-app).
 * The code for checking network status is based on: [Ionic 4 Network Check Example Problem](https://forum.ionicframework.com/t/ionic-4-network-check-example-problem/157909/2).
+* [Ionic Academy Tutorial: How to Localise Your Ionic App with ngx-translate](https://ionicacademy.com/localise-ionic-ngx-translate/) however language selected using ion-select-option dropdown list in side-menu (ie not using a popover page).
 
 ## Contact
 

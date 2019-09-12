@@ -11,13 +11,14 @@ const routes: Routes = [
 		path: 'app',
 		loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
 	},
-	{ path: 'search',
+	{ 
+		path: 'search',
 		loadChildren: './pages/search/search.module#SearchPageModule'
 	},
-	{ path: 'news-detail',
+	{ 
+		path: 'news-detail',
 		loadChildren: () => import('./pages/news-detail/news-detail.module').then(m => m.NewsDetailPageModule)
-	},
-  { path: 'language-popver', loadChildren: './pages/language-popver/language-popver.module#languagePopoverPageModule' }
+	}
 ];
 
 @NgModule({

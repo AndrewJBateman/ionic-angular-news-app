@@ -31,11 +31,15 @@
 					<ion-item>
 						<ion-icon name="globe" slot="start" class="iconGlobe"></ion-icon>
 						<ion-label>Change language</ion-label>
-						<ion-select>
-							<ion-select-option option value="English" selected>EN</ion-select-option>
-							<ion-select-option option value="Spanish" selected>SP</ion-select-option>
-							<ion-select-option option value="French" selected>FR</ion-select-option>
+						<ion-select 
+						#Language	[(ngModel)]="language"
+						(ionChange)="languageChange()">
+							<ion-select-option option value="en" selected>EN</ion-select-option>
+							<ion-select-option option value="sp">SP</ion-select-option>
+							<ion-select-option option value="fr">FR</ion-select-option>
 						</ion-select>
+
+
 					</ion-item>
 						
 					<ion-item (click)="themeService.changeThemeMode()">

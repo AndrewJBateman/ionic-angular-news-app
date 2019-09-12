@@ -21,7 +21,7 @@ export class NewsDetailPage implements OnInit {
 		public modalCtrl: ModalController,
 		public toastCtrl: ToastController,
 		public storeNewsService: NewsStorageService,
-		private socialSharing: SocialSharing
+		public socialSharing: SocialSharing
 	) { }
 
   ngOnInit() {
