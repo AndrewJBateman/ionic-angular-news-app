@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title text-center>About</ion-title>
+    <ion-title text-center>{{ 'ABOUT.page-title' | translate }}</ion-title>
 		<ion-buttons slot="end">
       <ion-button (click)="presentPopover($event)">
     		<ion-icon slot="icon-only" name="more"></ion-icon>
@@ -19,12 +19,12 @@
         <ion-card>
 					<img src="assets/newspapers.jpg" alt="newspapers image">
 					<ion-card-header>
-            <ion-card-title text-center>World News</ion-card-title>
+            <ion-card-title text-center>{{ 'ABOUT.card-title' | translate }}</ion-card-title>
           </ion-card-header>
           <ion-card-content text-wrap>
-						<p>This app fetches live JSON metadata from <a href="https://newsapi.org" target="_blank" title="Go to the News API website">News API</a>, a HTTP REST API with articles from about 30,000 news sources/blogs world-wide.</p>
-						<p>Articles can be viewed in categories of general, technology, business, entertainment, health, science and sports.</p>
-						<p>Each article includes a link to the original news source that opens in a new window.</p>
+						<p>{{ 'ABOUT.para1-part1' | translate }}<a href="https://newsapi.org" target="_blank" title="Go to the News API website (opens in a new window)">News API</a>, {{ 'ABOUT.para1-part2' | translate }}</p>
+						<p>{{ 'ABOUT.para2' | translate }}</p>
+						<p>{{ 'ABOUT.para3' | translate }}</p>
           </ion-card-content>
         </ion-card>
       </ion-col>

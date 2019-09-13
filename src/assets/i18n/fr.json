@@ -1,7 +1,37 @@
 {
+	"MENU": {
+		"title": "Menu",
+		"Nav-header": "Naviguer",
+		"Nav-settings": "Reglage",
+		"Label-language": "Langage",
+		"LangOption-English": "AN",
+		"LangOption-Spanish": "ES",
+		"LangOption-French": "FR",
+		"Label-darkMode": "mode-sombre"
+	},
 	"NEWS": {
-		"title": "titre",
+		"title": "Nouvelles",
 		"source": "source",
 		"cancel": "annuler"
+	},
+	"NEWS-DETAIL": {
+		"title": "Nouvelles de: ",
+		"visit": "Visiter site web",
+		"favourite": "Ajouter aux Favouris"
+	},
+	"FAVOURITES": {
+		"title": "Favoris",
+		"notice": "Il n'y a pas d'articles dans les Favoris"
+	},
+	"PROGRESS_BAR": {
+		"title": "Chargement des nouvelles..."
+	},
+	"ABOUT": {
+		"page-title": "Sur Cette App",
+		"card-title": "Nouvelles du Monde",
+		"para1-part1": "This app fetches live JSON metadata from ",
+		"para1-part2": "a HTTP REST API with articles from about 30,000 news sources/blogs world-wide.",
+		"para2": "Articles can be viewed in categories of general, technology, business, entertainment, health, science and sports.",
+		"para3": "Each article includes a link to the original news source that opens in a new window."
 	}
 }

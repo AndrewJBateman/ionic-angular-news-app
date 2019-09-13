@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title text-center>Favourites</ion-title>
+    <ion-title text-center>{{ 'FAVOURITES.title' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +15,7 @@
 	<ion-card *ngIf="storageService.news.length === 0">
 			<img src="../../../assets/newspapers.jpg" />
 		<ion-card-content>
-			<h1 text-center>There are no stored articles</h1>
+			<h2 text-center>{{ 'FAVOURITES.notice' | translate }}</h2>
 		</ion-card-content>
 	</ion-card>
 

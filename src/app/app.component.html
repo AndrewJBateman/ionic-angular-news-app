@@ -4,20 +4,26 @@
     <ion-menu>
       <ion-header>
         <ion-toolbar color="primary">
-          <ion-title>Menu</ion-title>
+          <ion-title>{{ 'MENU.title' | translate }}</ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content>
 
         <ion-list>
           <ion-list-header>
-            <h5>Navigate</h5>
+            <ion-text class="small-text">{{ 'MENU.Nav-header' | translate }}</ion-text>
           </ion-list-header>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item [routerLink]="p.url" routerLinkActive="active" routerDirection="root">
               <ion-icon slot="start" [name]="p.icon" [class]="p.menuIcon"></ion-icon>
-              <ion-label>
-                {{p.title}}
+              <ion-label *ngIf="language==='en'">
+                {{ p.title }}
+							</ion-label>
+							<ion-label *ngIf="language==='fr'">
+                {{ p.titlefr }}
+							</ion-label>
+							<ion-label *ngIf="language==='sp'">
+                {{ p.titlesp }}
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
@@ -25,18 +31,18 @@
 				
 				<ion-list>
 					<ion-list-header>
-						<h5>Settings</h5>
+						<ion-text class="small-text">{{ 'MENU.Nav-settings' | translate }}</ion-text>
 					</ion-list-header>
 
 					<ion-item>
 						<ion-icon name="globe" slot="start" class="iconGlobe"></ion-icon>
-						<ion-label>Change language</ion-label>
+						<ion-label>{{ 'MENU.Label-language' | translate }}</ion-label>
 						<ion-select 
 						#Language	[(ngModel)]="language"
 						(ionChange)="languageChange()">
-							<ion-select-option option value="en" selected>EN</ion-select-option>
-							<ion-select-option option value="sp">SP</ion-select-option>
-							<ion-select-option option value="fr">FR</ion-select-option>
+							<ion-select-option option value="en" selected>{{ 'MENU.LangOption-English' | translate }}</ion-select-option>
+							<ion-select-option option value="sp">{{ 'MENU.LangOption-Spanish' | translate }}</ion-select-option>
+							<ion-select-option option value="fr">{{ 'MENU.LangOption-French' | translate }}</ion-select-option>
 						</ion-select>
 
 
@@ -44,7 +50,7 @@
 						
 					<ion-item (click)="themeService.changeThemeMode()">
 						<ion-icon name="contrast" slot="start"></ion-icon>
-						<ion-label>Dark mode</ion-label>
+						<ion-label>{{ 'MENU.Label-darkMode' | translate }}</ion-label>
 						<ion-toggle slot="end" [(ngModel)]="darkMode"></ion-toggle>
 					</ion-item>
 

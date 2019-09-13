@@ -4,7 +4,7 @@
 			<!-- <ion-menu-button></ion-menu-button> -->
 			<ion-back-button text="" defaultHref="app/tabs/news" router-direction="back"></ion-back-button>
     </ion-buttons>
-    <ion-title *ngIf="article.source.name">News from: {{ article.source.name }}</ion-title>
+    <ion-title *ngIf="article.source.name">{{ 'NEWS-DETAIL.title' | translate }} {{ article.source.name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -29,8 +29,8 @@
 					 	target="_blank"
 						size="small"
 						icon-left>	
-						<ion-icon name="eye"></ion-icon>
-						<div>&nbsp;View source</div>
+						<ion-icon name="eye" size="large"></ion-icon>
+						<div>&nbsp;{{ 'NEWS-DETAIL.visit' | translate }}</div>
 					</ion-button>
 					
 					<ion-button
@@ -38,8 +38,8 @@
 						(click)="onAddToFavourites(article)"
 						size="small"
 						icon-left>
-						<ion-icon name="heart"></ion-icon>
-						<div>&nbsp;Save article</div>
+						<ion-icon name="heart" size="large"></ion-icon>
+						<div>&nbsp;{{ 'NEWS-DETAIL.favourite' | translate }}</div>
 					</ion-button>
 					<ion-button
 						*ngIf="isFavourite(article)"

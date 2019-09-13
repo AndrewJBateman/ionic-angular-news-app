@@ -3,5 +3,25 @@
 		"title": "Noticias",
 		"source": "Fuente",
 		"cancel": "anular"
+	},
+	"NEWS-DETAIL": {
+		"title": "Noticias de: ",
+		"visit": "Visita pagina web",
+		"favourite": "Agregar a favoritos"
+	},
+	"FAVOURITES": {
+		"title": "Favoritos",
+		"notice": "No hay articulos en favoritos"
+	},
+	"PROGRESS_BAR": {
+		"title": "Cargando noticias..."
+	},
+	"ABOUT": {
+		"page-title": "Sobre esta app",
+		"card-title": "Noticias del Mundo",
+		"para1-part1": "This app fetches live JSON metadata from ",
+		"para1-part2": "a HTTP REST API with articles from about 30,000 news sources/blogs world-wide.",
+		"para2": "Articles can be viewed in categories of general, technology, business, entertainment, health, science and sports.",
+		"para3": "Each article includes a link to the original news source that opens in a new window."
 	}
 }

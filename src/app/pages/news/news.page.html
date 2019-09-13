@@ -35,7 +35,7 @@
 	<!--list of news articles where source is chosen-->
 	<div class="wrapper" *ngIf="sourceChosen">
 		<div *ngFor="let article of data?.articles"	style="padding: 0;"
-			(click)="onGoToNewsDetail(article)"	router-direction="forward">
+			(click)="onGoToNewsDetail(article)">
 			<app-article-list [article]="article"></app-article-list>
 		</div> 
 	</div>

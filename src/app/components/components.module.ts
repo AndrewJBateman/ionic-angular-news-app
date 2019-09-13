@@ -1,7 +1,12 @@
-// module required so item-list component can be used by more than one page
+// angular & ionic/angular node modules
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common'
 import { IonicModule } from '@ionic/angular';
+
+// ngx node modules
+import { TranslateModule } from '@ngx-translate/core';
+
+// Component & pipe modules
 import { ArticleListComponent } from './article-list/article-list.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { PageRefreshComponent } from './page-refresh/page-refresh.component';
@@ -12,7 +17,8 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 	imports: [
 		CommonModule,
 		IonicModule,
-		PipesModule
+		PipesModule,
+		TranslateModule
 	],
 	exports: [
 		ArticleListComponent,

@@ -1,9 +1,13 @@
+// angular & ionic/angular node modules
 import { Component, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { Platform, ToastController } from '@ionic/angular';
+
+// ionic-native & ngx node modules
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { Router } from '@angular/router';
 
+// Services
 import { NetworkService } from './providers/network.service';
 import { ThemeService } from './providers/theme.service';
 import { LanguageService } from './providers/language.service';
@@ -21,26 +25,34 @@ export class AppComponent {
 	public language: string = this.languageService.selected;
 	public appPages = [
     {
-      title: 'News',
+			title: 'News',
+			titlefr: 'Nouvelles',
+			titlesp: 'Noticias',
       url: '/app/tabs/news',
 			icon: 'list-box',
 			menuIcon: 'menuIconNews'
 			
     },
     {
-      title: 'Categories',
+			title: 'Categories',
+			titlefr: 'Categories',
+			titlesp: 'Categorias',
       url: '/app/tabs/categories',
 			icon: 'options',
 			menuIcon: 'menuIconCategories'
     },
     {
-      title: 'Favourites',
+			title: 'Favourites',
+			titlefr: 'Favoris',
+			titlesp: 'Favoritas',
       url: '/app/tabs/favourites',
 			icon: 'heart-empty',
 			menuIcon: 'menuIconFavourites'
     },
     {
-      title: 'About',
+			title: 'About',
+			titlefr: 'Sur cette app',
+			titlesp: 'Sobre esta app',
       url: '/app/tabs/about',
 			icon: 'information-circle-outline',
 			menuIcon: 'menuIconAbout'

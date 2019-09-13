@@ -9,7 +9,7 @@ const LNG_KEY = 'SELECTED_LANGUAGE';
   providedIn: 'root'
 })
 export class LanguageService {
-  selected = '';
+  selected = 'en';
  
   constructor(private translate: TranslateService, private storage: Storage, private plt: Platform ) { }
  
