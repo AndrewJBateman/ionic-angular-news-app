@@ -5,15 +5,15 @@
 			<ion-back-button text="" defaultHref="app/tabs/news" router-direction="back"></ion-back-button>
     </ion-buttons>
     <ion-title *ngIf="article.source.name">{{ 'NEWS-DETAIL.title' | translate }} {{ article.source.name }}</ion-title>
-  </ion-toolbar>
+	</ion-toolbar>
+	<ion-img class="detail-img" [src]="article.urlToImage"></ion-img>
 </ion-header>
 
 <ion-content no-padding>
-	<ion-card no-padding>
-		<ion-img [src]="article.urlToImage"></ion-img>
+	<ion-card no-padding no-margin>
 		<ion-card-content no-padding>
   		<ion-list>
-				<ion-list-header>{{ article.title }}</ion-list-header>
+				<ion-list-header class="detail-header">{{ article.title }}</ion-list-header>
 				<ion-text *ngIf="article.description">{{ article.description }}</ion-text>
 				<ion-text *ngIf="article.content">{{ appendString(article.content) }}
 					<br><span class="small-text">{{ article.publishedAt | dateConvert }}</span>

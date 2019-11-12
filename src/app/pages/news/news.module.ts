@@ -22,18 +22,19 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [
-  CommonModule,
-  FormsModule,
-  IonicModule,
-	RouterModule.forChild(routes),
-	TranslateModule,
-	PipesModule,
-	ComponentsModule
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RouterModule.forChild(routes),
+    TranslateModule,
+    PipesModule,
+    ComponentsModule
+    ],
+  declarations: [
+    NewsPage
   ],
-	declarations: [
-		NewsPage
-	],
-	providers: [NetworkService]
+  providers: [
+    NetworkService]
 })
 export class NewsPageModule {}

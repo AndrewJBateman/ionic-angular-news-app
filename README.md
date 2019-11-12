@@ -90,9 +90,9 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## To-do
 
-1. Favourites: prevent storage of duplicate articles. Add 'delete all' button at top.
+1. Favourites: prevent storage of duplicate articles. Add 'delete all' button at top. lhs sliding delete is not working.
 2. Search: Add news search popover?
-3. Categories: add weather API?
+3. Article card - add alternative images for when there is no image in the json data.
 4. Theme scss: improve colors
 5. language change menu i18n - working for News page - expand to tabs etc.
 6. News Detail page could use a footer so user can change pages?? go straight to favourites list?
@@ -102,7 +102,6 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 10. Contact form
 11. SqLite - use as default database?
 12. Add to refresh function so News, Categories and Favourites is refreshed.
-13. Article card - add alternative images for when there is no image in the json data.
 
 ## Inspiration
 

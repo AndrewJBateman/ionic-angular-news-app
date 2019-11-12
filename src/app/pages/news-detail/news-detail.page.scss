@@ -2,16 +2,21 @@ ion-icon {
 	color: var(--ion-color-tertiary);
 }
 
+ion-image {
+	width: 100%;
+}
+
 .small-text {
 	color: var(--ion-color-tertiary);
 }
 
 ion-list {
-	padding: 8px 8px;
+	padding: 16px;
 }
 
 ion-list-header {
-	padding: 0;
+	padding: 0 0 16px;
+	font-size: 18px;
 }
 
 ion-button {

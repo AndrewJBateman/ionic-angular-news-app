@@ -164,11 +164,10 @@ export class NewsPage implements OnInit {
 		}
 	}
 
-
 	// bind source to selected source
   chooseSource(source: string) {
 		
-		console.log('run function chooseSource to make news source equal to selected source');
+		console.log('Run function chooseSource to make news source equal to selected source');
 		this.selectedSource = source;
   	this.loadSourceData();
 	}

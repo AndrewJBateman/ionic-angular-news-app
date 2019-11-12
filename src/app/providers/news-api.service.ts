@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { LocationResponse, SourcesResponse, NewsApiResponse } from '../interfaces/interfaces';
@@ -27,6 +27,7 @@ export class NewsApiService implements OnInit {
 	}
 
 	// fetch country code from ip location API
+	// response.setHeader("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
 	getCountryCode() {
 		try {
 			return this.http.get<LocationResponse>('http://ip-api.com/json');
