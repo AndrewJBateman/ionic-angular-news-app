@@ -2,21 +2,8 @@ main {
 	background: white;
 }
 
-.small-text {
-	color: var(--ion-color-tertiary);
-}
-
-.news-text {
-	display: flex;
-	align-items: center;
-	margin: 0;
-	size: 10px;
-	color: var(ion-color-primary-contrast);
-}
-
 ion-text {
-color: var(ion-color-primary-contrast);
-
+color: var(ion-color-primary);
 }
 
 ion-segment-button {
@@ -25,5 +12,5 @@ ion-segment-button {
 }
 
 .segment-button-checked {
-    color: var( --ion-color-dark) !important;
+    color: var( --ion-color-tertiary) !important;
 }

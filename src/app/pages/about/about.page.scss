@@ -31,21 +31,21 @@ p {
 }
 
 a:link {
-	color: var(--ion-color-succes);
+	color: var(--ion-color-secondary);
 	background-color: transparent;
 	text-decoration: none;
 }
 
 a:visited {
-	color: var(--ion-color-tertiary);
+	color: var(--ion-color-secondary-shade);
 	background-color: transparent;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 a:hover, a:active {
-	color: var(--ion-color-secondary);
+	color: var(--ion-color-secondary-shade);
 	background-color: transparent;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 h6 {

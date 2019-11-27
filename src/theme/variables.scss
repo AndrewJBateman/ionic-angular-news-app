@@ -147,7 +147,21 @@
   --ion-color-light-contrast: #000000;
   --ion-color-light-contrast-rgb: 0,0,0;
   --ion-color-light-shade: #d7d8da;
-  --ion-color-light-tint: #f5f6f9;
+	--ion-color-light-tint: #f5f6f9;
+	
+	ion-tab-button.tab-selected {
+    ion-icon, ion-label {
+      color: var(--ion-color-secondary) !important;
+      --ion-color-base: var(--ion-color-secondary) !important;
+    }
+	}
+
+	
+	
+	ion-tab-bar {
+		border-top-width: 2px;
+		border-top-color: var(--ion-color-tertiary) !important;
+	} 
 	
 	.dark-theme {
 		--ion-color-primary: #eb4b58;

@@ -93,7 +93,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 * Status: Working but not complete.
 
 ## To-do
-1. Theme scss: improve colors
+1. Theme scss: improve colors - check dark theme.
 2. Search: Add news search popover?
 3. Article card - add alternative images for when there is no image in the json data.
 

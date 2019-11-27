@@ -34,6 +34,12 @@
 						<ion-text class="small-text">{{ 'MENU.Nav-settings' | translate }}</ion-text>
 					</ion-list-header>
 
+					<ion-item (click)="themeService.changeThemeMode()">
+						<ion-icon name="contrast" slot="start"></ion-icon>
+						<ion-label>{{ 'MENU.Label-darkMode' | translate }}</ion-label>
+						<ion-toggle slot="end" [(ngModel)]="darkMode"></ion-toggle>
+					</ion-item>
+
 					<ion-item>
 						<ion-icon name="globe" slot="start" class="iconGlobe"></ion-icon>
 						<ion-label>{{ 'MENU.Label-language' | translate }}</ion-label>
@@ -44,16 +50,8 @@
 							<ion-select-option option value="sp">{{ 'MENU.LangOption-Spanish' | translate }}</ion-select-option>
 							<ion-select-option option value="fr">{{ 'MENU.LangOption-French' | translate }}</ion-select-option>
 						</ion-select>
-
-
 					</ion-item>
 						
-					<ion-item (click)="themeService.changeThemeMode()">
-						<ion-icon name="contrast" slot="start"></ion-icon>
-						<ion-label>{{ 'MENU.Label-darkMode' | translate }}</ion-label>
-						<ion-toggle slot="end" [(ngModel)]="darkMode"></ion-toggle>
-					</ion-item>
-
 				</ion-list>
         
 			</ion-content>
