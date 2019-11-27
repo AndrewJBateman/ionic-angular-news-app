@@ -23,10 +23,6 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 4. Source domain name
 5. Language
 
-* Typescript interface used to define the expected structure of the json object returned from the news API.
-
-* Separate services page with API http fetch functions.
-
 ## Screenshots
 
 ![Ionic page](./img/news-page.png)
@@ -37,7 +33,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## Technologies
 
-* [Ionic v5.12.0](https://ionicframework.com/)
+* [Ionic v5.4.9](https://ionicframework.com/)
 
 * [Angular v8.2.3](https://angular.io/)
 
@@ -66,13 +62,21 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## Features
 
+* Typescript interface used to define the expected structure of the json object returned from the news API.
+
+* Separate services page with API http fetch functions.
+
+* [Ionic colour generator](https://ionicframework.com/docs/theming/color-generator) used to create color palette.
+
 ### Pages
 
-* **Menu side-bar:** news, categories, favorites, search, about, change language, dark theme toggle. Image/logo at bottom?
+* **Menu side-bar:** news, categories, favorites, search, about, change language, dark theme toggle.
+**TODO:** add Image/logo at bottom?
 * **News page** shows world headlines using an ion-card list. Has view and favorite + social media share buttons. Shows time as '... ago'.
 * **News-detail page** shows the selected news item in more detail with links to favourites share buttons? Shows time as '... ago'. Includes working footer buttons for 'More info', which opens news source in a separate window and 'Favourite' which adds the article to a stored news array. Array symbol at end of article content string replaced with text using split and concat.
 * **Categories page:** ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment. Shows time as '... ago'.
 * **Favourites page:** lists articles in reverse date order that have been saved by clicking on the favourites icon on the news-detail page. Sliding from the right now deletes the favourite.
+**TODO:** prevent storage of duplicate articles. Add 'delete all' button at top. lhs sliding delete is not working.
 * **About page** with popover with working links to Author Website and Github repo.
 
 ### Additional Functionality
@@ -89,11 +93,10 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 * Status: Working but not complete.
 
 ## To-do
-
-1. Favourites: prevent storage of duplicate articles. Add 'delete all' button at top. lhs sliding delete is not working.
+1. Theme scss: improve colors
 2. Search: Add news search popover?
 3. Article card - add alternative images for when there is no image in the json data.
-4. Theme scss: improve colors
+
 5. language change menu i18n - working for News page - expand to tabs etc.
 6. News Detail page could use a footer so user can change pages?? go straight to favourites list?
 7. Splash screen
