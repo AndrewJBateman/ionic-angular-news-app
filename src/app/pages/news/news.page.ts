@@ -63,9 +63,12 @@ export class NewsPage implements OnInit {
 		// check network status
 		this.networkSubscriber();
 
-		// fetch user country then fetch news for that country - use defaultCountry if country not in countryCode array
+		/* 
+		fetch user country via separate service function provider
+		fetch news for that country
+		use defaultCountry if country not in countryCode array
+		*/
 		this.newsService.getCountryCode().subscribe(
-		
 			data => {
 				console.log('country code search: ', data);
 				const countryData = data;

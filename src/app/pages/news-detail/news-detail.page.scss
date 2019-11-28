@@ -1,5 +1,5 @@
 ion-icon {
-	color: var(--ion-color-tertiary);
+	color: var(--ion-color-secondary);
 }
 
 ion-image {
@@ -7,7 +7,11 @@ ion-image {
 }
 
 .small-text {
-	color: var(--ion-color-tertiary);
+	color: var(--ion-color-secondary);
+}
+
+.footer-text {
+	font-size: 12px;
 }
 
 ion-list {
@@ -15,10 +19,15 @@ ion-list {
 }
 
 ion-list-header {
-	padding: 0 0 16px;
+	padding: 0 0 8px;
 	font-size: 18px;
 }
 
 ion-button {
-	color: var(--ion-color-contrast);
+	color: var(--ion-color-secondary);
+	padding-left: 6px;
+}
+
+ion-footer {
+	background-color: var(--ion-color-primary);
 }

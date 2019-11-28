@@ -1,7 +1,7 @@
-<ion-card>
+<ion-card *ngIf="article.urlToImage">
 	<ion-row>
 		<ion-col class="image-col" size-xs="3">
-			<ion-thumbnail *ngIf="article.urlToImage">
+			<ion-thumbnail>
 				<img [src]="article.urlToImage" class="thumbnail" alt="{{ article.title }}">
 			</ion-thumbnail>
 		</ion-col>
