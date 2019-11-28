@@ -16,7 +16,7 @@
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item [routerLink]="p.url" routerLinkActive="active" routerDirection="root">
               <ion-icon slot="start" [name]="p.icon" [class]="p.menuIcon"></ion-icon>
-              <ion-label *ngIf="language==='en'">
+							<ion-label *ngIf="language==='en'">
                 {{ p.title }}
 							</ion-label>
 							<ion-label *ngIf="language==='fr'">

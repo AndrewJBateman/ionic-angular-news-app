@@ -46,7 +46,7 @@ export class AppComponent {
 			titlefr: 'Favoris',
 			titlesp: 'Favoritas',
       url: '/app/tabs/favourites',
-			icon: 'heart-empty',
+			icon: 'heart',
 			menuIcon: 'menuIconFavourites'
     },
     {
@@ -54,7 +54,7 @@ export class AppComponent {
 			titlefr: 'Sur cette app',
 			titlesp: 'Sobre esta app',
       url: '/app/tabs/about',
-			icon: 'information-circle-outline',
+			icon: 'information-circle',
 			menuIcon: 'menuIconAbout'
     }
   ];

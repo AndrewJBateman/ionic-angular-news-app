@@ -4,8 +4,11 @@ ion-label {
 }
 
 ion-thumbnail {
-	width: 97.75px;
-	height: 82px;
+	// width: 97.75px;
+	width: 100%;
+	// height: 82px;
+	min-height: 68.4px;
+	height: 100%
 }
 
 .image-col {

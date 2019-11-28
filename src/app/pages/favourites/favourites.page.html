@@ -8,31 +8,39 @@
 </ion-header>
 
 <ion-content>
-	<app-page-refresh slot="fixed" (ionRefresh)="onRefresh($event)"></app-page-refresh>
-	<app-progress-bar *ngIf="storageService.news === undefined"></app-progress-bar>
+	<ion-grid no-padding>
+		<ion-row>
+			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" no-padding>
+	
+				<app-page-refresh slot="fixed" (ionRefresh)="onRefresh($event)"></app-page-refresh>
+				<app-progress-bar *ngIf="storageService.news === undefined"></app-progress-bar>
 
-	<!--ion-card displays if no favourites-->
-	<ion-card *ngIf="storageService.news.length === 0">
-			<img src="../../../assets/newspapers.jpg" />
-		<ion-card-content>
-			<h2 text-center>{{ 'FAVOURITES.notice' | translate }}</h2>
-		</ion-card-content>
-	</ion-card>
+				<!--ion-card displays if no favourites-->
+				<ion-card *ngIf="storageService.news.length === 0">
+						<img src="../../../assets/newspapers.jpg" />
+					<ion-card-content>
+						<h2 text-center>{{ 'FAVOURITES.notice' | translate }}</h2>
+					</ion-card-content>
+				</ion-card>
 
-	<!--list of news articles with rhs slide to delete from favourites-->
-	<ion-card *ngIf="storageService.news.length > 0" class="articles" color="secondary" >
-		<ion-list>
-			<ion-item-sliding *ngFor="let article of storageService.news" style="padding: 0;" 
-				(click)="onGoToNewsDetail(article)" router-direction="forward" #slidingItem>
-				<app-article-list [article]="article"></app-article-list>
-				<ion-item-options>
-					<ion-item-option
-						color="danger"
-						(click)="onRemoveFavourite(article, slidingItem)">
-						<ion-icon name="trash" slot="icon-only"></ion-icon>
-					</ion-item-option>
-				</ion-item-options>
-			</ion-item-sliding>
-		</ion-list>
-	</ion-card>
+				<!--list of news articles with rhs slide to delete from favourites-->
+				<ion-card *ngIf="storageService.news.length > 0" class="articles" color="secondary" >
+					<ion-list>
+						<ion-item-sliding *ngFor="let article of storageService.news" style="padding: 0;" 
+							(click)="onGoToNewsDetail(article)" router-direction="forward" #slidingItem>
+							<app-article-list [article]="article"></app-article-list>
+							<ion-item-options>
+								<ion-item-option
+									color="danger"
+									(click)="onRemoveFavourite(article, slidingItem)">
+									<ion-icon name="trash" slot="icon-only"></ion-icon>
+								</ion-item-option>
+							</ion-item-options>
+						</ion-item-sliding>
+					</ion-list>
+				</ion-card>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+	
 </ion-content>

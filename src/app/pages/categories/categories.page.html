@@ -16,14 +16,21 @@
 </ion-header>
 
 <ion-content>
-	<app-page-refresh slot="fixed" (ionRefresh)="onRefresh($event)"></app-page-refresh>
-	<app-progress-bar *ngIf="data === undefined"></app-progress-bar>
+	<ion-grid no-padding>
+		<ion-row>
+			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" no-padding>
 	
-	<!--list of news articles by category-->
-	<div class="wrapper">
-		<div *ngFor="let article of data?.articles"
-			(click)="onGoToNewsDetail(article)"	router-direction="forward">
-			<app-article-list [article]="article"></app-article-list>
-		</div> 
-	</div>
+				<app-page-refresh slot="fixed" (ionRefresh)="onRefresh($event)"></app-page-refresh>
+				<app-progress-bar *ngIf="data === undefined"></app-progress-bar>
+	
+				<!--list of news articles by category-->
+				<div class="wrapper">
+					<div *ngFor="let article of data?.articles"
+						(click)="onGoToNewsDetail(article)"	router-direction="forward">
+						<app-article-list [article]="article"></app-article-list>
+					</div> 
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
 </ion-content>

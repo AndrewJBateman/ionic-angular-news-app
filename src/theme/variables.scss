@@ -156,6 +156,13 @@
     }
 	}
 
+	ion-item.active {
+    ion-icon, ion-label {
+      color: var(--ion-color-secondary) !important;
+      --ion-color-base: var(--ion-color-secondary) !important;
+    }
+	}
+
 	
 	
 	ion-tab-bar {
