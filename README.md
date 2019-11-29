@@ -25,12 +25,11 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## Screenshots
 
-News Page	| News Detail Page
-:-------------------------:|:-------------------------:
-![Ionic page](./img/news.png)  |  ![Ionic page](./img/news-detail.png)
+| [![Ionic page](./img/news.png)] | [![Ionic page](./img/news-detail.png)] | [![Ionic categories page](./img/categories.png)] |
+|:---:|:---:|:---:|
+| News Page | News Detail Page | Categories Page |
 
-![Ionic news page](./img/news.png)  |  ![Ionic page](./img/news-detail.png)
-![Ionic categories page](./img/categories.png) ![Ionic favourites page](./img/favourites.png) ![Ionic about page](./img/about.png)
+![Ionic favourites page](./img/favourites.png) ![Ionic about page](./img/about.png)
 
 ## Technologies
 
@@ -101,13 +100,17 @@ this.newsService.getCountryCode().subscribe(
 ### Pages
 
 * **Menu side-bar:** news, categories, favorites, search, about, change language, dark theme toggle.
-**TODO:** add Image/logo at bottom?
+
 * **News page** shows world headlines using an ion-card list. Card is only shown if it has an image - to avoid having news items with empty spaces. Shows time as '... ago'.
+
 * **News-detail page** shows the selected news item in more detail with links to favourites. Title has news source end text removed using a custom Angular pipe as I show this information in the top toolbar. Uses another custom pipe to shows time as '... ago'. Includes working footer buttons for 'More info', which opens news source in a separate window and 'Favourite' which adds the article to a stored news array. Array symbol at end of article content string replaced with text using split and concat. Has social media share buttons. 
-TODO: prevent repeated text when News API has description and content as the same (regex?). Done - kept description, removed content
+**TODO:** prevent repeated text when News API has description and content as the same (regex?). Done - kept description, removed content
+
 * **Categories page:** ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment. Shows time as '... ago'.
+
 * **Favourites page:** lists articles in reverse date order that have been saved by clicking on the favourites icon on the news-detail page. Sliding from the right now deletes the favourite.
 **TODO:** prevent storage of duplicate articles. Add 'delete all' button at top. lhs sliding delete is not working.
+
 * **About page** with popover with working links to Author Website and Github repo.
 
 ## Status
