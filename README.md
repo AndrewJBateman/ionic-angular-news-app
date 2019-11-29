@@ -25,9 +25,13 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## Screenshots
 
-| [![Ionic page](./img/news.png)] | [![Ionic page](./img/news-detail.png)] | [![Ionic categories page](./img/categories.png)] |
+| ![Ionic page](./img/news.png) | ![Ionic page](./img/news-detail.png) | ![Ionic categories page](./img/categories.png) |
 |:---:|:---:|:---:|
 | News Page | News Detail Page | Categories Page |
+
+| ![Ionic page](./img/favourites.png) | ![Ionic page](./img/about.png) | ![Ionic categories page](./img/categories.png) |
+|:---:|:---:|:---:|
+| Favourites Page | About Page | Categories Page |
 
 ![Ionic favourites page](./img/favourites.png) ![Ionic about page](./img/about.png)
 
@@ -104,14 +108,14 @@ this.newsService.getCountryCode().subscribe(
 * **News page** shows world headlines using an ion-card list. Card is only shown if it has an image - to avoid having news items with empty spaces. Shows time as '... ago'.
 
 * **News-detail page** shows the selected news item in more detail with links to favourites. Title has news source end text removed using a custom Angular pipe as I show this information in the top toolbar. Uses another custom pipe to shows time as '... ago'. Includes working footer buttons for 'More info', which opens news source in a separate window and 'Favourite' which adds the article to a stored news array. Array symbol at end of article content string replaced with text using split and concat. Has social media share buttons. 
-**TODO:** prevent repeated text when News API has description and content as the same (regex?). Done - kept description, removed content
 
 * **Categories page:** ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment. Shows time as '... ago'.
 
 * **Favourites page:** lists articles in reverse date order that have been saved by clicking on the favourites icon on the news-detail page. Sliding from the right now deletes the favourite.
 **TODO:** prevent storage of duplicate articles. Add 'delete all' button at top. lhs sliding delete is not working.
 
-* **About page** with popover with working links to Author Website and Github repo.
+* **About page** with popover with working links to Author Website and Github repo. Unsplash image with credit shown.
+**TODO** add contact page and link to my website, add thumbnail image.
 
 ## Status
 
@@ -119,12 +123,9 @@ this.newsService.getCountryCode().subscribe(
 
 ## To-do
 1. Theme scss: improve colors - check dark theme.
-2. Search: Add news search popover?
 5. language change menu i18n - working for News page - expand to tabs etc.
 7. Splash screen
-8. Tabs bar - replace About with Search route or Weather?
 9. Common article storage/access function.
-10. Contact form
 11. SqLite - use as default database?
 12. Add to refresh function so News, Categories and Favourites is refreshed.
 
