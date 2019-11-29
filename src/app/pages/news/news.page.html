@@ -5,7 +5,7 @@
     </ion-buttons>
 		<!--drop-down list of sources, select one to change the news source and reload list of news-->
 		<ion-item no-padding class="source" color="primary">
-			<ion-title text-center>{{ 'NEWS.title' | translate }}</ion-title><ion-label>{{ 'NEWS.source' | translate }} </ion-label>
+			<ion-title text-center>{{ 'NEWS.title' | translate }}</ion-title><ion-label class="source-label">{{ 'NEWS.source' | translate }} </ion-label>
 			<ion-select 
 				name="selected" [(ngModel)]="selectedSource"
 				(ionChange)="loadSourceData($event)" interface="action-sheet" 

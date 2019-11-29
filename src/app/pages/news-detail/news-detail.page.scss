@@ -31,3 +31,9 @@ ion-button {
 ion-footer {
 	background-color: var(--ion-color-primary);
 }
+
+.detail-img {
+	border-bottom-style: solid;
+  border-bottom-width: 4px;
+  border-bottom-color: var(--ion-color-tertiary);
+}

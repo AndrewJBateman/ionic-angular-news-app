@@ -25,15 +25,17 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## Screenshots
 
-| ![Ionic page](./img/news.png) | ![Ionic page](./img/news-detail.png) | ![Ionic categories page](./img/categories.png) |
+| ![Ionic page](./img/news.png) | ![Ionic page](./img/news-detail.png) | ![Ionic categories page](./img/news-sidebar.png) |
 |:---:|:---:|:---:|
-| News Page | News Detail Page | Categories Page |
+| News Page | News Detail Page | News Detail Page with Side Nav |
 
-| ![Ionic page](./img/favourites.png) | ![Ionic page](./img/about.png) | ![Ionic categories page](./img/categories.png) |
+| ![Ionic page](./img/categories1.png) | ![Ionic page](./img/categories2.png) | ![Ionic categories page](./img/categories3.png) |
 |:---:|:---:|:---:|
-| Favourites Page | About Page | Categories Page |
+| General Category Page | Science Category Page | Sports Category Page |
 
-![Ionic favourites page](./img/favourites.png) ![Ionic about page](./img/about.png)
+| ![Ionic page](./img/favourites1.png) | ![Ionic page](./img/favourites2.png) | ![Ionic categories page](./img/favourites3.png) |
+|:---:|:---:|:---:|
+| Favourites Page | Favourites Page | Favourites Page |
 
 ## Technologies
 
@@ -48,6 +50,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 * [Ionic Native Social-Sharing v5.13.0](https://ionicframework.com/docs/native/social-sharing)
 * [Ionic ngx-Translate](https://ionicframework.com/docs/v3/developer-resources/ng2-translate/)
 * [NGX-Translate internationalization library for Angular](http://www.ngx-translate.com/)
+* [Ionic 4 open source Ionicons](https://ionicons.com/)
 
 ## Setup
 
@@ -101,11 +104,11 @@ this.newsService.getCountryCode().subscribe(
 
 * [Ionic colour generator](https://ionicframework.com/docs/theming/color-generator) used to create color palette.
 
-### Pages
+### Nav/Pages
 
-* **Menu side-bar:** news, categories, favorites, search, about, change language, dark theme toggle.
+* **Nav side-bar:** news, categories, favorites, search, about, change language, dark theme toggle.
 
-* **News page** shows world headlines using an ion-card list. Card is only shown if it has an image - to avoid having news items with empty spaces. Shows time as '... ago'.
+* **News page** shows world headlines using an ion-card list. Uses *ngIf to only show card if it has an image - to avoid having news items with empty spaces (API data is not perfect). Shows time as '... ago'.
 
 * **News-detail page** shows the selected news item in more detail with links to favourites. Title has news source end text removed using a custom Angular pipe as I show this information in the top toolbar. Uses another custom pipe to shows time as '... ago'. Includes working footer buttons for 'More info', which opens news source in a separate window and 'Favourite' which adds the article to a stored news array. Array symbol at end of article content string replaced with text using split and concat. Has social media share buttons. 
 
