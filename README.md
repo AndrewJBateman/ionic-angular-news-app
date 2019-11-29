@@ -25,10 +25,11 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## Screenshots
 
-![Ionic page](./img/news-mobile9-16.png)![Ionic page](./img/news-mobile9-16.png)
-![Ionic page](./img/news-detail.png)
-![Ionic page](./img/categories-page.png)
-![Ionic page](./img/favourites-page.png)
+News Page	| News Detail Page
+:-------------------------:|:-------------------------:
+![Ionic page](./img/news.png)  |  ![Ionic page](./img/news-detail.png)
+
+![Ionic page](./img/categories-page.png) ![Ionic page](./img/favourites-page.png)
 ![Ionic page](./img/about-page.png)
 
 ## Technologies
@@ -42,6 +43,8 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 * [Ionic Storage v2.2.0](https://ionicframework.com/docs/building/storage)
 * [Ionic Native Network v5.13.0](https://ionicframework.com/docs/native/network)
 * [Ionic Native Social-Sharing v5.13.0](https://ionicframework.com/docs/native/social-sharing)
+* [Ionic ngx-Translate](https://ionicframework.com/docs/v3/developer-resources/ng2-translate/)
+* [NGX-Translate internationalization library for Angular](http://www.ngx-translate.com/)
 
 ## Setup
 

@@ -6,8 +6,9 @@
 	},
 	"NEWS-DETAIL": {
 		"title": "Noticias de: ",
-		"visit": "Visita pagina web",
-		"favourite": "Agregar a favoritos"
+		"visit": "Visita pagina",
+		"add-favourite": "Agregar favorito",
+		"remove-favourite": "Quitar Articulo"
 	},
 	"FAVOURITES": {
 		"title": "Favoritos",

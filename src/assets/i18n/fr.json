@@ -16,8 +16,9 @@
 	},
 	"NEWS-DETAIL": {
 		"title": "Nouvelles de: ",
-		"visit": "Visiter site web",
-		"favourite": "Ajouter aux Favouris"
+		"visit": "Visiter site",
+		"add-favourite": "Ajouter Favori",
+		"remove-favourite": "Retirer Favori"
 	},
 	"FAVOURITES": {
 		"title": "Favoris",

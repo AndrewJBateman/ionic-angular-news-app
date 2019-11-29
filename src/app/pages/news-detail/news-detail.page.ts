@@ -55,7 +55,7 @@ export class NewsDetailPage implements OnInit {
 	
 	appendString(content:string) {
     try {
-      let result = content.split('[')[0].concat('(click link below for more)');
+      let result = content.split('[')[0].concat(`(For more 'Visit Website' below)`);
       return result;
     } catch (err){
       console.log(err);

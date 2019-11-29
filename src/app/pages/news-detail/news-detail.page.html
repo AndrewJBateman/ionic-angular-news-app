@@ -79,7 +79,7 @@
 					size="small"
 					icon-left>
 					<ion-icon name="heart" size="large"></ion-icon>
-					<div class="footer-text">&nbsp;{{ 'NEWS-DETAIL.favourite' | translate }}</div>
+					<div class="footer-text">&nbsp;{{ 'NEWS-DETAIL.add-favourite' | translate }}</div>
 				</ion-button>
 				<ion-button
 					*ngIf="isFavourite(article)"
@@ -87,7 +87,7 @@
 					size="small"
 					icon-left>
 					<ion-icon name="heart-dislike"></ion-icon>
-					<div class="footer-text">&nbsp;Remove article</div>
+					<div class="footer-text">&nbsp;{{ 'NEWS-DETAIL.remove-favourite' | translate }}</div>
 				</ion-button>
 			</ion-buttons>
 		</ion-tab-bar>

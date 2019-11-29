@@ -18,7 +18,8 @@
 	"NEWS-DETAIL": {
 		"title": "News from: ",
 		"visit": "Visit website",
-		"favourite": "Add to favourites"
+		"add-favourite": "Add to favourites",
+		"remove-favourite": "Remove Article"
 	},
 	"FAVOURITES": {
 		"title": "Favourites",
