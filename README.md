@@ -29,8 +29,8 @@ News Page	| News Detail Page
 :-------------------------:|:-------------------------:
 ![Ionic page](./img/news.png)  |  ![Ionic page](./img/news-detail.png)
 
-![Ionic page](./img/categories-page.png) ![Ionic page](./img/favourites-page.png)
-![Ionic page](./img/about-page.png)
+![Ionic news page](./img/news.png)  |  ![Ionic page](./img/news-detail.png)
+![Ionic categories page](./img/categories.png) ![Ionic favourites page](./img/favourites.png) ![Ionic about page](./img/about.png)
 
 ## Technologies
 
@@ -118,7 +118,6 @@ TODO: prevent repeated text when News API has description and content as the sam
 1. Theme scss: improve colors - check dark theme.
 2. Search: Add news search popover?
 5. language change menu i18n - working for News page - expand to tabs etc.
-6. News Detail page could use a footer so user can change pages?? go straight to favourites list?
 7. Splash screen
 8. Tabs bar - replace About with Search route or Weather?
 9. Common article storage/access function.
