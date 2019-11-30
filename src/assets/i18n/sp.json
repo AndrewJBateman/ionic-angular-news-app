@@ -20,9 +20,15 @@
 	"ABOUT": {
 		"page-title": "Sobre esta app",
 		"card-title": "Noticias del Mundo",
-		"para1-part1": "This app fetches live JSON metadata from ",
-		"para1-part2": "a HTTP REST API with articles from about 30,000 news sources/blogs world-wide.",
-		"para2": "Articles can be viewed in categories of general, technology, business, entertainment, health, science and sports.",
-		"para3": "Each article includes a link to the original news source that opens in a new window."
+		"para1-part1": "Esta aplicación obtiene metadatos JSON en vivo de ",
+		"para1-part2": "una API HTTP REST con artículos de aproximadamente 30,000 fuentes de noticias / blogs en todo el mundo.",
+		"para2": "Los artículos se pueden ver en categorías de general, tecnología, negocios, entretenimiento, salud, ciencia y deportes.",
+		"para3": "Cada artículo incluye un enlace a la fuente de noticias original que se abre en una nueva ventana."
+	},
+	"TASK-BAR": {
+		"news": "Noticias",
+		"categories": "Categorias",
+		"favourites": "Favoritos",
+		"about": "Sobre"
 	}
 }

@@ -28,11 +28,17 @@
 		"title": "Chargement des nouvelles..."
 	},
 	"ABOUT": {
-		"page-title": "Sur Cette App",
+		"page-title": "À Propos de Cette App",
 		"card-title": "Nouvelles du Monde",
-		"para1-part1": "This app fetches live JSON metadata from ",
-		"para1-part2": "a HTTP REST API with articles from about 30,000 news sources/blogs world-wide.",
-		"para2": "Articles can be viewed in categories of general, technology, business, entertainment, health, science and sports.",
-		"para3": "Each article includes a link to the original news source that opens in a new window."
+		"para1-part1": "Cette application récupère les métadonnées JSON en direct de ",
+		"para1-part2": "une API HTTP REST contenant des articles d'environ 30 000 sources / blogs dans le monde entier.",
+		"para2": "Les articles peuvent être consultés dans les catégories suivantes: général, technologie, affaires, divertissement, santé, sciences et sports.",
+		"para3": "Chaque article comprend un lien vers la source de nouvelles originale qui s'ouvre dans une nouvelle fenêtre."
+	},
+	"TASK-BAR": {
+		"news": "Nouvelles",
+		"categories": "Catégories",
+		"favourites": "Favoris",
+		"about": "À Propos"
 	}
 }

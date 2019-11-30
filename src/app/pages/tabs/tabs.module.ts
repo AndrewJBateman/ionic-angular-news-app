@@ -12,6 +12,9 @@ import { NewsPageModule } from '../news/news.module';
 import { NewsDetailPageModule } from '../news-detail/news-detail.module';
 import { AboutPageModule } from '../about/about.module';
 
+// ngx node modules
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     AboutPageModule,
@@ -22,7 +25,8 @@ import { AboutPageModule } from '../about/about.module';
     IonicModule,
     NewsPageModule,
     NewsDetailPageModule,
-    TabsPageRoutingModule
+		TabsPageRoutingModule,
+		TranslateModule
   ],
   declarations: [
 		TabsPage

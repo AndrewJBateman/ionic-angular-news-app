@@ -7,8 +7,11 @@
 		<ion-item no-padding class="source" color="primary">
 			<ion-title text-center>{{ 'NEWS.title' | translate }}</ion-title><ion-label class="source-label">{{ 'NEWS.source' | translate }} </ion-label>
 			<ion-select 
-				name="selected" [(ngModel)]="selectedSource"
-				(ionChange)="loadSourceData($event)" interface="action-sheet" 
+				name="selected"
+				[(ngModel)]="selectedSource"
+				(ionChange)="loadSourceData($event)"
+				interface="action-sheet"
+				class="source-label"
 				cancelText="{{ 'NEWS.cancel' | translate }}">
 				<ion-select-option *ngFor="let item of sources" value="{{item.id}}">{{item.name}}</ion-select-option>
 			</ion-select>

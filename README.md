@@ -25,17 +25,21 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 ## Screenshots
 
-| ![Ionic page](./img/news.png) | ![Ionic page](./img/news-detail.png) | ![Ionic categories page](./img/news-sidebar.png) |
+| ![Ionic page](./img/news1.png) | ![Ionic page](./img/news2.png) | ![Ionic categories page](./img/news3.png) |
 |:---:|:---:|:---:|
-| News Page | News Detail Page | News Detail Page with Side Nav |
+| News Page French | News Page Spanish | News Page English |
 
 | ![Ionic page](./img/categories1.png) | ![Ionic page](./img/categories2.png) | ![Ionic categories page](./img/categories3.png) |
 |:---:|:---:|:---:|
-| General Category Page | Science Category Page | Sports Category Page |
+| Categories Page Business | Categories Page Entertainment| Article Detail Page |
 
 | ![Ionic page](./img/favourites1.png) | ![Ionic page](./img/favourites2.png) | ![Ionic categories page](./img/favourites3.png) |
 |:---:|:---:|:---:|
-| Favourites Page | Favourites Page | Favourites Page |
+| Favourites Page Empty | Favourites Page Some | Favourites Page Full |
+
+| ![Ionic page](./img/about1.png) | ![Ionic page](./img/about2.png) | ![Ionic categories page](./img/about3.png) |
+|:---:|:---:|:---:|
+| About Page French | About Page + Side Menu | About Page + Info Menu |
 
 ## Technologies
 
@@ -94,7 +98,7 @@ this.newsService.getCountryCode().subscribe(
 
 * **Typescript interface** used to define the expected structure of the json object returned from the news API.
 * **Separate providers (services)** page with API http fetch functions.
-* **Custom pipes** used to modify API news article titles and derive '..time ago' from a date string.
+* **Custom pipes** used to modify API news article titles, contents and derive '..time ago' from a date string.
 * **Dark mode** switch on menu changes from light to dark mode.
 * **Offline Storage** of favourite articles using Ionic Storage.
 * **Network** status check in initialisation so latest news data is stored. Template data-binding always from stored data.
@@ -106,11 +110,12 @@ this.newsService.getCountryCode().subscribe(
 
 ### Nav/Pages
 
-* **Nav side-bar:** news, categories, favorites, search, about, change language, dark theme toggle.
+* **Nav side-bar:** news, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit.
 
 * **News page** shows world headlines using an ion-card list. Uses *ngIf to only show card if it has an image - to avoid having news items with empty spaces (API data is not perfect). Shows time as '... ago'.
 
 * **News-detail page** shows the selected news item in more detail with links to favourites. Title has news source end text removed using a custom Angular pipe as I show this information in the top toolbar. Uses another custom pipe to shows time as '... ago'. Includes working footer buttons for 'More info', which opens news source in a separate window and 'Favourite' which adds the article to a stored news array. Array symbol at end of article content string replaced with text using split and concat. Has social media share buttons. 
+* **TODO** correct my titleNosource pipe to splice from the LAST - or some articles will be over-shortened if they include more than 1 '-'. Remove <li> from content text using regex.
 
 * **Categories page:** ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment. Shows time as '... ago'.
 
@@ -125,12 +130,10 @@ this.newsService.getCountryCode().subscribe(
 * Status: Working but not complete.
 
 ## To-do
-1. Theme scss: improve colors - check dark theme.
-5. language change menu i18n - working for News page - expand to tabs etc.
+1. Dark theme - improve
 7. Splash screen
 9. Common article storage/access function.
 11. SqLite - use as default database?
-12. Add to refresh function so News, Categories and Favourites is refreshed.
 
 ## Inspiration
 
