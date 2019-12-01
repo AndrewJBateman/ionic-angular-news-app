@@ -55,6 +55,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 * [Ionic ngx-Translate](https://ionicframework.com/docs/v3/developer-resources/ng2-translate/)
 * [NGX-Translate internationalization library for Angular](http://www.ngx-translate.com/)
 * [Ionic 4 open source Ionicons](https://ionicons.com/)
+* [Day.js Date Conversion module v1.8.17](https://www.npmjs.com/package/dayjs)
 
 ## Setup
 
@@ -112,7 +113,7 @@ this.newsService.getCountryCode().subscribe(
 
 * **Nav side-bar:** news, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit.
 
-* **News page** shows world headlines using an ion-card list. Uses *ngIf to only show card if it has an image to avoid having news items with empty spaces (API data is not perfect). Shows time as '... ago' using a date convert pipe that uses moment.js to convert the API Coordinated Universal Time (UTC) date-time string to '...ago'.
+* **News page** shows world headlines using an ion-card list. Uses *ngIf to only show card if it has an image to avoid having news items with empty spaces (API data is not perfect). Shows time as '... ago' using a date convert pipe that uses day.js to convert the API Coordinated Universal Time (UTC) date-time string to '...ago'.
 
 * **News-detail page** shows the selected news item in more detail. Title has news source end text removed using a custom Angular pipe as I show this information in the top toolbar. Also uses custom pipe to show time as '... ago'. Includes working footer buttons for 'More info', which opens news source in a separate window and 'Favourite' which adds the article to a stored news 'favourites' array. Array symbol at end of article content string replaced with text using split and concat. Uses a Floating Action Button for social media sharing. 
 * **TODO** correct my titleNosource pipe to splice from the LAST - or some articles will be over-shortened if they include more than 1 '-'. Remove <li> from content text using regex.
@@ -129,7 +130,7 @@ this.newsService.getCountryCode().subscribe(
 
 ## Status
 
-* Status: Working but not complete.
+* Status: Working but not complete. Errors with popover and social sharing fab-button so Will not build so cannot deploy.
 
 ## To-do
 1. Dark theme - improve

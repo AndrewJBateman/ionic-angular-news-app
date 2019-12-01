@@ -33,8 +33,8 @@
     "cordova-plugin-x-socialsharing": "^5.4.7",
     "cordova-sqlite-storage": "^3.3.0",
     "core-js": "^3.2.1",
+    "dayjs": "^1.8.17",
     "ionic": "^5.4.9",
-    "moment": "^2.24.0",
     "rxjs": "~6.5.2",
     "tslib": "^1.10.0",
     "zone.js": "^0.9.1"
