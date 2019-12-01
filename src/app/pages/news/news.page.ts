@@ -72,9 +72,9 @@ export class NewsPage implements OnInit {
 			data => {
 				console.log('country code search: ', data);
 				const countryData = data;
-				this.countryCode = countryData.countryCode.toLowerCase();
+				this.countryCode = countryData.country.toLowerCase();
 				const checkedCountryCode = countryCodeArray
-					.indexOf(this.countryCode.toLowerCase()) === -1 ? this.defaultCountry : countryData.countryCode.toLowerCase();
+					.indexOf(this.countryCode.toLowerCase()) === -1 ? this.defaultCountry : countryData.country.toLowerCase();
 				console.log('Country code is: ', checkedCountryCode);
 				this.newsStorageService.storeData('userCountry', checkedCountryCode.toString());
 				this.getCountryNews(checkedCountryCode);

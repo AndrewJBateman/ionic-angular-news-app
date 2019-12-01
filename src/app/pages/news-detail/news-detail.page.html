@@ -6,12 +6,10 @@
     </ion-buttons>
     <ion-title *ngIf="article.source.name">{{ 'NEWS-DETAIL.title' | translate }} <span class="source-text">{{ article.source.name }}</span></ion-title>
 	</ion-toolbar>
-
 </ion-header>
 
 <ion-content class="ion-no-padding" [scrollEvents]="true">
 	
-
 	<ion-grid class="ion-no-padding">
 		<ion-row>
 			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
@@ -46,7 +44,6 @@
 		vertical="top"
 		horizontal="end"
 		slot="fixed"
-		type="IonFab"
 		#fab>
 		<ion-fab-button color="light">
 			<ion-icon color="secondary" name="share"></ion-icon>

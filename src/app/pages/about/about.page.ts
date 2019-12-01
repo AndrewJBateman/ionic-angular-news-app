@@ -1,7 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 import { PopoverController } from '@ionic/angular';
-
 import { PopoverPage } from '../about-popover/about-popover';
 
 @Component({
@@ -10,14 +9,13 @@ import { PopoverPage } from '../about-popover/about-popover';
   styleUrls: ['./about.page.scss'],
 })
 export class AboutPage {
-  conferenceDate = '2047-05-17';
 
   constructor(public popoverCtrl: PopoverController) { }
 
-  async presentPopover(event: Event) {
+  async presentPopover(event) {
     const popover = await this.popoverCtrl.create({
       component: PopoverPage,
-      event
+      event: event
     });
     await popover.present();
   }

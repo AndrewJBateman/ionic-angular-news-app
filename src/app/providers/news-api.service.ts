@@ -30,7 +30,7 @@ export class NewsApiService implements OnInit {
 	// response.setHeader("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
 	getCountryCode() {
 		try {
-			return this.http.get<LocationResponse>('http://ip-api.com/json');
+			return this.http.get<LocationResponse>('https://ipapi.co/json');
 		}
 		catch (err) {
 			console.log('Error in getCountryCode function' + err);

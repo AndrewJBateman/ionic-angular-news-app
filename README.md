@@ -60,7 +60,11 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 ## Setup
 
 * It is necessary to [register with news API](https://newsapi.org/docs/get-started) to get an API key that is stored in the `environment.ts` file
-* To start the server on _localhost://8100_ type: 'ionic serve'
+* To start the server on _localhost://8100_ type: `ionic serve`
+
+* To create a build file suitable for Firebase deployment: `ionic build --prod --release`
+
+* To deploy to Firebase: `firebase deploy`
 
 ## Code Examples
 
@@ -97,7 +101,7 @@ this.newsService.getCountryCode().subscribe(
 
 ## Features
 
-* **Typescript interface** used to define the expected structure of the json object returned from the news API.
+* **Typescript interface** used to define the expected structures of the json objects returned from the IP and news APIs.
 * **Separate providers (services)** page with API http fetch functions.
 * **Custom pipes** used to modify API news article titles, contents and derive '..time ago' from a date string.
 * **Dark mode** switch on menu changes from light to dark mode.
@@ -124,13 +128,13 @@ this.newsService.getCountryCode().subscribe(
 **TODO:** prevent storage of duplicate articles. Add 'delete all' button at top. lhs sliding delete is not working.
 
 * **About page** Includes popover with links to Author Website, Github Repo and a Contact Page. Unsplash image with author credit also shown.
-**TODO** add contact page and link to my website, add thumbnail image.
+**TODO** add contact page, add my thumbnail image.
 
 * **Search page** add or remove Search page.
 
 ## Status
 
-* Status: Working but not complete. Errors with popover and social sharing fab-button so Will not build so cannot deploy.
+* Status: Working, production build file created, deployed to Firebase. Missing the ion-fab social share.
 
 ## To-do
 1. Dark theme - improve

@@ -4,13 +4,13 @@ import { PopoverController } from '@ionic/angular';
 @Component({
   template: `
     <ion-list>
-      <ion-item button (click)="close()">
+      <ion-item button (click)="openContact()">
         <ion-label>Contact Form</ion-label>
       </ion-item>
-      <ion-item button (click)="close('https://andrewbateman.org')">
+      <ion-item button (click)="openUrl('https://andrewbateman.org')">
         <ion-label>Author Website</ion-label>
       </ion-item>
-      <ion-item button (click)="close('https://github.com/AndrewJBateman/ionic-angular-news-app')">
+      <ion-item button (click)="openUrl('https://github.com/AndrewJBateman/ionic-angular-news-app')">
         <ion-label>App Github Repo</ion-label>
       </ion-item>
     </ion-list>
@@ -19,13 +19,16 @@ import { PopoverController } from '@ionic/angular';
 export class PopoverPage {
   constructor(public popoverCtrl: PopoverController) {}
 
-  support() {
-    // this.app.getRootNavs()[0].push('/support');
-    this.popoverCtrl.dismiss();
-  }
+	openContact() {
+		console.log('openContact function clicked')
+		this.popoverCtrl.dismiss();
+	}
 
-  close(url: string) {
+  openUrl(url: string) {
+		console.log('openUrl function clicked')
     window.open(url, '_blank');
     this.popoverCtrl.dismiss();
-  }
+	}
+	
+
 }
