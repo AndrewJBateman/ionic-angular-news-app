@@ -9,21 +9,21 @@
 
 </ion-header>
 
-<ion-content no-padding [scrollEvents]="true">
+<ion-content class="ion-no-padding" [scrollEvents]="true">
 	
 
-	<ion-grid no-padding>
+	<ion-grid class="ion-no-padding">
 		<ion-row>
-			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" no-padding>
+			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
 
-				<ion-card no-padding no-margin>
-					<ion-card-header no-padding>
+				<ion-card class="ion-no-padding ion-no-margin">
+					<ion-card-header class="ion-no-padding">
 						<ion-img
 							class="detail-img"
 							[src]="article.urlToImage">
 						</ion-img>
 					</ion-card-header>
-					<ion-card-content no-padding>
+					<ion-card-content class="ion-no-padding">
 						<ion-list>
 							<ion-list-header class="detail-header">{{ article.title | titleNosource }}</ion-list-header>
 							<ion-text *ngIf="article.content">{{ appendString(article.content) }}			
@@ -32,7 +32,7 @@
 						</ion-list>
 					</ion-card-content>
 				</ion-card>
-				<ion-card *ngIf="article.author" no-padding no-margin>
+				<ion-card *ngIf="article.author" class="ion-no-padding ion-no-margin">
 					<ion-card-content>
 						<ion-text><span class="author-text"><ion-icon size="large" name="contact"></ion-icon>Author: </span>{{ article.author }}</ion-text>
 					</ion-card-content>
@@ -42,10 +42,11 @@
 		</ion-row>
 	</ion-grid>
 
-	<ion-fab 
+	<!-- <ion-fab 
 		vertical="top"
 		horizontal="end"
 		slot="fixed"
+		type="IonFab"
 		#fab>
 		<ion-fab-button color="light">
 			<ion-icon color="secondary" name="share"></ion-icon>
@@ -67,7 +68,7 @@
 				<ion-icon name="logo-facebook"></ion-icon>
 			</ion-fab-button>
 		</ion-fab-list>
-	</ion-fab>
+	</ion-fab> -->
 </ion-content>
 
 <ion-tabs>

@@ -4,8 +4,8 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
 		<!--drop-down list of sources, select one to change the news source and reload list of news-->
-		<ion-item no-padding class="source" color="primary">
-			<ion-title text-center>{{ 'NEWS.title' | translate }}</ion-title><ion-label class="source-label">{{ 'NEWS.source' | translate }} </ion-label>
+		<ion-item class="ion-no-padding source" color="primary">
+			<ion-title class="ion-text-center">{{ 'NEWS.title' | translate }}</ion-title><ion-label class="source-label">{{ 'NEWS.source' | translate }} </ion-label>
 			<ion-select 
 				name="selected"
 				[(ngModel)]="selectedSource"
@@ -20,9 +20,9 @@
 </ion-header>
 
 <ion-content>
-	<ion-grid no-padding>
+	<ion-grid class="ion-no-padding">
 		<ion-row>
-			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" no-padding>
+			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
 
 				<app-page-refresh slot="fixed" (ionRefresh)="onRefresh($event)"></app-page-refresh>
 				<app-progress-bar *ngIf="storedData === undefined"></app-progress-bar>

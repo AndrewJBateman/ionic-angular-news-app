@@ -112,18 +112,20 @@ this.newsService.getCountryCode().subscribe(
 
 * **Nav side-bar:** news, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit.
 
-* **News page** shows world headlines using an ion-card list. Uses *ngIf to only show card if it has an image - to avoid having news items with empty spaces (API data is not perfect). Shows time as '... ago'.
+* **News page** shows world headlines using an ion-card list. Uses *ngIf to only show card if it has an image to avoid having news items with empty spaces (API data is not perfect). Shows time as '... ago' using a date convert pipe that uses moment.js to convert the API Coordinated Universal Time (UTC) date-time string to '...ago'.
 
-* **News-detail page** shows the selected news item in more detail with links to favourites. Title has news source end text removed using a custom Angular pipe as I show this information in the top toolbar. Uses another custom pipe to shows time as '... ago'. Includes working footer buttons for 'More info', which opens news source in a separate window and 'Favourite' which adds the article to a stored news array. Array symbol at end of article content string replaced with text using split and concat. Has social media share buttons. 
+* **News-detail page** shows the selected news item in more detail. Title has news source end text removed using a custom Angular pipe as I show this information in the top toolbar. Also uses custom pipe to show time as '... ago'. Includes working footer buttons for 'More info', which opens news source in a separate window and 'Favourite' which adds the article to a stored news 'favourites' array. Array symbol at end of article content string replaced with text using split and concat. Uses a Floating Action Button for social media sharing. 
 * **TODO** correct my titleNosource pipe to splice from the LAST - or some articles will be over-shortened if they include more than 1 '-'. Remove <li> from content text using regex.
 
 * **Categories page:** ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment. Shows time as '... ago'.
 
-* **Favourites page:** lists articles in reverse date order that have been saved by clicking on the favourites icon on the news-detail page. Sliding from the right now deletes the favourite.
+* **Favourites page:** articles listed in reverse date-time order that have been saved by clicking on the favourites icon on the news-detail page. Sliding from the right deletes the favourite.
 **TODO:** prevent storage of duplicate articles. Add 'delete all' button at top. lhs sliding delete is not working.
 
-* **About page** with popover with working links to Author Website and Github repo. Unsplash image with credit shown.
+* **About page** Includes popover with links to Author Website, Github Repo and a Contact Page. Unsplash image with author credit also shown.
 **TODO** add contact page and link to my website, add thumbnail image.
+
+* **Search page** add or remove Search page.
 
 ## Status
 

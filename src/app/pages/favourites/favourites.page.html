@@ -3,14 +3,14 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title text-center>{{ 'FAVOURITES.title' | translate }}</ion-title>
+    <ion-title class="ion-text-center">{{ 'FAVOURITES.title' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-	<ion-grid no-padding>
+	<ion-grid class="ion-no-padding">
 		<ion-row>
-			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" no-padding>
+			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
 	
 				<app-page-refresh slot="fixed" (ionRefresh)="onRefresh($event)"></app-page-refresh>
 				<app-progress-bar *ngIf="storageService.news === undefined"></app-progress-bar>
@@ -23,7 +23,7 @@
 					</div>
 
 					<ion-card-content>
-						<h2 text-center>{{ 'FAVOURITES.notice' | translate }}</h2>
+						<h2 class="ion-text-center">{{ 'FAVOURITES.notice' | translate }}</h2>
 					</ion-card-content>
 				</ion-card>
 
