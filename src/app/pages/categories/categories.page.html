@@ -3,15 +3,26 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
 		</ion-buttons>
-		<ion-segment scrollable [(ngModel)]="category" mode="md" color="primary" (ionChange)="changeCategory($event)">
-			<ion-segment-button
-				mode="md"
-				value="option"
-				[value]="category"
-				*ngFor="let category of categories">
-				<ion-label class="ion-text-capitalize">{{category}}</ion-label>
-			</ion-segment-button>
-		</ion-segment>
+		<ion-item class="ion-no-padding source" color="primary">
+				<ion-title class="ion-text-center">
+					<ion-icon item-start class="icon" name="options" size="large"></ion-icon>
+				</ion-title>
+				<ion-label class="category-label">
+					{{ 'CATEGORIES.title' | translate }}
+				</ion-label>
+				<ion-select 
+					name="selected"
+					[(ngModel)]="category"
+					mode="md"
+					color="primary"
+					(ionChange)="changeCategory($event)"
+					interface="action-sheet"
+					class="category-label"
+					cancelText="{{ 'CATEGORIES.cancel' | translate }}">
+					<ion-select-option *ngFor="let category of categories" value="{{category}}">{{category}}</ion-select-option>
+				</ion-select>
+			</ion-item>
+
 	</ion-toolbar>
 </ion-header>
 

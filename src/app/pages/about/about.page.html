@@ -3,7 +3,10 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title class="ion-text-center">{{ 'ABOUT.page-title' | translate }}</ion-title>
+    <ion-title class="ion-text-center">
+			<ion-icon item-start class="icon" name="information-circle" size="large"></ion-icon>
+			{{ 'ABOUT.page-title' | translate }}
+		</ion-title>
 		<ion-buttons slot="end">
 			<ion-button 
 				(click)="presentPopover($event)">
@@ -27,7 +30,7 @@
             <ion-card-title class="ion-text-center">{{ 'ABOUT.card-title' | translate }}</ion-card-title>
           </ion-card-header>
           <ion-card-content class="ion-text-wrap">
-						<p>{{ 'ABOUT.para1-part1' | translate }}<a href="https://newsapi.org" target="_blank" title="Go to the News API website (opens in a new window)">News API</a>, {{ 'ABOUT.para1-part2' | translate }}</p>
+						<p>{{ 'ABOUT.para1-part1' | translate }}<a class="link-text" href="https://newsapi.org" target="_blank" title="Go to the News API website (opens in a new window)">News API</a>, {{ 'ABOUT.para1-part2' | translate }}</p>
 						<p>{{ 'ABOUT.para2' | translate }}</p>
 						<p>{{ 'ABOUT.para3' | translate }}</p>
 					</ion-card-content>

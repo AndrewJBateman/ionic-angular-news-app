@@ -48,7 +48,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 * [Ionic/angular v4.8.0](https://www.npmjs.com/package/@ionic/angular)
 * [RxJS v6.5.2](https://reactivex.io/)
 * [News REST API used to search for news articles](https://newsapi.org/)
-* [IP Geolocation API](http://ip-api.com/)
+* [IP Geolocation API](https://ipapi.co/#api)
 * [Ionic Storage v2.2.0](https://ionicframework.com/docs/building/storage)
 * [Ionic Native Network v5.13.0](https://ionicframework.com/docs/native/network)
 * [Ionic Native Social-Sharing v5.13.0](https://ionicframework.com/docs/native/social-sharing)
@@ -113,14 +113,14 @@ this.newsService.getCountryCode().subscribe(
 
 * [Ionic colour generator](https://ionicframework.com/docs/theming/color-generator) used to create color palette.
 
-### Nav/Pages
+## Navigastion/Pages
 
 * **Nav side-bar:** news, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit.
 
 * **News page** shows world headlines using an ion-card list. Uses *ngIf to only show card if it has an image to avoid having news items with empty spaces (API data is not perfect). Shows time as '... ago' using a date convert pipe that uses day.js to convert the API Coordinated Universal Time (UTC) date-time string to '...ago'.
 
 * **News-detail page** shows the selected news item in more detail. Title has news source end text removed using a custom Angular pipe as I show this information in the top toolbar. Also uses custom pipe to show time as '... ago'. Includes working footer buttons for 'More info', which opens news source in a separate window and 'Favourite' which adds the article to a stored news 'favourites' array. Array symbol at end of article content string replaced with text using split and concat. Uses a Floating Action Button for social media sharing. 
-* **TODO** correct my titleNosource pipe to splice from the LAST - or some articles will be over-shortened if they include more than 1 '-'. Remove <li> from content text using regex.
+**TODO** Remove <li> from content text using regex.
 
 * **Categories page:** ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment. Shows time as '... ago'.
 
@@ -131,6 +131,8 @@ this.newsService.getCountryCode().subscribe(
 **TODO** add contact page, add my thumbnail image.
 
 * **Search page** add or remove Search page.
+
+* **Optional** Add random function to choose from an array of bright colors to replace the pink line (e.g. green #74C34D)
 
 ## Status
 

@@ -97,6 +97,10 @@
 			color: var(--ion-color-secondary);
 		}
 
+		ion-card-content a.link-text {
+			color: var(--ion-color-tertiary) !important;
+		}
+
 	}
 
 	
@@ -109,13 +113,6 @@
 		--ion-color-primary-shade: #3a7be0;
 		--ion-color-primary-tint: #5598ff;
 	
-		// --ion-color-secondary: #50c8ff;
-		// --ion-color-secondary-rgb: 80,200,255;
-		// --ion-color-secondary-contrast: #ffffff;
-		// --ion-color-secondary-contrast-rgb: 255,255,255;
-		// --ion-color-secondary-shade: #46b0e0;
-		// --ion-color-secondary-tint: #62ceff;
-
 		--ion-color-secondary: #0D47A1;
 		--ion-color-secondary-rgb: 13,71,161;
 		--ion-color-secondary-contrast: #ffffff;

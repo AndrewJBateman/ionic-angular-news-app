@@ -12,7 +12,7 @@
 	},
 	"NEWS": {
 		"title": "News",
-		"source": "Source",
+		"source": "News source",
 		"cancel": "Cancel"
 	},
 	"NEWS-DETAIL": {
@@ -20,6 +20,10 @@
 		"visit": "Visit website",
 		"add-favourite": "Add to favourites",
 		"remove-favourite": "Remove Article"
+	},
+	"CATEGORIES": {
+		"title": "News category",
+		"cancel": "Cancel"
 	},
 	"FAVOURITES": {
 		"title": "Favourites",

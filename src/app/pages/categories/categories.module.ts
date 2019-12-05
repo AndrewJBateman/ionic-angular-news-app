@@ -9,6 +9,8 @@ import { CategoriesPage } from './categories.page';
 import { PipesModule } from '../../pipes/pipes.module';
 import { ComponentsModule } from '../../components/components.module';
 
+// ngx node modules
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   {
@@ -24,6 +26,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes),
 		PipesModule,
+		TranslateModule,
 		ComponentsModule
   ],
   declarations: [

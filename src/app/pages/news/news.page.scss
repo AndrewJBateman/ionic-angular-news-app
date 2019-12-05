@@ -3,6 +3,12 @@
 // }
 
 .source-label {
+	color: var(--ion-color-primary-contrast);
+	vertical-align: middle;
+}
+
+.icon {
+	vertical-align: middle;
 	color: var(--ion-color-tertiary);
 }
 
