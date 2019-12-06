@@ -27,7 +27,10 @@ export class CategoriesPage implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.category = this.categories[0];
+		const randomCat = Math.floor(Math.random() * (this.categories.length - 1) + 1);
+		console.log('random', randomCat);
+		console.log(this.categories.length);
+		this.category = this.categories[randomCat];
 		console.log('run loadCategoryNews function with default category: ', this.category);
 		this.loadCategoryNews(this.category);
 	}

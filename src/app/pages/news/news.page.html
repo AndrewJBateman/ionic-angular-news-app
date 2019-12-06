@@ -2,26 +2,28 @@
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-    </ion-buttons>
+		</ion-buttons>
+		
 		<!--drop-down list of sources, select one to change the news source and reload list of news-->
 		<ion-item class="ion-no-padding source" color="primary">
 			<ion-title class="ion-text-center">
 				<ion-icon item-start class="icon" name="list-box" size="large"></ion-icon>
 			</ion-title>
-			<ion-label class="source-label">
-				{{ 'NEWS.source' | translate }}
-			</ion-label>
-			<ion-select 
+			<ion-select
+				interface="action-sheet"
+				placeholder="Select"
 				name="selected"
 				[(ngModel)]="selectedSource"
 				(ionChange)="loadSourceData($event)"
-				interface="action-sheet"
 				class="source-label"
 				cancelText="{{ 'NEWS.cancel' | translate }}">
-				<ion-select-option *ngFor="let item of sources" value="{{item.id}}">{{item.name}}</ion-select-option>
+				<ion-select-option
+					*ngFor="let item of sources"
+					value="{{item.id}}">
+					{{ item.name }}
+				</ion-select-option>
 			</ion-select>
-		</ion-item>
-		<!--end of drop-down menu-->
+		</ion-item><!--end of drop-down menu-->
 
   </ion-toolbar>
 </ion-header>

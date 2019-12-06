@@ -9,6 +9,7 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 
 // Component & pipe modules
+import { PopoverPage } from './favourites-popover/favourites-popover';
 import { FavouritesPage } from './favourites.page';
 import { ComponentsModule} from '../../components/components.module';
 import { PipesModule } from '../../pipes/pipes.module';
@@ -30,6 +31,7 @@ const routes: Routes = [
 		PipesModule,
 		ComponentsModule
   ],
-  declarations: [FavouritesPage]
+	declarations: [FavouritesPage, PopoverPage],
+	entryComponents: [PopoverPage],
 })
 export class FavouritesPageModule {}

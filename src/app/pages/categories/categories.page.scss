@@ -19,3 +19,17 @@ ion-segment-button {
 	color: var(--ion-color-tertiary);
 	vertical-align: middle;
 }
+
+.icon {
+	vertical-align: middle;
+	color: var(--ion-color-tertiary);
+}
+
+page-categories .select-icon-inner {
+	top: 50%;
+	border-top: 10px solid !important;
+	border-right: 10px solid transparent !important;
+	border-left: 10px solid transparent !important;
+	left: -4px !important;
+	pointer-events: none;
+}

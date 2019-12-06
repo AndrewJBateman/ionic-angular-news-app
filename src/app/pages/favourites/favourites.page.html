@@ -2,11 +2,23 @@
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-    </ion-buttons>
+		</ion-buttons>
+		
     <ion-title class="ion-text-center">
-			<ion-icon item-start class="icon" name="heart" size="large"></ion-icon>
-			{{ 'FAVOURITES.title' | translate }}
+			<ion-icon
+				class="icon"
+				name="heart"
+				size="large">
+			</ion-icon>
 		</ion-title>
+
+		<ion-buttons slot="end">
+			<ion-button
+				(click)="presentPopover($event)">
+    		<ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+		</ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
@@ -31,7 +43,7 @@
 				</ion-card>
 
 				<!--list of news articles with rhs slide to delete from favourites-->
-				<ion-card *ngIf="storageService.news.length > 0" class="articles" color="secondary" >
+				<div *ngIf="storageService.news.length > 0" class="articles" color="secondary" >
 					<ion-list>
 						<ion-item-sliding *ngFor="let article of storageService.news" style="padding: 0;" 
 							(click)="onGoToNewsDetail(article)" router-direction="forward" #slidingItem>
@@ -45,7 +57,7 @@
 							</ion-item-options>
 						</ion-item-sliding>
 					</ion-list>
-				</ion-card>
+				</div>
 			</ion-col>
 		</ion-row>
 	</ion-grid>

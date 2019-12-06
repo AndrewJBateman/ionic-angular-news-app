@@ -113,9 +113,10 @@ this.newsService.getCountryCode().subscribe(
 
 * [Ionic colour generator](https://ionicframework.com/docs/theming/color-generator) used to create color palette.
 
-## Navigastion/Pages
+## Navigation/Pages
 
-* **Nav side-bar:** news, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit.
+* **Nav side-bar:** news, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit. Sidemenu is dismissed when the user clicks on a list item.
+* **TODO** add cancel button - to far left of 'navigate'? or MENU?
 
 * **News page** shows world headlines using an ion-card list. Uses *ngIf to only show card if it has an image to avoid having news items with empty spaces (API data is not perfect). Shows time as '... ago' using a date convert pipe that uses day.js to convert the API Coordinated Universal Time (UTC) date-time string to '...ago'.
 
@@ -124,11 +125,13 @@ this.newsService.getCountryCode().subscribe(
 
 * **Categories page:** ion-segment used to show categories in a scrollable horizontal menu: Sport, Busines, Health, Technology, Science, General, Entertainment. Shows time as '... ago'.
 
-* **Favourites page:** articles listed in reverse date-time order that have been saved by clicking on the favourites icon on the news-detail page. Sliding from the right deletes the favourite.
+* **Favourites page:** articles listed in reverse date-time order that have been saved by clicking on the favourites icon on the news-detail page. 
+**TODO:** Includes popover that will let user delete all list items.
+**TODO:** Sliding from the right deletes the favourite.
 **TODO:** prevent storage of duplicate articles. Add 'delete all' button at top. lhs sliding delete is not working.
 
 * **About page** Includes popover with links to Author Website, Github Repo and a Contact Page. Unsplash image with author credit also shown.
-**TODO** add contact page, add my thumbnail image.
+**TODO:** add contact page, add my thumbnail image.
 
 * **Search page** add or remove Search page.
 

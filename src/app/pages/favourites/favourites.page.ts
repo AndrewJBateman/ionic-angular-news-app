@@ -1,6 +1,9 @@
 import {IonItemSliding, LoadingController} from '@ionic/angular';
 import {Component, OnInit} from '@angular/core';
 
+import { PopoverController } from '@ionic/angular';
+import { PopoverPage } from './favourites-popover/favourites-popover';
+
 import {NewsStorageService} from 'src/app/providers/news-storage.service';
 import {Article} from 'src/app/interfaces/interfaces';
 import {NewsApiService} from 'src/app/providers/news-api.service';
@@ -21,8 +24,17 @@ export class FavouritesPage implements OnInit {
 		private newsService: NewsApiService,
 		public storageService: NewsStorageService,
 		private networkService: NetworkService,
-		private loadingCtrl: LoadingController
+		private loadingCtrl: LoadingController,
+		public popoverCtrl: PopoverController
 	) {}
+
+	async presentPopover(event) {
+    const popover = await this.popoverCtrl.create({
+      component: PopoverPage,
+      event: event
+    });
+    await popover.present();
+  }
 
 	ngOnInit() {}
 
@@ -47,5 +59,9 @@ export class FavouritesPage implements OnInit {
 				this.storageService.removeFromFavourites(article);
 				loadingEl.dismiss();
 			});
+	}
+
+	onClearAll() {
+
 	}
 }

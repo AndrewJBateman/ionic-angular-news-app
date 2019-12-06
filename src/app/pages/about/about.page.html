@@ -2,17 +2,23 @@
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-    </ion-buttons>
+		</ion-buttons>
+		
     <ion-title class="ion-text-center">
-			<ion-icon item-start class="icon" name="information-circle" size="large"></ion-icon>
-			{{ 'ABOUT.page-title' | translate }}
+			<ion-icon
+				class="icon"
+				name="information-circle"
+				size="large">
+			</ion-icon>
 		</ion-title>
+
 		<ion-buttons slot="end">
 			<ion-button 
 				(click)="presentPopover($event)">
     		<ion-icon slot="icon-only" name="more"></ion-icon>
       </ion-button>
-    </ion-buttons>
+		</ion-buttons>
+		
   </ion-toolbar>
 </ion-header>
 
