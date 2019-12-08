@@ -1,6 +1,5 @@
 
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSegment } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Article } from 'src/app/interfaces/interfaces';
@@ -13,7 +12,6 @@ import { NetworkService } from './../../providers/network.service';
 	styleUrls: ['./categories.page.scss']
 })
 export class CategoriesPage implements OnInit {
-	@ViewChild(IonSegment, {static: false}) segment: IonSegment;
 
 	categories = ['general', 'technology', 'business', 'entertainment', 'health', 'science', 'sports'];
 	news: Article[] = [];

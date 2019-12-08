@@ -1,7 +1,7 @@
 // angular & ionic/angular node modules
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { Platform, ToastController } from '@ionic/angular';
+import { MenuController, Platform, ToastController } from '@ionic/angular';
 
 // ionic-native & ngx node modules
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -23,6 +23,7 @@ export class AppComponent {
 	darkMode: any;
 	public isConnected = false;
 	public language: string = this.languageService.selected;
+	public menuCtrl: MenuController;
 	public appPages = [
     {
 			title: 'News',
@@ -101,5 +102,10 @@ export class AppComponent {
 	
 	languageChange() {
     this.languageService.setLanguage(this.language);
-  }
+	}
+
+	closeMenu() {
+		this.menuCtrl.close();
+	}
+	
 }

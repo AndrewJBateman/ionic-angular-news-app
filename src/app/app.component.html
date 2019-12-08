@@ -2,10 +2,22 @@
   <ion-split-pane contentId="menu-content">
 
 		<!--Side menu-->
-    <ion-menu contentId="menu-content">
+    <ion-menu side="start" contentId="menu-content">
       <ion-header>
         <ion-toolbar color="primary">
-          <ion-title>{{ 'MENU.title' | translate }}</ion-title>
+
+          <ion-title color="tertiary">
+						{{ 'MENU.title' | translate }}
+					</ion-title>
+			
+					<ion-buttons slot="end">
+						<ion-button
+						
+							(click)="closeMenu()">
+							<ion-icon slot="icon-only" name="close"></ion-icon>
+						</ion-button>
+					</ion-buttons>
+
         </ion-toolbar>
       </ion-header>
 			

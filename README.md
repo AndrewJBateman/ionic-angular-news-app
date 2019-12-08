@@ -116,7 +116,7 @@ this.newsService.getCountryCode().subscribe(
 ## Navigation/Pages
 
 * **Nav side-bar:** news, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit. Sidemenu is dismissed when the user clicks on a list item.
-* **TODO** add cancel button - to far left of 'navigate'? or MENU?
+* **TODO** fix code for cancel button.
 
 * **News page** shows world headlines using an ion-card list. Uses *ngIf to only show card if it has an image to avoid having news items with empty spaces (API data is not perfect). Shows time as '... ago' using a date convert pipe that uses day.js to convert the API Coordinated Universal Time (UTC) date-time string to '...ago'.
 

@@ -7,7 +7,7 @@ import { AlertController } from '@ionic/angular';
 // rxjs node modules
 import { debounceTime, map } from 'rxjs/operators';
 
-// services & interfaces
+// services
 import { NewsApiService } from '../../providers/news-api.service';
 import { NewsStorageService } from '../../providers/news-storage.service';
 import { Article } from './../../interfaces/interfaces';

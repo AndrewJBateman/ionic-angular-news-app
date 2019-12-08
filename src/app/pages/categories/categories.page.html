@@ -4,11 +4,12 @@
       <ion-menu-button></ion-menu-button>
 		</ion-buttons>
 
-		<!--drop-down list of categories, select one to change the news category and reload list of news-->
 		<ion-item class="ion-no-padding source" color="primary">
 			<ion-title class="ion-text-center">
 				<ion-icon item-start class="icon" name="options" size="large"></ion-icon>
 			</ion-title>
+
+			<!--drop-down list of categories, select one to change the news category and reload list of news-->
 			<ion-select
 				interface="action-sheet"
 				placeholder="Select"
@@ -19,7 +20,7 @@
 				cancelText="{{ 'CATEGORIES.cancel' | translate }}">
 				<ion-select-option
 					*ngFor="let category of categories"
-					value="{{category}}">
+					value="{{ category }}">
 					{{ category }}
 				</ion-select-option>
 			</ion-select>
