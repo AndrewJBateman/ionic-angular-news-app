@@ -104,8 +104,8 @@ export class AppComponent {
     this.languageService.setLanguage(this.language);
 	}
 
-	closeMenu() {
-		this.menuCtrl.close();
+	async closeMenu(event: any) {
+		await this.menuCtrl.close();
 	}
 	
 }

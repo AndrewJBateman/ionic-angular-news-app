@@ -130,7 +130,7 @@ this.newsService.getCountryCode().subscribe(
 **TODO:** Sliding from the right deletes the favourite.
 **TODO:** prevent storage of duplicate articles. Add 'delete all' button at top. lhs sliding delete is not working.
 
-* **About page** Includes popover with links to Author Website, Github Repo and a Contact Page. Unsplash image with author credit also shown.
+* **About page** Working. Displays Unsplash image with author credit and short info about the app with links to APIs used. Header includes popover with links to Author Website, Github Repo and a Contact Page. 
 **TODO:** add contact page, add my thumbnail image.
 
 * **Search page** add or remove Search page.

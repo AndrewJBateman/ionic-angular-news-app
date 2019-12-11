@@ -63,7 +63,7 @@ h6 {
 .mat-card-image {
   border-bottom-style: solid;
   border-bottom-width: 4px;
-  border-bottom-color: rgb(245, 200, 241);
+  border-bottom-color: var(--ion-color-tertiary);
 }
 
 /* Bottom right text */
@@ -72,8 +72,8 @@ h6 {
   bottom: 10px;
   right: 10px;
   background: rgb(0, 0, 0); /* Fallback color */
-  background: rgba(0, 0, 0, 0.55); /* Black background with 0.5 opacity */
-  color: white; /* Grey text */
+  background: rgba(0, 0, 0, 0.55); /* Black background with 0.55 opacity */
+  color: white;
   padding-left: 4px;
   padding-right: 4px;
 }
