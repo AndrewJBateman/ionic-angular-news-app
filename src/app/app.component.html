@@ -9,23 +9,12 @@
           <ion-title color="tertiary">
 						{{ 'MENU.title' | translate }}
 					</ion-title>
-			
-					<!-- <ion-buttons slot="end">
-						<ion-button
-						
-							(click)="closeMenu()">
-							<ion-icon slot="icon-only" name="close"></ion-icon>
-						</ion-button>
-					</ion-buttons> -->
 
         </ion-toolbar>
       </ion-header>
 			
 			<ion-content>
         <ion-list>
-          <ion-list-header>
-            <ion-text color="secondary">{{ 'MENU.Nav-header' | translate }}</ion-text>
-          </ion-list-header>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
 						<ion-item
 							[routerLink]="p.url" 
@@ -47,10 +36,6 @@
         </ion-list>
 				
 				<ion-list>
-					<ion-list-header>
-						<ion-text color="secondary">{{ 'MENU.Nav-settings' | translate }}</ion-text>
-					</ion-list-header>
-
 					<ion-item (click)="themeService.changeThemeMode()">
 						<ion-icon name="contrast" slot="start"></ion-icon>
 						<ion-label>{{ 'MENU.Label-darkMode' | translate }}</ion-label>
@@ -74,7 +59,7 @@
 					<img src="assets/imgs/sidemenu-image.jpg" alt="side bar image of city skyline">
 					<ion-card-header>
 						<ion-card-subtitle class="ion-text-center">
-							<ion-icon name="camera" color="secondary"></ion-icon> Kyle Glenn on Unsplash
+							<ion-icon name="camera" color="secondary"></ion-icon> Kyle Glenn: Unsplash
 						</ion-card-subtitle>
 					</ion-card-header>
 				</ion-card>
