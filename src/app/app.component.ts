@@ -30,7 +30,7 @@ export class AppComponent {
 			titlefr: 'Nouvelles',
 			titlesp: 'Noticias',
       url: '/app/tabs/news',
-			icon: 'list-box',
+			icon: 'list',
 			menuIcon: 'menuIconNews'
 			
     },
