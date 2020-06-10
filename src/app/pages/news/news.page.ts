@@ -84,14 +84,17 @@ export class NewsPage implements OnInit {
   countryCode: string;
   checkedCountryCode: string;
   data: any;
-  status = "";
   sources = [];
   onlySources = [];
   selectedSource = "CNN";
   defaultCountry = "us";
   public isConnected = true;
   sourceChosen = false;
+  storedSources: any;
   storedData: any;
+  storedNews: any;
+  storedselectedNews: any;
+  selectedNews: any;
   selectedLanguage: "string";
 
   constructor(
@@ -107,26 +110,21 @@ export class NewsPage implements OnInit {
   // ngOnInit lifecycle checks network and loads list of sources.
   // It is not reloaded when reentering page.
   ngOnInit() {
-    console.log("[News] OnInit");
-    console.log("stored data: ", this.storedData);
-
     // check network status
-    this.networkSubscriber();
+    // this.networkSubscriber();
 
-    /* 
+    /*
 		fetch user country via separate service function provider
 		fetch news for that country
 		use defaultCountry if country not in countryCode array
 		*/
     this.newsService.getCountryCode().subscribe((data) => {
-      console.log("country code search: ", data);
       const countryData = data;
       this.countryCode = countryData.country.toLowerCase();
       const checkedCountryCode =
         countryCodeArray.indexOf(this.countryCode.toLowerCase()) === -1
           ? this.defaultCountry
           : countryData.country.toLowerCase();
-      console.log("Country code is: ", checkedCountryCode);
       this.newsStorageService.storeData(
         "userCountry",
         checkedCountryCode.toString()
@@ -135,116 +133,86 @@ export class NewsPage implements OnInit {
     });
 
     // get list of news sources via news API service
-    this.newsService.getSources("/sources?").subscribe(
-      (data) => {
-        this.status = data.status;
-        this.sources = data.sources;
-
-        // this.newsStorageService.storeData('newsSources', JSON.stringify(this.sources));
-        console.log(
-          'ngOnInit getSources function ran with status "',
-          this.status,
-          '" and retrieved an array of',
-          +this.sources.length,
-          "sources."
-        );
-      },
-      (err) => {
-        console.log("an error occured: ", err);
-      }
-    );
+    if (this.storedNews == null) {
+      this.newsService.getSources("/sources?").subscribe(
+        (data) => {
+          this.sources = data.sources;
+          this.newsStorageService.storeData(
+            "this.storedSources",
+            JSON.stringify(this.sources)
+          );
+        },
+        (err) => {
+          console.log("an error occured: ", err);
+        }
+      );
+    }
+    this.newsStorageService.getStoredData("this.storedSources").then((val) => {
+      this.storedSources = JSON.parse(val);
+    });
   }
 
   // subscribe to network connected state
-  networkSubscriber(): void {
-    this.networkService
-      .getNetworkStatus()
-      .pipe(debounceTime(300))
-      .subscribe((connected: boolean) => {
-        this.isConnected = connected;
-      });
-  }
+  // networkSubscriber(): void {
+  //   this.networkService
+  //     .getNetworkStatus()
+  //     .pipe(debounceTime(300))
+  //     .subscribe((connected: boolean) => {
+  //       this.isConnected = connected;
+  //     });
+  // }
 
   // get boolean state of network status
-  networkStatus() {
-    this.networkService.getNetworkStatus().subscribe();
-  }
+  // networkStatus() {
+  //   this.networkService.getNetworkStatus().subscribe();
+  // }
 
-  // ionViewWillEnter lifecycle event used so news reloads if coming back to the news page
   ionViewWillEnter() {}
 
-  // if connected: fetch news for user/default country via news API service and store it via storage service
-  // if not connected fetch news from storage or show message saying no connection and storage is empty.
+  // if no stored news then subscribe from http service, otherwise get news directly from storage
   getCountryNews(countryCode: string) {
     this.platform.ready().then(() => {
-      if (this.isConnected) {
+      if (this.storedNews == null) {
         this.newsService
           .getNews("top-headlines?country=" + countryCode)
           .subscribe(
             (data) => {
-              // this.data = data;
-              const savedNews = this.newsStorageService.storeData(
-                "storedNews",
-                JSON.stringify(data)
+              this.data = data;
+              this.newsStorageService.storeData(
+                "this.storedNews",
+                JSON.stringify(this.data)
               );
-              if (savedNews) {
-                console.log("saved News");
-                this.getStoredNews();
-              }
             },
             (err) => {
-              console.log(
-                "An error occured in the API data fetching, error: ",
-                err
-              );
-              this.presentToast("An error occured, showing stored news");
+              console.log("An error occured, error: ", err);
             }
           );
-      } else {
-        console.log("no network - getting stored news");
-        this.getStoredNews();
       }
+      this.newsStorageService.getStoredData("this.storedNews").then((val) => {
+        this.storedNews = JSON.parse(val).articles;
+      });
     });
   }
 
-  getStoredNews() {
-    console.log("sourceChosen", this.sourceChosen);
-    try {
-      this.newsStorageService.getStoredData("storedNews").then((data) => {
-        if (data === "" || data === undefined || data === null) {
-          this.presentToast(
-            "News storage contains no articles - await network connection"
-          );
-        } else {
-          this.storedData = JSON.parse(data);
-        }
-      });
-    } catch (err) {
-      alert("Error getting stored data" + err);
-    }
-  }
-
-  // bind source to selected source
-  chooseSource(source: string) {
-    console.log(
-      "Run function chooseSource to make news source equal to selected source"
-    );
-    this.selectedSource = source;
-    this.loadSourceData();
-  }
-
   // fetch news from default/selected source via news API service
-  loadSourceData(event?: any) {
+  loadSourceData() {
     this.newsService
       .getNews("top-headlines?sources=" + this.selectedSource)
-      .subscribe((data) => {
-        console.log(
-          "loadSourceData function ran to get list of news articles from",
-          this.selectedSource
-        );
-        this.sourceChosen = true;
-        console.log("sourceChosen", this.sourceChosen);
-        this.data = data;
+      .subscribe(
+        (data) => {
+          this.sourceChosen = true;
+          this.data = data;
+          this.newsStorageService.storeData(
+            "this.storedselectedNews",
+            JSON.stringify(this.data)
+          );
+        },
+        (err) => {
+          console.log("An error occured, error: ", err);
+        }
+      );
+      this.newsStorageService.getStoredData("this.storedselectedNews").then((val) => {
+        this.selectedNews = JSON.parse(val).articles;
       });
   }
 

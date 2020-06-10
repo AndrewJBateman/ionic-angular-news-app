@@ -25,4 +25,12 @@ ion-thumbnail {
 .small-text {
 	color: var(--ion-color-secondary);
 	white-space: nowrap;
+	margin-left: 4px;
+}
+
+.news-text {
+	display: flex;
+	align-items: center;
+	margin-left: 4px;
+	color: var(ion-color-primary-contrast);
 }

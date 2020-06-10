@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'titleConvert'
 })
 export class TitleConvertPipe implements PipeTransform {
-	
+
 
   transform(value: string): string {
 		const shorterStrLength = 90;

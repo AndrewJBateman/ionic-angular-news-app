@@ -2,14 +2,6 @@ ion-card-title {
 	color: var(--ion-color-dark);
 }
 
-.about-header {
-  background-color: var(--ion-color-dark);
-  padding: 16px;
-  width: 100%;
-  height: 30%;
-  text-align: center;
-}
-
 .about-header img {
 	width: 100%;
 	height: 100%;
@@ -24,10 +16,6 @@ p {
 	margin-bottom: 10px;
 	margin-left: 0;
 	margin-right: 0;
-}
-
-.p_standout {
-	color: var(--ion-color-primary);
 }
 
 a:link {
@@ -46,12 +34,6 @@ a:hover, a:active {
 	color: var(--ion-color-secondary-shade);
 	background-color: transparent;
 	text-decoration: underline;
-}
-
-h6 {
-	color: var(--ion-color-primary);
-	text-decoration: underline;
-	margin-bottom: 5px;
 }
 
 .image-div {

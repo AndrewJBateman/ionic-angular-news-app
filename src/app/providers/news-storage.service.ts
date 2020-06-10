@@ -19,22 +19,20 @@ export class NewsStorageService implements OnInit {
 		this.storage.clear();
 		this.loadFavourites();
 	}
-			
-	async storeData(key: string, value: string) {
+
+		storeData(key: string, value: string) {
 		try {
 			this.storage.set(key, value);
-			// await console.log('Data stored under key: ', key, 'is: ', this.storage.get(key));
-			const result: string = await this.storage.get(key);
-			// console.log('result', result);
-			return true;
+			// const result: string = await this.storage.get(key);
+			// return true;
 		}
 		catch (err) {
 			alert('Error storing data: ' + err);
-			return false;
+			// return false;
 		}
 	}
 
-	getStoredData(key: string) {
+	async getStoredData(key: string) {
 		try {
 			return this.storage.get(key);
 		}

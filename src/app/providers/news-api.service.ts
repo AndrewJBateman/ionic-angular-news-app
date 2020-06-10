@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
-import { Observable, throwError } from "rxjs";
+import { throwError } from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
 import {
@@ -30,14 +30,14 @@ export class NewsApiService implements OnInit {
 
   // fetch country code from ip location API
   // response.setHeader("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
-	getCountryCode() {
-		return this.http.get('https://ipapi.co/json').pipe(
-			map((data: LocationResponse) => data),
-			catchError((err) => {
-				return throwError("News sources not found, error: ", err);
-			})
-		);
-	}
+  getCountryCode() {
+    return this.http.get("https://ipapi.co/json").pipe(
+      map((data: LocationResponse) => data),
+      catchError((err) => {
+        return throwError("News sources not found, error: ", err);
+      })
+    );
+  }
 
   // fetch sources from news API using url input
   getSources(url: string) {
@@ -50,19 +50,18 @@ export class NewsApiService implements OnInit {
   }
 
   // fetch news from news API using url input
-	getNews(url: string) {
+  getNews(url: string) {
     return this.http.get(`${apiUrl}/${url}&apiKey=${apiKey}`).pipe(
       map((data: NewsApiResponse) => data),
       catchError((err) => {
-        return throwError("Problem detching news from API, error: ", err);
+        return throwError("Problem fetching news from API, error: ", err);
       })
     );
   }
 
-	// navigate to news-detail page to show article detail
+  // navigate to news-detail page to show article detail
   getNewsDetail(article: Article) {
     this.currentArticle = article;
-    console.log("news item clicked - show news-detail");
     this.router.navigate(["/news-detail"]);
   }
 }

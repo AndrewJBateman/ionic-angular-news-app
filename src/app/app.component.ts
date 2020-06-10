@@ -32,7 +32,7 @@ export class AppComponent {
       url: '/app/tabs/news',
 			icon: 'list',
 			menuIcon: 'menuIconNews'
-			
+
     },
     {
 			title: 'Categories',
@@ -78,28 +78,27 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
 			this.splashScreen.hide();
-			
+
 			// check network available
-			this.networkService.getNetworkStatus().subscribe((connected: boolean) => {
-				this.isConnected = connected;
-				console.log('Network status: ', this.isConnected);
+			// this.networkService.getNetworkStatus().subscribe((connected: boolean) => {
+			// 	this.isConnected = connected;
 				// this.isConnected ? this.presentToast('network connected') : this.presentToast('network disconnected');
-			this.text = this.isConnected ? 'network connected' : 'network disconnected';
-			this.presentToast(this.text);
-			})
+		// 	this.text = this.isConnected ? 'network connected' : 'network disconnected';
+		// 	this.presentToast(this.text);
+		// 	})
 			this.languageService.setInitialAppLanguage();
     });
 	}
 
-	async presentToast(message: string) {
-		const toast = await this.toastController.create({
-			message: message,
-			position: 'middle',
-			duration: 2000
-		});
-		toast.present();
-	}
-	
+	// async presentToast(message: string) {
+	// 	const toast = await this.toastController.create({
+	// 		message: message,
+	// 		position: 'middle',
+	// 		duration: 2000
+	// 	});
+	// 	toast.present();
+	// }
+
 	languageChange() {
     this.languageService.setLanguage(this.language);
 	}
@@ -107,5 +106,5 @@ export class AppComponent {
 	async closeMenu(event: any) {
 		await this.menuCtrl.close();
 	}
-	
+
 }
