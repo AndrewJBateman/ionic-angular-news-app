@@ -1,33 +1,21 @@
-import { Component } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { Component } from "@angular/core";
+import { PopoverController } from "@ionic/angular";
+import { Router } from "@angular/router";
 
 @Component({
-  template: `
-    <ion-list>
-      <ion-item button (click)="openContact()">
-        <ion-label>Contact Form</ion-label>
-      </ion-item>
-      <ion-item button (click)="openUrl('https://andrewbateman.org')">
-        <ion-label>Author Website</ion-label>
-      </ion-item>
-      <ion-item button (click)="openUrl('https://github.com/AndrewJBateman/ionic-angular-news-app')">
-        <ion-label>App Github Repo</ion-label>
-      </ion-item>
-    </ion-list>
-  `
+  templateUrl: "./about-popover.html",
+  styleUrls: ["./about-popover.scss"],
 })
 export class PopoverPage {
-  constructor(public popoverCtrl: PopoverController) {}
+  constructor(private router: Router, public popoverCtrl: PopoverController) {}
 
-	openContact() {
-		console.log('openContact function clicked')
-		this.popoverCtrl.dismiss();
-	}
+  openContactForm() {
+    this.router.navigate(["app/tabs/contact"]);
+    this.popoverCtrl.dismiss();
+  }
 
   openUrl(url: string) {
-		console.log('openUrl function clicked')
-    window.open(url, '_blank');
+    window.open(url, "_blank");
     this.popoverCtrl.dismiss();
-	}
-
+  }
 }

@@ -190,6 +190,7 @@ export class NewsPage implements OnInit {
       }
       this.newsStorageService.getStoredData("this.storedNews").then((val) => {
         this.storedNews = JSON.parse(val).articles;
+        console.log(this.storedNews);
       });
     });
   }

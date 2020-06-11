@@ -2,44 +2,64 @@
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-		</ion-buttons>
-		
-    <ion-title class="ion-text-center">
-			<ion-icon
-				class="icon"
-				name="information-circle"
-				size="large">
-			</ion-icon>
-		</ion-title>
+    </ion-buttons>
 
-		<ion-buttons slot="end">
-			<ion-button 
-				(click)="presentPopover($event)">
-    		<ion-icon slot="icon-only" name="more"></ion-icon>
+    <ion-title class="ion-text-center">
+      <ion-icon class="icon" name="information-circle" size="large"> </ion-icon>
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="presentPopover($event)">
+        <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
       </ion-button>
-		</ion-buttons>
-		
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid class="ion-no-padding">
     <ion-row>
-      <ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
-        <ion-card>
-					<div class="image-div">
-						<img class="mat-card-image" src="assets/imgs/about-image.jpg" alt="Photo by Sean O. on Unsplash">
-						<div class="photo-credit">Photo by Sean O. on Unsplash</div>
-					</div>
+      <ion-col
+        size="12"
+        size-sm="8"
+        size-ms="8"
+        size-xl="6"
+        offset-sm="2"
+        class="ion-no-padding"
+      >
+        <ion-card class="about-card">
+          <div class="image-div">
+            <img
+              class="mat-card-image"
+              src="assets/imgs/about-image.jpg"
+              alt="Photo by Sean O. on Unsplash"
+            />
+            <div class="photo-credit">Photo by Sean O. on Unsplash</div>
+          </div>
 
-					<ion-card-header>
-            <ion-card-title class="ion-text-center">{{ 'ABOUT.card-title' | translate }}</ion-card-title>
+          <ion-card-header>
+            <ion-card-title color="dark" class="ion-text-center"
+              ><ion-icon
+                name="newspaper-outline"
+                class="title-icon"
+                size="large"
+              ></ion-icon
+              >{{ 'ABOUT.card-title' | translate }}</ion-card-title
+            >
           </ion-card-header>
           <ion-card-content class="ion-text-wrap">
-						<p>{{ 'ABOUT.para1-part1' | translate }}<a class="link-text" href="https://newsapi.org" target="_blank" title="Go to the News API website (opens in a new window)">News API</a>, {{ 'ABOUT.para1-part2' | translate }}</p>
-						<p>{{ 'ABOUT.para2' | translate }}</p>
-						<p>{{ 'ABOUT.para3' | translate }}</p>
-					</ion-card-content>
+            <p>
+              {{ 'ABOUT.para1-part1' | translate }}<a
+                class="link-text"
+                href="https://newsapi.org"
+                target="_blank"
+                title="Go to the News API website (opens in a new window)"
+                >News API</a
+              >, {{ 'ABOUT.para1-part2' | translate }}
+            </p>
+            <p>{{ 'ABOUT.para2' | translate }}</p>
+            <p>{{ 'ABOUT.para3' | translate }}</p>
+          </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>

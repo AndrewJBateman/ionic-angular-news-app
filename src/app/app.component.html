@@ -1,73 +1,88 @@
 <ion-app>
   <ion-split-pane contentId="menu-content">
-
-		<!--Side menu-->
+    <!--Side menu-->
     <ion-menu side="start" contentId="menu-content">
       <ion-header>
         <ion-toolbar color="primary">
-
           <ion-title color="tertiary">
-						{{ 'MENU.title' | translate }}
-					</ion-title>
-
+            {{ "MENU.title" | translate }}
+          </ion-title>
         </ion-toolbar>
       </ion-header>
-			
-			<ion-content>
+
+      <ion-content>
         <ion-list>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-						<ion-item
-							[routerLink]="p.url" 
-							routerLinkActive="active"
-							routerDirection="root"
-							>
-              <ion-icon slot="start" [name]="p.icon" [class]="p.menuIcon"></ion-icon>
-							<ion-label *ngIf="language==='en'">
+          <ion-menu-toggle
+            auto-hide="false"
+            *ngFor="let p of appPages; let i = index"
+          >
+            <ion-item
+              [routerLink]="p.url"
+              routerLinkActive="active"
+              routerDirection="root"
+            >
+              <ion-icon
+                slot="start"
+                [name]="p.icon"
+                [class]="p.menuIcon"
+              ></ion-icon>
+              <ion-label *ngIf="language === 'en'">
                 {{ p.title }}
-							</ion-label>
-							<ion-label *ngIf="language==='fr'">
+              </ion-label>
+              <ion-label *ngIf="language === 'fr'">
                 {{ p.titlefr }}
-							</ion-label>
-							<ion-label *ngIf="language==='sp'">
+              </ion-label>
+              <ion-label *ngIf="language === 'sp'">
                 {{ p.titlesp }}
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
-				
-				<ion-list>
-					<ion-item (click)="themeService.changeThemeMode()">
-						<ion-icon name="contrast" slot="start"></ion-icon>
-						<ion-label>{{ 'MENU.Label-darkMode' | translate }}</ion-label>
-						<ion-toggle slot="end" [(ngModel)]="darkMode"></ion-toggle>
-					</ion-item>
 
-					<ion-item>
-						<ion-icon name="globe" slot="start" class="iconGlobe"></ion-icon>
-						<ion-label>{{ 'MENU.Label-language' | translate }}</ion-label>
-						<ion-select 
-						#Language	[(ngModel)]="language"
-						(ionChange)="languageChange()">
-							<ion-select-option option value="en" selected>{{ 'MENU.LangOption-English' | translate }}</ion-select-option>
-							<ion-select-option option value="sp">{{ 'MENU.LangOption-Spanish' | translate }}</ion-select-option>
-							<ion-select-option option value="fr">{{ 'MENU.LangOption-French' | translate }}</ion-select-option>
-						</ion-select>
-					</ion-item>
-				</ion-list>
+        <ion-list>
+          <ion-item (click)="themeService.changeThemeMode()">
+            <ion-icon name="contrast" slot="start"></ion-icon>
+            <ion-label>{{ "MENU.Label-darkMode" | translate }}</ion-label>
+            <ion-toggle slot="end" [(ngModel)]="darkMode"></ion-toggle>
+          </ion-item>
 
-				<ion-card>
-					<img src="assets/imgs/sidemenu-image.jpg" alt="side bar image of city skyline">
-					<ion-card-header>
-						<ion-card-subtitle class="ion-text-center">
-							<ion-icon name="camera" color="secondary"></ion-icon> Kyle Glenn: Unsplash
-						</ion-card-subtitle>
-					</ion-card-header>
-				</ion-card>
-			</ion-content>
-		</ion-menu>
+          <ion-item>
+            <ion-icon name="globe" slot="start" class="iconGlobe"></ion-icon>
+            <ion-label>{{ "MENU.Label-language" | translate }}</ion-label>
+            <ion-select
+              #Language
+              [(ngModel)]="language"
+              (ionChange)="languageChange()"
+            >
+              <ion-select-option option value="en" selected>{{
+                "MENU.LangOption-English" | translate
+              }}</ion-select-option>
+              <ion-select-option option value="sp">{{
+                "MENU.LangOption-Spanish" | translate
+              }}</ion-select-option>
+              <ion-select-option option value="fr">{{
+                "MENU.LangOption-French" | translate
+              }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
 
-		<!-- the main content -->
-		<ion-router-outlet id="menu-content"></ion-router-outlet>
-		
+        <ion-card>
+          <img
+            src="assets/imgs/sidemenu-image.jpg"
+            alt="side bar image of city skyline"
+          />
+          <ion-card-header>
+            <ion-card-subtitle class="ion-text-center">
+              <ion-icon name="camera" color="secondary"></ion-icon> Kyle Glenn:
+              Unsplash
+            </ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-content>
+    </ion-menu>
+
+    <!-- the main content -->
+    <ion-router-outlet id="menu-content"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>

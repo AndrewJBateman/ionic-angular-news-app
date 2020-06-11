@@ -1,6 +1,6 @@
-ion-card-title {
-	color: var(--ion-color-dark);
-}
+// ion-card-title {
+// 	color: var(--ion-color-dark);
+// }
 
 .about-header img {
 	width: 100%;
@@ -9,13 +9,17 @@ ion-card-title {
 	object-fit: cover;
 }
 
+.title-icon {
+  vertical-align: middle;
+  color: var(--ion-color-secondary);
+  padding-right: 4px;
+}
+
 p {
 	width: 100%;
-  color: var(--ion-color-dark);
 	text-align: justify;
-	margin-bottom: 10px;
-	margin-left: 0;
-	margin-right: 0;
+	margin: auto 0 10px;
+	color: var(--ion-color-light-contrast);
 }
 
 a:link {
@@ -63,4 +67,8 @@ a:hover, a:active {
 .icon {
 	vertical-align: middle;
 	color: var(--ion-color-tertiary);
+}
+
+.about-card {
+	background-color: var(--ion-color-light);
 }
