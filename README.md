@@ -66,6 +66,7 @@ App to search for and display news items from a [news API](https://newsapi.org/)
 
 * It is necessary to [register with news API](https://newsapi.org/docs/get-started) to get an API key that is stored in the `environment.ts` file
 * To start the server on _localhost://8100_ type: `ionic serve`
+* To run linter: `npm run lint`
 * To create a build file suitable for Firebase deployment: `ionic build --prod --release`
 * To deploy to Firebase: `firebase deploy`
 
@@ -129,11 +130,11 @@ this.newsService.getCountryCode().subscribe(
 
 ## :clipboard: To-do
 
-1. Dark theme - add storage
-2. Check translations
-3. Splash screen
-4. SqLite - use as default database?
-5. replace any types with models - Article etc
+1. Lint check
+2. Dark theme - add storage
+3. Check translations
+4. Splash screen
+5. SqLite - use as default database?
 6. Search page - add or remove Search page.
 7. Lighthouse score?
 8. Run on simulator

@@ -1,15 +1,11 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
-  name: 'titleConvert'
+  name: "titleConvert",
 })
 export class TitleConvertPipe implements PipeTransform {
-
-
   transform(value: string): string {
-		const shorterStrLength = 90;
-		return value.substring(0, shorterStrLength).concat('...');
-
+    const shorterStrLength = 90;
+    return value.substring(0, shorterStrLength).concat("...");
   }
-
 }

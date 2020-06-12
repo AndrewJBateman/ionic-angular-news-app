@@ -14,7 +14,11 @@ import { debounceTime } from "rxjs/operators";
 // services
 import { NewsApiService } from "../../providers/news-api.service";
 import { NewsStorageService } from "../../providers/news-storage.service";
-import { Article } from "./../../interfaces/interfaces";
+import {
+  Article,
+  SourcesResponse,
+  NewsApiResponse,
+} from "./../../interfaces/interfaces";
 import { NetworkService } from "../../providers/network.service";
 
 // array of countries served by the news API service - note it does not include Spain
@@ -135,7 +139,8 @@ export class NewsPage implements OnInit {
     // get list of news sources via news API service
     if (this.storedNews == null) {
       this.newsService.getSources("/sources?").subscribe(
-        (data) => {
+        (data: SourcesResponse) => {
+          console.log("data: ", data);
           this.sources = data.sources;
           this.newsStorageService.storeData(
             "this.storedSources",
@@ -170,14 +175,15 @@ export class NewsPage implements OnInit {
   ionViewWillEnter() {}
 
   // if no stored news then subscribe from http service, otherwise get news directly from storage
-  getCountryNews(countryCode: string) {
+  getCountryNews(countryCode: string): void {
     this.platform.ready().then(() => {
       if (this.storedNews == null) {
         this.newsService
           .getNews("top-headlines?country=" + countryCode)
           .subscribe(
-            (data) => {
+            (data: NewsApiResponse) => {
               this.data = data;
+              console.log("this.data:", this.data);
               this.newsStorageService.storeData(
                 "this.storedNews",
                 JSON.stringify(this.data)
@@ -190,7 +196,6 @@ export class NewsPage implements OnInit {
       }
       this.newsStorageService.getStoredData("this.storedNews").then((val) => {
         this.storedNews = JSON.parse(val).articles;
-        console.log(this.storedNews);
       });
     });
   }
@@ -200,7 +205,7 @@ export class NewsPage implements OnInit {
     this.newsService
       .getNews("top-headlines?sources=" + this.selectedSource)
       .subscribe(
-        (data) => {
+        (data: NewsApiResponse) => {
           this.sourceChosen = true;
           this.data = data;
           this.newsStorageService.storeData(
@@ -212,7 +217,9 @@ export class NewsPage implements OnInit {
           console.log("An error occured, error: ", err);
         }
       );
-      this.newsStorageService.getStoredData("this.storedselectedNews").then((val) => {
+    this.newsStorageService
+      .getStoredData("this.storedselectedNews")
+      .then((val) => {
         this.selectedNews = JSON.parse(val).articles;
       });
   }

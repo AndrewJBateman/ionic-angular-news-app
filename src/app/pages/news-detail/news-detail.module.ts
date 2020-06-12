@@ -1,23 +1,23 @@
 // angular & ionic/angular node modules
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
-import { IonicModule } from '@ionic/angular';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { Routes, RouterModule } from "@angular/router";
+import { IonicModule } from "@ionic/angular";
 
 // ngx node modules
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule } from "@ngx-translate/core";
 
 // Component & pipe modules & services
-import { NewsDetailPage } from './news-detail.page';
-import { PipesModule } from '../../pipes/pipes.module';
-import { ComponentsModule } from '../../components/components.module';
+import { NewsDetailPage } from "./news-detail.page";
+import { PipesModule } from "../../pipes/pipes.module";
+import { ComponentsModule } from "../../components/components.module";
 
 const routes: Routes = [
   {
-    path: '',
-    component: NewsDetailPage
-  }
+    path: "",
+    component: NewsDetailPage,
+  },
 ];
 
 @NgModule({
@@ -25,14 +25,12 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-		RouterModule.forChild(routes),
-		TranslateModule,
-		PipesModule,
-		ComponentsModule
+    RouterModule.forChild(routes),
+    TranslateModule,
+    PipesModule,
+    ComponentsModule,
   ],
-	declarations: [
-		NewsDetailPage
-	],
-	exports: []
+  declarations: [NewsDetailPage],
+  exports: [],
 })
 export class NewsDetailPageModule {}

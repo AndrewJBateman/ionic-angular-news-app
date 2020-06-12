@@ -1,13 +1,11 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
-  name: 'titleNosource'
+  name: "titleNosource",
 })
 export class TitleNosourcePipe implements PipeTransform {
-
-	// 
+  //
   transform(value: string): string {
-    return value.replace(/-[^-]*$/, '');
+    return value.replace(/-[^-]*$/, "");
   }
-
 }

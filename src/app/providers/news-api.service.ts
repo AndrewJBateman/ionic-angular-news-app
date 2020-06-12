@@ -31,7 +31,7 @@ export class NewsApiService implements OnInit {
   // fetch country code from ip location API
   // response.setHeader("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
   getCountryCode() {
-    return this.http.get("https://ipapi.co/json").pipe(
+    return this.http.get<LocationResponse>("https://ipapi.co/json").pipe(
       map((data: LocationResponse) => data),
       catchError((err) => {
         return throwError("News sources not found, error: ", err);
@@ -41,22 +41,26 @@ export class NewsApiService implements OnInit {
 
   // fetch sources from news API using url input
   getSources(url: string) {
-    return this.http.get(`${apiUrl}/${url}&apiKey=${apiKey}`).pipe(
-      map((data: SourcesResponse) => data),
-      catchError((err) => {
-        return throwError("News sources not found, error: ", err);
-      })
-    );
+    return this.http
+      .get<SourcesResponse>(`${apiUrl}/${url}&apiKey=${apiKey}`)
+      .pipe(
+        map((data: SourcesResponse) => data),
+        catchError((err) => {
+          return throwError("News sources not found, error: ", err);
+        })
+      );
   }
 
   // fetch news from news API using url input
   getNews(url: string) {
-    return this.http.get(`${apiUrl}/${url}&apiKey=${apiKey}`).pipe(
-      map((data: NewsApiResponse) => data),
-      catchError((err) => {
-        return throwError("Problem fetching news from API, error: ", err);
-      })
-    );
+    return this.http
+      .get<NewsApiResponse>(`${apiUrl}/${url}&apiKey=${apiKey}`)
+      .pipe(
+        map((data: NewsApiResponse) => data),
+        catchError((err) => {
+          return throwError("Problem fetching news from API, error: ", err);
+        })
+      );
   }
 
   // navigate to news-detail page to show article detail
