@@ -21,14 +21,15 @@
 		"remove-favourite": "Retirer Favori"
 	},
 	"FAVOURITES": {
-		"title": "Favoris",
-		"notice": "Il n'y a pas d'articles dans les Favoris"
+		"notice": "Il n'y a pas d'articles dans les Favoris",
+		"photo-credit": "Photo par CapDfrawy sur Unsplash"
 	},
 	"PROGRESS_BAR": {
 		"title": "Chargement des nouvelles..."
 	},
 	"ABOUT": {
 		"page-title": "À Propos de Cette App",
+		"photo-credit": "Photo par Sean O. sur Unsplash",
 		"card-title": "Nouvelles du Monde",
 		"para1-part1": "Cette application récupère les métadonnées JSON en direct de ",
 		"para1-part2": "une API HTTP REST contenant des articles d'environ 30 000 sources / blogs dans le monde entier.",

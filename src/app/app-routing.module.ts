@@ -12,10 +12,6 @@ const routes: Routes = [
     loadChildren: () =>
       import("./pages/tabs/tabs.module").then((m) => m.TabsPageModule),
   },
-  // {
-  // 	path: 'search',
-  // 	loadChildren: () => import('./pages/search/search.module').then(m => m.SearchPageModule)
-  // },
   {
     path: "news-detail",
     loadChildren: () =>

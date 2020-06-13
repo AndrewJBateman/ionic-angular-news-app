@@ -6,18 +6,19 @@ import { ToastController } from "@ionic/angular";
 @Injectable({
   providedIn: "root",
 })
-export class NewsStorageService implements OnInit {
+export class StorageService implements OnInit {
   // initialise a store of news articles as an empty array
   news: Article[] = [];
 
   constructor(private storage: Storage, private toastContr: ToastController) {}
 
   ngOnInit() {
+    console.log("ngOnit running");
     this.storage.clear();
     this.loadFavourites();
   }
 
-  storeData(key: string, value: string) {
+  storeData(key: string, value: string | boolean) {
     try {
       this.storage.set(key, value);
       // const result: string = await this.storage.get(key);
@@ -79,7 +80,7 @@ export class NewsStorageService implements OnInit {
     toast.present();
   }
 
-  // get aray of articles from storage to list on favourites page.
+  // get array of articles from storage to list on favourites page.
   async loadFavourites() {
     const favourites = await this.storage.get("favourites");
     console.log("favourites in storage: ", favourites);

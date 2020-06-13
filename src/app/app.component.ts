@@ -11,6 +11,7 @@ import { StatusBar } from "@ionic-native/status-bar/ngx";
 import { NetworkService } from "./providers/network.service";
 import { ThemeService } from "./providers/theme.service";
 import { LanguageService } from "./providers/language.service";
+import { StorageService } from "./providers/storage.service";
 
 @Component({
   selector: "app-root",
@@ -20,7 +21,7 @@ import { LanguageService } from "./providers/language.service";
 })
 export class AppComponent {
   text = "";
-  darkMode: any;
+  darkMode: boolean;
   public isConnected = false;
   public language: string = this.languageService.selected;
   public menuCtrl: MenuController;
@@ -51,7 +52,7 @@ export class AppComponent {
     },
     {
       title: "About",
-      titlefr: "Sur cette app",
+      titlefr: "À Propos",
       titlesp: "Sobre esta app",
       url: "/app/tabs/about",
       icon: "information-circle",
@@ -67,10 +68,10 @@ export class AppComponent {
     public themeService: ThemeService,
     public networkService: NetworkService,
     public toastController: ToastController,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    private storageService: StorageService
   ) {
     this.initializeApp();
-    this.darkMode = this.themeService.darkMode;
   }
 
   initializeApp() {
@@ -80,12 +81,22 @@ export class AppComponent {
 
       // check network available
       // this.networkService.getNetworkStatus().subscribe((connected: boolean) => {
-      // 	this.isConnected = connected;
+      //  this.isConnected = connected;
       // this.isConnected ? this.presentToast('network connected') : this.presentToast('network disconnected');
       // 	this.text = this.isConnected ? 'network connected' : 'network disconnected';
       // 	this.presentToast(this.text);
       // 	})
       this.languageService.setInitialAppLanguage();
+      this.darkStartMode();
+    });
+  }
+
+  async darkStartMode() {
+    this.storageService.getStoredData("dark-theme").then((val) => {
+      this.darkMode = JSON.parse(val);
+      this.darkMode === true
+        ? this.themeService.enableDark()
+        : this.themeService.enableLight();
     });
   }
 

@@ -1,102 +1,96 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-			<!-- <ion-menu-button></ion-menu-button> -->
-			<ion-back-button text="" defaultHref="app/tabs/news" router-direction="back"></ion-back-button>
+      <!-- <ion-menu-button></ion-menu-button> -->
+      <ion-back-button
+        text=""
+        defaultHref="app/tabs/news"
+        router-direction="back"
+      ></ion-back-button>
     </ion-buttons>
-    <ion-title *ngIf="article.source.name">{{ 'NEWS-DETAIL.title' | translate }} <span class="source-text">{{ article.source.name }}</span></ion-title>
-	</ion-toolbar>
+    <ion-title *ngIf="article.source.name"
+      >{{ 'NEWS-DETAIL.title' | translate }}
+      <span class="source-text">{{ article.source.name }}</span></ion-title
+    >
+  </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-no-padding" [scrollEvents]="true">
-
-	<ion-grid class="ion-no-padding">
-		<ion-row>
-			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
-
-				<ion-card class="ion-no-padding ion-no-margin">
-					<ion-card-header class="ion-no-padding">
-						<ion-img
-							class="detail-img"
-							[src]="article.urlToImage">
-						</ion-img>
-					</ion-card-header>
-					<ion-card-content class="ion-no-padding">
-						<ion-list>
-							<ion-list-header class="detail-header">{{ article.title | titleNosource }}</ion-list-header>
-							<ion-text *ngIf="article.content">{{ appendString(article.content) }}
-							<br><span class="small-text">{{ article.publishedAt | dateConvert }}</span>
-							</ion-text>
-						</ion-list>
-					</ion-card-content>
-				</ion-card>
-				<ion-card *ngIf="article.author" class="ion-no-padding ion-no-margin">
-					<ion-card-content>
-						<ion-text><span class="author-text"><ion-icon size="large" name="person-circle"></ion-icon>Author: </span>{{ article.author }}</ion-text>
-					</ion-card-content>
-				</ion-card>
-
-			</ion-col>
-		</ion-row>
-	</ion-grid>
-
-	<!-- <ion-fab
-		vertical="top"
-		horizontal="end"
-		slot="fixed"
-		#fab>
-		<ion-fab-button color="light">
-			<ion-icon color="secondary" name="share"></ion-icon>
-		</ion-fab-button>
-		<ion-fab-list side="start">
-			<ion-fab-button color="light" (click)="openSocial('Vimeo', fab)">
-				<ion-icon name="logo-vimeo"></ion-icon>
-			</ion-fab-button>
-
-			<ion-fab-button color="light" (click)="openSocial('Google+', fab)">
-				<ion-icon name="logo-googleplus"></ion-icon>
-			</ion-fab-button>
-
-			<ion-fab-button color="light" (click)="openSocial('Twitter', fab)">
-				<ion-icon name="logo-twitter"></ion-icon>
-			</ion-fab-button>
-
-			<ion-fab-button color="light" (click)="openSocial('Facebook', fab)">
-				<ion-icon name="logo-facebook"></ion-icon>
-			</ion-fab-button>
-		</ion-fab-list>
-	</ion-fab> -->
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col
+        size="12"
+        size-sm="8"
+        size-ms="8"
+        size-xl="6"
+        offset-sm="2"
+        class="ion-no-padding"
+      >
+        <ion-card class="ion-no-padding ion-no-margin">
+          <ion-card-header class="ion-no-padding">
+            <ion-img class="detail-img" [src]="article.urlToImage"> </ion-img>
+          </ion-card-header>
+          <ion-card-content class="ion-no-padding">
+            <ion-list>
+              <ion-list-header class="detail-header"
+                >{{ article.title | titleNosource }}</ion-list-header
+              >
+              <ion-text *ngIf="article.content"
+                >{{ appendString(article.content) }} <br /><span
+                  class="small-text"
+                  >{{ article.publishedAt | dateConvert }}</span
+                >
+              </ion-text>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+        <ion-card *ngIf="article.author" class="ion-no-padding ion-no-margin">
+          <ion-card-content>
+            <ion-text
+              ><span class="author-text"
+                ><ion-icon size="large" name="person-circle"></ion-icon
+                >Author: </span
+              >{{ article.author }}</ion-text
+            >
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
 
 <ion-tabs>
-	<ion-tab-bar slot="bottom">
-		<ion-buttons>
-			<ion-button
-				href="{{article.url}}"
-				target="_blank"
-				size="small"
-				icon-left>
-				<ion-icon name="eye" size="large"></ion-icon>
-				<div class="footer-text">&nbsp;{{ 'NEWS-DETAIL.visit' | translate }}</div>
-			</ion-button>
-			<div fxFlex></div>
-			<ion-button
-				*ngIf="!isFavourite(article)"
-				(click)="onAddToFavourites(article)"
-				size="small"
-				icon-left>
-				<ion-icon name="heart" size="large"></ion-icon>
-				<div class="footer-text">&nbsp;{{ 'NEWS-DETAIL.add-favourite' | translate }}</div>
-			</ion-button>
-			<ion-button
-				*ngIf="isFavourite(article)"
-				(click)="onRemoveFromFavourites(article)"
-				size="small"
-				icon-left>
-				<ion-icon name="heart-dislike"></ion-icon>
-				<div class="footer-text">&nbsp;{{ 'NEWS-DETAIL.remove-favourite' | translate }}</div>
-			</ion-button>
-		</ion-buttons>
-	</ion-tab-bar>
+  <ion-tab-bar slot="bottom">
+    <ion-buttons>
+      <ion-button href="{{article.url}}" target="_blank" size="small" icon-left>
+        <ion-icon name="eye" size="large"></ion-icon>
+        <div class="footer-text">
+          &nbsp;{{ 'NEWS-DETAIL.visit' | translate }}
+        </div>
+      </ion-button>
+      <div fxFlex></div>
+      <ion-button
+        *ngIf="!isFavourite(article)"
+        (click)="onAddToFavourites(article)"
+        size="small"
+        icon-left
+      >
+        <ion-icon name="heart" size="large"></ion-icon>
+        <div class="footer-text">
+          &nbsp;{{ 'NEWS-DETAIL.add-favourite' | translate }}
+        </div>
+      </ion-button>
+      <ion-button
+        *ngIf="isFavourite(article)"
+        (click)="onRemoveFromFavourites(article)"
+        size="small"
+        icon-left
+      >
+        <ion-icon name="heart-dislike"></ion-icon>
+        <div class="footer-text">
+          &nbsp;{{ 'NEWS-DETAIL.remove-favourite' | translate }}
+        </div>
+      </ion-button>
+    </ion-buttons>
+  </ion-tab-bar>
 </ion-tabs>
-

@@ -4,7 +4,7 @@ import { Component, OnInit } from "@angular/core";
 import { PopoverController } from "@ionic/angular";
 import { PopoverPage } from "./favourites-popover/favourites-popover";
 
-import { NewsStorageService } from "src/app/providers/news-storage.service";
+import { StorageService } from "src/app/providers/storage.service";
 import { Article } from "src/app/interfaces/interfaces";
 import { NewsApiService } from "src/app/providers/news-api.service";
 import { NetworkService } from "./../../providers/network.service";
@@ -22,7 +22,7 @@ export class FavouritesPage implements OnInit {
 
   constructor(
     private newsService: NewsApiService,
-    public storageService: NewsStorageService,
+    public storageService: StorageService,
     private networkService: NetworkService,
     private loadingCtrl: LoadingController,
     public popoverCtrl: PopoverController

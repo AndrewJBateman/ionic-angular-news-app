@@ -5,10 +5,9 @@ import {
   ModalController,
   ToastController,
 } from "@ionic/angular";
-import { SocialSharing } from "@ionic-native/social-sharing/ngx";
 
 import { NewsApiService } from "src/app/providers/news-api.service";
-import { NewsStorageService } from "src/app/providers/news-storage.service";
+import { StorageService } from "src/app/providers/storage.service";
 import { Article } from "./../../interfaces/interfaces";
 
 @Component({
@@ -25,8 +24,7 @@ export class NewsDetailPage implements OnInit {
     public loadingCtrl: LoadingController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
-    public storeNewsService: NewsStorageService,
-    public socialSharing: SocialSharing
+    public storageService: StorageService,
   ) {}
 
   ngOnInit() {
@@ -34,7 +32,7 @@ export class NewsDetailPage implements OnInit {
   }
 
   onAddToFavourites(article: Article) {
-    this.storeNewsService.addToFavourites(article);
+    this.storageService.addToFavourites(article);
     console.log(
       "article isFavourite status has changed to: ",
       this.isFavourite(article)
@@ -42,7 +40,7 @@ export class NewsDetailPage implements OnInit {
   }
 
   onRemoveFromFavourites(article: Article) {
-    this.storeNewsService.removeFromFavourites(article);
+    this.storageService.removeFromFavourites(article);
     console.log(
       "article isFavourite status has changed to: ",
       this.isFavourite(article)
@@ -50,7 +48,7 @@ export class NewsDetailPage implements OnInit {
   }
 
   isFavourite(article: Article) {
-    return this.storeNewsService.isFavourite(article);
+    return this.storageService.isFavourite(article);
   }
 
   async openSocial(network: string, fab: HTMLIonFabElement) {

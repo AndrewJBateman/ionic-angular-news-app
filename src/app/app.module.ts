@@ -14,7 +14,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { Network } from "@ionic-native/network/ngx";
 import { SplashScreen } from "@ionic-native/splash-screen/ngx";
 import { StatusBar } from "@ionic-native/status-bar/ngx";
-import { SocialSharing } from "@ionic-native/social-sharing/ngx";
 import { IonicStorageModule } from "@ionic/storage";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
@@ -44,7 +43,6 @@ export function createTranslateLoader(http: HttpClient) {
     }),
   ],
   providers: [
-    SocialSharing,
     Network,
     StatusBar,
     SplashScreen,

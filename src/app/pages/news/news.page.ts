@@ -13,7 +13,7 @@ import { debounceTime } from "rxjs/operators";
 
 // services
 import { NewsApiService } from "../../providers/news-api.service";
-import { NewsStorageService } from "../../providers/news-storage.service";
+import { StorageService } from "../../providers/storage.service";
 import {
   Article,
   SourcesResponse,
@@ -105,7 +105,7 @@ export class NewsPage implements OnInit {
     public toastController: ToastController,
     private platform: Platform,
     private newsService: NewsApiService,
-    private newsStorageService: NewsStorageService,
+    private storageService: StorageService,
     private networkService: NetworkService,
     public modalCtrl: ModalController,
     public loadingCtrl: LoadingController,
@@ -129,7 +129,7 @@ export class NewsPage implements OnInit {
         countryCodeArray.indexOf(this.countryCode.toLowerCase()) === -1
           ? this.defaultCountry
           : countryData.country.toLowerCase();
-      this.newsStorageService.storeData(
+      this.storageService.storeData(
         "userCountry",
         checkedCountryCode.toString()
       );
@@ -140,9 +140,8 @@ export class NewsPage implements OnInit {
     if (this.storedNews == null) {
       this.newsService.getSources("/sources?").subscribe(
         (data: SourcesResponse) => {
-          console.log("data: ", data);
           this.sources = data.sources;
-          this.newsStorageService.storeData(
+          this.storageService.storeData(
             "this.storedSources",
             JSON.stringify(this.sources)
           );
@@ -152,7 +151,7 @@ export class NewsPage implements OnInit {
         }
       );
     }
-    this.newsStorageService.getStoredData("this.storedSources").then((val) => {
+    this.storageService.getStoredData("this.storedSources").then((val) => {
       this.storedSources = JSON.parse(val);
     });
   }
@@ -183,8 +182,7 @@ export class NewsPage implements OnInit {
           .subscribe(
             (data: NewsApiResponse) => {
               this.data = data;
-              console.log("this.data:", this.data);
-              this.newsStorageService.storeData(
+              this.storageService.storeData(
                 "this.storedNews",
                 JSON.stringify(this.data)
               );
@@ -194,7 +192,7 @@ export class NewsPage implements OnInit {
             }
           );
       }
-      this.newsStorageService.getStoredData("this.storedNews").then((val) => {
+      this.storageService.getStoredData("this.storedNews").then((val) => {
         this.storedNews = JSON.parse(val).articles;
       });
     });
@@ -208,7 +206,7 @@ export class NewsPage implements OnInit {
         (data: NewsApiResponse) => {
           this.sourceChosen = true;
           this.data = data;
-          this.newsStorageService.storeData(
+          this.storageService.storeData(
             "this.storedselectedNews",
             JSON.stringify(this.data)
           );
@@ -217,11 +215,9 @@ export class NewsPage implements OnInit {
           console.log("An error occured, error: ", err);
         }
       );
-    this.newsStorageService
-      .getStoredData("this.storedselectedNews")
-      .then((val) => {
-        this.selectedNews = JSON.parse(val).articles;
-      });
+    this.storageService.getStoredData("this.storedselectedNews").then((val) => {
+      this.selectedNews = JSON.parse(val).articles;
+    });
   }
 
   // refresh page via network service

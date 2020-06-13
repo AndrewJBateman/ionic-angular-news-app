@@ -17,8 +17,7 @@ export class LanguageService {
     private plt: Platform
   ) {}
 
-  // sets default language as browser language if no other language choice made
-  // if language language selected then this value is stored using the ionic storage module
+  // sets default language as browser language. Store language choice
   setInitialAppLanguage() {
     const language = this.translate.getBrowserLang();
     this.translate.setDefaultLang(language);

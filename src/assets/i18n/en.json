@@ -23,13 +23,15 @@
 		"cancel": "Cancel"
 	},
 	"FAVOURITES": {
-		"notice": "There are no articles in Favourites"
+		"notice": "There are no articles in Favourites",
+		"photo-credit": "Photo by CapDfrawy on Unsplash"
 	},
 	"PROGRESS_BAR": {
 		"title": "Loading news..."
 	},
 	"ABOUT": {
 		"card-title": "World News",
+		"photo-credit": "Photo by Sean O. on Unsplash",
 		"para1-part1": "This app fetches live JSON metadata from ",
 		"para1-part2": "a HTTP REST API with articles from about 30,000 news sources/blogs world-wide.",
 		"para2": "Articles can be viewed in categories of general, technology, business, entertainment, health, science and sports.",

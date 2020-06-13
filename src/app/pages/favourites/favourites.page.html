@@ -33,8 +33,8 @@
 				<!--ion-card displays if no favourites-->
 				<ion-card *ngIf="storageService.news.length === 0">
 					<div class="image-div">
-						<img class="mat-card-image" src="../../../assets/imgs/nofavs-image.jpg" alt="Photo by CapDfrawy on Unsplash">
-						<div class="photo-credit">Photo by CapDfrawy on Unsplash</div>
+						<img class="mat-card-image" src="../../../assets/imgs/nofavs-image.jpg" alt="{{ 'FAVOURITES.photo-credit' | translate }}">
+						<div class="photo-credit">{{ 'FAVOURITES.photo-credit' | translate }}</div>
 					</div>
 
 					<ion-card-content>

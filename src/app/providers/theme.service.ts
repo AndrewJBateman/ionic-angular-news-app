@@ -6,7 +6,7 @@ import { Storage } from "@ionic/storage";
   providedIn: "root",
 })
 export class ThemeService {
-  darkMode: any;
+  darkMode: boolean;
   renderer: Renderer2;
 
   constructor(
@@ -29,7 +29,7 @@ export class ThemeService {
     this.darkMode = false;
   }
 
-  changeThemeMode() {
-    this.darkMode ? this.enableLight() : this.enableDark();
+  changeThemeMode(e: any) {
+    e.detail.checked ? this.enableDark() : this.enableLight();
   }
 }
