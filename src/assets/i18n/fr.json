@@ -21,8 +21,8 @@
 		"remove-favourite": "Retirer Favori"
 	},
 	"FAVOURITES": {
-		"notice": "Il n'y a pas d'articles dans les Favoris",
-		"photo-credit": "Photo par CapDfrawy sur Unsplash"
+		"photo-credit": "Photo par CapDfrawy sur Unsplash",
+		"notice": "Il n'y a pas d'articles dans les Favoris"
 	},
 	"PROGRESS_BAR": {
 		"title": "Chargement des nouvelles..."

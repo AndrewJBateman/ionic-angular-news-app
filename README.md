@@ -30,21 +30,29 @@
 
 ## :camera: Screenshots
 
-| ![Ionic page](./img/news1.png) | ![Ionic page](./img/news2.png) | ![Ionic categories page](./img/news3.png) |
+| ![Ionic page](./img/news1.png) | ![Ionic page](./img/news2.png) | ![Ionic page](./img/news3.png) |
 | :----------------------------: | :----------------------------: | :---------------------------------------: |
 |        News Page French        |       News Page Spanish        |             News Page English             |
 
-| ![Ionic page](./img/categories1.png) | ![Ionic page](./img/categories2.png) | ![Ionic categories page](./img/categories3.png) |
+| ![Ionic page](./img/news-detail1.png) | ![Ionic page](./img/news-detail2.png) | ![Ionic page](./img/news-detail3.png) |
+| :----------------------------: | :----------------------------: | :---------------------------------------: |
+|        News Detail Page French        |       News Detail Page Spanish        |             News Detail Page English             |
+
+| ![Ionic page](./img/categories1.png) | ![Ionic page](./img/categories2.png) | ![Ionic page](./img/categories3.png) |
 | :----------------------------------: | :----------------------------------: | :---------------------------------------------: |
 |       Categories Page Business       |    Categories Page Entertainment     |               Article Detail Page               |
 
-| ![Ionic page](./img/favourites1.png) | ![Ionic page](./img/favourites2.png) | ![Ionic categories page](./img/favourites3.png) |
+| ![Ionic page](./img/favourites1.png) | ![Ionic page](./img/favourites2.png) | ![Ionic page](./img/favourites3.png) |
 | :----------------------------------: | :----------------------------------: | :---------------------------------------------: |
 |        Favourites Page Empty         |         Favourites Page Some         |              Favourites Page Full               |
 
-| ![Ionic page](./img/about1.png) | ![Ionic page](./img/about2.png) | ![Ionic categories page](./img/about3.png) |
+| ![Ionic page](./img/about1.png) | ![Ionic page](./img/about2.png) | ![Ionic page](./img/about3.png) |
 | :-----------------------------: | :-----------------------------: | :----------------------------------------: |
 |        About Page French        |     About Page + Side Menu      |           About Page + Info Menu           |
+
+| ![Ionic page](./img/dark1.png) | ![Ionic page](./img/dark2.png) | ![Ionic page](./img/dark3.png) |
+| :-----------------------------: | :-----------------------------: | :----------------------------------------: |
+|        Dark Mode News Page       |     Dark Mode Categories+Menu Page      |           Dark Mode About Page           |
 
 ## :signal_strength: Technologies
 
@@ -56,7 +64,6 @@
 * [IP Geolocation API](https://ipapi.co/#api)
 * [Ionic Storage v2](https://ionicframework.com/docs/building/storage) - remove?
 * [Ionic Native Network v5](https://ionicframework.com/docs/native/network)
-* [Ionic Native Social-Sharing v5](https://ionicframework.com/docs/native/social-sharing)
 * [Ionic ngx-Translate v12](https://ionicframework.com/docs/v3/developer-resources/ng2-translate/)
 * [NGX-Translate internationalization library for Angular](http://www.ngx-translate.com/)
 * [Ionic open source Ionicons](https://ionicons.com/)
@@ -175,7 +182,7 @@ this.newsService.getCountryCode().subscribe((data) => {
 
 ## :clipboard: Status
 
-* Status: Working, production build file created, deployed to Firebase.
+* Status: Working except langauge on start-up menu, production build file created, deployed to Firebase.
 
 ## :clipboard: To-do
 

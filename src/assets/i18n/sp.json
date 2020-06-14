@@ -22,8 +22,9 @@
 		"remove-favourite": "Quitar Articulo"
 	},
 	"FAVOURITES": {
-		"notice": "No hay articulos en favoritos",
-		"photo-credit": "Foto de CapDfrawy en Unsplash"
+		"photo-credit": "Foto de CapDfrawy en Unsplash",
+		"notice": "No hay articulos en favoritos"
+
 	},
 	"PROGRESS_BAR": {
 		"title": "Cargando noticias..."

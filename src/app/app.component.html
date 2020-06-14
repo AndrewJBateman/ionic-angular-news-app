@@ -40,10 +40,15 @@
         </ion-list>
 
         <ion-list>
-          <ion-item >
+          <ion-item>
             <ion-icon name="contrast" slot="start"></ion-icon>
             <ion-label>{{ "MENU.Label-darkMode" | translate }}</ion-label>
-            <ion-toggle [(ngModel)]="darkMode" slot="end" [checked]="darkMode" (ionChange)="themeService.changeThemeMode($event)"></ion-toggle>
+            <ion-toggle
+              [(ngModel)]="darkMode"
+              slot="end"
+              [checked]="darkMode"
+              (ionChange)="themeService.changeThemeMode($event)"
+            ></ion-toggle>
           </ion-item>
 
           <ion-item>

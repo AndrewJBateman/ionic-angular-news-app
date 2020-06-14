@@ -13,7 +13,6 @@ export class StorageService implements OnInit {
   constructor(private storage: Storage, private toastContr: ToastController) {}
 
   ngOnInit() {
-    console.log("ngOnit running");
     this.storage.clear();
     this.loadFavourites();
   }
