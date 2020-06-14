@@ -12,6 +12,7 @@
 	},
 	"NEWS": {
 		"title": "Noticias",
+		"author": "Autor",
 		"source": "Fuente",
 		"cancel": "anular"
 	},

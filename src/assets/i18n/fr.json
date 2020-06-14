@@ -16,6 +16,7 @@
 	},
 	"NEWS-DETAIL": {
 		"title": "Nouvelles de: ",
+		"author": "Auteur",
 		"visit": "Visiter site",
 		"add-favourite": "Ajouter Favori",
 		"remove-favourite": "Retirer Favori"

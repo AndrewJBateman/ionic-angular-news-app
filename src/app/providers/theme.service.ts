@@ -6,6 +6,8 @@ import { Storage } from "@ionic/storage";
 @Injectable({
   providedIn: "root",
 })
+
+// enable dark or light mode from html toggle switch event via changeThemeMode() function
 export class ThemeService {
   darkMode: boolean;
   renderer: Renderer2;

@@ -15,6 +15,7 @@
 	},
 	"NEWS-DETAIL": {
 		"title": "News from: ",
+		"author": "Author",
 		"visit": "Visit website",
 		"add-favourite": "Add to favourites",
 		"remove-favourite": "Remove Article"
