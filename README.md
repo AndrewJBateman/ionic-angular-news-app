@@ -28,6 +28,8 @@
 4. Source domain name
 5. Language
 
+* The [News API](https://newsapi.org/) now only works on localhost. It will not work when deployed due to CORS errors (error 406) which means they want you to pay a subscription to fully access the API. This app was successfully deployed to Android Studio - see screen shots below but I deleted the firebase depoyment. I will do another news app using the [Gnews](https://gnews.io/) API which has a free tier for up to 100 requests per day and 10 articles per search.
+
 ## :camera: Screenshots
 
 | ![Ionic page](./img/news1.png) | ![Ionic page](./img/news2.png) | ![Ionic page](./img/news3.png) |
@@ -54,6 +56,18 @@
 | :-----------------------------: | :-----------------------------: | :----------------------------------------: |
 |        Dark Mode News Page       |     Dark Mode Categories+Menu Page      |           Dark Mode About Page           |
 
+| ![Ionic page](./img/android-aboutdark.png) | ![Ionic page](./img/android-aboutlight.png) | ![Ionic page](./img/android-categoriesdark.png) |
+| :-----------------------------: | :-----------------------------: | :----------------------------------------: |
+|        Android About Dark Page       |     Android About Light Page      |           Android Categories Dark Page           |
+
+| ![Ionic page](./img/android-detaildark.png) | ![Ionic page](./img/android-detaildark1.png) | ![Ionic page](./img/android-detaillight.png) |
+| :-----------------------------: | :-----------------------------: | :----------------------------------------: |
+|        Android Detail Dark Page        |     Android Detail Dark Page      |           Android Detail Light Page           |
+
+| ![Ionic page](./img/android-favouriteslight.png) | ![Ionic page](./img/android-menudark.png) | ![Ionic page](./img/android-menulight.png) |
+| :-----------------------------: | :-----------------------------: | :----------------------------------------: |
+|        Android Favourites Light Page       |     Android Menu Dark Page      |           Android Menu Light Page           |
+
 ## :signal_strength: Technologies
 
 * [Ionic v5](https://ionicframework.com/)
@@ -63,9 +77,9 @@
 * [News REST API used to search for news articles](https://newsapi.org/)
 * [IP Geolocation API](https://ipapi.co/#api)
 * [Ionic Storage v2](https://ionicframework.com/docs/building/storage)
-* [Ionic Native Network v5](https://ionicframework.com/docs/native/network)
 * [Ionic ngx-Translate v12](https://ionicframework.com/docs/v3/developer-resources/ng2-translate/)
-* [NGX-Translate internationalization library for Angular](http://www.ngx-translate.com/)
+* [Ionic Native Network v5](https://ionicframework.com/docs/native/network)
+* [NGX-Translate internationalization library for Angular v5](http://www.ngx-translate.com/)
 * [Ionic open source Ionicons](https://ionicons.com/)
 * [Day.js Date Conversion module v1](https://www.npmjs.com/package/dayjs)
 
@@ -74,12 +88,13 @@
 * It is necessary to [register with news API](https://newsapi.org/docs/get-started) to get an API key that is stored in the `environment.ts` file
 * To start the server on _localhost://8100_ type: `ionic serve`
 * To run linter: `npm run lint`
-* To create a build file suitable for Firebase deployment: `ionic build --prod --release`
-* To deploy to Firebase: `firebase deploy`
+* to add android platform: `ionic cordova platform add android`
+* to create build file for android: `ionic cordova build android`
+* to run on device plugged in via USB cable: `ionic cordova run android`
 
 ## :computer: Code Examples
 
-* function to switch dark/light display mode
+* service to switch between dark/light display mode
 
 ```typescript
 // enable dark or light mode from html toggle switch event via changeThemeMode() function
@@ -137,24 +152,20 @@ export class ThemeService {
 
 ## :clipboard: Status
 
-* Status: Working except langauge on start-up menu, production build file created, deployed to Firebase.
+* Status: Working except langauge on start-up menu, production build file created, successfully deployed to Android Studio
 
 ## :clipboard: To-do
 
-1. Check translations - change start-up so stored language used
-2. Splash screen
-3. Lighthouse score?
-4. add meta tags. make a PWA, SSR
-5. Run on simulator
-6. Remove network detection if not using
+1. See sections above
+2. Fix storage issue in Android. Update language storage method
 
 ## :clap: Inspiration
 
-* Some of project structure based on: [Ionic example app: 'A conference app built with Ionic to demonstrate Ionic'](https://github.com/ionic-team/ionic-conference-app).
-* The code for checking network status is based on: [Ionic 4 Network Check Example Problem](https://forum.ionicframework.com/t/ionic-4-network-check-example-problem/157909/2).
-* [Ionic Academy Tutorial: How to Localise Your Ionic App with ngx-translate](https://ionicacademy.com/localise-ionic-ngx-translate/) however language selected using ion-select-option dropdown list in side-menu (ie not using a popover page).
-* [Regexr.com](https://regexr.com/) for developing and testing regex expressions.
-* [How to Publish Ionic App on Google Play Store](https://www.swagasoft.com.ng/2020/01/how-to-publish-ionic-app-on-google-play.html)
+* Some of project structure based on: [Ionic example app: 'A conference app built with Ionic to demonstrate Ionic'](https://github.com/ionic-team/ionic-conference-app)
+* The code for checking network status is based on: [Ionic 4 Network Check Example Problem](https://forum.ionicframework.com/t/ionic-4-network-check-example-problem/157909/2)
+* [Ionic Academy Tutorial: How to Localise Your Ionic App with ngx-translate](https://ionicacademy.com/localise-ionic-ngx-translate/) however language selected using ion-select-option dropdown list in side-menu (ie not using a popover page)
+* [Regexr.com](https://regexr.com/) for developing and testing regex expressions
+* [How to Publish Ionic App on Google Play Store](https://www.swagasoft.com.ng/2020/01/how-to-publish-ionic-app-on-google-play.html) for interest - although I will not be publishing this app
 
 ## :envelope: Contact
 

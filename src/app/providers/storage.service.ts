@@ -37,9 +37,9 @@ export class StorageService implements OnInit {
     }
   }
 
-  // storeCountryCode(checkedCountryCode) {
-  // 	this.storage.set('userCountry', checkedCountryCode);
-  // }
+  storeCountryCode(checkedCountryCode) {
+  	this.storage.set('userCountry', checkedCountryCode);
+  }
 
   addToFavourites(article: Article) {
     !this.isFavourite(article)
