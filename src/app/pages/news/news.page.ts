@@ -1,5 +1,5 @@
 // angular & ionic/angular node modules
-import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import {
   LoadingController,
   ModalController,
@@ -114,8 +114,6 @@ export class NewsPage implements OnInit {
   // ngOnInit lifecycle checks network and loads list of sources.
   // It is not reloaded when reentering page.
   ngOnInit() {
-    // check network status
-    // this.networkSubscriber();
 
     /*
 		fetch user country via separate service function provider
@@ -155,23 +153,6 @@ export class NewsPage implements OnInit {
       this.storedSources = JSON.parse(val);
     });
   }
-
-  // subscribe to network connected state
-  // networkSubscriber(): void {
-  //   this.networkService
-  //     .getNetworkStatus()
-  //     .pipe(debounceTime(300))
-  //     .subscribe((connected: boolean) => {
-  //       this.isConnected = connected;
-  //     });
-  // }
-
-  // get boolean state of network status
-  // networkStatus() {
-  //   this.networkService.getNetworkStatus().subscribe();
-  // }
-
-  ionViewWillEnter() {}
 
   // if no stored news then subscribe from http service, otherwise get news directly from storage
   getCountryNews(countryCode: string): void {

@@ -22,7 +22,6 @@ import { StorageService } from "./providers/storage.service";
 export class AppComponent {
   text = "";
   darkMode: boolean;
-  public isConnected = false;
   public language: string = this.languageService.selected;
   public menuCtrl: MenuController;
   public appPages = [
@@ -78,14 +77,6 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-
-      // check network available
-      // this.networkService.getNetworkStatus().subscribe((connected: boolean) => {
-      //  this.isConnected = connected;
-      // this.isConnected ? this.presentToast('network connected') : this.presentToast('network disconnected');
-      // 	this.text = this.isConnected ? 'network connected' : 'network disconnected';
-      // 	this.presentToast(this.text);
-      // 	})
       this.languageService.setInitialAppLanguage();
       this.darkStartMode();
     });
@@ -99,15 +90,6 @@ export class AppComponent {
         : this.themeService.enableLight();
     });
   }
-
-  // async presentToast(message: string) {
-  // 	const toast = await this.toastController.create({
-  // 		message: message,
-  // 		position: 'middle',
-  // 		duration: 2000
-  // 	});
-  // 	toast.present();
-  // }
 
   languageChange() {
     this.languageService.setLanguage(this.language);
