@@ -157,7 +157,8 @@ export class ThemeService {
 ## :clipboard: To-do
 
 1. See sections above
-2. Fix storage issue in Android. Update language storage method
+2. npm i --save-dev @angular-devkit/build-angular
+3. Fix storage issue in Android. Update language storage method
 
 ## :clap: Inspiration
 
