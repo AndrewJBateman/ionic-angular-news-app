@@ -71,7 +71,7 @@
 ## :signal_strength: Technologies
 
 * [Ionic v5](https://ionicframework.com/)
-* [Angular v9](https://angular.io/)
+* [Angular v10](https://angular.io/)
 * [Ionic/angular v5](https://www.npmjs.com/package/@ionic/angular)
 * [RxJS v6](https://reactivex.io/)
 * [News REST API used to search for news articles](https://newsapi.org/)
@@ -133,7 +133,7 @@ export class ThemeService {
 * **Typescript interface** used to define the expected structures of the JSON objects returned from the IP and news APIs
 * **Separate providers (services)** page with API http fetch rxjs observables
 * **Custom pipes** used to modify API news article titles, contents and derive '..time ago' from a date string
-* **Dark mode** Menua toggle changes from light to dark mode
+* **Dark mode** Menu toggle changes from light to dark mode
 * **Offline Storage** of dark mode status & favourite articles using Ionic Storage
 * **Common Refresh Component** dragging down will perform refresh function
 * **Common Progess Bar Component** ion-card shows while news loading on News, Categories and Favourites pages
@@ -157,8 +157,7 @@ export class ThemeService {
 ## :clipboard: To-do
 
 1. See sections above
-2. npm i --save-dev @angular-devkit/build-angular
-3. Fix storage issue in Android. Update language storage method
+2. Fix storage issue in Android. Update language storage method
 
 ## :clap: Inspiration
 
