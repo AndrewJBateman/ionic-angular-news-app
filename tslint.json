@@ -13,11 +13,6 @@
     "arrow-return-shorthand": true,
     "curly": true,
     "eofline": true,
-    "ident": [
-      true,
-      "tabs",
-      2
-    ],
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {
@@ -30,7 +25,7 @@
     "import-spacing": true,
     "indent": {
       "options": [
-        "spaces"
+        "tabs"
       ]
     },
     "interface-name": false,
@@ -76,7 +71,7 @@
     "object-literal-sort-keys": false,
     "ordered-imports": false,
     "quotemark": [
-      true,
+      false,
       "double"
     ],
     "semicolon": {

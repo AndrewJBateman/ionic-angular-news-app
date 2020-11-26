@@ -71,15 +71,15 @@
 ## :signal_strength: Technologies
 
 * [Ionic v5](https://ionicframework.com/)
-* [Angular v10](https://angular.io/)
+* [Angular v11](https://angular.io/)
 * [Ionic/angular v5](https://www.npmjs.com/package/@ionic/angular)
 * [RxJS v6](https://reactivex.io/)
 * [News REST API used to search for news articles](https://newsapi.org/)
 * [IP Geolocation API](https://ipapi.co/#api)
 * [Ionic Storage v2](https://ionicframework.com/docs/building/storage)
-* [Ionic ngx-Translate v12](https://ionicframework.com/docs/v3/developer-resources/ng2-translate/)
+* [Ionic ngx-Translate v13](https://ionicframework.com/docs/v3/developer-resources/ng2-translate/)
 * [Ionic Native Network v5](https://ionicframework.com/docs/native/network)
-* [NGX-Translate internationalization library for Angular v5](http://www.ngx-translate.com/)
+* [NGX-Translate internationalization library for Angular v6](http://www.ngx-translate.com/)
 * [Ionic open source Ionicons](https://ionicons.com/)
 * [Day.js Date Conversion module v1](https://www.npmjs.com/package/dayjs)
 
