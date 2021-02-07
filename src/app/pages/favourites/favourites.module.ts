@@ -14,24 +14,26 @@ import { FavouritesPage } from "./favourites.page";
 import { ComponentsModule } from "../../components/components.module";
 import { PipesModule } from "../../pipes/pipes.module";
 
+import { NewsSvgComponent } from "../../components/svgs/news-svg/news-svg.component";
+
 const routes: Routes = [
-  {
-    path: "",
-    component: FavouritesPage,
-  },
+	{
+		path: "",
+		component: FavouritesPage,
+	},
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes),
-    TranslateModule,
-    PipesModule,
-    ComponentsModule,
-  ],
-  declarations: [FavouritesPage, PopoverPage],
-  entryComponents: [PopoverPage],
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		RouterModule.forChild(routes),
+		TranslateModule,
+		PipesModule,
+		ComponentsModule,
+	],
+	declarations: [FavouritesPage, PopoverPage, NewsSvgComponent],
+	entryComponents: [PopoverPage, NewsSvgComponent],
 })
 export class FavouritesPageModule {}

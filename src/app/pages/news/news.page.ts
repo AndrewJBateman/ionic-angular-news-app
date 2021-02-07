@@ -92,7 +92,7 @@ export class NewsPage implements OnInit {
 	onlySources = [];
 	selectedSource = 'CNN';
 	defaultCountry = 'us';
-	public isConnected = true;
+	isConnected = true;
 	sourceChosen = false;
 	storedSources: any;
 	storedData: any;
@@ -102,7 +102,7 @@ export class NewsPage implements OnInit {
 	selectedLanguage: 'string';
 
 	constructor(
-		public toastController: ToastController,
+		private toastController: ToastController,
 		private platform: Platform,
 		private newsService: NewsApiService,
 		private storageService: StorageService,
@@ -130,7 +130,7 @@ export class NewsPage implements OnInit {
 				'userCountry',
 				checkedCountryCode.toString()
 			);
-			this.getCountryNews(checkedCountryCode);
+      this.getCountryNews(checkedCountryCode);
 		});
 
 		// get list of news sources via news API service
@@ -153,7 +153,7 @@ export class NewsPage implements OnInit {
 		});
 	}
 
-	// if no stored news then subscribe from http service, otherwise get news directly from storage
+	// subscribe from http service
 	getCountryNews(countryCode: string): void {
 		this.platform.ready().then(() => {
 			if (this.storedNews == null) {
@@ -161,20 +161,13 @@ export class NewsPage implements OnInit {
 					.getNews('top-headlines?country=' + countryCode)
 					.subscribe(
 						(data: NewsApiResponse) => {
-							this.data = data;
-							this.storageService.storeData(  
-								'this.storedNews',
-								JSON.stringify(this.data)
-							);
+							this.data = data.articles;
 						},
 						(err) => {
 							console.log('An error occured, error: ', err);
 						}
 					);
 			}
-			this.storageService.getStoredData('this.storedNews').then((val) => {
-				this.storedNews = JSON.parse(val).articles;
-			});
 		});
 	}
 
@@ -185,19 +178,12 @@ export class NewsPage implements OnInit {
 			.subscribe(
 				(data: NewsApiResponse) => {
 					this.sourceChosen = true;
-					this.data = data;
-					this.storageService.storeData(
-						'this.storedselectedNews',
-						JSON.stringify(this.data)
-					);
+					this.data = data.articles;
 				},
 				(err) => {
 					console.log('An error occured, error: ', err);
 				}
 			);
-		this.storageService.getStoredData('this.storedselectedNews').then((val) => {
-			this.selectedNews = JSON.parse(val).articles;
-		});
 	}
 
 	// refresh page via network service

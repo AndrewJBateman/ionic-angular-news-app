@@ -1,87 +1,83 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
+	<ion-toolbar color="primary">
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
 
-    <ion-title class="ion-text-center">
-      <ion-icon class="icon" name="heart" size="large"> </ion-icon>
-    </ion-title>
+		<ion-title class="ion-text-center">
+			<ion-icon class="icon" name="heart" size="large"> </ion-icon>
+		</ion-title>
 
-    <ion-buttons slot="end">
-      <ion-button (click)="presentPopover($event)">
-        <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
+		<ion-buttons slot="end">
+			<ion-button (click)="presentPopover($event)">
+				<ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid class="ion-no-padding">
-    <ion-row>
-      <ion-col
-        size="12"
-        size-sm="8"
-        size-ms="8"
-        size-xl="6"
-        offset-sm="2"
-        class="ion-no-padding"
-      >
-        <app-page-refresh
-          slot="fixed"
-          (ionRefresh)="onRefresh($event)"
-        ></app-page-refresh>
-        <app-progress-bar
-          *ngIf="storageService.news === undefined"
-        ></app-progress-bar>
+	<ion-grid class="ion-no-padding">
+		<ion-row>
+			<ion-col
+				size="12"
+				size-sm="8"
+				size-ms="8"
+				size-xl="6"
+				offset-sm="2"
+				class="ion-no-padding"
+			>
+				<app-page-refresh
+					slot="fixed"
+					(ionRefresh)="onRefresh($event)"
+				></app-page-refresh>
+				<app-progress-bar
+					*ngIf="storageService.news === undefined"
+				></app-progress-bar>
 
-        <!--ion-card displays if no favourites-->
-        <ion-card *ngIf="storageService.news.length === 0">
-          <div class="image-div">
-            <img
-              class="mat-card-image"
-              src="../../../assets/imgs/nofavs-image.jpg"
-              alt="{{ 'FAVOURITES.photo-credit' | translate }}"
-            />
-            <div class="photo-credit">
-              {{ 'FAVOURITES.photo-credit' | translate }}
-            </div>
-          </div>
+				<!--ion-card displays if no favourites-->
+				<ion-card
+					class="no-favourites-card"
+					*ngIf="storageService.news.length === 0"
+				>
+					<div>
+						<app-news-svg class="card-svg"></app-news-svg>
+					</div>
 
-          <ion-card-content>
-            <h2 class="ion-text-center">
-              {{ 'FAVOURITES.notice' | translate }}
-            </h2>
-          </ion-card-content>
-        </ion-card>
+					<ion-card-content>
+						<h2 class="ion-text-center">
+							{{ 'FAVOURITES.notice' | translate }}
+						</h2>
+					</ion-card-content>
+				</ion-card>
 
-        <!--list of news articles with rhs slide to delete from favourites-->
-        <div
-          *ngIf="storageService.news.length > 0"
-          class="articles"
-          color="secondary"
-        >
-          <ion-list>
-            <ion-item-sliding
-              *ngFor="let article of storageService.news"
-              style="padding: 0;"
-              (click)="onGoToNewsDetail(article)"
-              router-direction="forward"
-              #slidingItem
-            >
-              <app-article-list [article]="article"></app-article-list>
-              <ion-item-options>
-                <ion-item-option
-                  color="danger"
-                  (click)="onRemoveFavourite(article, slidingItem)"
-                >
-                  <ion-icon name="heart-dislike" slot="icon-only"></ion-icon>
-                </ion-item-option>
-              </ion-item-options>
-            </ion-item-sliding>
-          </ion-list>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+				<!--list of news articles with rhs slide to delete from favourites-->
+				<div
+					*ngIf="storageService.news.length > 0"
+					class="articles"
+					color="secondary"
+				>
+					<ion-list>
+						<ion-item-sliding
+							*ngFor="let article of storageService.news"
+							style="padding: 0"
+							(click)="onGoToNewsDetail(article)"
+							router-direction="forward"
+							#slidingItem
+						>
+							<app-article-list [article]="article"></app-article-list>
+							<ion-item-options>
+								<ion-item-option
+									color="danger"
+									(click)="onRemoveFavourite(article, slidingItem)"
+								>
+									<ion-icon name="heart-dislike" slot="icon-only"></ion-icon>
+								</ion-item-option>
+							</ion-item-options>
+						</ion-item-sliding>
+					</ion-list>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
 </ion-content>

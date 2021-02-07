@@ -45,13 +45,13 @@
 					slot="fixed"
 					(ionRefresh)="onRefresh($event)"
 				></app-page-refresh>
-				<app-progress-bar *ngIf="storedNews === undefined"></app-progress-bar>
+				<app-progress-bar *ngIf="data === undefined"></app-progress-bar>
 
 				<!--list of news articles where source is not chosen & once news is stored-->
-				<div class="wrapper" *ngIf="!sourceChosen && storedNews">
+				<div class="wrapper" *ngIf="!sourceChosen && data">
 					<div
 						class="container"
-						*ngFor="let article of storedNews"
+						*ngFor="let article of data"
 						style="padding: 0"
 						(click)="onGoToNewsDetail(article)"
 						router-direction="forward"
@@ -63,7 +63,7 @@
 				<!--list of news articles where source is chosen-->
 				<div class="wrapper" *ngIf="sourceChosen">
 					<div
-						*ngFor="let article of selectedNews"
+						*ngFor="let article of data"
 						style="padding: 0"
 						(click)="onGoToNewsDetail(article)"
 					>

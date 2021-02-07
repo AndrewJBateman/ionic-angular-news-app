@@ -2,31 +2,19 @@ h2 {
 	color: var(--ion-color-light-contrast);
 }
 
-.image-div {
+.no-favourites-card {
   position: relative;
+  margin-top: 80px;
   text-align: center;
   color: white;
-}
-
-.mat-card-image {
-  border-bottom-style: solid;
-  border-bottom-width: 4px;
-  border-bottom-color: var(--ion-color-tertiary);
-}
-
-/* Bottom right text */
-.photo-credit {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: rgb(0, 0, 0); /* Fallback color */
-  background: rgba(0, 0, 0, 0.55); /* Black background with 0.5 opacity */
-  color: white; /* Grey text */
-  padding-left: 4px;
-  padding-right: 4px;
 }
 
 .icon {
 	vertical-align: middle;
 	color: var(--ion-color-tertiary);
+}
+
+.card-svg {
+  vertical-align: middle;
+	color: var(--ion-color-secondary);
 }

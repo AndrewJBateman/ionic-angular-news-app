@@ -3,8 +3,12 @@
     <ion-col class="image-col" size-xs="3">
       <ion-thumbnail>
         <img
-          [src]="article.urlToImage"
-          class="thumbnail"
+          src="{{
+            article.urlToImage != undefined || null
+              ? article.urlToImage
+              : 'assets/imgs/not-found.jpg'
+          }}"
+          style="width: 140px; height: 224px"
           alt="{{ article.title }}"
         />
       </ion-thumbnail>

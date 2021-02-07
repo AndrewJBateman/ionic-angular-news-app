@@ -2,6 +2,12 @@
 
 * Displays news items from a [news API](https://newsapi.org/) using the [Ionic 5 framework](https://ionicframework.com/docs).
 
+![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/ionic-angular-news-app?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/AndrewJBateman/ionic-angular-news-app?style=for-the-badge)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/AndrewJBateman/ionic-angular-news-app?style=for-the-badge)
+![GitHub Repo stars](https://img.shields.io/github/stars/AndrewJBateman/ionic-angular-news-app?style=for-the-badge)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/AndrewJBateman/ionic-angular-news-app?style=for-the-badge)
+
 ## :page_facing_up: Table of contents
 
 * [:zap: Ionic Angular News App](#zap-ionic-angular-news-app)
@@ -91,6 +97,7 @@
 * to add android platform: `ionic cordova platform add android`
 * to create build file for android: `ionic cordova build android`
 * to run on device plugged in via USB cable: `ionic cordova run android`
+* Follow this link [to deploy to IOS or Android](https://ionicframework.com/docs/angular/your-first-app/6-deploying-mobile)
 
 ## :computer: Code Examples
 
@@ -166,6 +173,9 @@ export class ThemeService {
 * [Ionic Academy Tutorial: How to Localise Your Ionic App with ngx-translate](https://ionicacademy.com/localise-ionic-ngx-translate/) however language selected using ion-select-option dropdown list in side-menu (ie not using a popover page)
 * [Regexr.com](https://regexr.com/) for developing and testing regex expressions
 * [How to Publish Ionic App on Google Play Store](https://www.swagasoft.com.ng/2020/01/how-to-publish-ionic-app-on-google-play.html) for interest - although I will not be publishing this app
+* [Shields badges for readme](https://shields.io)
+* [Easy-Resize to resize images to a smaller file size](https://www.easy-resize.com/en/)
+* [Font Awesome Free Icon svgs](https://fontawesome.com/icons?d=gallery&m=free)
 
 ## :envelope: Contact
 
