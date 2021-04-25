@@ -1,79 +1,79 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { TabsPage } from './tabs.page';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { TabsPage } from "./tabs.page";
 
 const routes: Routes = [
 	{
-		path: 'tabs',
+		path: "tabs",
 		component: TabsPage,
 		children: [
 			{
-				path: 'news',
+				path: "news",
 				children: [
 					{
-						path: '',
+						path: "",
 						loadChildren: () =>
-							import('../news/news.module').then((m) => m.NewsPageModule),
+							import("../news/news.module").then((m) => m.NewsPageModule),
 					},
 				],
 			},
 			{
-				path: 'news-detail',
+				path: "news-detail",
 				children: [
 					{
-						path: '',
+						path: "",
 						loadChildren: () =>
-							import('../news-detail/news-detail.module').then(
+							import("../news-detail/news-detail.module").then(
 								(m) => m.NewsDetailPageModule
 							),
 					},
 				],
 			},
 			{
-				path: 'categories',
+				path: "categories",
 				children: [
 					{
-						path: '',
+						path: "",
 						loadChildren: () =>
-							import('../categories/categories.module').then(
+							import("../categories/categories.module").then(
 								(m) => m.CategoriesPageModule
 							),
 					},
 				],
 			},
 			{
-				path: 'favourites',
+				path: "favourites",
 				children: [
-					{
-						path: '',
+					{ 
+						path: "",
 						loadChildren: () =>
-							import('../favourites/favourites.module').then(
+							import("../favourites/favourites.module").then(
 								(m) => m.FavouritesPageModule
 							),
 					},
 				],
 			},
 			{
-				path: 'about',
+				path: "about",
 				children: [
 					{
-						path: '',
+						path: "",
 						loadChildren: () =>
-							import('../about/about.module').then((m) => m.AboutPageModule),
+							import("../about/about.module").then((m) => m.AboutPageModule),
 					},
 				],
 			},
 			{
-				path: '',
-				redirectTo: '/tabs/news',
-				pathMatch: 'full',
+				path: "",
+				redirectTo: "/tabs/news",
+				pathMatch: "full",
 			},
 		],
 	},
 	{
-		path: '',
-		redirectTo: '/app/tabs/news',
-		pathMatch: 'full',
+		path: "",
+		redirectTo: "/app/tabs/news",
+		pathMatch: "full",
 	},
 ];
 

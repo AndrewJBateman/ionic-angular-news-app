@@ -22,6 +22,7 @@
   * [:clipboard: Status](#clipboard-status)
   * [:clipboard: To-do](#clipboard-to-do)
   * [:clap: Inspiration](#clap-inspiration)
+  * [:file_folder: License](#file_folder-license)
   * [:envelope: Contact](#envelope-contact)
 
 ## :books: General info
@@ -93,6 +94,9 @@
 
 * It is necessary to [register with news API](https://newsapi.org/docs/get-started) to get an API key that is stored in the `environment.ts` file
 * To start the server on _localhost://8100_ type: `ionic serve`
+* `npm run dev:ssr` to run SSR dev server
+* `npm run build:ssr` to create SSR build file
+* `npm run serve:ssr` to run SSR build file on port `localhost:4000`
 * To run linter: `npm run lint`
 * to add android platform: `ionic cordova platform add android`
 * to create build file for android: `ionic cordova build android`
@@ -159,12 +163,11 @@ export class ThemeService {
 
 ## :clipboard: Status
 
-* Status: Working except langauge on start-up menu, production build file created, successfully deployed to Android Studio
+* Status: SSR errors. Pre-SSR: Working except language on start-up menu, production build file created, successfully deployed to Android Studio
 
 ## :clipboard: To-do
 
-1. See sections above
-2. Fix storage issue in Android. Update language storage method
+* disable clicking on menu icon when in news page.
 
 ## :clap: Inspiration
 
@@ -177,6 +180,10 @@ export class ThemeService {
 * [Easy-Resize to resize images to a smaller file size](https://www.easy-resize.com/en/)
 * [Font Awesome Free Icon svgs](https://fontawesome.com/icons?d=gallery&m=free)
 
+## :file_folder: License
+
+* This project is licensed under the terms of the MIT license.
+
 ## :envelope: Contact
 
-* Repo created by [ABateman](https://www.andrewbateman.org) - you are welcome to [send me a message](https://andrewbateman.org/contact)
+* Repo created by [ABateman](https://github.com/AndrewJBateman), email: gomezbateman@yahoo.com

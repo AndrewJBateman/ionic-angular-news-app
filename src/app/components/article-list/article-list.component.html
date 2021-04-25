@@ -4,7 +4,7 @@
       <ion-thumbnail>
         <img
           src="{{
-            article.urlToImage != undefined || null
+            (article.urlToImage && article.urlToImage != undefined || null)
               ? article.urlToImage
               : 'assets/imgs/not-found.jpg'
           }}"

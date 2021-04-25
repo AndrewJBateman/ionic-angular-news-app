@@ -8,9 +8,6 @@ import {
 } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 
-// rxjs node modules
-import { debounceTime } from 'rxjs/operators';
-
 // services
 import { NewsApiService } from '../../providers/news-api.service';
 import { StorageService } from '../../providers/storage.service';
