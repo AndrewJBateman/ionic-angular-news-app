@@ -164,6 +164,7 @@ export class ThemeService {
 ## :clipboard: Status
 
 * Status: SSR errors. Pre-SSR: Working except language on start-up menu, production build file created, successfully deployed to Android Studio
+* Dependencies updated may 2021
 
 ## :clipboard: To-do
 
