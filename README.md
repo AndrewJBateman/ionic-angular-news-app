@@ -1,12 +1,12 @@
 # :zap: Ionic Angular News App
 
 * Displays news items from a [news API](https://newsapi.org/) using the [Ionic 5 framework](https://ionicframework.com/docs).
+* **Note:** to open web links in a new window use: _ctrl+click on link_
 
-![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/ionic-angular-news-app?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/AndrewJBateman/ionic-angular-news-app?style=for-the-badge)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/AndrewJBateman/ionic-angular-news-app?style=for-the-badge)
-![GitHub Repo stars](https://img.shields.io/github/stars/AndrewJBateman/ionic-angular-news-app?style=for-the-badge)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/AndrewJBateman/ionic-angular-news-app?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/ionic-angular-news-app?style=plastic)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/AndrewJBateman/ionic-angular-news-app?style=plastic)
+![GitHub Repo stars](https://img.shields.io/github/stars/AndrewJBateman/ionic-angular-news-app?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/AndrewJBateman/ionic-angular-news-app?style=plastic)
 
 ## :page_facing_up: Table of contents
 
@@ -78,7 +78,7 @@
 ## :signal_strength: Technologies
 
 * [Ionic v5](https://ionicframework.com/)
-* [Angular v11](https://angular.io/)
+* [Angular v12](https://angular.io/)
 * [Ionic/angular v5](https://www.npmjs.com/package/@ionic/angular)
 * [RxJS v6](https://reactivex.io/)
 * [News REST API used to search for news articles](https://newsapi.org/)
@@ -164,7 +164,7 @@ export class ThemeService {
 ## :clipboard: Status
 
 * Status: SSR errors. Pre-SSR: Working except language on start-up menu, production build file created, successfully deployed to Android Studio
-* Dependencies updated may 2021
+* Updated may 2021
 
 ## :clipboard: To-do
 
