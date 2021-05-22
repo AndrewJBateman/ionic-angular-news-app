@@ -27,14 +27,7 @@
 
 ## :books: General info
 
-* The [News API](https://newsapi.org/) is a simple HTTP REST API for searching and retrieving live articles from the web using:
-
-1. Keyword or phrase
-2. Date published
-3. Source name
-4. Source domain name
-5. Language
-
+* The [News API](https://newsapi.org/) is a simple HTTP REST API for searching and retrieving live articles from the web.
 * The [News API](https://newsapi.org/) now only works on localhost. It will not work when deployed due to CORS errors (error 406) which means they want you to pay a subscription to fully access the API. This app was successfully deployed to Android Studio - see screen shots below but I deleted the firebase depoyment. I will do another news app using the [Gnews](https://gnews.io/) API which has a free tier for up to 100 requests per day and 10 articles per search.
 
 ## :camera: Screenshots
@@ -149,7 +142,6 @@ export class ThemeService {
 * **Common Refresh Component** dragging down will perform refresh function
 * **Common Progess Bar Component** ion-card shows while news loading on News, Categories and Favourites pages
 * **Localisation using i18n** so user can select between English (default), Spanish and French
-
 * [Ionic colour generator](https://ionicframework.com/docs/theming/color-generator) used to create color palette
 
 ## :books: Navigation/Pages
@@ -168,7 +160,9 @@ export class ThemeService {
 
 ## :clipboard: To-do
 
-* disable clicking on menu icon when in news page.
+* Disable clicking on menu icon when in news page.
+* Fix menu language storage.
+* Check image shown when API image is null
 
 ## :clap: Inspiration
 
