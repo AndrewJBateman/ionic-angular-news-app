@@ -76,7 +76,7 @@
 * [RxJS v6](https://reactivex.io/)
 * [News REST API used to search for news articles](https://newsapi.org/)
 * [IP Geolocation API](https://ipapi.co/#api)
-* [Ionic Storage v2](https://ionicframework.com/docs/building/storage)
+* [Ionic Storage v3](https://www.npmjs.com/package/@ionic/storage-angular) specific to Angular
 * [Ionic ngx-Translate v13](https://ionicframework.com/docs/v3/developer-resources/ng2-translate/)
 * [Ionic Native Network v5](https://ionicframework.com/docs/native/network)
 * [NGX-Translate internationalization library for Angular v6](http://www.ngx-translate.com/)
@@ -87,9 +87,6 @@
 
 * It is necessary to [register with news API](https://newsapi.org/docs/get-started) to get an API key that is stored in the `environment.ts` file
 * To start the server on _localhost://8100_ type: `ionic serve`
-* `npm run dev:ssr` to run SSR dev server
-* `npm run build:ssr` to create SSR build file
-* `npm run serve:ssr` to run SSR build file on port `localhost:4000`
 * To run linter: `npm run lint`
 * to add android platform: `ionic cordova platform add android`
 * to create build file for android: `ionic cordova build android`
@@ -142,7 +139,7 @@ export class ThemeService {
 * **Common Refresh Component** dragging down will perform refresh function
 * **Common Progess Bar Component** ion-card shows while news loading on News, Categories and Favourites pages
 * **Localisation using i18n** so user can select between English (default), Spanish and French
-* [Ionic colour generator](https://ionicframework.com/docs/theming/color-generator) used to create color palette
+* **[Ionic colour generator](https://ionicframework.com/docs/theming/color-generator)** used to create color palette
 
 ## :books: Navigation/Pages
 
@@ -155,7 +152,7 @@ export class ThemeService {
 
 ## :clipboard: Status
 
-* Status: SSR errors. Pre-SSR: Working except language on start-up menu, production build file created, successfully deployed to Android Studio
+* Status: Working except language on start-up menu, production build file created, successfully deployed to Android Studio
 * Updated may 2021
 
 ## :clipboard: To-do
