@@ -1,24 +1,24 @@
 <ion-card *ngIf="article.urlToImage">
-  <ion-row>
-    <ion-col class="image-col" size-xs="3">
-      <ion-thumbnail>
-        <img
-          src="{{
-            (article.urlToImage && article.urlToImage != undefined || null)
-              ? article.urlToImage
-              : 'assets/imgs/not-found.jpg'
-          }}"
-          style="width: 140px; height: 224px"
-          alt="{{ article.title }}"
-        />
-      </ion-thumbnail>
-    </ion-col>
+	<ion-row>
+		<ion-col class="image-col" size-xs="3">
+			<ion-thumbnail>
+				<img
+					src="{{
+						(article.urlToImage && article.urlToImage != undefined) || null
+							? article.urlToImage
+							: 'assets/imgs/not-found.jpg'
+					}}"
+					style="width: 140px; height: 224px"
+					alt="{{ article.title }}"
+				/>
+			</ion-thumbnail>
+		</ion-col>
 
-    <ion-col class="text-col" size-xs="9">
-      <ion-label class="news-text ion-text-wrap">
-        {{ article.title | titleConvert }}
-      </ion-label>
-      <span class="small-text">{{ article.publishedAt | dateConvert }}</span>
-    </ion-col>
-  </ion-row>
+		<ion-col class="text-col" size-xs="9">
+			<ion-label class="news-text ion-text-wrap">
+				{{ article.title | titleConvert }}
+			</ion-label>
+			<span class="small-text">{{ article.publishedAt | dateConvert }}</span>
+		</ion-col>
+	</ion-row>
 </ion-card>
