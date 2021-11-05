@@ -1,6 +1,6 @@
 # :zap: Ionic Angular News App
 
-* Displays news items from a [news API](https://newsapi.org/) using the [Ionic 5 framework](https://ionicframework.com/docs).
+* Displays news items from a [news API](https://newsapi.org/) using the [Ionic framework](https://ionicframework.com/docs).
 * **Note:** to open web links in a new window use: _ctrl+click on link_
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/ionic-angular-news-app?style=plastic)
@@ -153,13 +153,12 @@ export class ThemeService {
 ## :clipboard: Status
 
 * Status: Working except language on start-up menu, production build file created, successfully deployed to Android Studio
-* Updated may 2021
 
 ## :clipboard: To-do
 
 * Disable clicking on menu icon when in news page.
 * Fix menu language storage.
-* Check image shown when API image is null
+* Check image shown when API image is null, status 404 not found
 
 ## :clap: Inspiration
 
