@@ -70,16 +70,16 @@
 
 ## :signal_strength: Technologies
 
-* [Ionic v5](https://ionicframework.com/)
+* [Ionic v6](https://ionicframework.com/)
 * [Angular v13](https://angular.io/)
-* [Ionic/angular v5](https://www.npmjs.com/package/@ionic/angular)
+* [Ionic/angular v6](https://www.npmjs.com/package/@ionic/angular)
 * [RxJS v6](https://reactivex.io/)
 * [News REST API](https://newsapi.org/) used to search for news articles
 * [IP Geolocation API](https://ipapi.co/#api)
 * [Ionic Storage v3](https://www.npmjs.com/package/@ionic/storage-angular) specific to Angular
 * [Ionic ngx-Translate v13](https://ionicframework.com/docs/v3/developer-resources/ng2-translate/)
 * [Ionic Native Network v5](https://ionicframework.com/docs/native/network)
-* [NGX-Translate internationalization library for Angular v6](http://www.ngx-translate.com/)
+* [NGX-Translate internationalization library for Angular v7](http://www.ngx-translate.com/)
 * [Ionic open source Ionicons](https://ionicons.com/)
 * [Day.js Date Conversion module v1](https://www.npmjs.com/package/dayjs)
 
@@ -152,10 +152,11 @@ export class ThemeService {
 
 ## :clipboard: Status
 
-* Status: Working except language on start-up menu, production build file created, successfully deployed to Android Studio
+* Status: Working except storage, including language on start-up menu, production build file created, successfully deployed to Android Studio
 
 ## :clipboard: To-do
 
+* Fix storage
 * Disable clicking on menu icon when in news page.
 * Fix menu language storage.
 * Check image shown when API image is null, status 404 not found

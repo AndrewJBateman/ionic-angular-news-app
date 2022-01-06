@@ -13,6 +13,8 @@ log.txt
 .vscode/
 npm-debug.log*
 
+.angular/
+.firebase/
 .idea/
 .ionic/
 .sourcemaps/
