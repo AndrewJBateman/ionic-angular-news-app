@@ -24,16 +24,15 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [
-		CommonModule,
-		FormsModule,
-		IonicModule,
-		RouterModule.forChild(routes),
-		TranslateModule,
-		PipesModule,
-		ComponentsModule,
-	],
-	declarations: [FavouritesPage, PopoverPage, NewsSvgComponent],
-	entryComponents: [PopoverPage, NewsSvgComponent],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild(routes),
+        TranslateModule,
+        PipesModule,
+        ComponentsModule,
+    ],
+    declarations: [FavouritesPage, PopoverPage, NewsSvgComponent]
 })
 export class FavouritesPageModule {}
