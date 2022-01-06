@@ -71,10 +71,10 @@
 ## :signal_strength: Technologies
 
 * [Ionic v5](https://ionicframework.com/)
-* [Angular v12](https://angular.io/)
+* [Angular v13](https://angular.io/)
 * [Ionic/angular v5](https://www.npmjs.com/package/@ionic/angular)
 * [RxJS v6](https://reactivex.io/)
-* [News REST API used to search for news articles](https://newsapi.org/)
+* [News REST API](https://newsapi.org/) used to search for news articles
 * [IP Geolocation API](https://ipapi.co/#api)
 * [Ionic Storage v3](https://www.npmjs.com/package/@ionic/storage-angular) specific to Angular
 * [Ionic ngx-Translate v13](https://ionicframework.com/docs/v3/developer-resources/ng2-translate/)
