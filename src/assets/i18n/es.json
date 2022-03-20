@@ -1,0 +1,48 @@
+{
+	"MENU": {
+		"title": "Menú",
+		"Nav-header": "Navegar",
+		"Nav-settings": "Ajustes",
+		"Label-language": "Idioma",
+		"LangOption-English": "IN",
+		"LangOption-Spanish": "ES",
+		"LangOption-French": "FR",
+		"Label-darkMode": "Modo Oscuro",
+		"page-title": ""
+	},
+	"NEWS": {
+		"title": "Noticias",
+		"author": "Autor",
+		"source": "Fuente",
+		"cancel": "anular"
+	},
+	"NEWS-DETAIL": {
+		"title": "Noticias de: ",
+		"visit": "Visita pagina",
+		"add-favourite": "Agregar favorito",
+		"remove-favourite": "Quitar Articulo"
+	},
+	"FAVOURITES": {
+		"photo-credit": "Foto de CapDfrawy en Unsplash",
+		"notice": "No hay articulos en favoritos"
+
+	},
+	"PROGRESS_BAR": {
+		"title": "Cargando noticias..."
+	},
+	"ABOUT": {
+		"page-title": "Sobre esta app",
+		"photo-credit": "Foto de Sean O. en Unsplash",
+		"card-title": "Noticias del Mundo",
+		"para1-part1": "Esta aplicación obtiene metadatos JSON en vivo de ",
+		"para1-part2": "una API HTTP REST con artículos de aproximadamente 30,000 fuentes de noticias / blogs en todo el mundo.",
+		"para2": "Los artículos se pueden ver en categorías de general, tecnología, negocios, entretenimiento, salud, ciencia y deportes.",
+		"para3": "Cada artículo incluye un enlace a la fuente de noticias original que se abre en una nueva ventana."
+	},
+	"TASK-BAR": {
+		"news": "Noticias",
+		"categories": "Categorias",
+		"favourites": "Favoritos",
+		"about": "Sobre"
+	}
+}
