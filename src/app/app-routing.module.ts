@@ -23,7 +23,10 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, initialNavigation: "enabled" }),
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+      initialNavigation: "enabledBlocking",
+    }),
   ],
   exports: [RouterModule],
 })
