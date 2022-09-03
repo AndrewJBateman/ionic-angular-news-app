@@ -71,13 +71,13 @@
 ## :signal_strength: Technologies
 
 * [Ionic v6](https://ionicframework.com/)
-* [Angular v13](https://angular.io/)
+* [Angular v14](https://angular.io/)
 * [Ionic/angular v6](https://www.npmjs.com/package/@ionic/angular)
-* [RxJS v6](https://reactivex.io/)
+* [RxJS v7](https://reactivex.io/)
 * [News REST API](https://newsapi.org/) used to search for news articles
 * [IP Geolocation API](https://ipapi.co/#api)
 * [Ionic Storage v3](https://www.npmjs.com/package/@ionic/storage-angular) specific to Angular
-* [Ionic ngx-Translate v13](https://ionicframework.com/docs/v3/developer-resources/ng2-translate/)
+* [Ionic ngx-Translate core v14](https://ionicframework.com/docs/v3/developer-resources/ng2-translate/)
 * [Ionic Native Network v5](https://ionicframework.com/docs/native/network)
 * [NGX-Translate internationalization library for Angular v7](http://www.ngx-translate.com/)
 * [Ionic open source Ionicons](https://ionicons.com/)
@@ -132,7 +132,7 @@ export class ThemeService {
 ## :cool: Features
 
 * **Typescript interface** used to define the expected structures of the JSON objects returned from the IP and news APIs
-* **Separate providers (services)** page with API http fetch rxjs observables
+* **Separate providers (services)** page with API HTTP fetch RxJS observables
 * **Custom pipes** used to modify API news article titles, contents and derive '..time ago' from a date string
 * **Dark mode** Menu toggle changes from light to dark mode
 * **Offline Storage** of dark mode status & favourite articles using Ionic Storage
