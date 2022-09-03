@@ -1,6 +1,6 @@
 // Core imports
 import { HttpClient, HttpClientModule } from "@angular/common/http";
-import { NgModule } from "@angular/core";
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouteReuseStrategy } from "@angular/router";
@@ -20,33 +20,34 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
 // exported translations loader function that fetches JSON files from the assets folder
 export function createTranslateLoader(http: HttpClient) {
-	return new TranslateHttpLoader(http, "assets/i18n/", ".json");
+  return new TranslateHttpLoader(http, "assets/i18n/", ".json");
 }
 
 @NgModule({
-    declarations: [AppComponent],
-    imports: [
-        BrowserModule.withServerTransition({ appId: "serverApp" }),
-        FormsModule,
-        ReactiveFormsModule,
-        IonicModule.forRoot(),
-        AppRoutingModule,
-        HttpClientModule,
-        IonicStorageModule.forRoot({}),
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: createTranslateLoader,
-                deps: [HttpClient],
-            },
-        }),
-    ],
-    providers: [
-        Network,
-        StatusBar,
-        SplashScreen,
-        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    ],
-    bootstrap: [AppComponent]
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule.withServerTransition({ appId: "serverApp" }),
+    FormsModule,
+    ReactiveFormsModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
+    IonicStorageModule.forRoot({}),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
+  ],
+  providers: [
+    Network,
+    StatusBar,
+    SplashScreen,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  ],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
