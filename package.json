@@ -42,11 +42,11 @@
     "zone.js": "^0.11.8"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "^0.1401.1",
-    "@angular-devkit/build-angular": "^14.1.1",
-    "@angular-devkit/core": "^14.1.1",
-    "@angular-devkit/schematics": "^14.1.1",
-    "@angular/cli": "^14.1.1",
+    "@angular-devkit/architect": "^0.1402.1",
+    "@angular-devkit/build-angular": "^14.2.1",
+    "@angular-devkit/core": "^14.2.1",
+    "@angular-devkit/schematics": "^14.2.1",
+    "@angular/cli": "^14.2.1",
     "@angular/compiler-cli": "^14.1.1",
     "@angular/language-service": "^14.1.1",
     "@babel/eslint-parser": "7.18.9",
