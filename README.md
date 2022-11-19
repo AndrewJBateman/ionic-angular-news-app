@@ -71,7 +71,7 @@
 ## :signal_strength: Technologies
 
 * [Ionic v6](https://ionicframework.com/)
-* [Angular v14](https://angular.io/)
+* [Angular v15](https://angular.io/)
 * [Ionic/angular v6](https://www.npmjs.com/package/@ionic/angular)
 * [RxJS v7](https://reactivex.io/)
 * [News REST API](https://newsapi.org/) used to search for news articles
