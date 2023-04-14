@@ -11,18 +11,18 @@
 ## :page_facing_up: Table of contents
 
 * [:zap: Ionic Angular News App](#zap-ionic-angular-news-app)
-  * [:page_facing_up: Table of contents](#page_facing_up-table-of-contents)
+  * [:page\_facing\_up: Table of contents](#page_facing_up-table-of-contents)
   * [:books: General info](#books-general-info)
   * [:camera: Screenshots](#camera-screenshots)
-  * [:signal_strength: Technologies](#signal_strength-technologies)
-  * [:floppy_disk: Setup](#floppy_disk-setup)
+  * [:signal\_strength: Technologies](#signal_strength-technologies)
+  * [:floppy\_disk: Setup](#floppy_disk-setup)
   * [:computer: Code Examples](#computer-code-examples)
   * [:cool: Features](#cool-features)
   * [:books: Navigation/Pages](#books-navigationpages)
   * [:clipboard: Status](#clipboard-status)
   * [:clipboard: To-do](#clipboard-to-do)
   * [:clap: Inspiration](#clap-inspiration)
-  * [:file_folder: License](#file_folder-license)
+  * [:file\_folder: License](#file_folder-license)
   * [:envelope: Contact](#envelope-contact)
 
 ## :books: General info
@@ -156,7 +156,8 @@ export class ThemeService {
 
 ## :clipboard: To-do
 
-* Fix storage
+* Replace rxjs subscribe as it is deprecated. Use signals?
+* Fix storage & initial news page
 * Disable clicking on menu icon when in news page.
 * Fix menu language storage.
 * Check image shown when API image is null, status 404 not found
