@@ -136,7 +136,7 @@ export class NewsPage implements OnInit {
 				(data: SourcesResponse) => {
 					this.sources = data.sources;
 					this.storageService.storeData(
-						'this.storedSources',
+						'storedSources',
 						JSON.stringify(this.sources)
 					);
 				},
