@@ -26,7 +26,6 @@ export class CategoriesPage implements OnInit {
 
   constructor(
     private newsService: NewsApiService,
-    private router: Router,
     private networkService: NetworkService
   ) {}
 
@@ -38,14 +37,14 @@ export class CategoriesPage implements OnInit {
     this.loadCategoryNews(this.category);
   }
 
-  //
+  // 
   changeCategory(event: any) {
     this.news = [];
     this.loadCategoryNews(event.detail.value);
   }
 
   // get news data from API request with a modified url that includes category
-  loadCategoryNews(category: string, event?: any) {
+  loadCategoryNews(category: string) {
     this.newsService
       .getNews("top-headlines?category=" + category + "&country=us")
       .subscribe(
@@ -64,7 +63,7 @@ export class CategoriesPage implements OnInit {
 
   // load news when news category chosen
   loadData(event?: any) {
-    this.loadCategoryNews(this.category, event);
+    this.loadCategoryNews(this.category);
   }
 
   // refresh page via network service
