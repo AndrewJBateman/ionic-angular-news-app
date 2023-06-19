@@ -70,11 +70,11 @@
 
 ## :signal_strength: Technologies
 
-* [Ionic v6](https://ionicframework.com/)
-* [Angular v15](https://angular.io/)
+* [Ionic v7](https://ionicframework.com/)
+* [Angular v16](https://angular.io/)
 * [Ionic/angular v6](https://www.npmjs.com/package/@ionic/angular)
 * [RxJS v7](https://reactivex.io/)
-* [News REST API](https://newsapi.org/) used to search for news articles
+* [News REST API](https://newsapi.org/) used to search for news articles. Requires API key
 * [IP Geolocation API](https://ipapi.co/#api)
 * [Ionic Storage v3](https://www.npmjs.com/package/@ionic/storage-angular) specific to Angular
 * [Ionic ngx-Translate core v14](https://ionicframework.com/docs/v3/developer-resources/ng2-translate/)
@@ -179,4 +179,4 @@ export class ThemeService {
 
 ## :envelope: Contact
 
-* Repo created by [ABateman](https://github.com/AndrewJBateman), email: gomezbateman@yahoo.com
+* Repo created by [ABateman](https://github.com/AndrewJBateman), email: `gomezbateman@yahoo.com`
