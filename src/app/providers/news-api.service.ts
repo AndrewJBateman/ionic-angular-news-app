@@ -34,7 +34,7 @@ export class NewsApiService implements OnInit {
     return this.http.get<LocationResponse>("https://ipapi.co/json").pipe(
       map((data: LocationResponse) => data),
       catchError((err) => {
-        return throwError("News sources not found, error: ", err);
+        return throwError(() => err);
       })
     );
   }
@@ -46,7 +46,7 @@ export class NewsApiService implements OnInit {
       .pipe(
         map((data: SourcesResponse) => data),
         catchError((err) => {
-          return throwError("News sources not found, error: ", err);
+          return throwError(() => err);
         })
       );
   }
@@ -58,7 +58,7 @@ export class NewsApiService implements OnInit {
       .pipe(
         map((data: NewsApiResponse) => data),
         catchError((err) => {
-          return throwError("Problem fetching news from API, error: ", err);
+          return throwError(() => err);
         })
       );
   }
