@@ -79,7 +79,7 @@
 * [Ionic Storage v3](https://www.npmjs.com/package/@ionic/storage-angular) specific to Angular
 * [Ionic ngx-Translate core v14](https://ionicframework.com/docs/v3/developer-resources/ng2-translate/)
 * [Ionic Native Network v5](https://ionicframework.com/docs/native/network)
-* [NGX-Translate internationalization library for Angular v7](http://www.ngx-translate.com/)
+* [NGX-Translate internationalization library for Angular](http://www.ngx-translate.com/)
 * [Ionic open source Ionicons](https://ionicons.com/)
 * [Day.js Date Conversion module v1](https://www.npmjs.com/package/dayjs)
 
@@ -156,8 +156,7 @@ export class ThemeService {
 
 ## :clipboard: To-do
 
-* Replace rxjs subscribe as it is deprecated. Use signals?
-* Fix storage & initial news page
+* Fix storage & initial news page - blank page initially
 * Disable clicking on menu icon when in news page.
 * Fix menu language storage.
 * Check image shown when API image is null, status 404 not found
