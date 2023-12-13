@@ -1,4 +1,3 @@
-// angular & ionic/angular node modules
 import { Component, OnInit } from "@angular/core";
 import {
   LoadingController,
@@ -15,66 +14,8 @@ import {
   Article,
   SourcesResponse,
   NewsApiResponse,
-} from "./../../interfaces/interfaces";
+} from "../../interfaces/interfaces";
 import { NetworkService } from "../../providers/network.service";
-
-// array of countries served by the news API service - note it does not include Spain
-const countryCodeArray = [
-  "ae",
-  "ar",
-  "at",
-  "au",
-  "be",
-  "bg",
-  "br",
-  "ca",
-  "ch",
-  "cn",
-  "co",
-  "cu",
-  "cz",
-  "de",
-  "eg",
-  "fr",
-  "gb",
-  "gr",
-  "hk",
-  "hu",
-  "id",
-  "ie",
-  "il",
-  "in",
-  "it",
-  "jp",
-  "kr",
-  "lt",
-  "lv",
-  "ma",
-  "mx",
-  "my",
-  "ng",
-  "nl",
-  "no",
-  "nz",
-  "ph",
-  "pl",
-  "pt",
-  "ro",
-  "rs",
-  "ru",
-  "sa",
-  "se",
-  "sg",
-  "si",
-  "sk",
-  "th",
-  "tr",
-  "tw",
-  "ua",
-  "us",
-  "ve",
-  "za",
-];
 
 @Component({
   selector: "app-news",
@@ -82,12 +23,9 @@ const countryCodeArray = [
   styleUrls: ["./news.page.scss"],
 })
 export class NewsPage implements OnInit {
-  countryCode: string;
-  checkedCountryCode: string;
   data: any;
   sources = [];
-  onlySources = [];
-  selectedSource = "CNN";
+  defaultSource = "CNN";
   defaultCountry = "us";
   isConnected = true;
   sourceChosen = false;
@@ -110,24 +48,8 @@ export class NewsPage implements OnInit {
   // ngOnInit lifecycle checks network and loads list of sources.
   // It is not reloaded when reentering page.
   ngOnInit() {
-    /*
-		fetch user country via separate service function provider
-		fetch news for that country
-		use defaultCountry if country not in countryCode array
-		*/
-    this.newsService.getCountryCode().subscribe((data) => {
-      const countryData = data;
-      this.countryCode = countryData.country.toLowerCase();
-      const checkedCountryCode =
-        countryCodeArray.indexOf(this.countryCode.toLowerCase()) === -1
-          ? this.defaultCountry
-          : countryData.country.toLowerCase();
-      this.storageService.storeData(
-        "userCountry",
-        checkedCountryCode.toString()
-      );
-      this.getCountryNews(checkedCountryCode);
-    });
+    // get country news
+    this.getCountryNews();
 
     // get list of news sources via news API service
     this.newsService.getSources("/sources?").subscribe({
@@ -148,30 +70,23 @@ export class NewsPage implements OnInit {
   }
 
   // subscribe from http service
-  getCountryNews(countryCode: string): void {
-    if (countryCode) {
-      this.platform.ready().then(() => {
-        this.newsService
-          .getNews("top-headlines?country=" + countryCode)
-          .subscribe({
-            next: (data: NewsApiResponse) => {
-              this.data = data.articles;
-              console.log("data: ", this.data);
-            },
-            error: (error) => {
-              console.log("an error occured: ", error);
-            },
-          });
+  getCountryNews(): void {
+    this.platform.ready().then(() => {
+      this.newsService.getNews("top-headlines?country=" + this.defaultCountry).subscribe({
+        next: (data: NewsApiResponse) => {
+          this.data = data.articles;
+        },
+        error: (error) => {
+          console.log("an error occured: ", error);
+        },
       });
-    } else {
-      console.log("no country code");
-    }
+    });
   }
 
   // fetch news from default/selected source via news API service
   loadSourceData() {
     this.newsService
-      .getNews("top-headlines?sources=" + this.selectedSource)
+      .getNews("top-headlines?sources=" + this.defaultSource)
       .subscribe({
         next: (data: NewsApiResponse) => {
           this.sourceChosen = true;
