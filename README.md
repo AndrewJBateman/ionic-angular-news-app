@@ -71,8 +71,8 @@
 ## :signal_strength: Technologies
 
 * [Ionic v7](https://ionicframework.com/)
-* [Angular v16](https://angular.io/)
-* [Ionic/angular v6](https://www.npmjs.com/package/@ionic/angular)
+* [Angular v17](https://angular.io/)
+* [Ionic/angular v7](https://www.npmjs.com/package/@ionic/angular)
 * [RxJS v7](https://reactivex.io/)
 * [News REST API](https://newsapi.org/) used to search for news articles. Requires API key
 * [IP Geolocation API](https://ipapi.co/#api)
@@ -131,7 +131,7 @@ export class ThemeService {
 
 ## :cool: Features
 
-* **Typescript interface** used to define the expected structures of the JSON objects returned from the IP and news APIs
+* **Typescript interface** used to define the expected structures of the JSON objects returned from the news API
 * **Separate providers (services)** page with API HTTP fetch RxJS observables
 * **Custom pipes** used to modify API news article titles, contents and derive '..time ago' from a date string
 * **Dark mode** Menu toggle changes from light to dark mode
@@ -152,11 +152,10 @@ export class ThemeService {
 
 ## :clipboard: Status
 
-* Status: Working except storage, including language on start-up menu, production build file created, successfully deployed to Android Studio
+* Status: Working except including language on start-up menu, production build file created, successfully deployed to Android Studio
 
 ## :clipboard: To-do
 
-* Fix storage & initial news page - blank page initially
 * Disable clicking on menu icon when in news page.
 * Fix menu language storage.
 * Check image shown when API image is null, status 404 not found
