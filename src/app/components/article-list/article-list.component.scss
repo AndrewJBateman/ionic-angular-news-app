@@ -3,18 +3,23 @@ ion-label {
   font-size: 14px;
 }
 
-ion-thumbnail {
-  width: 100%;
-  max-height: 89.2px;
-  min-height: 68.4px;
-  height: 100%;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: var(--ion-color-tertiary);
-}
-
 .image-col {
   padding: 0;
+
+  ion-thumbnail {
+    width: 100%;
+    max-height: 89.2px;
+    min-height: 68.4px;
+    height: 100%;
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-right-color: var(--ion-color-tertiary);
+
+    .article-card-image {
+      width: 140px;
+      height: 224px;
+    }
+  }
 }
 
 .text-col {

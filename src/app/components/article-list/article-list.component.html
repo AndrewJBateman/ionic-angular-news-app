@@ -1,16 +1,13 @@
-<ion-card *ngIf="article.urlToImage">
+@if (article.urlToImage) {
+<ion-card>
 	<ion-row>
 		<ion-col class="image-col" size-xs="3">
 			<ion-thumbnail>
-				<img
-					src="{{
-						(article.urlToImage && article.urlToImage != undefined) || null
-							? article.urlToImage
-							: 'assets/imgs/not-found.jpg'
-					}}"
-					style="width: 140px; height: 224px"
-					alt="{{ article.title }}"
-				/>
+				<img class="article-card-image" src="{{
+							(article.urlToImage && article.urlToImage != undefined) || null
+								? article.urlToImage
+								: 'assets/imgs/not-found.jpg'
+						}}" alt="{{ article.title }}" />
 			</ion-thumbnail>
 		</ion-col>
 
@@ -22,3 +19,4 @@
 		</ion-col>
 	</ion-row>
 </ion-card>
+}
