@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+	<ion-toolbar color="primary">
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
 		</ion-buttons>
 
 		<ion-item class="ion-no-padding source" color="primary">
@@ -10,18 +10,14 @@
 			</ion-title>
 
 			<!--drop-down list of categories, select one to change the news category and reload list of news-->
-			<ion-select
-				interface="action-sheet"
-				placeholder="Select"
-				name="selected"
-				(ionChange)="changeCategory($event)"
-				class="category-label"
-				cancelText="{{ 'CATEGORIES.cancel' | translate }}">
-				<ion-select-option
-					*ngFor="let category of categories"
-					value="{{ category }}">
+			<ion-select interface="action-sheet" placeholder="Select" name="selected" (ionChange)="changeCategory($event)"
+				class="category-label" cancelText="{{ 'CATEGORIES.cancel' | translate }}">
+				@for (category of categories; track category) {
+				<ion-select-option value="{{ category }}">
 					{{ category }}
 				</ion-select-option>
+
+				}
 			</ion-select>
 		</ion-item><!--end of drop-down menu-->
 
@@ -32,16 +28,22 @@
 	<ion-grid class="ion-no-padding">
 		<ion-row>
 			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
-	
+
 				<app-page-refresh slot="fixed" (ionRefresh)="onRefresh($event)"></app-page-refresh>
-				<app-progress-bar *ngIf="data === undefined"></app-progress-bar>
-	
+				@if (data === undefined) {
+				<app-progress-bar />
+				}
+
 				<!--list of news articles by category-->
 				<div class="wrapper">
-					<div *ngFor="let article of data?.articles"
-						(click)="onGoToNewsDetail(article)"	router-direction="forward">
-						<app-article-list [article]="article"></app-article-list>
-					</div> 
+					@for (article of data?.articles; track trackByPublishedDate) {
+					<div (click)="onGoToNewsDetail(article)" router-direction="forward">
+						<app-article-list [article]="article" />
+					</div>
+					}
+					@empty {
+					<div>Loading...</div>
+					}
 				</div>
 			</ion-col>
 		</ion-row>

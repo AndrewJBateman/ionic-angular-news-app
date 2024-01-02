@@ -5,7 +5,7 @@ import { throwError } from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
 import {
-  LocationResponse,
+  IpLocationResponse,
   SourcesResponse,
   NewsApiResponse,
 } from "../interfaces/interfaces";
@@ -31,8 +31,8 @@ export class NewsApiService implements OnInit {
   // fetch country code from ip location API
   // response.setHeader("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
   getCountryCode() {
-    return this.http.get<LocationResponse>("https://ipapi.co/json").pipe(
-      map((data: LocationResponse) => data),
+    return this.http.get<IpLocationResponse>("https://ipapi.co/json").pipe(
+      map((data: IpLocationResponse) => data),
       catchError((err) => {
         return throwError(() => err);
       })

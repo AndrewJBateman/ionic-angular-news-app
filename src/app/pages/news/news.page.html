@@ -1,7 +1,7 @@
 <ion-header>
 	<ion-toolbar color="primary">
 		<ion-buttons slot="start">
-			<ion-menu-button></ion-menu-button>
+			<ion-menu-button />
 		</ion-buttons>
 
 		<ion-item class="ion-no-padding source" color="primary">
@@ -10,64 +10,34 @@
 			</ion-title>
 
 			<!--drop-down list of sources, select one to change the news source and reload list of news-->
-			<ion-select
-				interface="action-sheet"
-				label="Source"
-				placeholder="Select"
-				name="selected"
-				(ionChange)="loadSourceData()"
-				class="source-label"
-				cancelText="{{ 'NEWS.cancel' | translate }}"
-			>
-				<ion-select-option
-					*ngFor="let item of storedSources"
-					value="{{item.id}}"
-				>
+			<ion-select interface="action-sheet" label="Source" placeholder="Select" name="selected"
+				(ionChange)="loadSourceData()" class="source-label" cancelText="{{ 'NEWS.cancel' | translate }}">
+				<ion-select-option *ngFor="let item of storedSources" value="{{item.id}}">
 					{{ item.name }}
 				</ion-select-option>
-			</ion-select> </ion-item
-		><!--end of drop-down menu-->
+			</ion-select> </ion-item><!--end of drop-down menu-->
 	</ion-toolbar>
 </ion-header>
 
 <ion-content>
 	<ion-grid class="ion-no-padding">
 		<ion-row>
-			<ion-col
-				size="12"
-				size-sm="8"
-				size-ms="8"
-				size-xl="6"
-				offset-sm="2"
-				class="ion-no-padding"
-			>
-				<app-page-refresh
-					slot="fixed"
-					(ionRefresh)="onRefresh($event)"
-				></app-page-refresh>
+			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
+				<app-page-refresh slot="fixed" (ionRefresh)="onRefresh($event)" />
 				<app-progress-bar *ngIf="data === undefined"></app-progress-bar>
 
 				<!--list of news articles where source is not chosen & once news is stored-->
 				<div class="wrapper" *ngIf="!sourceChosen && data">
-					<div
-						class="container"
-						*ngFor="let article of data"
-						style="padding: 0"
-						(click)="onGoToNewsDetail(article)"
-						router-direction="forward"
-					>
-						<app-article-list [article]="article"></app-article-list>
+					<div class="container" *ngFor="let article of data; trackBy: trackByPublishedDate" style="padding: 0"
+						(click)="onGoToNewsDetail(article)" router-direction="forward">
+						<app-article-list [article]="article" />
 					</div>
 				</div>
 
 				<!--list of news articles where source is chosen-->
 				<div class="wrapper" *ngIf="sourceChosen">
-					<div
-						*ngFor="let article of data"
-						style="padding: 0"
-						(click)="onGoToNewsDetail(article)"
-					>
-						<app-article-list [article]="article"></app-article-list>
+					<div *ngFor="let article of data" style="padding: 0" (click)="onGoToNewsDetail(article)">
+						<app-article-list [article]="article" />
 					</div>
 				</div>
 			</ion-col>

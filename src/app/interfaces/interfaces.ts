@@ -1,5 +1,9 @@
+/**
+ * Interfaces defining the response formats from the IP location API
+ * and News API used in this application.
+ */
 // format of response from IP location API
-export interface LocationResponse {
+export interface IpLocationResponse {
   ip: string;
   city: string;
   region: string;

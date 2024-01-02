@@ -80,4 +80,8 @@ export class CategoriesPage implements OnInit {
   // 		}
   // 	})
   // }
+
+  public trackByPublishedDate(index: number, article: Article): string {
+    return article ? article.publishedAt : null;
+  }
 }

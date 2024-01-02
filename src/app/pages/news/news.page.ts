@@ -72,14 +72,16 @@ export class NewsPage implements OnInit {
   // subscribe from http service
   getCountryNews(): void {
     this.platform.ready().then(() => {
-      this.newsService.getNews("top-headlines?country=" + this.defaultCountry).subscribe({
-        next: (data: NewsApiResponse) => {
-          this.data = data.articles;
-        },
-        error: (error) => {
-          console.log("an error occured: ", error);
-        },
-      });
+      this.newsService
+        .getNews("top-headlines?country=" + this.defaultCountry)
+        .subscribe({
+          next: (data: NewsApiResponse) => {
+            this.data = data.articles;
+          },
+          error: (error) => {
+            console.log("an error occured: ", error);
+          },
+        });
     });
   }
 
@@ -96,6 +98,10 @@ export class NewsPage implements OnInit {
           console.log("An error occured, error: ", error);
         },
       });
+  }
+
+  public trackByPublishedDate(index: number, article: Article): string {
+    return article ? article.publishedAt : null;
   }
 
   // refresh page via network service
