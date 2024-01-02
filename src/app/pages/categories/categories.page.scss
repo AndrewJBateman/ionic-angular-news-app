@@ -1,20 +1,3 @@
-main {
-	background: white;
-}
-
-ion-text {
-color: var(--ion-color-primary);
-}
-
-ion-segment-button {
-    background-color: var(--ion-color-primary) !important;
-    color: white !important;
-}
-
-.segment-button-checked {
-    color: var(--ion-color-tertiary) !important;
-}
-
 .category-label {
 	color: var(--ion-color-tertiary);
 	vertical-align: middle;
@@ -23,13 +6,4 @@ ion-segment-button {
 .icon {
 	vertical-align: middle;
 	color: var(--ion-color-tertiary);
-}
-
-page-categories .select-icon-inner {
-	top: 50%;
-	border-top: 10px solid !important;
-	border-right: 10px solid transparent !important;
-	border-left: 10px solid transparent !important;
-	left: -4px !important;
-	pointer-events: none;
 }

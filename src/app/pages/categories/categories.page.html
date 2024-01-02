@@ -30,13 +30,13 @@
 			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
 
 				<app-page-refresh slot="fixed" (ionRefresh)="onRefresh($event)"></app-page-refresh>
-				@if (data === undefined) {
+				@if (newsData === undefined) {
 				<app-progress-bar />
 				}
 
 				<!--list of news articles by category-->
 				<div class="wrapper">
-					@for (article of data?.articles; track trackByPublishedDate) {
+					@for (article of newsData?.articles; track trackByPublishedDate) {
 					<div (click)="onGoToNewsDetail(article)" router-direction="forward">
 						<app-article-list [article]="article" />
 					</div>

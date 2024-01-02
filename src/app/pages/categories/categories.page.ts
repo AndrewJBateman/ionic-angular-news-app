@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import {Observable} from "rxjs";
 
-import { Article } from "src/app/interfaces/interfaces";
+import { Article, NewsApiResponse } from "src/app/interfaces/interfaces";
 import { NewsApiService } from "src/app/providers/news-api.service";
 import { NetworkService } from "./../../providers/network.service";
 
@@ -20,66 +21,47 @@ export class CategoriesPage implements OnInit {
     "science",
     "sports",
   ];
-  news: Article[] = [];
-  data: any;
+  newsArticles: Article[] = [];
+  newsData: NewsApiResponse;
   category: string;
 
   constructor(
     private newsService: NewsApiService,
-    private networkService: NetworkService
+    private networkService: NetworkService,
+    private router: Router
   ) {}
 
   ngOnInit() {
-    const randomCat = Math.floor(
-      Math.random() * (this.categories.length - 1) + 1
-    );
-    this.category = this.categories[randomCat];
+    this.category = "general";
     this.loadCategoryNews(this.category);
   }
 
-  // 
   changeCategory(event: any) {
-    this.news = [];
+    this.newsArticles = [];
     this.loadCategoryNews(event.detail.value);
   }
 
-  // get news data from API request with a modified url that includes category
   loadCategoryNews(category: string) {
-    this.newsService
-      .getNews("top-headlines?category=" + category + "&country=us")
-      .subscribe(
-        (data) => {
-          this.data = data;
-        },
-        (error) => {
-          console.log("err", error);
-        }
-      );
+    const url = `top-headlines?category=${encodeURIComponent(
+      category
+    )}&country=us`;
+    this.newsService.getNews(url).subscribe(
+      (data: NewsApiResponse) => {
+        this.newsData = data;
+      },
+      (error) => {
+        throw new Error(error);
+      }
+    );
   }
-  // get news detail via news API service
+
   onGoToNewsDetail(article: Article) {
     this.newsService.getNewsDetail(article);
   }
 
-  // load news when news category chosen
-  loadData(event?: any) {
-    this.loadCategoryNews(this.category);
-  }
-
-  // refresh page via network service
   onRefresh(event: any) {
     this.networkService.refreshPage(event);
   }
-
-  // doInfinite(infiniteScroll) {
-  // 	console.log('begin async operation');
-
-  // 	setTimeout(() => {
-  // 		for (let i = 0; i < 30; i++) {
-  // 			this.item.push
-  // 		}
-  // 	})
-  // }
 
   public trackByPublishedDate(index: number, article: Article): string {
     return article ? article.publishedAt : null;
