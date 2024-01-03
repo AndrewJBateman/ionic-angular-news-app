@@ -2,18 +2,25 @@
   color: var(--ion-color-primary);
   ion-icon {
     color: var(--ion-color-secondary);
-	}
+  }
 }
 
 .iconGlobe {
-	color: var(--ion-color-success);
+  color: var(--ion-color-success);
 }
 
 ion-toggle {
-	color: var(--ion-color-secondary) !important;
+  color: var(--ion-color-secondary) !important;
 }
 
 .icon {
-	vertical-align: middle;
-	color: var(--ion-color-tertiary);
+  vertical-align: middle;
+  color: var(--ion-color-tertiary);
+}
+
+.custom-toast {
+  background: white !important;
+  opacity: 0.5;
+  box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+  color: var(--ion-color-success);
 }

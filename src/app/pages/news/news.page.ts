@@ -1,9 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import {
-  LoadingController,
-  ToastController,
-  Platform,
-} from "@ionic/angular";
+import { LoadingController, ToastController, Platform } from "@ionic/angular";
 import { AlertController } from "@ionic/angular";
 
 // services
@@ -43,31 +39,51 @@ export class NewsPage implements OnInit {
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController
   ) {}
-  // ngOnInit lifecycle checks network and loads list of sources.
-  // It is not reloaded when reentering page.
-  ngOnInit() {
-    // get country news
-    this.getCountryNews();
 
-    // get list of news sources via news API service
-    this.newsService.getSources("/sources?").subscribe({
+  ngOnInit() {
+    this.getSources();
+    this.getStoredSources();
+    this.getCountryNews();
+  }
+
+  getSources(): void {
+    const SOURCES_ENDPOINT = "/sources?";
+
+    this.newsService.getSources(SOURCES_ENDPOINT).subscribe({
       next: (data: SourcesResponse) => {
         this.sources = data.sources;
         this.storageService.storeData(
           "storedSources",
           JSON.stringify(this.sources)
         );
+        this.presentToast("News sources stored successfully", false);
       },
       error: (error) => {
-        console.log("an error occured: ", error);
+        this.presentToast(
+          `An error occurred: "${error.message}". Please try again later.`,
+          true
+        );
       },
     });
+  }
+
+  getStoredSources(): void {
     this.storageService.getStoredData("storedSources").then((val) => {
       this.storedSources = JSON.parse(val);
     });
   }
 
-  // subscribe from http service
+  async presentToast(message: string, error: boolean) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: error ? 2000 : 500,
+      position: "middle",
+      color: "error ? 'danger' : 'success'",
+      cssClass: "custom-toast",
+    });
+    toast.present();
+  }
+
   getCountryNews(): void {
     this.platform.ready().then(() => {
       this.newsService
@@ -77,13 +93,15 @@ export class NewsPage implements OnInit {
             this.newsData = data.articles;
           },
           error: (error) => {
-            throw new Error(error);
+            this.presentToast(
+              `An error occurred: "${error.message}". Please try again later.`,
+              true
+            );
           },
         });
     });
   }
 
-  // fetch news from default/selected source via news API service
   loadSourceData() {
     this.newsService
       .getNews("top-headlines?sources=" + this.defaultSource)
@@ -93,7 +111,10 @@ export class NewsPage implements OnInit {
           this.newsData = data.articles;
         },
         error: (error) => {
-          throw new Error(error);
+          this.presentToast(
+            `An error occurred: "${error.message}". Please try again later.`,
+            true
+          );
         },
       });
   }
@@ -104,15 +125,5 @@ export class NewsPage implements OnInit {
 
   public trackById(index: number, storedSources: any): string {
     return storedSources ? storedSources.name : null;
-  }
-
-  // show pop-up message using this function with 'message' input
-  async presentToast(message: string) {
-    const toast = await this.toastController.create({
-      message,
-      position: "middle",
-      duration: 2000,
-    });
-    toast.present();
   }
 }
