@@ -1,19 +1,27 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import {
-	AlertController,
-	LoadingController,
-	ToastController,
-} from "@ionic/angular";
+import { AlertController, LoadingController, ToastController, IonicModule } from "@ionic/angular";
 
 import { NewsApiService } from "src/app/providers/news-api.service";
 import { StorageService } from "src/app/providers/storage.service";
 import { Article } from "./../../interfaces/interfaces";
+import { TitleNosourcePipe } from "../../pipes/title-nosource.pipe";
+import { DateConvertPipe } from "../../pipes/date-convert.pipe";
+import { TranslateModule } from "@ngx-translate/core";
+import { NgIf } from "@angular/common";
 
 @Component({
-	selector: "app-news-detail",
-	templateUrl: "./news-detail.page.html",
-	styleUrls: ["./news-detail.page.scss"],
+    selector: "app-news-detail",
+    templateUrl: "./news-detail.page.html",
+    styleUrls: ["./news-detail.page.scss"],
+    standalone: true,
+    imports: [
+        IonicModule,
+        NgIf,
+        TranslateModule,
+        DateConvertPipe,
+        TitleNosourcePipe,
+    ],
 })
 export class NewsDetailPage implements OnInit {
 	article: any;
