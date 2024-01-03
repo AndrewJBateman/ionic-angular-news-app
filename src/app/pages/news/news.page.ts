@@ -17,7 +17,14 @@
  * - The sourceChosen property is set to true to indicate that a source has been selected.
  */
 import { Component, OnInit } from "@angular/core";
-import { LoadingController, ToastController, Platform } from "@ionic/angular";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import {
+  LoadingController,
+  ToastController,
+  Platform,
+  IonicModule,
+} from "@ionic/angular";
 import { AlertController } from "@ionic/angular";
 
 import { NewsApiService } from "../../providers/news-api.service";
@@ -29,11 +36,30 @@ import {
   SourcesResponse,
   NewsApiResponse,
 } from "../../interfaces/interfaces";
+import { TranslateModule } from "@ngx-translate/core";
+import { ComponentsModule } from "../../components/components.module";
+import { ArticleListComponent } from "../../components/article-list/article-list.component";
+import { ProgressBarComponent } from "../../components/progress-bar/progress-bar.component";
+import { PageRefreshComponent } from "../../components/page-refresh/page-refresh.component";
+import { PipesModule } from "src/app/pipes/pipes.module";
 
 @Component({
   selector: "app-news",
   templateUrl: "./news.page.html",
   styleUrls: ["./news.page.scss"],
+  standalone: true,
+  imports: [
+    ComponentsModule,
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    TranslateModule,
+    PipesModule,
+    PageRefreshComponent,
+    ProgressBarComponent,
+    ArticleListComponent
+  ],
+  providers: [NetworkService],
 })
 export class NewsPage implements OnInit {
   newsData: Article[];
