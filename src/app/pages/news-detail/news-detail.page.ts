@@ -3,7 +3,6 @@ import { Router } from "@angular/router";
 import {
 	AlertController,
 	LoadingController,
-	ModalController,
 	ToastController,
 } from "@ionic/angular";
 
@@ -23,7 +22,6 @@ export class NewsDetailPage implements OnInit {
 		public newsService: NewsApiService,
 		public alertCtrl: AlertController,
 		public loadingCtrl: LoadingController,
-		public modalCtrl: ModalController,
 		public toastCtrl: ToastController,
 		public storageService: StorageService,
     public router: Router
@@ -35,18 +33,10 @@ export class NewsDetailPage implements OnInit {
 
 	onAddToFavourites(article: Article) {
 		this.storageService.addToFavourites(article);
-		console.log(
-			"article isFavourite status has changed to: ",
-			this.isFavourite(article)
-		);
 	}
 
 	onRemoveFromFavourites(article: Article) {
 		this.storageService.removeFromFavourites(article);
-		console.log(
-			"article isFavourite status has changed to: ",
-			this.isFavourite(article)
-		);
 	}
 
 	isFavourite(article: Article) {

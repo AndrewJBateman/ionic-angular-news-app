@@ -1,5 +1,5 @@
 import { IonItemSliding, LoadingController } from "@ionic/angular";
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 
 import { PopoverController } from "@ionic/angular";
 import { PopoverPage } from "./favourites-popover/favourites-popover";
@@ -14,20 +14,26 @@ import { NetworkService } from "./../../providers/network.service";
   templateUrl: "./favourites.page.html",
   styleUrls: ["./favourites.page.scss"],
 })
-export class FavouritesPage implements OnInit {
+export class FavouritesPage {
   sliderOptions = {
     allowSlidePrev: false,
     allowSlideNext: false,
   };
 
+  private loadingElement: any;
+
   constructor(
-    private newsService: NewsApiService,
+    public newsService: NewsApiService,
     public storageService: StorageService,
-    private networkService: NetworkService,
+    public networkService: NetworkService,
     private loadingCtrl: LoadingController,
     public popoverCtrl: PopoverController
   ) {}
 
+  /**
+   * Presents the popover component.
+   * @param event The event that triggered the popover.
+   */
   async presentPopover(event) {
     const popover = await this.popoverCtrl.create({
       component: PopoverPage,
@@ -36,30 +42,24 @@ export class FavouritesPage implements OnInit {
     await popover.present();
   }
 
-  ngOnInit() {}
-
-  // get news detail via news API service
-  onGoToNewsDetail(article: Article) {
-    this.newsService.getNewsDetail(article);
-  }
-
-  // refresh page via network service
-  onRefresh(event: any) {
-    this.networkService.refreshPage(event);
-  }
-
+  /**
+   * Removes the favourite article and closes the sliding item.
+   * @param article The article to be removed.
+   * @param slidingItem The sliding item to be closed.
+   */
   onRemoveFavourite(article: Article, slidingItem: IonItemSliding) {
     slidingItem.close();
-    this.loadingCtrl
-      .create({
+    if (!this.loadingElement) {
+      this.loadingElement = this.loadingCtrl.create({
         message: "Deleting...",
-      })
-      .then((loadingEl) => {
-        loadingEl.present();
-        this.storageService.removeFromFavourites(article);
-        loadingEl.dismiss();
       });
+    }
+    this.loadingElement.present();
+    this.storageService.removeFromFavourites(article);
+    this.loadingElement.dismiss();
   }
 
-  onClearAll() {}
+  public trackByPublishedDate(index: number, article: Article): string {
+    return article ? article.publishedAt : null;
+  }
 }

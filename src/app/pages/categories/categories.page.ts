@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import {Observable} from "rxjs";
+import { Observable } from "rxjs";
 
 import { Article, NewsApiResponse } from "src/app/interfaces/interfaces";
 import { NewsApiService } from "src/app/providers/news-api.service";

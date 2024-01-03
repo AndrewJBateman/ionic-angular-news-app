@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import {
   LoadingController,
-  ModalController,
   ToastController,
   Platform,
 } from "@ionic/angular";
@@ -23,7 +22,7 @@ import { NetworkService } from "../../providers/network.service";
   styleUrls: ["./news.page.scss"],
 })
 export class NewsPage implements OnInit {
-  data: any;
+  newsData: Article[];
   sources = [];
   defaultSource = "CNN";
   defaultCountry = "us";
@@ -38,10 +37,9 @@ export class NewsPage implements OnInit {
   constructor(
     private toastController: ToastController,
     private platform: Platform,
-    private newsService: NewsApiService,
+    public newsService: NewsApiService,
     private storageService: StorageService,
-    private networkService: NetworkService,
-    public modalCtrl: ModalController,
+    public networkService: NetworkService,
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController
   ) {}
@@ -76,10 +74,10 @@ export class NewsPage implements OnInit {
         .getNews("top-headlines?country=" + this.defaultCountry)
         .subscribe({
           next: (data: NewsApiResponse) => {
-            this.data = data.articles;
+            this.newsData = data.articles;
           },
           error: (error) => {
-            console.log("an error occured: ", error);
+            throw new Error(error);
           },
         });
     });
@@ -92,10 +90,10 @@ export class NewsPage implements OnInit {
       .subscribe({
         next: (data: NewsApiResponse) => {
           this.sourceChosen = true;
-          this.data = data.articles;
+          this.newsData = data.articles;
         },
         error: (error) => {
-          console.log("An error occured, error: ", error);
+          throw new Error(error);
         },
       });
   }
@@ -104,14 +102,8 @@ export class NewsPage implements OnInit {
     return article ? article.publishedAt : null;
   }
 
-  // refresh page via network service
-  onRefresh(event: any) {
-    this.networkService.refreshPage(event);
-  }
-
-  // fetch news detail via news API service
-  onGoToNewsDetail(article: Article) {
-    this.newsService.getNewsDetail(article);
+  public trackById(index: number, storedSources: any): string {
+    return storedSources ? storedSources.name : null;
   }
 
   // show pop-up message using this function with 'message' input
