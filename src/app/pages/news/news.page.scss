@@ -1,13 +1,13 @@
+$color_1: var(--ion-color-tertiary);
+
 .source-label {
-	color: var(--ion-color-tertiary);
+	color: $color_1;
 	vertical-align: middle;
 }
-
 .icon {
 	vertical-align: middle;
-	color: var(--ion-color-tertiary);
+	color: $color_1;
 }
-
 .news-article-list {
 	padding: 0 !important;
 }

@@ -1,58 +1,64 @@
+<!--
+This code snippet represents the UI for displaying news article details in an Ionic application.
+It includes the header, content, and footer sections of the article.
+
+Inputs:
+- `article`: An object containing the details of the news article, such as title, content,
+author, source, and URL.
+
+Flow:
+1. The code starts with the header section, which includes a toolbar with a back button
+and the title of the article.
+2. The content section contains a grid layout with a card displaying the article image,
+title, content, and published date.
+3. If the article has an author, an additional card is displayed with the author's name.
+4. The footer section includes tabs with buttons to open the article URL in a new tab 
+and add/remove the article from favorites.
+
+Outputs:
+- The UI components for displaying the news article details, including the header, content, and footer sections.
+-->
+
 <ion-header>
 	<ion-toolbar color="primary">
 		<ion-buttons slot="start">
 			<!-- <ion-menu-button></ion-menu-button> -->
-			<ion-back-button
-				text=""
-        (click)="goBack()"
-			></ion-back-button>
+			<ion-back-button text="" (click)="router.navigateByUrl('/')"></ion-back-button>
 		</ion-buttons>
-		<ion-title *ngIf="article.source.name"
-			>{{ 'NEWS-DETAIL.title' | translate }}
-			<span class="source-text">{{ article.source.name }}</span></ion-title
-		>
+		@if (article.source.name) {
+		<ion-title>{{ 'NEWS-DETAIL.title' | translate }}
+			<span class="source-text">{{ article.source.name }}</span></ion-title>
+		}
 	</ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-no-padding" [scrollEvents]="true">
 	<ion-grid class="ion-no-padding">
 		<ion-row>
-			<ion-col
-				size="12"
-				size-sm="8"
-				size-ms="8"
-				size-xl="6"
-				offset-sm="2"
-				class="ion-no-padding"
-			>
+			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
 				<ion-card class="ion-no-padding ion-no-margin">
 					<ion-card-header class="ion-no-padding">
 						<ion-img class="detail-img" [src]="article.urlToImage"> </ion-img>
 					</ion-card-header>
 					<ion-card-content class="ion-no-padding">
 						<ion-list>
-							<ion-list-header class="detail-header"
-								>{{ article.title | titleNosource }}</ion-list-header
-							>
-							<ion-text *ngIf="article.content"
-								>{{ appendString(article.content) }} <br /><span
-									class="small-text"
-									>{{ article.publishedAt | dateConvert }}</span
-								>
+							<ion-list-header class="detail-header">{{ article.title | titleNosource }}</ion-list-header>
+							@if (article.content) {
+							<ion-text>{{ appendString(article.content) }} <br /><span class="small-text">{{
+									article.publishedAt | dateConvert }}</span>
 							</ion-text>
+							}
 						</ion-list>
 					</ion-card-content>
 				</ion-card>
-				<ion-card *ngIf="article.author" class="ion-no-padding ion-no-margin">
+				@if (article.author) {
+				<ion-card class="ion-no-padding ion-no-margin">
 					<ion-card-content>
-						<ion-text
-							><span class="author-text"
-								><ion-icon size="large" name="person-circle"></ion-icon>{{
-								'NEWS-DETAIL.author' | translate }}: </span
-							>{{ article.author }}</ion-text
-						>
+						<ion-text><span class="author-text"><ion-icon size="large" name="person-circle"></ion-icon>{{
+								'NEWS-DETAIL.author' | translate }}: </span>{{ article.author }}</ion-text>
 					</ion-card-content>
 				</ion-card>
+				}
 			</ion-col>
 		</ion-row>
 	</ion-grid>
@@ -68,28 +74,24 @@
 				</div>
 			</ion-button>
 			<div fxFlex></div>
-			<ion-button
-				*ngIf="!isFavourite(article)"
-				(click)="onAddToFavourites(article)"
-				size="small"
-				icon-left
-			>
+			@if (!storageService.isFavourite(article);) {
+			<ion-button (click)="storageService.addToFavourites(article)" size="small" icon-left>
 				<ion-icon name="heart" size="large"></ion-icon>
 				<div class="footer-text">
 					&nbsp;{{ 'NEWS-DETAIL.add-favourite' | translate }}
 				</div>
 			</ion-button>
-			<ion-button
-				*ngIf="isFavourite(article)"
-				(click)="onRemoveFromFavourites(article)"
-				size="small"
-				icon-left
-			>
+			}
+
+			@if (storageService.isFavourite(article);) {
+			<ion-button (click)="storageService.removeFromFavourites(article)" size="small" icon-left>
 				<ion-icon name="heart-dislike"></ion-icon>
 				<div class="footer-text">
 					&nbsp;{{ 'NEWS-DETAIL.remove-favourite' | translate }}
 				</div>
 			</ion-button>
+			}
 		</ion-buttons>
 	</ion-tab-bar>
 </ion-tabs>
+'''

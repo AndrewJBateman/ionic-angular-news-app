@@ -37,7 +37,6 @@ import {
   NewsApiResponse,
 } from "../../interfaces/interfaces";
 import { TranslateModule } from "@ngx-translate/core";
-import { ComponentsModule } from "../../components/components.module";
 import { ArticleListComponent } from "../../components/article-list/article-list.component";
 import { ProgressBarComponent } from "../../components/progress-bar/progress-bar.component";
 import { PageRefreshComponent } from "../../components/page-refresh/page-refresh.component";
@@ -49,7 +48,6 @@ import { PipesModule } from "src/app/pipes/pipes.module";
   styleUrls: ["./news.page.scss"],
   standalone: true,
   imports: [
-    ComponentsModule,
     CommonModule,
     FormsModule,
     IonicModule,

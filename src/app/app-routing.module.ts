@@ -14,10 +14,8 @@ const routes: Routes = [
   },
   {
     path: "news-detail",
-    loadChildren: () =>
-      import("./pages/news-detail/news-detail.module").then(
-        (m) => m.NewsDetailPageModule
-      ),
+    loadComponent: () =>
+      import("./pages/news-detail/news-detail.page").then((m) => m.NewsDetailPage),
   },
 ];
 

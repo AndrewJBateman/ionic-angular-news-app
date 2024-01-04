@@ -1,43 +1,38 @@
-ion-icon {
-  color: var(--ion-color-secondary);
-}
+$color_1: var(--ion-color-secondary);
+$color_2: var(--ion-color-tertiary);
+$border-bottom-color_1: var(--ion-color-tertiary);
 
+ion-icon {
+  color: $color_1;
+}
 ion-img {
   width: 100%;
 }
-
 .small-text {
-  color: var(--ion-color-secondary);
+  color: $color_1;
 }
-
 .footer-text {
   font-size: 12px;
 }
-
 ion-list {
   padding: 16px;
 }
-
 ion-list-header {
   padding: 0 0 8px;
   font-size: 16px;
 }
-
 ion-button {
-  color: var(--ion-color-secondary);
+  color: $color_1;
   padding-left: 6px;
 }
-
 .detail-img {
   border-bottom-style: solid;
   border-bottom-width: 4px;
-  border-bottom-color: var(--ion-color-tertiary);
+  border-bottom-color: $border-bottom-color_1;
 }
-
 .source-text {
-  color: var(--ion-color-tertiary);
+  color: $color_2;
 }
-
 .author-text {
-  color: var(--ion-color-secondary);
+  color: $color_1;
 }
