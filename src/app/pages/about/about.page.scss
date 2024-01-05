@@ -1,74 +1,78 @@
-// ion-card-title {
-// 	color: var(--ion-color-dark);
-// }
+$color_1: var(--ion-color-secondary);
+$color_2: var(--ion-color-light-contrast);
+$color_3: var(--ion-color-secondary-shade);
+$color_4: white;
+$color_5: var(--ion-color-tertiary);
+$background-color_1: transparent;
+$background-color_2: var(--ion-color-light);
+$border-bottom-color_1: var(--ion-color-tertiary);
 
-.about-header img {
-	width: 100%;
-	height: 100%;
-	max-height: 30vh;
-	object-fit: cover;
+/* Bottom right text */
+.about-header {
+  img {
+    width: 100%;
+    height: 100%;
+    max-height: 30vh;
+    object-fit: cover;
+  }
 }
-
 .title-icon {
   vertical-align: middle;
-  color: var(--ion-color-secondary);
+  color: $color_1;
   padding-right: 4px;
 }
-
 p {
-	width: 100%;
-	text-align: justify;
-	margin: auto 0 10px;
-	color: var(--ion-color-light-contrast);
+  width: 100%;
+  text-align: justify;
+  margin: auto 0 10px;
+  color: $color_2;
 }
-
-a:link {
-	color: var(--ion-color-secondary);
-	background-color: transparent;
-	text-decoration: none;
+a {
+  &:link {
+    color: $color_1;
+    background-color: $background-color_1;
+    text-decoration: none;
+  }
+  &:visited {
+    color: $color_3;
+    background-color: $background-color_1;
+    text-decoration: underline;
+  }
+  &:hover {
+    color: $color_3;
+    background-color: $background-color_1;
+    text-decoration: underline;
+  }
+  &:active {
+    color: $color_3;
+    background-color: $background-color_1;
+    text-decoration: underline;
+  }
 }
-
-a:visited {
-	color: var(--ion-color-secondary-shade);
-	background-color: transparent;
-	text-decoration: underline;
-}
-
-a:hover, a:active {
-	color: var(--ion-color-secondary-shade);
-	background-color: transparent;
-	text-decoration: underline;
-}
-
 .image-div {
   position: relative;
   text-align: center;
-  color: white;
+  color: $color_4;
 }
-
 .mat-card-image {
   border-bottom-style: solid;
   border-bottom-width: 4px;
-  border-bottom-color: var(--ion-color-tertiary);
+  border-bottom-color: $border-bottom-color_1;
 }
-
-/* Bottom right text */
 .photo-credit {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  background: rgb(0, 0, 0); /* Fallback color */
-  background: rgba(0, 0, 0, 0.55); /* Black background with 0.55 opacity */
-  color: white;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.55);
+  color: $color_4;
   padding-left: 4px;
   padding-right: 4px;
 }
-
 .icon {
-	vertical-align: middle;
-	color: var(--ion-color-tertiary);
+  vertical-align: middle;
+  color: $color_5;
 }
-
 .about-card {
-	background-color: var(--ion-color-light);
+  background-color: $background-color_2;
 }

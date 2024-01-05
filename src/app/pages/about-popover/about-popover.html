@@ -1,12 +1,18 @@
+<!--This code snippet represents an HTML template for an ion-list in an Ionic application.
+  It includes three ion-items, each with a button and an ion-label.
+  The first ion-item is used to open a URL for contacting the author,
+  the second ion-item is used to open the author's website, and the third ion-item
+  is used to open the app repository on GitHub. Each ion-item includes an ion-icon
+  for visual representation.-->
 <ion-list>
-  <ion-item button (click)="openUrl('https://andrewbateman.org/contact')">
+  <ion-item button (click)="openUrl(urlContact)">
     <ion-label>
       <ion-icon name="mail" size="large" color="secondary"></ion-icon>
       Contact the Author
     </ion-label>
   </ion-item>
 
-  <ion-item button (click)="openUrl('https://andrewbateman.org')">
+  <ion-item button (click)="openUrl(urlHome)">
     <ion-label>
       <ion-icon name="person-circle-outline" size="large" color="secondary">
       </ion-icon>
@@ -14,10 +20,7 @@
     </ion-label>
   </ion-item>
 
-  <ion-item
-    button
-    (click)="openUrl('https://github.com/AndrewJBateman/ionic-angular-news-app')"
-  >
+  <ion-item button (click)="openUrl(urlGithub)">
     <ion-label>
       <ion-icon name="logo-github" size="large" color="secondary"></ion-icon>
       App Repository

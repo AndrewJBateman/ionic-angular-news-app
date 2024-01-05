@@ -8,26 +8,20 @@ import { TabsPage } from "./tabs.page";
 import { TabsPageRoutingModule } from "./tabs.router.module";
 import { CategoriesPageModule } from "../categories/categories.module";
 import { FavouritesPageModule } from "../favourites/favourites.module";
-import { NewsPageModule } from "../news/news.module";
-import { NewsDetailPageModule } from "../news-detail/news-detail.module";
-import { AboutPageModule } from "../about/about.module";
 
 // ngx node modules
 import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
-  imports: [
-    AboutPageModule,
-    CategoriesPageModule,
-    CommonModule,
-    FavouritesPageModule,
-    FormsModule,
-    IonicModule,
-    NewsPageModule,
-    NewsDetailPageModule,
-    TabsPageRoutingModule,
-    TranslateModule,
-  ],
-  declarations: [TabsPage],
+    imports: [
+        CategoriesPageModule,
+        CommonModule,
+        FavouritesPageModule,
+        FormsModule,
+        IonicModule,
+        TabsPageRoutingModule,
+        TranslateModule,
+        TabsPage,
+    ],
 })
 export class TabsPageModule {}
