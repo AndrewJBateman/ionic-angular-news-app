@@ -23,8 +23,9 @@ const routes: Routes = [
         IonicModule,
         RouterModule.forChild(routes),
         TranslateModule,
+        PopoverPage,
     ],
-    declarations: [AboutPage, PopoverPage],
+    declarations: [AboutPage],
     bootstrap: [AboutPage]
 })
 export class AboutPageModule {}

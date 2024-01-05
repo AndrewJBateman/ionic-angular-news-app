@@ -1,10 +1,12 @@
 import { Component } from "@angular/core";
-import { PopoverController } from "@ionic/angular";
+import { PopoverController, IonicModule } from "@ionic/angular";
 import { Router } from "@angular/router";
 
 @Component({
-  templateUrl: "./about-popover.html",
-  styleUrls: ["./about-popover.scss"],
+    templateUrl: "./about-popover.html",
+    styleUrls: ["./about-popover.scss"],
+    standalone: true,
+    imports: [IonicModule],
 })
 export class PopoverPage {
   constructor(private router: Router, public popoverCtrl: PopoverController) {}
