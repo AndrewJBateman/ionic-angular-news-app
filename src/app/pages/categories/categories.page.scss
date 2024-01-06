@@ -1,9 +1,10 @@
+$color_1: var(--ion-color-tertiary);
+
 .category-label {
-	color: var(--ion-color-tertiary);
+	color: $color_1;
 	vertical-align: middle;
 }
-
 .icon {
 	vertical-align: middle;
-	color: var(--ion-color-tertiary);
+	color: $color_1;
 }

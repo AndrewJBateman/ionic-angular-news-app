@@ -1,4 +1,11 @@
-import { Component, OnInit, inject } from "@angular/core";
+/**
+ * Represents the CategoriesPage component.
+ * This component is responsible for displaying news articles based on selected categories.
+ * It uses the NewsApiService to fetch news data and the NetworkService to handle network-related operations.
+ * The component also includes methods for changing the category, loading category news, navigating to news detail, and refreshing the page.
+ * @class
+ */
+import { Component, OnInit, inject, HostListener } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { Router } from "@angular/router";
@@ -8,6 +15,7 @@ import { IonicModule } from "@ionic/angular";
 import { Article, NewsApiResponse } from "src/app/interfaces/interfaces";
 import { NewsApiService } from "src/app/providers/news-api.service";
 import { NetworkService } from "./../../providers/network.service";
+import { ToastService } from "../../providers/toast.service";
 import { TranslateModule } from "@ngx-translate/core";
 import { ArticleListComponent } from "../../components/article-list/article-list.component";
 import { ProgressBarComponent } from "../../components/progress-bar/progress-bar.component";
@@ -33,9 +41,10 @@ import { ComponentsModule } from "../../components/components.module";
   ],
 })
 export class CategoriesPage implements OnInit {
+  private router = inject(Router);
   private newsService = inject(NewsApiService);
   private networkService = inject(NetworkService);
-  private router = inject(Router);
+  private toastService = inject(ToastService);
 
   categories = [
     "general",
@@ -49,6 +58,11 @@ export class CategoriesPage implements OnInit {
   newsArticles: Article[] = [];
   newsData: NewsApiResponse;
   category: string;
+  @HostListener('window:keydown.enter', ['$event'])
+
+  onRefresh(event: KeyboardEvent | MouseEvent | TouchEvent): void {
+    this.networkService.refreshPage(event);
+  }
 
   ngOnInit() {
     this.category = "general";
@@ -56,8 +70,9 @@ export class CategoriesPage implements OnInit {
   }
 
   changeCategory(event: any) {
-    this.newsArticles = [];
+    const newNewsArticles: Article[] = [];
     this.loadCategoryNews(event.detail.value);
+    this.newsArticles = newNewsArticles;
   }
 
   loadCategoryNews(category: string) {
@@ -69,17 +84,16 @@ export class CategoriesPage implements OnInit {
         this.newsData = data;
       },
       (error) => {
-        throw new Error(error);
+        this.toastService.presentErrorToast(
+          `An error occurred: "${error.message}". Please try again later.`
+        );
+        throw error(error);
       }
     );
   }
 
   onGoToNewsDetail(article: Article) {
     this.newsService.getNewsDetail(article);
-  }
-
-  onRefresh(event: any) {
-    this.networkService.refreshPage(event);
   }
 
   public trackByPublishedDate(index: number, article: Article): string {

@@ -1,3 +1,8 @@
+<!--This code snippet represents an HTML template for a news application.
+	It includes a header with a menu button and a dropdown list of categories to filter the news.
+	The content section contains a grid layout with news articles displayed in a list format.
+	Each article is clickable and leads to a news detail page.
+	The code also includes a page refresh component and a progress bar for loading data.-->
 <ion-header>
 	<ion-toolbar color="primary">
 		<ion-buttons slot="start">
@@ -37,7 +42,7 @@
 				<!--list of news articles by category-->
 				<div class="wrapper">
 					@for (article of newsData?.articles; track trackByPublishedDate) {
-					<div (click)="onGoToNewsDetail(article)" router-direction="forward">
+					<div (click)="onGoToNewsDetail(article)" routerLink="/news-detail" router-direction="forward">
 						<app-article-list [article]="article" />
 					</div>
 					}
