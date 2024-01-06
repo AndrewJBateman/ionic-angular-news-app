@@ -34,9 +34,9 @@ const routes: Routes = [
         children: [
           {
             path: "",
-            loadChildren: () =>
-              import("../categories/categories.module").then(
-                (m) => m.CategoriesPageModule
+            loadComponent: () =>
+              import("../categories/categories.page").then(
+                (m) => m.CategoriesPage
               ),
           },
         ],
