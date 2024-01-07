@@ -1,20 +1,47 @@
-import { IonItemSliding, LoadingController } from "@ionic/angular";
-import { Component } from "@angular/core";
-
+import { IonItemSliding, LoadingController, IonicModule } from "@ionic/angular";
+import { Component, inject } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 import { PopoverController } from "@ionic/angular";
-import { PopoverPage } from "./favourites-popover/favourites-popover";
+import { TranslateModule } from "@ngx-translate/core";
 
-import { StorageService } from "src/app/providers/storage.service";
-import { Article } from "src/app/interfaces/interfaces";
-import { NewsApiService } from "src/app/providers/news-api.service";
+import { StorageService } from "./../../providers/storage.service";
+import { NewsApiService } from "./../../providers/news-api.service";
 import { NetworkService } from "./../../providers/network.service";
+import { Article } from "../../interfaces/interfaces";
+
+import { PopoverPage } from "./favourites-popover/favourites-popover";
+import { ComponentsModule } from "../../components/components.module";
+import { ArticleListComponent } from "../../components/article-list/article-list.component";
+import { NewsSvgComponent } from "../../components/svgs/news-svg/news-svg.component";
+import { ProgressBarComponent } from "../../components/progress-bar/progress-bar.component";
+import { PageRefreshComponent } from "../../components/page-refresh/page-refresh.component";
 
 @Component({
   selector: "app-favourites",
   templateUrl: "./favourites.page.html",
   styleUrls: ["./favourites.page.scss"],
+  standalone: true,
+  imports: [
+    CommonModule,
+    ComponentsModule,
+    FormsModule,
+    IonicModule,
+    PageRefreshComponent,
+    ProgressBarComponent,
+    NewsSvgComponent,
+    ArticleListComponent,
+    TranslateModule,
+    PopoverPage,
+  ],
 })
 export class FavouritesPage {
+  storageService = inject(StorageService);
+  networkService = inject(NetworkService);
+  newsService = inject(NewsApiService);
+  loadingController = inject(LoadingController);
+  popoverController = inject(PopoverController);
+
   sliderOptions = {
     allowSlidePrev: false,
     allowSlideNext: false,
@@ -22,20 +49,12 @@ export class FavouritesPage {
 
   private loadingElement: any;
 
-  constructor(
-    public newsService: NewsApiService,
-    public storageService: StorageService,
-    public networkService: NetworkService,
-    private loadingCtrl: LoadingController,
-    public popoverCtrl: PopoverController
-  ) {}
-
   /**
    * Presents the popover component.
    * @param event The event that triggered the popover.
    */
-  async presentPopover(event) {
-    const popover = await this.popoverCtrl.create({
+  async presentPopover(event: KeyboardEvent | MouseEvent | TouchEvent) {
+    const popover = await this.popoverController.create({
       component: PopoverPage,
       event: event,
     });
@@ -50,7 +69,7 @@ export class FavouritesPage {
   onRemoveFavourite(article: Article, slidingItem: IonItemSliding) {
     slidingItem.close();
     if (!this.loadingElement) {
-      this.loadingElement = this.loadingCtrl.create({
+      this.loadingElement = this.loadingController.create({
         message: "Deleting...",
       });
     }

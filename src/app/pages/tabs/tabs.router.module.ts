@@ -46,9 +46,9 @@ const routes: Routes = [
         children: [
           {
             path: "",
-            loadChildren: () =>
-              import("../favourites/favourites.module").then(
-                (m) => m.FavouritesPageModule
+            loadComponent: () =>
+              import("../favourites/favourites.page").then(
+                (m) => m.FavouritesPage
               ),
           },
         ],

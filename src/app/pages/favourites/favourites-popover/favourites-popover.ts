@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
-import { PopoverController } from "@ionic/angular";
+import { StorageService } from './../../../providers/storage.service';
+import { Component, inject } from "@angular/core";
+import { PopoverController, IonicModule } from "@ionic/angular";
 
 @Component({
   template: `
@@ -12,17 +13,16 @@ import { PopoverController } from "@ionic/angular";
       </ion-item>
     </ion-list>
   `,
+  standalone: true,
+  imports: [IonicModule],
 })
 export class PopoverPage {
-  constructor(public popoverCtrl: PopoverController) {}
+  private popoverController = inject(PopoverController);
+  private storageService = inject(StorageService);
 
   clearFavourites() {
-    this.popoverCtrl.dismiss();
+    this.storageService.deleteStoredFavourites();
+    this.popoverController.dismiss();
+    window.location.reload();
   }
-
-  // openUrl(url: string) {
-  //   console.log("openUrl function clicked");
-  //   window.open(url, "_blank");
-  //   this.popoverCtrl.dismiss();
-  // }
 }

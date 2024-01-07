@@ -42,22 +42,22 @@
 
 				<!--list of news articles with rhs slide to delete from favourites-->
 				@if (storageService.news.length > 0) {
-					<div class="articles" color="secondary">
-						<ion-list>
-							@for (article of storageService.news; track trackByPublishedDate) {
-								<ion-item-sliding style="padding: 0"
-								(click)="newsService.getNewsDetail(article)" router-direction="forward" #slidingItem>
-								<app-article-list [article]="article"></app-article-list>
-								<ion-item-options>
-									<ion-item-option color="danger" (click)="onRemoveFavourite(article, slidingItem)">
-										<ion-icon name="heart-dislike" slot="icon-only"></ion-icon>
-									</ion-item-option>
-								</ion-item-options>
-							</ion-item-sliding>
-							}
-							
-						</ion-list>
-					</div>
+				<div class="articles" color="secondary">
+					<ion-list>
+						@for (article of storageService.news; track trackByPublishedDate) {
+						<ion-item-sliding style="padding: 0" (click)="newsService.getNewsDetail(article)" router-direction="forward"
+							#slidingItem>
+							<app-article-list [article]="article"></app-article-list>
+							<ion-item-options>
+								<ion-item-option color="danger" (click)="onRemoveFavourite(article, slidingItem)">
+									<ion-icon name="heart-dislike" slot="icon-only"></ion-icon>
+								</ion-item-option>
+							</ion-item-options>
+						</ion-item-sliding>
+						}
+
+					</ion-list>
+				</div>
 				}
 			</ion-col>
 		</ion-row>
