@@ -36,11 +36,11 @@ import { PageRefreshComponent } from "../../components/page-refresh/page-refresh
   ],
 })
 export class FavouritesPage {
-  storageService = inject(StorageService);
-  networkService = inject(NetworkService);
-  newsService = inject(NewsApiService);
-  loadingController = inject(LoadingController);
-  popoverController = inject(PopoverController);
+  public storageService = inject(StorageService);
+  public networkService = inject(NetworkService);
+  public newsService = inject(NewsApiService);
+  private loadingController = inject(LoadingController);
+  private popoverController = inject(PopoverController);
 
   sliderOptions = {
     allowSlidePrev: false,
@@ -53,12 +53,15 @@ export class FavouritesPage {
    * Presents the popover component.
    * @param event The event that triggered the popover.
    */
-  async presentPopover(event: KeyboardEvent | MouseEvent | TouchEvent) {
-    const popover = await this.popoverController.create({
-      component: PopoverPage,
-      event: event,
+  presentPopover(event: KeyboardEvent | MouseEvent | TouchEvent): Promise<void> {
+    return new Promise(async (resolve) => {
+      const popover = await this.popoverController.create({
+        component: PopoverPage,
+        event: event,
+      });
+      await popover.present();
+      resolve();
     });
-    await popover.present();
   }
 
   /**
@@ -68,11 +71,6 @@ export class FavouritesPage {
    */
   onRemoveFavourite(article: Article, slidingItem: IonItemSliding) {
     slidingItem.close();
-    if (!this.loadingElement) {
-      this.loadingElement = this.loadingController.create({
-        message: "Deleting...",
-      });
-    }
     this.loadingElement.present();
     this.storageService.removeFromFavourites(article);
     this.loadingElement.dismiss();
