@@ -1,20 +1,22 @@
+$color_1: var(--ion-color-light-contrast);
+$color_2: white;
+$color_3: var(--ion-color-tertiary);
+$color_4: var(--ion-color-secondary);
+
 h2 {
-	color: var(--ion-color-light-contrast);
+	color: $color_1;
 }
-
 .no-favourites-card {
-  position: relative;
-  margin-top: 80px;
-  text-align: center;
-  color: white;
+	position: relative;
+	margin-top: 80px;
+	text-align: center;
+	color: $color_2;
 }
-
 .icon {
 	vertical-align: middle;
-	color: var(--ion-color-tertiary);
+	color: $color_3;
 }
-
 .card-svg {
-  vertical-align: middle;
-	color: var(--ion-color-secondary);
+	vertical-align: middle;
+	color: $color_4;
 }

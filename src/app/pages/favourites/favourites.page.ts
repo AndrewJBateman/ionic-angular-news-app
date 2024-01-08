@@ -1,5 +1,5 @@
 import { IonItemSliding, LoadingController, IonicModule } from "@ionic/angular";
-import { Component, inject } from "@angular/core";
+import { Component, inject, ChangeDetectorRef } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { PopoverController } from "@ionic/angular";
@@ -11,7 +11,6 @@ import { NetworkService } from "./../../providers/network.service";
 import { Article } from "../../interfaces/interfaces";
 
 import { PopoverPage } from "./favourites-popover/favourites-popover";
-import { ComponentsModule } from "../../components/components.module";
 import { ArticleListComponent } from "../../components/article-list/article-list.component";
 import { NewsSvgComponent } from "../../components/svgs/news-svg/news-svg.component";
 import { ProgressBarComponent } from "../../components/progress-bar/progress-bar.component";
@@ -24,7 +23,6 @@ import { PageRefreshComponent } from "../../components/page-refresh/page-refresh
   standalone: true,
   imports: [
     CommonModule,
-    ComponentsModule,
     FormsModule,
     IonicModule,
     PageRefreshComponent,
@@ -32,7 +30,6 @@ import { PageRefreshComponent } from "../../components/page-refresh/page-refresh
     NewsSvgComponent,
     ArticleListComponent,
     TranslateModule,
-    PopoverPage,
   ],
 })
 export class FavouritesPage {

@@ -1,16 +1,17 @@
-import { Injectable, OnInit } from "@angular/core";
+import { FavouritesPage } from './../pages/favourites/favourites.page';
+import { ToastService } from "./toast.service";
+import { Injectable, OnInit, inject } from "@angular/core";
 import { Storage } from "@ionic/storage-angular";
 import { Article } from "../interfaces/interfaces";
-import { ToastController } from "@ionic/angular";
 
 @Injectable({
   providedIn: "root",
 })
 export class StorageService implements OnInit {
+  private storage = inject(Storage);
+  private toastService = inject(ToastService);
   // initialise a store of news articles as an empty array
   news: Article[] = [];
-
-  constructor(private storage: Storage, private toastContr: ToastController) {}
 
   async ngOnInit() {
     await this.storage.create();
@@ -24,8 +25,20 @@ export class StorageService implements OnInit {
       // const result: string = await this.storage.get(key);
       // return true;
     } catch (err) {
-      alert("Error storing data: " + err);
-      // return false;
+      this.toastService.presentErrorToast(
+        `An error occurred: "${err.message}". Please try again later.`
+      );
+    }
+  }
+
+  async deleteStoredFavourites() {
+    try {
+      await this.storage.remove("favourites");
+      this.toastService.presentSuccessToast("Favourites cleared");
+    } catch (err) {
+      this.toastService.presentErrorToast(
+        `An error occurred: "${err.message}". Please try again later.`
+      );
     }
   }
 
@@ -33,7 +46,9 @@ export class StorageService implements OnInit {
     try {
       return this.storage.get(key);
     } catch (err) {
-      alert("Error getting stored data: " + err);
+      this.toastService.presentErrorToast(
+        `An error occurred: "${err.message}". Please try again later.`
+      );
       return null;
     }
   }
@@ -45,7 +60,9 @@ export class StorageService implements OnInit {
   addToFavourites(article: Article) {
     !this.isFavourite(article)
       ? this.storeArticle(article)
-      : console.log("article already exists in storage");
+      : this.toastService.presentErrorToast(
+          `An error occurred. Please try again later.`
+        );
   }
 
   // add new article to beginning of array so in date order. Add array to storage.
@@ -53,28 +70,19 @@ export class StorageService implements OnInit {
     this.news.unshift(article);
     this.storage.set("favourites", this.news);
     this.storeData("favourites", JSON.stringify(this.news));
-    this.presentToast("Article added to favourites");
+    this.toastService.presentSuccessToast("Article added to favourites");
   }
   // remove article from news array and storage.
   removeFromFavourites(article: Article) {
     this.news = this.news.filter((data) => data.title !== article.title);
     this.storeData("favourites", JSON.stringify(this.news));
 
-    this.presentToast("Article deleted from favourites");
+    this.toastService.presentSuccessToast("Article deleted from favourites");
   }
 
   // use indexOf to test if article exists in favourites array or not.
   isFavourite(article: Article) {
     return this.news.indexOf(article) !== -1;
-  }
-
-  async presentToast(message: string) {
-    const toast = await this.toastContr.create({
-      message,
-      position: "middle",
-      duration: 2000,
-    });
-    toast.present();
   }
 
   // get array of articles from storage to list on favourites page.

@@ -11,17 +11,17 @@ import { FormsModule } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { IonicModule } from "@ionic/angular";
+import { TranslateModule } from "@ngx-translate/core";
 
-import { Article, NewsApiResponse } from "src/app/interfaces/interfaces";
-import { NewsApiService } from "src/app/providers/news-api.service";
+import { NewsApiService } from "../../providers/news-api.service";
 import { NetworkService } from "./../../providers/network.service";
 import { ToastService } from "../../providers/toast.service";
-import { TranslateModule } from "@ngx-translate/core";
+import { Article, NewsApiResponse } from "../../interfaces/interfaces";
+import { PipesModule } from "../../pipes/pipes.module";
+
 import { ArticleListComponent } from "../../components/article-list/article-list.component";
 import { ProgressBarComponent } from "../../components/progress-bar/progress-bar.component";
 import { PageRefreshComponent } from "../../components/page-refresh/page-refresh.component";
-import { PipesModule } from "../../pipes/pipes.module";
-import { ComponentsModule } from "../../components/components.module";
 
 @Component({
   selector: "app-categories",
@@ -29,21 +29,20 @@ import { ComponentsModule } from "../../components/components.module";
   styleUrls: ["./categories.page.scss"],
   standalone: true,
   imports: [
+    ArticleListComponent,
     CommonModule,
-    ComponentsModule,
     FormsModule,
     IonicModule,
     PageRefreshComponent,
-    ProgressBarComponent,
-    ArticleListComponent,
     PipesModule,
+    ProgressBarComponent,
     TranslateModule,
   ],
 })
 export class CategoriesPage implements OnInit {
   private router = inject(Router);
   private newsService = inject(NewsApiService);
-  private networkService = inject(NetworkService);
+  public networkService = inject(NetworkService);
   private toastService = inject(ToastService);
 
   categories = [

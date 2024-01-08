@@ -1,6 +1,6 @@
 import { StorageService } from './../../../providers/storage.service';
-import { Component, inject } from "@angular/core";
 import { PopoverController, IonicModule } from "@ionic/angular";
+import { Component, ChangeDetectorRef, inject, OnInit } from "@angular/core";
 
 @Component({
   template: `
@@ -16,13 +16,19 @@ import { PopoverController, IonicModule } from "@ionic/angular";
   standalone: true,
   imports: [IonicModule],
 })
-export class PopoverPage {
+export class PopoverPage implements OnInit {
   private popoverController = inject(PopoverController);
   private storageService = inject(StorageService);
+
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
+
+  ngOnInit() {
+    // initialization logic
+  }
 
   clearFavourites() {
     this.storageService.deleteStoredFavourites();
     this.popoverController.dismiss();
-    window.location.reload();
+    this.changeDetectorRef.detectChanges();
   }
 }

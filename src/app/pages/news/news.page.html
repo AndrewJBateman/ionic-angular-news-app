@@ -36,7 +36,7 @@
 				<div class="wrapper">
 					@for (article of newsData; track trackByPublishedDate) {
 					<div class="container" class="news-article-list" (click)="newsService.getNewsDetail(article)"
-						router-direction="forward">
+						routerLink="/news-detail" router-direction="forward">
 						<app-article-list [article]="article" />
 					</div>
 					}

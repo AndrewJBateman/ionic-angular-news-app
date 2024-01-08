@@ -7,8 +7,7 @@ import { TitleConvertPipe } from "./title-convert.pipe";
 import { TitleNosourcePipe } from "./title-nosource.pipe";
 
 @NgModule({
-  declarations: [DateConvertPipe, TitleConvertPipe, TitleNosourcePipe],
-  imports: [CommonModule, IonicModule],
-  exports: [DateConvertPipe, TitleConvertPipe, TitleNosourcePipe],
+    imports: [CommonModule, IonicModule, DateConvertPipe, TitleConvertPipe, TitleNosourcePipe],
+    exports: [DateConvertPipe, TitleConvertPipe, TitleNosourcePipe],
 })
 export class PipesModule {}

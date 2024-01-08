@@ -6,7 +6,8 @@ dayjs.extend(relativeTime);
 
 // convert ISO8601 UTC string to '...time ago'
 @Pipe({
-  name: "dateConvert",
+    name: "dateConvert",
+    standalone: true,
 })
 export class DateConvertPipe implements PipeTransform {
   transform(value: string): string {
