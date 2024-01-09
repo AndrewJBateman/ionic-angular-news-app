@@ -1,5 +1,6 @@
 export const APP_PAGES = [
   {
+    id: 1,
     "title": {
       "en": "News",
       "fr": "Nouvelles",
@@ -10,6 +11,7 @@ export const APP_PAGES = [
     menuIcon: "menuIconNews",
   },
   {
+    id: 2,
     "title": {
       "en": "Categories",
       "fr": "Categories",
@@ -20,6 +22,7 @@ export const APP_PAGES = [
     menuIcon: "menuIconCategories",
   },
   {
+    id: 3,
     "title": {
       "en": "Favourites",
       "fr": "Favoris",
@@ -30,6 +33,7 @@ export const APP_PAGES = [
     menuIcon: "menuIconFavourites",
   },
   {
+    id: 4,
     "title": {
       "en": "About",
       "fr": "À Propos",

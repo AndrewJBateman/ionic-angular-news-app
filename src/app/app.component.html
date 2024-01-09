@@ -1,3 +1,8 @@
+<!-- Uses the Ionic framework to create a side menu with various options.
+	The menu items are generated dynamically using a loop and the language of the
+	menu items can be changed based on the selected language.
+	The snippet also includes options for toggling dark mode and selecting the app language.
+	The main content of the app is displayed in the ion-router-outlet element.-->
 <ion-app>
 	<ion-split-pane contentId="menu-content">
 		<!--Side menu-->
@@ -12,30 +17,27 @@
 
 			<ion-content>
 				<ion-list>
-					<ion-menu-toggle
-						auto-hide="false"
-						*ngFor="let p of appPages; let i = index"
-					>
-						<ion-item
-							[routerLink]="p.url"
-							routerLinkActive="active"
-							routerDirection="root"
-						>
-							<ion-icon
-								slot="start"
-								[name]="p.icon"
-								[class]="p.menuIcon"
-							></ion-icon>
-							<ion-label *ngIf="language === 'en'">
+					<ion-menu-toggle auto-hide="true">
+						@for (p of appPages; track p.id ) {
+						<ion-item [routerLink]="p.url" routerLinkActive="active" routerDirection="root">
+							<ion-icon slot="start" [name]="p.icon" [class]="p.menuIcon"></ion-icon>
+							@if (language === 'en') {
+							<ion-label>
 								{{ p.title.en }}
 							</ion-label>
-							<ion-label *ngIf="language === 'fr'">
+							}
+							@else if (language === 'fr') {
+							<ion-label>
 								{{ p.title.fr }}
 							</ion-label>
-							<ion-label *ngIf="language === 'sp'">
+							}
+							@else if (language ==='sp') {
+							<ion-label>
 								{{ p.title.sp }}
 							</ion-label>
+							}
 						</ion-item>
+						}
 					</ion-menu-toggle>
 				</ion-list>
 
@@ -43,31 +45,23 @@
 					<ion-item>
 						<ion-icon name="contrast" slot="start"></ion-icon>
 						<ion-label>{{ "MENU.Label-darkMode" | translate }}</ion-label>
-						<ion-toggle
-							[(ngModel)]="darkMode"
-							slot="end"
-							[checked]="darkMode"
-							(ionChange)="themeService.changeThemeMode($event)"
-						></ion-toggle>
+						<ion-toggle [(ngModel)]="darkMode" slot="end" [checked]="darkMode"
+							(ionChange)="themeService.changeThemeMode($event)"></ion-toggle>
 					</ion-item>
 
 					<ion-item>
 						<ion-icon name="globe" slot="start" class="iconGlobe"></ion-icon>
 						<ion-label>{{ "MENU.Label-language" | translate }}</ion-label>
-						<ion-select
-							#Language
-							[(ngModel)]="language"
-							(ionChange)="languageChange()"
-						>
+						<ion-select #Language [(ngModel)]="language" (ionChange)="languageChange()">
 							<ion-select-option option value="en" selected>{{
 								"MENU.LangOption-English" | translate
-							}}</ion-select-option>
+								}}</ion-select-option>
 							<ion-select-option option value="sp">{{
 								"MENU.LangOption-Spanish" | translate
-							}}</ion-select-option>
+								}}</ion-select-option>
 							<ion-select-option option value="fr">{{
 								"MENU.LangOption-French" | translate
-							}}</ion-select-option>
+								}}</ion-select-option>
 						</ion-select>
 					</ion-item>
 				</ion-list>
