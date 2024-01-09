@@ -17,7 +17,8 @@ import { TranslateModule } from "@ngx-translate/core";
         IonicModule,
         TabsPageRoutingModule,
         TranslateModule,
-        TabsPage,
+
     ],
+    declarations: [TabsPage]
 })
 export class TabsPageModule {}

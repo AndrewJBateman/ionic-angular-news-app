@@ -27,13 +27,13 @@
 								[class]="p.menuIcon"
 							></ion-icon>
 							<ion-label *ngIf="language === 'en'">
-								{{ p.title }}
+								{{ p.title.en }}
 							</ion-label>
 							<ion-label *ngIf="language === 'fr'">
-								{{ p.titlefr }}
+								{{ p.title.fr }}
 							</ion-label>
 							<ion-label *ngIf="language === 'sp'">
-								{{ p.titlesp }}
+								{{ p.title.sp }}
 							</ion-label>
 						</ion-item>
 					</ion-menu-toggle>

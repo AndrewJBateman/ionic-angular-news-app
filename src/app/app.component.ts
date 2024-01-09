@@ -1,5 +1,32 @@
+/**
+ * AppComponent class represents the root component of the application.
+ * It is responsible for initializing the app, setting up the platform, and handling various functionalities.
+ *
+ * Properties:
+ * - platform: Platform instance for accessing platform-specific functionalities.
+ * - router: Router instance for navigating between different routes.
+ * - splashScreen: SplashScreen instance for controlling the splash screen.
+ * - statusBar: StatusBar instance for controlling the status bar.
+ * - themeService: ThemeService instance for managing the app's theme.
+ * - networkService: NetworkService instance for handling network-related functionalities.
+ * - toastController: ToastController instance for displaying toast messages.
+ * - languageService: LanguageService instance for managing the app's language.
+ * - storageService: StorageService instance for accessing and manipulating stored data.
+ * - darkMode: A boolean flag indicating whether the app is in dark mode or not.
+ * - language: The selected language for the app.
+ * - menuCtrl: MenuController instance for controlling the app's menu.
+ * - appPages: An array of app pages.
+ *
+ * Methods:
+ * - initializeApp(): Initializes the app by setting up the platform, status bar, splash screen, language, and dark mode.
+ * - darkStartMode(): Sets the app's theme based on the stored dark mode value.
+ * - languageChange(): Changes the app's language based on the selected language.
+ * - closeMenu(event: any): Closes the app's menu if it is open.
+ */
+
+import { APP_PAGES } from "../assets/pages-data";
 // angular & ionic/angular node modules
-import { Component, ViewEncapsulation } from "@angular/core";
+import { Component, ViewEncapsulation, inject } from "@angular/core";
 import { Router } from "@angular/router";
 import { MenuController, Platform, ToastController } from "@ionic/angular";
 
@@ -20,56 +47,22 @@ import { StorageService } from "./providers/storage.service";
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
-  text = "";
-  darkMode: boolean;
-  public language: string = this.languageService.selected;
-  public menuCtrl: MenuController;
-  public appPages = [
-    {
-      title: "News",
-      titlefr: "Nouvelles",
-      titlesp: "Noticias",
-      url: "/app/tabs/news",
-      icon: "list",
-      menuIcon: "menuIconNews",
-    },
-    {
-      title: "Categories",
-      titlefr: "Categories",
-      titlesp: "Categorias",
-      url: "/app/tabs/categories",
-      icon: "options",
-      menuIcon: "menuIconCategories",
-    },
-    {
-      title: "Favourites",
-      titlefr: "Favoris",
-      titlesp: "Favoritas",
-      url: "/app/tabs/favourites",
-      icon: "heart",
-      menuIcon: "menuIconFavourites",
-    },
-    {
-      title: "About",
-      titlefr: "À Propos",
-      titlesp: "Sobre esta app",
-      url: "/app/tabs/about",
-      icon: "information-circle",
-      menuIcon: "menuIconAbout",
-    },
-  ];
+  private platform = inject(Platform);
+  private router = inject(Router);
+  private splashScreen = inject(SplashScreen);
+  private statusBar = inject(StatusBar);
+  public themeService = inject(ThemeService);
+  public networkService = inject(NetworkService);
+  public toastController = inject(ToastController);
+  private languageService = inject(LanguageService);
+  private storageService = inject(StorageService);
 
-  constructor(
-    private platform: Platform,
-    private router: Router,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
-    public themeService: ThemeService,
-    public networkService: NetworkService,
-    public toastController: ToastController,
-    private languageService: LanguageService,
-    private storageService: StorageService
-  ) {
+  public darkMode: boolean;
+  public language: string = this.languageService.selected;
+  private menuCtrl: MenuController;
+  public appPages = APP_PAGES;
+
+  constructor() {
     this.initializeApp();
   }
 
@@ -84,10 +77,15 @@ export class AppComponent {
 
   async darkStartMode() {
     this.storageService.getStoredData("dark-theme").then((val) => {
-      this.darkMode = JSON.parse(val);
-      this.darkMode === true
-        ? this.themeService.enableDark()
-        : this.themeService.enableLight();
+      if (val !== null && val !== undefined) {
+        this.darkMode = JSON.parse(val);
+        this.darkMode === true
+          ? this.themeService.enableDark()
+          : this.themeService.enableLight();
+      } else {
+        // Handle null or undefined stored data
+        this.themeService.enableLight();
+      }
     });
   }
 
@@ -96,6 +94,8 @@ export class AppComponent {
   }
 
   async closeMenu(event: any) {
-    await this.menuCtrl.close();
+    if (this.menuCtrl.isOpen()) {
+      await this.menuCtrl.close();
+    }
   }
 }
