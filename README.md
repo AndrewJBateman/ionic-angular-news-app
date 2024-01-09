@@ -88,7 +88,6 @@
 
 * It is necessary to [register with news API](https://newsapi.org/docs/get-started) to get an API key that is stored in the `environment.ts` file
 * To start the server on _localhost://8100_ type: `ionic serve`
-* To run linter: `npm run lint`
 * to add android platform: `ionic cordova platform add android`
 * to create build file for android: `ionic cordova build android`
 * to run on device plugged in via USB cable: `ionic cordova run android`
@@ -100,17 +99,21 @@
 
 ```typescript
 // enable dark or light mode from HTML toggle switch event via changeThemeMode() function
-export class ThemeService {
+export class ThemeService implements OnInit{
   darkMode: boolean;
   renderer: Renderer2;
 
-  constructor(
+  constructor (
     private rendererFactory: RendererFactory2,
     private storage: Storage,
     @Inject(DOCUMENT) private document: Document
   ) {
     this.renderer = this.rendererFactory.createRenderer(null, null);
   }
+
+  async ngOnInit() {
+    await this.storage.create();
+}
 
   enableDark() {
     this.renderer.addClass(this.document.body, "dark-theme");
@@ -159,11 +162,10 @@ export class ThemeService {
 ## :clipboard: To-do
 
 * Disable clicking on menu icon when in news page.
-* Fix menu language storage.
-* Check image shown when API image is null, status 404 not found
 
 ## :clap: Inspiration
 
+* [Angular Standalone Components Unleashed: Exploring the Magic of a World Without NgModule](https://blogs.halodoc.io/angular-standalone-components-unleashed-exploring-the-magic-of-a-world-without-ngmodule/)
 * Some of project structure based on: [Ionic example app: 'A conference app built with Ionic to demonstrate Ionic'](https://github.com/ionic-team/ionic-conference-app)
 * The code for checking network status is based on: [Ionic 4 Network Check Example Problem](https://forum.ionicframework.com/t/ionic-4-network-check-example-problem/157909/2)
 * [Ionic Academy Tutorial: How to Localise Your Ionic App with ngx-translate](https://ionicacademy.com/localise-ionic-ngx-translate/) however language selected using ion-select-option dropdown list in side-menu (ie not using a popover page)

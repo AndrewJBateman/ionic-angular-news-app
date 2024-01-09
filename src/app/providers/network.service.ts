@@ -41,10 +41,7 @@ export class NetworkService {
   }
 
   public refreshPage(event: any) {
-    console.log("Begin async page refresh");
-
     setTimeout(() => {
-      console.log("Async page refresh complete");
       event.target.complete();
     }, 2000);
   }
